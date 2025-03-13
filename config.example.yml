@@ -1,0 +1,9 @@
+llm_config:
+    llm: 4o-mini
+    oai_key: "sk-YOURKEY"
+    fw_key: "fw_YOURKEY"
+
+task_config:
+    task: classification
+    random_seed: 42
+    data_name: one_subject_negative_part_1

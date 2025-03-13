@@ -1,0 +1,10 @@
+tqdm
+pyyaml
+openai==0.28.1
+torch==1.13.1+cu116
+transformers==4.47.1
+pandas==2.0.0
+numpy
+FireWorks==2.0.4
+fireworks-ai==0.15.12
+tqdm
