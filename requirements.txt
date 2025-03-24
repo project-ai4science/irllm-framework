@@ -8,3 +8,4 @@ numpy
 FireWorks==2.0.4
 fireworks-ai==0.15.12
 tqdm
+google-generativeai
