@@ -26,7 +26,7 @@ def getGPT4oMiniResponse(prompt, system_prompt, model="gpt-4o-mini", max_tokens=
                 {"role": "system", "content": f"{system_prompt}"},
                 {"role": "user", "content": f"{prompt}"}
             ],
-            temperature=0,
+            temperature=0.8,
             max_tokens=max_tokens,
             frequency_penalty=0,
             presence_penalty=0
@@ -86,7 +86,7 @@ def getDeepSpeekR1Response(prompt, system_prompt, model='deepseek-reasoner'):
 
 
 def getGrok2Response(prompt, system_prompt, model='grok-2-latest'):
-     # see models options at https://docs.x.ai/docs/models?cluster=us-east-1#models-and-pricing
+    # see models options at https://docs.x.ai/docs/models?cluster=us-east-1#models-and-pricing
     response = openai.ChatCompletion.create(
             model=model,
             openai_api_base='https://api.x.ai/v1',
