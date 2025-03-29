@@ -16,7 +16,7 @@ def main():
     
     if task == "classification":
         results = classificationTask()
-    elif task == "recomendation":
+    elif task == "recommendation":
         results = recomendationTask()
     elif task == "idridentification":
         results = idrIdentificationTask()

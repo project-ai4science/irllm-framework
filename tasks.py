@@ -2,7 +2,8 @@ import random
 import numpy as np
 from tqdm import tqdm
 import yaml
-from util import classify, identify
+from util import classify, recommend, identify
+from evaluation import calculate_mrr, ndcg_at_10
 import pandas as pd
 
 with open('config.yml', 'r') as file:
@@ -46,7 +47,6 @@ def classificationTask(save_results=save_results):
 
             results.append({
                 "paper_a_id": paper_a_id,
-                "method": 1,
                 "research_type": research_type,
                 "paper_b_id": paper_b_id,
                 "paper_b_text": paper_b_text,
@@ -71,7 +71,70 @@ def classificationTask(save_results=save_results):
     return df_results
 
 def recomendationTask(save_results=save_results):
-    pass
+    data_name = config['task_config']['data_name']
+    llm = config['llm_config']['llm']
+    data = pd.read_pickle(f"./data/{data_name}.pkl")
+    
+    results = []
+
+    print(f"Recommending: {data_name} with {llm}")
+    for row in tqdm(data.itertuples(index=False), total=len(data)):
+        try:
+            paper_a_id = row.id
+            paper_main_id = row.main_id
+            paper_main_text = row.main_text
+            paper_target_id = row.target_id
+            paper_target_text = row.target_text
+            research_type = row.research_type
+            list_true = row.list_true
+            list_str = row.list
+
+            tries = 0
+            while tries < 3:
+                tries += 1
+                try:
+                    llm_rec_list, reasoning = recommend(paper_main_text, list_str)
+                    break
+                except Exception as e:
+                    print(f"Error recommending to {paper_a_id}: {e}, trying again... ({tries})")
+
+            results.append({
+                "paper_a_id": paper_a_id,
+                "research_type": research_type,
+                "paper_main_id": paper_main_id,
+                "paper_main_text": paper_main_text,
+                "paper_target_id": paper_target_id,
+                "paper_target_text": paper_target_text,
+                "list_true": str(list_true),
+                "llm_rec_list": [str(item) for item in llm_rec_list],
+                "reasoning": reasoning,
+                "list_str": list_str,
+            })
+        
+        except Exception as e:
+            print(f"Unexpected error in {row.id}: {e}")
+
+    df_results = pd.DataFrame(results)
+    
+    list_true_list = df_results["list_true"].to_list()
+    llm_rec_list_list = df_results["llm_rec_list"].to_list()
+    
+    mrr, mrr_scores = calculate_mrr(list_true_list, llm_rec_list_list)
+    ndcg10, ndcg10_scores = ndcg_at_10(list_true_list, llm_rec_list_list)
+    
+    print("MRR =", mrr)
+    print("nDCG@10 =", ndcg10)
+    
+    df_results["mrr_scores"] = mrr_scores
+    df_results["ndcg10_scores"] = ndcg10_scores
+    
+    
+    if save_results:
+        file_name = f"./output/recommendation-{data_name}-{llm}.csv"
+        print(f"Saving results: {file_name}")
+        df_results.to_csv(file_name, index=False)
+        
+    return df_results
 
 def idrIdentificationTask(save_results=save_results):
     data_name = config['task_config']['data_name']
@@ -80,7 +143,7 @@ def idrIdentificationTask(save_results=save_results):
     
     results = []
     
-    print(f"Classifying: {data_name} with {llm}")
+    print(f"Identifying: {data_name} with {llm}")
     for row in tqdm(data.itertuples(index=False), total=len(data)):
         try:
             paper_a_id = row.id
@@ -97,7 +160,7 @@ def idrIdentificationTask(save_results=save_results):
                     verdict = identify(title, abstract)
                     break
                 except Exception as e:
-                    print(f"Error classifying {paper_a_id}: {e}, trying again... ({tries})")
+                    print(f"Error identifying {paper_a_id}: {e}, trying again... ({tries})")
 
             results.append({
                 "paper_a_id": paper_a_id,

@@ -117,12 +117,12 @@ def classify(paper_b, paper_c):
 
 
 
-def recommendIDRPaper(paperB, papers_string, n=5):
+def recommendIDRPaper(paperB, papers_string, n=10):
     system = "You are a researcher interested in build new multidisciplinar researches. Considering your existing knowledge over several distinct areas, you can act as a supervisor and suggest new paper in order to propose a new multidisciplinary work."
     prompt = (
 f"""
 In this task, you are given a main paper introducing the key concepts that provides certain parts in a multidisciplinary idea as well as a list of candidate papers that forms the remaining parts of a multidisciplinary idea. Compare them and decide which one of the candidates matches with the main paper better in forming this multidisciplinary idea. 
-The list of papers should consist of the letters associated with them and with exactly {n} papers (no more, no less). The list should be ordered (best papers first) and first paper of the list must be the best choice to form a multidisciplinary idea.
+The list of papers should consist of the numbers associated with them and with exactly {n} papers (no more, no less). The list should be ordered (best papers first) and first paper of the list must be the best choice to form a multidisciplinary idea.
 Keep in mind a good multidisciplinary research idea includes the following standards: 
 * This research idea should be multidisciplinary, whereas the idea stems from the combination of ideas from the two papers introduced above.
 * This research idea should be novel, whereas it is not only rare but also ingenious, imaginative, or surprising.
@@ -135,33 +135,19 @@ List of candidate papers:
 {papers_string}
 """
 """
-Follow the format in the example to provide your response (only the JSON in one single line with no line breaks and with no markdown): {"reasoning": "reasoning_string", "list": ["List", "of", "letters"]}
+Follow the format in the example to provide your response (only the JSON in one single line with no line breaks and with no markdown): {"reasoning": "reasoning_string", "list": ["List", "of", "numbers"]}
 """
 )
     
     return llmResponseGetters[config["llm_config"]["llm"]](prompt, system)
 
 
-def recommend(paper_main, paper_2, false_ids):
-    false_papers = [data.loc[data.id == fid].b_concat.values[0] for fid in false_ids]
-    false_papers += [data.loc[data.id == fid].c_concat.values[0] for fid in false_ids]
-    random.shuffle(false_papers)
-    false_papers = false_papers[:9]
-    
-    papers = [paper_2, *false_papers]
-    random.shuffle(papers)
-    
-    true_idx = papers.index(paper_2)
-    relevant = LETTERS[true_idx]
-    
-    papers_zip = zip(papers, LETTERS[:len(papers)])
-    papers_string = "; ".join([f'{letter}) {paper}' for paper, letter in papers_zip])
-
-    llm_answer = recommendIDRPaper(paper_main, papers_string).replace("\\", "\\\\").replace("\\\\\"", "\\\"").replace("\\\\n", " ")
+def recommend(paper_main, list_str):
+    llm_answer = recommendIDRPaper(paper_main, list_str).replace("\\", "\\\\").replace("\\\\\"", "\\\"").replace("\\\\n", " ")
 
     r_json = json.loads(llm_answer)
 
     reasoning = r_json["reasoning"]
     rec_list = r_json["list"]
     
-    return papers_string, relevant, rec_list, reasoning
+    return rec_list, reasoning

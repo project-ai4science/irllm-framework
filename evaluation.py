@@ -61,23 +61,38 @@ def dcg_at_k(relevance_scores, k):
     relevance_scores = np.array(relevance_scores)[:k]
     return np.sum(relevance_scores / np.log2(np.arange(2, len(relevance_scores) + 2)))
 
-def ndcg_at_5(relevant_items, retrieved_items):
+def ndcg_at_10(relevant_items, retrieved_items):
     ndcg_scores = []
     
     for relevant, retrieved in zip(relevant_items, retrieved_items):
         relevant_set = set(relevant)
         
-        relevance_scores = [1 if item in relevant_set else 0 for item in retrieved[:5]]
+        relevance_scores = [1 if item in relevant_set else 0 for item in retrieved[:10]]
         
-        dcg = dcg_at_k(relevance_scores, 5)
+        dcg = dcg_at_k(relevance_scores, 10)
         
         ideal_relevance_scores = sorted(relevance_scores, reverse=True)
-        idcg = dcg_at_k(ideal_relevance_scores, 5)
+        idcg = dcg_at_k(ideal_relevance_scores, 10)
         
         ndcg = dcg / idcg if idcg > 0 else 0.0
         ndcg_scores.append(ndcg)
     
     return np.mean(ndcg_scores), ndcg_scores
+
+
+def evaluate_all_recommendations():
+    directory = os.fsencode("./output")
+    
+    for file in os.listdir(directory):
+        filename = os.fsdecode(file)
+        if filename.endswith(".csv") and filename.startswith("recommendation"):
+            print(f"Evaluating: {filename}")
+            
+            df_data = pd.read_csv(f"./output/{filename}")
+            df_data["y_pred"] = df_data["y_pred"].astype(str).str.lower()
+            
+            calculate_classification_resume(df_data)
+
 
 if __name__ == "__main__":
     evaluate_all_classifications()
