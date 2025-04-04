@@ -16,7 +16,7 @@ llm_client_config:
         deepseek:
 
     credentials:
-        openai_key: "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"
+        openai_key: "oai_key"
         firework_key: "fw_YOURKEY"
         gemini_key: "g_YOURKEY"
         deepseek_key: "ds_YOURKEY"
