@@ -16,10 +16,10 @@
         " Yes"
       ],
       "logprob":[
-        -0.0053639603,
-        -0.000000432,
+        -0.0040794704,
+        -0.0000001936,
         0.0,
-        -0.0002613358
+        0.0
       ]
     },
     "y_pred":true
@@ -41,10 +41,10 @@
         " Yes"
       ],
       "logprob":[
-        -0.0002837425,
-        -0.000000432,
+        -0.0006293983,
+        -0.0000001936,
         0.0,
-        -0.0004306692
+        0.0
       ]
     },
     "y_pred":true
@@ -58,21 +58,8 @@
     "date":"2025-01-28",
     "research_type":null,
     "y_true":false,
-    "log_probs":{
-      "token":[
-        "Your",
-        " verdict",
-        ":",
-        " Yes"
-      ],
-      "logprob":[
-        -0.0006421421,
-        -0.000000432,
-        0.0,
-        -0.0001584851
-      ]
-    },
-    "y_pred":true
+    "log_probs":null,
+    "y_pred":0
   },
   {
     "id":2501.1819,
@@ -83,21 +70,8 @@
     "date":"2025-01-30",
     "research_type":null,
     "y_true":false,
-    "log_probs":{
-      "token":[
-        "Your",
-        " verdict",
-        ":",
-        " Yes"
-      ],
-      "logprob":[
-        -0.0181518178,
-        -0.0000003128,
-        0.0,
-        0.0
-      ]
-    },
-    "y_pred":true
+    "log_probs":null,
+    "y_pred":0
   },
   {
     "id":2501.18564,
@@ -108,20 +82,7 @@
     "date":"2025-01-30",
     "research_type":null,
     "y_true":false,
-    "log_probs":{
-      "token":[
-        "Your",
-        " verdict",
-        ":",
-        " Yes"
-      ],
-      "logprob":[
-        -0.0003382039,
-        -0.000000432,
-        0.0,
-        -0.000045491
-      ]
-    },
-    "y_pred":true
+    "log_probs":null,
+    "y_pred":0
   }
 ]
