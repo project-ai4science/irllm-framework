@@ -13,22 +13,11 @@ with open('config.yml', 'r') as file:
 
 LETTERS = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
-# tokenizer = AutoTokenizer.from_pretrained('allenai/scibert_scivocab_uncased')
-# model = AutoModel.from_pretrained('allenai/scibert_scivocab_uncased').to("cpu")
+def load_config(config_path='config.yml'):
+    """Load configuration from a YAML file."""
+    with open(config_path, 'r') as f:
+        return yaml.safe_load(f)
 
-
-# def scibertEncode(string):
-#     inputs = tokenizer(
-#         string,
-#         padding=True,
-#         truncation=True,
-#         max_length=512,
-#         return_tensors="pt"
-#     ).to("cpu")
-
-#     outputs = model(**inputs)
-
-#     return outputs[1]
 
 
 def identify(title, abstract):
