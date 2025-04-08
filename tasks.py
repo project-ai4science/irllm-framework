@@ -30,8 +30,8 @@ class TaskHandler():
         """Enables retrieval using Object[key]."""
         return self.task_mapping.get(key, "No matching tasks identified")
     # exp_1
-    def identify_task(self, file_name: str = "data_exp_1.csv", verbose: bool = False):
-        df = pd.read_csv('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
+    def identify_task(self, file_name: str = "data_exp_1.json", verbose: bool = False):
+        df = pd.read_csv('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
         df["log_probs"] = np.nan
         responses, verb_conf, response_logprobs = [], [], []
         # check if need budget:
@@ -97,7 +97,7 @@ class TaskHandler():
         df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
     # exp_2
-    def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.csv" for i in range(3)], verbose: bool = False): 
+    def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.json" for i in range(3)], verbose: bool = False): 
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
@@ -106,21 +106,24 @@ class TaskHandler():
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
         for idx, file_name in enumerate(file_names):
-            df = pd.read_csv('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
+            df = pd.read_csv('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
             responses, reasons, verb_conf, response_logprobs = [], [], [], []
             if verbose:
                 print(f"Doing data file: {file_name}...")
             for _, each in tqdm(df.iterrows(), total=len(df)):
-                title_1, title_2, abstract_1, abstract_2 = each['b_title'], each['c_title'], each['b_abstract'], each['c_abstract']
+                disci_one = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['b_title'], each['b_abstract'])]
+                disci_two = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['c_title'], each['c_abstract'])]
+                disci_one, disci_two = '\n'.join(disci_one), '\n'.join(disci_two)
+                # title_1, title_2, abstract_1, abstract_2 = each['b_title'], each['c_title'], each['b_abstract'], each['c_abstract']
                 # budget system
                 if budget:
                     remaining_budget = budget_num - sum(responses)
                     if remaining_budget == 0:
                         break
-                    input_prompt = prompt_exp_2_budget % (remaining_budget, title_1, abstract_1, title_2, abstract_2)
+                    input_prompt = prompt_exp_2_budget % (remaining_budget, disci_one, disci_two)
                 else:
-                    input_prompt = prompt_exp_2 % (title_1, abstract_1, title_2, abstract_2)
+                    input_prompt = prompt_exp_2 % (disci_one, disci_two)
 
                 # change prompt here for each task
                 response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)                

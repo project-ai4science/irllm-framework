@@ -48,7 +48,7 @@ Confidence score: {A numeric score ranging from 0 to 100}
 """
 
 prompt_exp_2 = """
-Read the abstract of the two academic papers that introduces ideas from Interdisciplinary Research disciplines and decide whether you can extract one or more concepts from both sides to create a novel multidisciplinary research idea. After you provide your verdict, provide a score from 0 to 100 to indicate your confidence level in the correctness of the verdict.
+Read the title and abstract of papers from two disciplines and decide whether you can extract concepts from both disciplines to create a novel multidisciplinary research idea. After you provide your verdict, provide a score from 0 to 100 to indicate your confidence level in the correctness of the verdict.
 Keep in mind a good Interdisciplinary Research idea includes the following standards: 
 * This research idea should be Interdisciplinary, whereas the idea stems from the combination of ideas from the two papers introduced above.
 * The Interdisciplinary Research ideas should follow this definition: “Interdisciplinary Research is a mode of research that integrates information, data, techniques, tools, perspectives, concepts, and/or theories from two or more disciplines or bodies of specialised knowledge to advance fundamental understanding or to solve problems whose solutions are beyond the scope of a single discipline or area of research practice.”
@@ -58,11 +58,11 @@ Keep in mind a good Interdisciplinary Research idea includes the following stand
 Think carefully to make your decision, and you should only answer "Yes" when this multidisciplinary idea meets ALL of the standards above. Otherwise, you should answer "No".
 Note: The confidence level indicates the degree of certainty you have about your verdict and is represented as a percentage. For instance, if your confidence level is 80, it means you are 80 percent certain that your answer is correct and there is a 20 percent chance that it may be incorrect.
 -----
-Paper 1 title: %s;
-Paper 1 abstract: %s; 
+Paper in Discipline 1:
+%s
 -----
-Paper 2 title: %s;
-Paper 2 abstract: %s;
+Paper in Discipline 2:
+%s
 -----
 Use the template (in this format, with no markdown and lines separated by '\n') to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
