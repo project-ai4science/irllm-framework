@@ -2,11 +2,11 @@
 llm_client_config:
     model_list:
         gpt:
-            - "gpt-3.5-turbo-1106"
+            # - "gpt-3.5-turbo-1106"
             - "gpt-4-turbo-2024-04-09"
-            - "gpt-4o-2024-11-20"
+            # - "gpt-4o-2024-11-20"
             - "gpt-4o-mini-2024-07-18"
-            - "o1"
+            # - "o1"
             - "o1-mini-2024-09-12"
             - "o3-mini-2025-01-31"
 
@@ -16,7 +16,7 @@ llm_client_config:
         deepseek:
 
     credentials:
-        openai_key: "oai_key"
+        openai_key: "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"
         firework_key: "fw_YOURKEY"
         gemini_key: "g_YOURKEY"
         deepseek_key: "ds_YOURKEY"
@@ -29,7 +29,6 @@ llm_client_config:
     frequency_penalty: 0
     presence_penalty: 0
 
-
 # task_config is the overall structure of our experiment reflected in tasks.py and evaluation.py
 task_config:
     task_list:
@@ -38,12 +37,13 @@ task_config:
         - "recommendation"
         - "generation"
         - "output_evaluation"
-    data_path: './data'
-    save_path: './output' # path to get exp results
-    out_path: './eval_output' # path to get eval results
-    budget_mode: True # set to True when want to limit llm yes response
+    data_path: "./data"
+    save_path: "./output" # path to get exp results
+    out_path: "./eval_output" # path to get eval results
+    budget_mode: False # set to True when want to limit llm yes response
     budget_num: 2
     critical: True # set to True when want more critical LLM
+
 
     # random_seed: 42
     # data_name: one_subject_negative_part_1
