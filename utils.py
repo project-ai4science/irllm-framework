@@ -156,10 +156,10 @@ The official definition of a typical interdisciplinary paper can be found below:
 “Interdisciplinary Research is a mode of research that integrates information, data, techniques, tools, perspectives, concepts, and/or theories from two or more disciplines or bodies of specialised knowledge to advance fundamental understanding or to solve problems whose solutions are beyond the scope of a single discipline or area of research practice.”
 Think carefully to make your verdict, answer "Yes" when this is a valid IDR paper. Otherwise, answer "No".
 Note: The confidence level indicates the degree of certainty you have about your verdict and is represented as a percentage. For instance, if your confidence level is 80, it means you are 80 percent certain that your answer is correct and there is a 20 percent chance that it may be incorrect.
------
+
 Paper title: %s;
 Paper abstract: %s;
------
+
 Use the template (in this format, with no markdown and lines separated by '\n') below to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
 Confidence score: {A numeric score ranging from 0 to 100}
@@ -171,10 +171,10 @@ The official definition of a typical interdisciplinary paper can be found below:
 “Interdisciplinary Research is a mode of research that integrates information, data, techniques, tools, perspectives, concepts, and/or theories from two or more disciplines or bodies of specialised knowledge to advance fundamental understanding or to solve problems whose solutions are beyond the scope of a single discipline or area of research practice.”
 Think carefully to make your verdict, answer "Yes" when this is a valid IDR paper. Otherwise, answer "No".
 Note: The confidence level indicates the degree of certainty you have about your verdict and is represented as a percentage. For instance, if your confidence level is 80, it means you are 80 percent certain that your answer is correct and there is a 20 percent chance that it may be incorrect.
------
+
 Paper title: %s;
 Paper abstract: %s;
------
+
 Use the template (in this format, with no markdown and lines separated by '\n') below to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
 Confidence score: {A numeric score ranging from 0 to 100}
@@ -190,13 +190,13 @@ Keep in mind a good Interdisciplinary Research idea includes the following stand
 * This research idea should be useful, whereas it applies to the stated problem and is effective at solving the problem.
 Think carefully to make your decision, and you should only answer "Yes" when this multidisciplinary idea meets ALL of the standards above. Otherwise, you should answer "No".
 Note: The confidence level indicates the degree of certainty you have about your verdict and is represented as a percentage. For instance, if your confidence level is 80, it means you are 80 percent certain that your answer is correct and there is a 20 percent chance that it may be incorrect.
------
+
 Paper in Discipline 1:
 %s
------
+
 Paper in Discipline 2:
 %s
------
+
 Use the template (in this format, with no markdown and lines separated by '\n') to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
 Your reason: {A short paragraph less than 50 words briefly describes your reasons that you made the verdict above.}
@@ -213,13 +213,13 @@ Keep in mind a good Interdisciplinary Research idea includes the following stand
 * This research idea should be useful, whereas it applies to the stated problem and is effective at solving the problem.
 Think carefully to make your decision, and you should only answer "Yes" when this multidisciplinary idea meets ALL of the standards above. Otherwise, you should answer "No".
 Note: The confidence level indicates the degree of certainty you have about your verdict and is represented as a percentage. For instance, if your confidence level is 80, it means you are 80 percent certain that your answer is correct and there is a 20 percent chance that it may be incorrect.
------
-Paper 1 title: %s;
-Paper 1 abstract: %s; 
------
-Paper 2 title: %s;
-Paper 2 abstract: %s;
------
+
+Paper in Discipline 1:
+%s
+
+Paper in Discipline 2:
+%s
+
 Use the template (in this format, with no markdown and lines separated by '\n') to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
 Your reason: {A short paragraph less than 50 words briefly describes your reasons that you made the verdict above.}
@@ -235,16 +235,16 @@ Keep in mind a good Interdisciplinary Research idea includes the following stand
 * This research idea should be novel, whereas it is not only rare but also ingenious, imaginative, or surprising.
 * This research idea should be useful, whereas it applies to the stated problem and is effective at solving the problem.
 Note: The confidence level indicates the degree of certainty you have about your verdict and is represented as a percentage. For instance, if your confidence level is 80, it means you are 80 percent certain that your answer is correct and there is a 20 percent chance that it may be incorrect.
------
+
 Main paper title: %s;
 Main paper abstract: %s;
------
+
 Paper 1 title: %s;
 Paper 1 abstract: %s; 
------
+
 Paper 2 title: %s;
 Paper 2 abstract: %s;
------
+
 Use the template (in this format, with no markdown and lines separated by '\n') to provide your answer.
 Your choice: {A simple answer containing either "Paper 1" or "Paper 2".}
 Confidence score: {A numeric score ranging from 0 to 100}

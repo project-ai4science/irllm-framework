@@ -31,7 +31,7 @@ class TaskHandler():
         return self.task_mapping.get(key, "No matching tasks identified")
     # exp_1
     def identify_task(self, file_name: str = "data_exp_1.json", verbose: bool = False):
-        df = pd.read_csv('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
+        df = pd.read_json('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
         df["log_probs"] = np.nan
         responses, verb_conf, response_logprobs = [], [], []
         # check if need budget:
@@ -61,11 +61,14 @@ class TaskHandler():
             if logprobs: 
                 response_logprobs.append(logprobs)
 
+            print(each["id"], input_prompt)
+
             # This regex uses named capture groups for verdict and reason.
             verdict, verb_score = None, None
             pattern = r"Your verdict:\s*(?P<verdict>Yes|No)\s*Confidence score:\s*(?P<score>\d+)"
             match = re.search(pattern, response_txt, re.IGNORECASE)
             if match:
+                print("IN!!!!")
                 data = match.groupdict()
                 # Map verdict values to boolean
                 verdict_mapping = {"yes": True, "no": False}
@@ -106,7 +109,7 @@ class TaskHandler():
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
         for idx, file_name in enumerate(file_names):
-            df = pd.read_csv('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
+            df = pd.read_json('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
             responses, reasons, verb_conf, response_logprobs = [], [], [], []
             if verbose:
@@ -222,7 +225,8 @@ class TaskHandler():
 if __name__ == "__main__":
     config_path = './config.yml'
     task_config = load_config(config_path)['task_config']
-    handler = TaskHandler(provider='gpt', model_name="gpt-4o-mini-2024-07-18", lm_config_path="./config.yml", **task_config)
-    task_func = handler["recommendation"]
+    handler = TaskHandler(provider='gpt', model_name="o3-mini-2025-01-31", lm_config_path="./config.yml", **task_config)
+    # handler = TaskHandler(provider='gpt', model_name="gpt-4o-mini-2024-07-18", lm_config_path="./config.yml", **task_config)
+    task_func = handler["identification"]
     task_func(verbose=True)
 
