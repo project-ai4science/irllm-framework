@@ -16,7 +16,7 @@ llm_client_config:
         deepseek:
 
     credentials:
-        openai_key: "oai_key"
+        openai_key: "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"
         firework_key: "fw_YOURKEY"
         gemini_key: "g_YOURKEY"
         deepseek_key: "ds_YOURKEY"
@@ -43,7 +43,7 @@ task_config:
     out_path: './eval_output' # path to get eval results
     budget_mode: True # set to True when want to limit llm yes response
     budget_num: 2
-    critical: False # set to True when want more critical LLM
+    critical: True # set to True when want more critical LLM
 
     # random_seed: 42
     # data_name: one_subject_negative_part_1

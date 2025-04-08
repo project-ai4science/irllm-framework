@@ -1,5 +1,5 @@
 import argparse
-from tasks_v2 import TaskHandler
+from tasks import TaskHandler
 from evaluation_v2 import Evaluator
 from utils import load_config
 

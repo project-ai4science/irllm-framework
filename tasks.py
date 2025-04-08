@@ -33,13 +33,16 @@ class TaskHandler():
     def identify_task(self, file_name: str = "data_exp_1.csv", verbose: bool = False):
         df = pd.read_csv('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
         df["log_probs"] = np.nan
-        responses, response_logprobs = [], []
+        responses, verb_conf, response_logprobs = [], [], []
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
+        # check if we want a critical llm
+        critical = self.kwargs.get("critical", False)
         if verbose:
             print(f"Doing data file: {file_name}...")
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
+            print(f"Critical llm: {critical}")
 
         for _, each in tqdm(df.iterrows(), total=len(df)):
             title, abstract = each['title'], each['abstract']
@@ -47,52 +50,65 @@ class TaskHandler():
             if budget:
                 remaining_budget = budget_num - sum(responses)
                 if remaining_budget == 0:
-                    # pad the remaining sample negative and exit loop
-                    responses += [0] * (len(df) - len(responses))
                     break
                 input_prompt = prompt_exp_1_budget % (remaining_budget, title, abstract)
             else:
                 input_prompt = prompt_exp_1 % (title, abstract)
             # change prompt here for each task
-            response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt, input_prompt=input_prompt)
+            response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
+            # response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt, input_prompt=input_prompt)
             # get logprobs if included in the lm config
             if logprobs: 
                 response_logprobs.append(logprobs)
 
             # This regex uses named capture groups for verdict and reason.
-            verdict = None
-            pattern = r"Your verdict:\s*(?P<verdict>Yes|No)"
+            verdict, verb_score = None, None
+            pattern = r"Your verdict:\s*(?P<verdict>Yes|No)\s*Confidence score:\s*(?P<score>\d+)"
             match = re.search(pattern, response_txt, re.IGNORECASE)
             if match:
-                # Extract the verdict value
-                verdict_value = match.group("verdict")
+                data = match.groupdict()
                 # Map verdict values to boolean
                 verdict_mapping = {"yes": True, "no": False}
-                result = {"verdict": verdict_mapping.get(verdict_value.lower())}
-                verdict = result["verdict"]
-            # update the result collection
-            responses.append(verdict)
+                # Convert verdict to lowercase to match our mapping keys
+                data["verdict"] = verdict_mapping.get(data["verdict"].lower())
+                # add to the values
+                verdict, verb_score = data["verdict"], int(data["score"])
+            
+            if verdict is not None:
+                # update the result collection
+                responses.append(verdict)
+                verb_conf.append(verb_score)
+
         # collect result and put into the df
+        if len(responses) < len(df):
+            # pad the remaining sample negative and exit loop
+            responses += [0] * (len(df) - len(responses))
+            verb_conf += [None] * (len(df) - len(verb_conf))
+        df["y_pred"] = responses
+        df["verb_conf"] = verb_conf
+
         if response_logprobs:
             # Don't forget to pad logprobs as well
             if len(response_logprobs) < len(df):
-                response_logprobs += [None]*(len(df) - len(response_logprobs))
+                response_logprobs += [None] * (len(df)-len(response_logprobs))
             df["log_probs"] = response_logprobs
-        df["y_pred"] = responses
         # save to json file
         out_file_name = f"exp_1_{self.model_name}.json" if not budget else f"exp_1_budget_{self.model_name}.json"
         df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+
     # exp_2
     def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.csv" for i in range(3)], verbose: bool = False): 
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
+        # check if we want a critical llm
+        critical = self.kwargs.get("critical", False)
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
         for idx, file_name in enumerate(file_names):
-            df = pd.read_csv('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
+            df = pd.read_csv('/'.join([self.data_path, file_name]))[:2] # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
-            responses, reasons, response_logprobs = [], [], []
+            responses, reasons, verb_conf, response_logprobs = [], [], [], []
             if verbose:
                 print(f"Doing data file: {file_name}...")
             for _, each in tqdm(df.iterrows(), total=len(df)):
@@ -101,23 +117,22 @@ class TaskHandler():
                 if budget:
                     remaining_budget = budget_num - sum(responses)
                     if remaining_budget == 0:
-                        # pad the remaining sample negative and exit loop
-                        responses += [0] * (len(df) - len(responses))
                         break
                     input_prompt = prompt_exp_2_budget % (remaining_budget, title_1, abstract_1, title_2, abstract_2)
                 else:
                     input_prompt = prompt_exp_2 % (title_1, abstract_1, title_2, abstract_2)
 
                 # change prompt here for each task
-                response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt, input_prompt=input_prompt)
+                response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)                
                 # get logprobs if included in the lm config
                 if logprobs: 
                     response_logprobs.append(logprobs)
                 # This regex uses named capture groups for verdict and reason.
-                pattern = r"Your verdict:\s*(?P<verdict>Yes|No)\s*\n*Your reason:\s*(?P<reason>.+)"
+                pattern = r"Your verdict:\s*(?P<verdict>Yes|No)\s*Your reason:\s*(?P<reason>.+)\s*Confidence score:\s*(?P<score>\d+)"
                 match = re.search(pattern, response_txt, re.IGNORECASE)
-                verdict, reason = None, None
+                verdict, reason, verb_score = None, None, None
                 if match:
+                    
                     data = match.groupdict()
                     # Map verdict values to boolean
                     verdict_mapping = {"yes": True, "no": False}
@@ -125,33 +140,52 @@ class TaskHandler():
                     data["verdict"] = verdict_mapping.get(data["verdict"].lower())
                     # Optionally, strip any extra spaces from the reason text
                     data["reason"] = data["reason"].strip()
-                    verdict, reason = data["verdict"], data["reason"]
-                # update the result collection
-                responses.append(verdict)
-                reasons.append(reason)
+                    verdict, reason, verb_score = data["verdict"], data["reason"], int(data["score"])
+
+                    if verbose:
+                        print(f"Found matches! data: {data}")
+
+                if (verdict is not None):
+                    # update the result collection
+                    responses.append(verdict)
+                    reasons.append(reason)
+                    verb_conf.append(verb_score)
             """
             collect result and put into the df
             """
+            # pad the remaining sample negative and exit loop
+            if len(responses) < len(df):
+                responses += [0] * (len(df) - len(responses))
+                reasons += [None]*(len(df) - len(reasons))
+                verb_conf += [None] * (len(df) - len(verb_conf))
+
+
+            df["y_pred"] = responses
+            df["reasons"] = reasons
+            df["verb_conf"] = verb_conf
             if response_logprobs:
                 # Don't forget to pad logprobs as well
                 if len(response_logprobs) < len(df):
                     response_logprobs += [None]*(len(df) - len(response_logprobs))
                 df["log_probs"] = response_logprobs
-            df["y_pred"] = responses
-            # finally pad reasons
-            if len(reasons) < len(df):
-                reasons += [None]*(len(df) - len(reasons))
-            df["reasons"] = reasons
+
+
             # save to json file
             out_file_name = f"exp_2_{idx+1}_{self.model_name}.json" if not budget else f"exp_2_{idx+1}_budget_{self.model_name}.json"
             df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+            
+            break
+
+        
     
     # exp_3
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False):
         for idx, file_name in enumerate(file_names):
             df = pd.read_json('/'.join([self.data_path, file_name]))[:2] # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
-            responses, response_logprobs = [], []
+            responses, verb_conf, response_logprobs = [], [], []
+            # check if we want a critical llm
+            critical = self.kwargs.get("critical", False)
             if verbose:
                 print(f"Doing data file: {file_name}...")
             for _, each in tqdm(df.iterrows(), total=len(df)):
@@ -162,7 +196,7 @@ class TaskHandler():
                 # the given starting paper A
                 start_title, start_abstract = each["start_title"], each["start_abstract"]
                 # collect answer logprob (avg.) for each comparison 
-                logprobs_mid = []
+                logprobs_mid, verb_scores_mid = [], []
                 lst2rank_length = len(each["list"]["title"][:10]) # first try 10 samples to rank
                 assert lst2rank_length >= 2
                 if verbose:
@@ -172,20 +206,22 @@ class TaskHandler():
                     for i, sorted in enumerate(ranked_lst):
                         # change prompt here for each task
                         input_prompt = prompt_exp_3 % (start_title, start_abstract, sorted[0], sorted[1], title, abstract)
-                        response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt, input_prompt=input_prompt)
+                        response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
                         logprobs = np.average(logprobs['logprob'])
                         logprobs_mid.append(logprobs)
                         verdict = False
+                        verb_score = None
                         # This regex uses named capture groups for verdict and reason.
-                        pattern = r"Your choice:\s*(?P<verdict>Paper 1|Papepr 2)"
+                        pattern = r"Your choice:\s*(?P<verdict>Paper 1|Papepr 2)\s*\n*Confidence score:\s*(?P<score>\d+)"
                         match = re.search(pattern, response_txt, re.IGNORECASE)
                         if match:
-                            # Extract the verdict value
-                            verdict_value = match.group("verdict")
+                            data = match.groupdict()
                             # Map verdict values to boolean
                             verdict_mapping = {"Paper 2": True, "Paper 1": False}
-                            verdict = verdict_mapping.get(verdict_value.lower())
-                        
+                            # Convert verdict to lowercase to match our mapping keys
+                            data["verdict"] = verdict_mapping.get(data["verdict"].lower())
+                            verb_score = int(data["score"])
+                        verb_scores_mid.append(verb_score)
                         if verdict:
                             ranked_lst.insert(i, (title, abstract))
                             inserted = True
@@ -193,14 +229,18 @@ class TaskHandler():
                     if not inserted:
                         ranked_lst.insert(i, (title, abstract))
                 # update the result collection
+                verb_conf.append(verb_scores_mid)
                 response_logprobs.append(logprobs_mid)
                 responses.append(ranked_lst)
+
             """
             collect result and put into the df
             """
             if response_logprobs:
                 df["log_probs"] = response_logprobs
             df["y_pred"] = responses
+            df["verb_conf"] = verb_conf
+
             # save to json file
             out_file_name = f"exp_3_{idx+1}_{self.model_name}.json"
             df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
