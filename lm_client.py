@@ -1,6 +1,6 @@
 from openai import OpenAI
 from fireworks.client import Fireworks
-# import google.generativeai as genai
+import google.generativeai as genai
 import os
 import yaml
 from typing import *
@@ -10,16 +10,13 @@ CONFIG = load_config()["llm_client_config"]
 CREDENTIALS = CONFIG["credentials"]
 MODELS = CONFIG["model_list"]
 
-openai_client = OpenAI(api_key=CREDENTIALS["openai_key"])
-firewok_client = Fireworks(api_key=CREDENTIALS["firework_key"])
-
-
 class LM_Client():
 
     def __init__(self, provider: str, model_name: str, config_path: str = None, **kwargs):
         # make sure the models are in the exp list
         assert provider in MODELS
         assert model_name in MODELS[provider]
+        self.clients = self._init_clients()
         self.provider = provider
         self.model_name = model_name
         self.lm_config = self._load_config(config_path) if config_path else dict()
@@ -49,6 +46,31 @@ class LM_Client():
         # Merge any additional keyword arguments into api_params.
         self.model_config.update(kwargs)
 
+    def _init_clients(self):
+        clients = {}
+        if "openai_key" in CREDENTIALS:
+            clients["openai"] = OpenAI(api_key=CREDENTIALS["openai_key"])
+        if "firework_key" in CREDENTIALS:
+            clients["firework"] = Fireworks(api_key=CREDENTIALS["firework_key"])
+        if "openrouter_key" in CREDENTIALS:
+            clients["openrouter"] = OpenAI(
+                api_key=CREDENTIALS["openrouter_key"],
+                base_url="https://openrouter.ai/api/v1"
+            )
+        if "deepseek_key" in CREDENTIALS:
+            clients["deepseek"] = OpenAI(
+                api_key=CREDENTIALS["deepseek_key"],
+                base_url="https://api.deepseek.com"
+            )
+        if "grok_key" in CREDENTIALS:
+            clients["grok"] = OpenAI(
+                api_key=CREDENTIALS["grok_key"],
+                base_url="https://api.x.ai/v1"
+            )
+        if "gemini_key" in CREDENTIALS:
+            genai.configure(api_key=CREDENTIALS["gemini_key"])
+
+        return clients
 
     def _load_config(self, config_path: str):
         """Load configuration from a YAML file."""
@@ -66,7 +88,7 @@ class LM_Client():
 
         if self.provider == 'gpt':
             if ('o1' in self.model_name) or ('o3' in self.model_name):
-                response = openai_client.responses.create(
+                response = self.clients['openai'].responses.create(
                     model = self.model_name,
                     instructions = sys_prompt if sys_prompt else "You are an helpful assitant.",
                     input = input_prompt,
@@ -76,7 +98,7 @@ class LM_Client():
                 print(response_txt)
 
             else:
-                response = openai_client.chat.completions.create(
+                response = self.clients['openai'].chat.completions.create(
                     model = self.model_name,
                     messages = input_msg,
                     **self.model_config
@@ -88,7 +110,7 @@ class LM_Client():
                     logprobs = {"token": [each.token for each in logprobs], "logprob": [each.logprob for each in logprobs]}
 
         elif self.provider == 'llama':
-            response = firewok_client.chat.completions.create(
+            response = self.clients['firework'].chat.completions.create(
                 model = f"accounts/fireworks/models/{self.model_name}",
                 messages = input_msg,
                 **self.model_config
@@ -98,14 +120,41 @@ class LM_Client():
             if self.model_config["logprobs"] is not None:
                 logprobs = response.logprobs
 
+        elif self.provider == 'openrouter':
+            response = self.clients['openrouter'].chat.completions.create(
+                model = self.model_name,
+                messages = input_msg,
+                **self.model_config
+            ).choices[0]
+            response_txt = response.message.content
+
         elif self.provider == 'deepseek':
-            pass
+            response = self.clients['deepseek'].chat.completions.create(
+                model = self.model_name,
+                messages = input_msg,
+                **self.model_config
+            ).choices[0]
+            response_txt = response.message.content
 
         elif self.provider == 'grok':
-            pass
+            response = self.clients['grok'].chat.completions.create(
+                model = self.model_name,
+                messages = input_msg,
+                **self.model_config
+            ).choices[0]
+            response_txt = response.message.content
 
         elif self.provider == 'gemini':
-            pass
+            model = genai.GenerativeModel(self.model_name)
+            generation_config = genai.types.GenerationConfig(
+                system_instruction=sys_prompt,
+                model_config=genai.types.ModelConfig(**self.model_config)
+            )
+            response = model.generate_content(
+                input_prompt,
+                generation_config=generation_config
+            )
+            response_txt = response.text
 
         else:
             print("Not yet implemented!")
