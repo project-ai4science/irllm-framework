@@ -31,7 +31,7 @@ class TaskHandler():
         return self.task_mapping.get(key, "No matching tasks identified")
     # exp_1
     def identify_task(self, file_name: str = "data_exp_1.csv", verbose: bool = False):
-        df = pd.read_csv('/'.join([self.data_path, file_name]))[:5] # first try 5 samples to ensure works well
+        df = pd.read_csv('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
         df["log_probs"] = np.nan
         responses, verb_conf, response_logprobs = [], [], []
         # check if need budget:
@@ -106,7 +106,7 @@ class TaskHandler():
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
         for idx, file_name in enumerate(file_names):
-            df = pd.read_csv('/'.join([self.data_path, file_name]))[:2] # first try 5 samples to ensure works well
+            df = pd.read_csv('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
             responses, reasons, verb_conf, response_logprobs = [], [], [], []
             if verbose:
@@ -181,7 +181,7 @@ class TaskHandler():
     # exp_3
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False):
         for idx, file_name in enumerate(file_names):
-            df = pd.read_json('/'.join([self.data_path, file_name]))[:2] # first try 5 samples to ensure works well
+            df = pd.read_json('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
             responses, verb_conf, response_logprobs = [], [], []
             # check if we want a critical llm
