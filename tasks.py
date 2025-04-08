@@ -135,7 +135,6 @@ class TaskHandler():
                 match = re.search(pattern, response_txt, re.IGNORECASE)
                 verdict, reason, verb_score = None, None, None
                 if match:
-                    
                     data = match.groupdict()
                     # Map verdict values to boolean
                     verdict_mapping = {"yes": True, "no": False}
@@ -144,7 +143,6 @@ class TaskHandler():
                     # Optionally, strip any extra spaces from the reason text
                     data["reason"] = data["reason"].strip()
                     verdict, reason, verb_score = data["verdict"], data["reason"], int(data["score"])
-
                     if verbose:
                         print(f"Found matches! data: {data}")
 
@@ -162,7 +160,6 @@ class TaskHandler():
                 reasons += [None]*(len(df) - len(reasons))
                 verb_conf += [None] * (len(df) - len(verb_conf))
 
-
             df["y_pred"] = responses
             df["reasons"] = reasons
             df["verb_conf"] = verb_conf
@@ -172,69 +169,38 @@ class TaskHandler():
                     response_logprobs += [None]*(len(df) - len(response_logprobs))
                 df["log_probs"] = response_logprobs
 
-
             # save to json file
             out_file_name = f"exp_2_{idx+1}_{self.model_name}.json" if not budget else f"exp_2_{idx+1}_budget_{self.model_name}.json"
             df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
-            
-            break
 
-        
-    
+
     # exp_3
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False):
         for idx, file_name in enumerate(file_names):
-            df = pd.read_json('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
+            df = pd.read_json('/'.join([self.data_path, file_name]))[:1] # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
-            responses, verb_conf, response_logprobs = [], [], []
+            responses, verb_confs, response_logprobs = [], [], []
             # check if we want a critical llm
             critical = self.kwargs.get("critical", False)
             if verbose:
                 print(f"Doing data file: {file_name}...")
             for _, each in tqdm(df.iterrows(), total=len(df)):
+
                 """
-                Insertion sort using LLM as judge. No budget here as this is ranking task.
+                Swiss tournament using LLM as judge. No budget here as this is ranking task.
                 """
-                ranked_lst = [(each["list"]["title"][0], each["list"]["abstract"][0])]
+                # ranked_lst = [(each["list"]["title"][0], each["list"]["abstract"][0])]
                 # the given starting paper A
-                start_title, start_abstract = each["start_title"], each["start_abstract"]
-                # collect answer logprob (avg.) for each comparison 
-                logprobs_mid, verb_scores_mid = [], []
-                lst2rank_length = len(each["list"]["title"][:10]) # first try 10 samples to rank
-                assert lst2rank_length >= 2
-                if verbose:
-                    print(f"Length of a list to rank for recommendation: {lst2rank_length}")
-                for title, abstract in zip(each["list"]["title"][1:10], each["list"]["abstract"][1:10]): # first try 10 samples to rank
-                    inserted = False
-                    for i, sorted in enumerate(ranked_lst):
-                        # change prompt here for each task
-                        input_prompt = prompt_exp_3 % (start_title, start_abstract, sorted[0], sorted[1], title, abstract)
-                        response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
-                        logprobs = np.average(logprobs['logprob'])
-                        logprobs_mid.append(logprobs)
-                        verdict = False
-                        verb_score = None
-                        # This regex uses named capture groups for verdict and reason.
-                        pattern = r"Your choice:\s*(?P<verdict>Paper 1|Papepr 2)\s*\n*Confidence score:\s*(?P<score>\d+)"
-                        match = re.search(pattern, response_txt, re.IGNORECASE)
-                        if match:
-                            data = match.groupdict()
-                            # Map verdict values to boolean
-                            verdict_mapping = {"Paper 2": True, "Paper 1": False}
-                            # Convert verdict to lowercase to match our mapping keys
-                            data["verdict"] = verdict_mapping.get(data["verdict"].lower())
-                            verb_score = int(data["score"])
-                        verb_scores_mid.append(verb_score)
-                        if verdict:
-                            ranked_lst.insert(i, (title, abstract))
-                            inserted = True
-                            break
-                    if not inserted:
-                        ranked_lst.insert(i, (title, abstract))
+                context = each[["start_title", "start_abstract"]].to_dict()
+                # each["list"]: {"title": [], "abstract": []}
+                Papers = [Player(title=title, abstract=abstract) for title, abstract in zip(each["list"]["title"], each["list"]["abstract"])]
+                # test_paper = Papers[:3] # small amount of test paper
+                paper_rank, logprob, verb_conf = swiss_tournament(Papers, context, critical, self.client, 10, verbose=verbose)
+
                 # update the result collection
-                verb_conf.append(verb_scores_mid)
-                response_logprobs.append(logprobs_mid)
-                responses.append(ranked_lst)
+                verb_confs.append(verb_conf)
+                response_logprobs.append(logprob)
+                responses.append([{"title": paper.title, "abstract": paper.abstract, "score": paper.score} for paper in paper_rank])
 
             """
             collect result and put into the df
@@ -242,17 +208,21 @@ class TaskHandler():
             if response_logprobs:
                 df["log_probs"] = response_logprobs
             df["y_pred"] = responses
-            df["verb_conf"] = verb_conf
+            df["verb_conf"] = verb_confs
+
+            if verbose:
+                print(f"Total Comparisons made: {len(verb_confs)}")
 
             # save to json file
             out_file_name = f"exp_3_{idx+1}_{self.model_name}.json"
             df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+            # break
 
 # Test code to ensure everything is right:
 if __name__ == "__main__":
     config_path = './config.yml'
     task_config = load_config(config_path)['task_config']
     handler = TaskHandler(provider='gpt', model_name="gpt-4o-mini-2024-07-18", lm_config_path="./config.yml", **task_config)
-    task_func = handler["classification"]
+    task_func = handler["recommendation"]
     task_func(verbose=True)
 
