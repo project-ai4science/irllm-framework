@@ -177,7 +177,7 @@ class TaskHandler():
     # exp_3
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False):
         for idx, file_name in enumerate(file_names):
-            df = pd.read_json('/'.join([self.data_path, file_name]))[:1] # first try 5 samples to ensure works well
+            df = pd.read_json('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
             df["log_probs"] = np.nan
             responses, verb_confs, response_logprobs = [], [], []
             # check if we want a critical llm
