@@ -61,14 +61,11 @@ class TaskHandler():
             if logprobs: 
                 response_logprobs.append(logprobs)
 
-            print(each["id"], input_prompt)
-
             # This regex uses named capture groups for verdict and reason.
             verdict, verb_score = None, None
             pattern = r"Your verdict:\s*(?P<verdict>Yes|No)\s*Confidence score:\s*(?P<score>\d+)"
             match = re.search(pattern, response_txt, re.IGNORECASE)
             if match:
-                print("IN!!!!")
                 data = match.groupdict()
                 # Map verdict values to boolean
                 verdict_mapping = {"yes": True, "no": False}
@@ -225,7 +222,7 @@ class TaskHandler():
 if __name__ == "__main__":
     config_path = './config.yml'
     task_config = load_config(config_path)['task_config']
-    handler = TaskHandler(provider='gpt', model_name="o3-mini-2025-01-31", lm_config_path="./config.yml", **task_config)
+    handler = TaskHandler(provider='gpt', model_name="o1-mini-2024-09-12", lm_config_path="./config.yml", **task_config)
     # handler = TaskHandler(provider='gpt', model_name="gpt-4o-mini-2024-07-18", lm_config_path="./config.yml", **task_config)
     task_func = handler["identification"]
     task_func(verbose=True)

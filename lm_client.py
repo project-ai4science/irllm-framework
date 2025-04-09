@@ -1,6 +1,6 @@
 from openai import OpenAI
 from fireworks.client import Fireworks
-import google.generativeai as genai
+# from google import genai
 import os
 import yaml
 from typing import *
@@ -31,12 +31,6 @@ class LM_Client():
         }
         # gpt-o series uses chat.responses
         if ('o1' in self.model_name) or ('o3' in self.model_name):
-            # # Define a mapping from old keys to new keys
-            # rename_map = {
-            #     'max_tokens': 'max_output_tokens',
-            #     # 'old_key2': 'new_key2'
-            # }
-
             # Create a new dictionary with keys renamed according to the mapping
             self.model_config = {
                 # "max_output_tokens": self.model_config.get("max_tokens", 500),
@@ -67,8 +61,8 @@ class LM_Client():
                 api_key=CREDENTIALS["grok_key"],
                 base_url="https://api.x.ai/v1"
             )
-        if "gemini_key" in CREDENTIALS:
-            genai.configure(api_key=CREDENTIALS["gemini_key"])
+        # if "gemini_key" in CREDENTIALS:
+        #     genai.configure(api_key=CREDENTIALS["gemini_key"])
 
         return clients
 
@@ -81,13 +75,13 @@ class LM_Client():
 
     def generate(self, input_prompt: str, sys_prompt: str = None):
         input_msg = [
-            {"role": "system" , "content": f"{sys_prompt}" if sys_prompt else "You are an helpful assitant."},
+            {"role": "user" if 'o1' in self.model_name else "system", "content": f"{sys_prompt}" if sys_prompt else "You are an helpful assitant."},
             {"role": "user", "content": f"{input_prompt}"}
         ]
         logprobs = None
 
         if self.provider == 'gpt':
-            if ('o1' in self.model_name) or ('o3' in self.model_name):
+            if ('o3' in self.model_name):
                 response = self.clients['openai'].responses.create(
                     model = self.model_name,
                     instructions = sys_prompt if sys_prompt else "You are an helpful assitant.",
@@ -144,17 +138,17 @@ class LM_Client():
             ).choices[0]
             response_txt = response.message.content
 
-        elif self.provider == 'gemini':
-            model = genai.GenerativeModel(self.model_name)
-            generation_config = genai.types.GenerationConfig(
-                system_instruction=sys_prompt,
-                model_config=genai.types.ModelConfig(**self.model_config)
-            )
-            response = model.generate_content(
-                input_prompt,
-                generation_config=generation_config
-            )
-            response_txt = response.text
+        # elif self.provider == 'gemini':
+        #     model = genai.GenerativeModel(self.model_name)
+        #     generation_config = genai.types.GenerationConfig(
+        #         system_instruction=sys_prompt,
+        #         model_config=genai.types.ModelConfig(**self.model_config)
+        #     )
+        #     response = model.generate_content(
+        #         input_prompt,
+        #         generation_config=generation_config
+        #     )
+        #     response_txt = response.text
 
         else:
             print("Not yet implemented!")
