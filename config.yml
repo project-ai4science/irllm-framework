@@ -6,8 +6,8 @@ llm_client_config:
             - "gpt-4-turbo-2024-04-09"
             # - "gpt-4o-2024-11-20"
             - "gpt-4o-mini-2024-07-18"
-            # - "o1"
-            - "o1-mini-2024-09-12"
+            - "o1-2024-12-17"
+            # - "o1-mini-2024-09-12"
             - "o3-mini-2025-01-31"
 
         llama:
@@ -16,7 +16,7 @@ llm_client_config:
         deepseek:
 
     credentials:
-        openai_key: "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"
+        openai_key: "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"
         firework_key: "fw_YOURKEY"
         gemini_key: "g_YOURKEY"
         deepseek_key: "ds_YOURKEY"
@@ -25,7 +25,7 @@ llm_client_config:
     default_model: "gpt-4o-mini-2024-07-18"
     max_tokens: 500
     temperature: 1.0
-    logprobs: True
+    logprobs: False
     frequency_penalty: 0
     presence_penalty: 0
 
@@ -37,12 +37,15 @@ task_config:
         - "recommendation"
         - "generation"
         - "output_evaluation"
-    data_path: "./data"
-    save_path: "./output" # path to get exp results
-    out_path: "./eval_output" # path to get eval results
+    data_path: './data'
+    save_path: './output' # path to get exp results
+    out_path: './eval_output' # path to get eval results
     budget_mode: False # set to True when want to limit llm yes response
     budget_num: 2
-    critical: True # set to True when want more critical LLM
+    critical: False # set to True when want more critical LLM
+
+
+
 
 
     # random_seed: 42
