@@ -31,7 +31,7 @@ class TaskHandler():
         return self.task_mapping.get(key, "No matching tasks identified")
     # exp_1
     def identify_task(self, file_name: str = "data_exp_1.json", verbose: bool = False):
-        df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
+        df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})[:5] # first try 5 samples to ensure works well
         df["log_probs"] = np.nan
         df_size = df.shape[0]
         responses, verb_conf, response_logprobs = [None]*df_size, [0]*df_size, [None]*df_size
@@ -217,8 +217,11 @@ class TaskHandler():
 if __name__ == "__main__":
     config_path = './config.yml'
     task_config = load_config(config_path)['task_config']
-    handler = TaskHandler(provider='gpt', model_name="o1-mini-2024-09-12", lm_config_path="./config.yml", **task_config)
+    # handler = TaskHandler(provider='gemini', model_name="gemini-2.0-flash", lm_config_path="./config.yml", **task_config)
     # handler = TaskHandler(provider='gpt', model_name="gpt-4o-mini-2024-07-18", lm_config_path="./config.yml", **task_config)
+    # handler = TaskHandler(provider='deepseek', model_name="deepseek-chat", lm_config_path="./config.yml", **task_config)
+    handler = TaskHandler(provider='llama', model_name="llama-3.3-70b-instruct", lm_config_path="./config.yml", **task_config)
+
     task_func = handler["identification"]
     task_func(verbose=True)
 
