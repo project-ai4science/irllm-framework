@@ -80,15 +80,9 @@ class Evaluator:
             df_data = pd.read_json(file_path)
             y_true = df_data["y_true"]
             y_pred = df_data["y_pred"]
-            # y_pred = y_pred.str.lower()
-
-            # Map predictions to boolean values
-            # y_pred = y_pred.map({"yes": True, "no": False}).astype(bool)
-
             # Calculate metrics
             metrics = self.calculate_metrics(y_true, y_pred)
             return metrics
-        
         except Exception as e:
             print(f"Error processing file {file_path}: {e}")
             return None
@@ -113,13 +107,8 @@ class Evaluator:
                     "macro_f1_score": metrics["macro_f1_score"],
                     "auc": metrics["auc"]
                 })
-
-            # break
-
         # Return the final results as a DataFrame
         return pd.DataFrame(self.results)
-
-
 
     def evaluate_all_recommendations(self, verbose=False):
         files = os.listdir(self.file_dir)
@@ -155,9 +144,7 @@ class Evaluator:
         df.to_json(os.path.join(file_path, file_name), **kwargs)
         print(f"Results saved to {file_path}")
 
-
 if __name__ == "__main__":
-    
     save_config = {
         # "file_path": "./eval_output",
         "indent": 2,
