@@ -11,9 +11,13 @@ class Evaluator:
 
     @staticmethod
     def calculate_metrics(y_true, y_pred):
+        print(len(y_pred), sum(y_pred))
+        print(len(y_pred), sum(y_true))
         # Calculate confusion matrix
         cm = confusion_matrix(y_true, y_pred)
         TN, FP, FN, TP = cm.ravel()
+
+        print(cm)
 
         # Calculate metrics
         accuracy = accuracy_score(y_true, y_pred)
@@ -54,17 +58,32 @@ class Evaluator:
     def dcg_at_k(relevance_scores, k):
         relevance_scores = np.array(relevance_scores)[:k]
         return np.sum(relevance_scores / np.log2(np.arange(2, len(relevance_scores) + 2)))
+    
+
+    def ndcg_at_10(self, relevant_items, retrieved_items):
+        ndcg_scores = []
+
+        for relevant, retrieved in zip(relevant_items, retrieved_items):
+            relevant_set = set(relevant)
+            relevance_scores = [1 if item in relevant_set else 0 for item in retrieved[:10]]
+            dcg = self.dcg_at_k(relevance_scores, 10)
+            ideal_relevance_scores = sorted(relevance_scores, reverse=True)
+            idcg = self.dcg_at_k(ideal_relevance_scores, 10)
+            ndcg = dcg / idcg if idcg > 0 else 0.0
+            ndcg_scores.append(ndcg)
+
+        return np.mean(ndcg_scores), ndcg_scores
 
 
     def evaluate_file(self, file_path):
         try:
             df_data = pd.read_json(file_path)
-            y_true = df_data["y_true"].astype(bool)
-            y_pred = df_data["y_pred"].astype(str)
-            y_pred = y_pred.str.lower()
+            y_true = df_data["y_true"]
+            y_pred = df_data["y_pred"]
+            # y_pred = y_pred.str.lower()
 
             # Map predictions to boolean values
-            y_pred = y_pred.map({"yes": True, "no": False}).astype(bool)
+            # y_pred = y_pred.map({"yes": True, "no": False}).astype(bool)
 
             # Calculate metrics
             metrics = self.calculate_metrics(y_true, y_pred)
@@ -95,22 +114,12 @@ class Evaluator:
                     "auc": metrics["auc"]
                 })
 
+            # break
+
         # Return the final results as a DataFrame
         return pd.DataFrame(self.results)
 
-    def ndcg_at_10(self, relevant_items, retrieved_items):
-        ndcg_scores = []
 
-        for relevant, retrieved in zip(relevant_items, retrieved_items):
-            relevant_set = set(relevant)
-            relevance_scores = [1 if item in relevant_set else 0 for item in retrieved[:10]]
-            dcg = self.dcg_at_k(relevance_scores, 10)
-            ideal_relevance_scores = sorted(relevance_scores, reverse=True)
-            idcg = self.dcg_at_k(ideal_relevance_scores, 10)
-            ndcg = dcg / idcg if idcg > 0 else 0.0
-            ndcg_scores.append(ndcg)
-
-        return np.mean(ndcg_scores), ndcg_scores
 
     def evaluate_all_recommendations(self, verbose=False):
         files = os.listdir(self.file_dir)
@@ -158,5 +167,5 @@ if __name__ == "__main__":
     evaluator = Evaluator(file_dir="./output/round_2_vanilla")
     cls_res = evaluator.evaluate_all_classifications(verbose=True)
     evaluator.save_json(cls_res, "classification_summary.json", **save_config)
-    rec_res = evaluator.evaluate_all_recommendations(verbose=True)
-    evaluator.save_json(rec_res, "recommendation_summary.json", **save_config)
+    # rec_res = evaluator.evaluate_all_recommendations(verbose=True)
+    # evaluator.save_json(rec_res, "recommendation_summary.json", **save_config)
