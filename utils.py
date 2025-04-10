@@ -84,7 +84,7 @@ def simulate_match(player1, player2, context: dict, client: object, critical: bo
     # print(f"This is output text: {response_txt}")
 
     # This regex uses named capture groups for verdict and reason.
-    pattern = r"Your choice:\s*(?P<verdict>Paper 1|Paper 2)\s*Confidence score:\s*(?P<score>\d+)"
+    pattern = r"Your choice:\s*(?P<verdict>Paper 1|Paper 2).?\s*Confidence score:\s*(?P<score>\d+).?"
     match = re.search(pattern, response_txt, re.IGNORECASE)
     if match:
         if verbose:
