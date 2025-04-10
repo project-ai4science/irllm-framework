@@ -1,6 +1,6 @@
 [
   {
-    "id":2411.01019,
+    "id":"2411.01019",
     "research_type":"applied",
     "start_id":"b15",
     "start_title":"Anterior mediastinal nodular lesion segmentation from chest computed tomography imaging using UNet based neural network with attention mechanisms",
@@ -93,7 +93,7 @@
     }
   },
   {
-    "id":2411.01019,
+    "id":"2411.01019",
     "research_type":"applied",
     "start_id":"b6",
     "start_title":"Screening for lung cancer: 2023 guideline update from the American Cancer Society",
@@ -185,7 +185,7 @@
     }
   },
   {
-    "id":2411.01019,
+    "id":"2411.01019",
     "research_type":"applied",
     "start_id":"b1",
     "start_title":"Incidental Anterior Mediastinal Nodular Lesions on\u00a0Chest CT in Asymptomatic Subjects",
@@ -277,7 +277,7 @@
     }
   },
   {
-    "id":2412.11084,
+    "id":"2412.11084",
     "research_type":"applied",
     "start_id":"b12",
     "start_title":"Biological identifications through DNA barcodes",
@@ -368,7 +368,7 @@
     }
   },
   {
-    "id":2412.11084,
+    "id":"2412.11084",
     "research_type":"applied",
     "start_id":"b0",
     "start_title":"BarcodeBERT: Transformers for Biodiversity Analysis",
@@ -459,7 +459,7 @@
     }
   },
   {
-    "id":2412.00036,
+    "id":"2412.00036",
     "research_type":"applied",
     "start_id":"b1",
     "start_title":"On the Distribution of the Two-Sample Cramer-von Mises Criterion",
@@ -550,7 +550,7 @@
     }
   },
   {
-    "id":2412.00036,
+    "id":"2412.00036",
     "research_type":"applied",
     "start_id":"b24",
     "start_title":"Quant GANs: deep generation of financial time series",
@@ -641,7 +641,7 @@
     }
   },
   {
-    "id":2411.0064,
+    "id":"2411.00640",
     "research_type":"applied",
     "start_id":"b14",
     "start_title":"Quantifying Variance in Evaluation Benchmarks",
@@ -732,7 +732,7 @@
     }
   },
   {
-    "id":2411.0064,
+    "id":"2411.00640",
     "research_type":"applied",
     "start_id":"b6",
     "start_title":"The Llama 3 Herd of Models",
@@ -823,7 +823,7 @@
     }
   },
   {
-    "id":2411.00609,
+    "id":"2411.00609",
     "research_type":"applied",
     "start_id":"b9",
     "start_title":"Pediatric low-grade glioma: State-of-the-art and ongoing challenges",
@@ -914,7 +914,7 @@
     }
   },
   {
-    "id":2411.00609,
+    "id":"2411.00609",
     "research_type":"applied",
     "start_id":"b0",
     "start_title":"Improving Pediatric Low-Grade Neuroepithelial Tumors Molecular Subtype\n  Identification Using a Novel AUROC Loss Function for Convolutional Neural\n  Networks",
@@ -1005,7 +1005,7 @@
     }
   },
   {
-    "id":2411.00726,
+    "id":"2411.00726",
     "research_type":"applied",
     "start_id":"b1",
     "start_title":"Relation Between Retinal Vasculature and Retinal Thickness in Macular Edema",
@@ -1096,7 +1096,7 @@
     }
   },
   {
-    "id":2411.00726,
+    "id":"2411.00726",
     "research_type":"applied",
     "start_id":"b2",
     "start_title":"An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
@@ -1187,7 +1187,7 @@
     }
   },
   {
-    "id":2411.05236,
+    "id":"2411.05236",
     "research_type":"applied",
     "start_id":"b4",
     "start_title":"Channelrhodopsin-2, a directly light-gated cation-selective membrane channel",
@@ -1280,7 +1280,7 @@
     }
   },
   {
-    "id":2411.05236,
+    "id":"2411.05236",
     "research_type":"applied",
     "start_id":"b2",
     "start_title":"Shannon capacity of signal transduction for multiple independent receptors",
@@ -1372,7 +1372,7 @@
     }
   },
   {
-    "id":2411.05236,
+    "id":"2411.05236",
     "research_type":"applied",
     "start_id":"b0",
     "start_title":"DESIGN AND IMPLEMENTATION OF VISIBLE LIGHT COMMUNICATION SYSTEM IN INDOOR ENVIRONMENT",
@@ -1464,7 +1464,7 @@
     }
   },
   {
-    "id":2411.02815,
+    "id":"2411.02815",
     "research_type":"applied",
     "start_id":"b36",
     "start_title":"An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
@@ -1556,7 +1556,7 @@
     }
   },
   {
-    "id":2411.02815,
+    "id":"2411.02815",
     "research_type":"applied",
     "start_id":"b33",
     "start_title":"Automated segmentation of liver segment on portal venous phase MR images using a 3D convolutional neural network",
@@ -1648,7 +1648,7 @@
     }
   },
   {
-    "id":2411.02815,
+    "id":"2411.02815",
     "research_type":"applied",
     "start_id":"b13",
     "start_title":"Liver Anatomy: Portal (and Suprahepatic) or Biliary Segmentation",
@@ -1741,7 +1741,7 @@
     }
   },
   {
-    "id":2411.00561,
+    "id":"2411.00561",
     "research_type":"applied",
     "start_id":"b24",
     "start_title":"Retrieval and classification of shape-based objects using Fourier, generic Fourier, and wavelet-Fourier descriptors technique: A comparative study",
@@ -1832,7 +1832,7 @@
     }
   },
   {
-    "id":2411.00561,
+    "id":"2411.00561",
     "research_type":"applied",
     "start_id":"b4",
     "start_title":"What is a cell type, really? The quest to categorize life's myriad forms.",
@@ -1923,7 +1923,7 @@
     }
   },
   {
-    "id":2411.01144,
+    "id":"2411.01144",
     "research_type":"applied",
     "start_id":"b6",
     "start_title":"Investigating training-test data splitting strategies for automated segmentation and scoring of COVID-19 lung ultrasound images.",
@@ -2014,7 +2014,7 @@
     }
   },
   {
-    "id":2411.01144,
+    "id":"2411.01144",
     "research_type":"applied",
     "start_id":"b2",
     "start_title":"A Simple Framework for Contrastive Learning of Visual Representations",
@@ -2105,7 +2105,7 @@
     }
   },
   {
-    "id":2411.00922,
+    "id":"2411.00922",
     "research_type":"applied",
     "start_id":"b16",
     "start_title":"Deep learning model for automatic segmentation of lungs and pulmonary metastasis in small animal MR images",
@@ -2196,7 +2196,7 @@
     }
   },
   {
-    "id":2411.00922,
+    "id":"2411.00922",
     "research_type":"applied",
     "start_id":"b12",
     "start_title":"nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation",
@@ -2287,7 +2287,7 @@
     }
   },
   {
-    "id":2412.02695,
+    "id":"2412.02695",
     "research_type":"applied",
     "start_id":"b10",
     "start_title":"EEG data for ADHD \/ Control children",
@@ -2378,7 +2378,7 @@
     }
   },
   {
-    "id":2412.02695,
+    "id":"2412.02695",
     "research_type":"applied",
     "start_id":"b11",
     "start_title":"Deep Residual Learning for Image Recognition",
@@ -2469,7 +2469,7 @@
     }
   },
   {
-    "id":2411.03522,
+    "id":"2411.03522",
     "research_type":"applied",
     "start_id":"b3",
     "start_title":"Language Models are Few-Shot Learners",
@@ -2560,7 +2560,7 @@
     }
   },
   {
-    "id":2411.03522,
+    "id":"2411.03522",
     "research_type":"applied",
     "start_id":"b20",
     "start_title":"Long non-coding RNAs: definitions, functions, challenges and recommendations",
@@ -2651,7 +2651,7 @@
     }
   },
   {
-    "id":2412.20007,
+    "id":"2412.20007",
     "research_type":"applied",
     "start_id":"b4",
     "start_title":"Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning",
@@ -2742,7 +2742,7 @@
     }
   },
   {
-    "id":2412.20007,
+    "id":"2412.20007",
     "research_type":"applied",
     "start_id":"b6",
     "start_title":"The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions",
@@ -2833,7 +2833,7 @@
     }
   },
   {
-    "id":2411.04715,
+    "id":"2411.04715",
     "research_type":"applied",
     "start_id":"b19",
     "start_title":"BigNeuron: a resource to benchmark and predict performance of algorithms for automated tracing of neurons in light microscopy datasets",
@@ -2924,7 +2924,7 @@
     }
   },
   {
-    "id":2411.04715,
+    "id":"2411.04715",
     "research_type":"applied",
     "start_id":"b17",
     "start_title":"Tracing weak neuron fibers",
@@ -3015,7 +3015,7 @@
     }
   },
   {
-    "id":2411.05188,
+    "id":"2411.05188",
     "research_type":"applied",
     "start_id":"b3",
     "start_title":"Limitations of conventional magnetic resonance imaging as a predictor of death or disability following neonatal hypoxic-ischemic encephalopathy in the late hypothermia trial",
@@ -3106,7 +3106,7 @@
     }
   },
   {
-    "id":2411.05188,
+    "id":"2411.05188",
     "research_type":"applied",
     "start_id":"b7",
     "start_title":"What is being transferred in transfer learning?",
@@ -3197,7 +3197,7 @@
     }
   },
   {
-    "id":2411.19345,
+    "id":"2411.19345",
     "research_type":"applied",
     "start_id":"b0",
     "start_title":"On the use of preclinical imaging to explore the principles of brain function in rodent models and their relevance for illnesses of the human mind",
@@ -3288,7 +3288,7 @@
     }
   },
   {
-    "id":2411.19345,
+    "id":"2411.19345",
     "research_type":"applied",
     "start_id":"b8",
     "start_title":"GAN\uff08Generative Adversarial Nets\uff09",
@@ -3379,7 +3379,7 @@
     }
   },
   {
-    "id":2411.18784,
+    "id":"2411.18784",
     "research_type":"applied",
     "start_id":"b16",
     "start_title":"nnu-net: a self-configuring method for deep learning-based biomedical image segmentation",
@@ -3470,7 +3470,7 @@
     }
   },
   {
-    "id":2411.18784,
+    "id":"2411.18784",
     "research_type":"applied",
     "start_id":"b5",
     "start_title":"Multimodal Breast Parenchymal Patterns Correlation Using a Patient-Specific Biomechanical Model",
@@ -3561,7 +3561,7 @@
     }
   },
   {
-    "id":2412.00663,
+    "id":"2412.00663",
     "research_type":"applied",
     "start_id":"b4",
     "start_title":"Deep Learning for Automatic Gross Tumor Volumes Contouring in Esophageal Cancer Based on Contrast-Enhanced Computed Tomography Images: A Multi-Institutional Study",
@@ -3652,7 +3652,7 @@
     }
   },
   {
-    "id":2412.00663,
+    "id":"2412.00663",
     "research_type":"applied",
     "start_id":"b2",
     "start_title":"ConTEXTual Net: A Multimodal Vision-Language Model for Segmentation of Pneumothorax",
@@ -3743,7 +3743,7 @@
     }
   },
   {
-    "id":2412.00663,
+    "id":"2412.00663",
     "research_type":"applied",
     "start_id":"b1",
     "start_title":"MRI-Guided Adaptive Radiation Therapy",
@@ -3835,7 +3835,7 @@
     }
   },
   {
-    "id":2411.18602,
+    "id":"2411.18602",
     "research_type":"applied",
     "start_id":"b11",
     "start_title":"Rsna pneumonia detection challenge",
@@ -3927,7 +3927,7 @@
     }
   },
   {
-    "id":2411.18602,
+    "id":"2411.18602",
     "research_type":"applied",
     "start_id":"b14",
     "start_title":"Adding Conditional Control to Text-to-Image Diffusion Models",
@@ -4018,7 +4018,7 @@
     }
   },
   {
-    "id":2411.18602,
+    "id":"2411.18602",
     "research_type":"applied",
     "start_id":"b9",
     "start_title":"Highresolution image synthesis with latent diffusion models",
@@ -4109,7 +4109,7 @@
     }
   },
   {
-    "id":2411.18902,
+    "id":"2411.18902",
     "research_type":"applied",
     "start_id":"b8",
     "start_title":"Biomechanics and motor control of human movement",
@@ -4200,7 +4200,7 @@
     }
   },
   {
-    "id":2411.18902,
+    "id":"2411.18902",
     "research_type":"applied",
     "start_id":"b13",
     "start_title":"Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
@@ -4291,7 +4291,7 @@
     }
   },
   {
-    "id":2411.03551,
+    "id":"2411.03551",
     "research_type":"applied",
     "start_id":"b4",
     "start_title":"Interobserver Variability in the CT Assessment of Honeycombing in the Lungs",
@@ -4382,7 +4382,7 @@
     }
   },
   {
-    "id":2411.03551,
+    "id":"2411.03551",
     "research_type":"applied",
     "start_id":"b9",
     "start_title":"DuPL: Dual Student with Trustworthy Progressive Learning for Robust Weakly Supervised Semantic Segmentation",
@@ -4473,7 +4473,7 @@
     }
   },
   {
-    "id":2411.09469,
+    "id":"2411.09469",
     "research_type":"applied",
     "start_id":"b36",
     "start_title":"CBAM: Convolutional block attention module",
@@ -4564,7 +4564,7 @@
     }
   },
   {
-    "id":2411.09469,
+    "id":"2411.09469",
     "research_type":"applied",
     "start_id":"b11",
     "start_title":"The accuracy of colposcopic biopsy: Analyses from the placebo arm of the Gardasil clinical trials",
@@ -4655,7 +4655,7 @@
     }
   },
   {
-    "id":2411.14752,
+    "id":"2411.14752",
     "research_type":"applied",
     "start_id":"b0",
     "start_title":"\u201cApr\u00e8s Mois, Le D\u00e9luge\u201d: Preparing for the Coming Data Flood in the MRI-Guided Radiotherapy Era",
@@ -4748,7 +4748,7 @@
     }
   },
   {
-    "id":2411.14752,
+    "id":"2411.14752",
     "research_type":"applied",
     "start_id":"b5",
     "start_title":"MedNeXt: Transformer-driven Scaling of ConvNets for Medical Image Segmentation",
@@ -4839,7 +4839,7 @@
     }
   },
   {
-    "id":2411.06785,
+    "id":"2411.06785",
     "research_type":"applied",
     "start_id":"b0",
     "start_title":"RNA-Seq: a revolutionary tool for transcriptomics",
@@ -4930,7 +4930,7 @@
     }
   },
   {
-    "id":2411.06785,
+    "id":"2411.06785",
     "research_type":"applied",
     "start_id":"b25",
     "start_title":"White-Box Transformers via Sparse Rate Reduction",
