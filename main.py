@@ -1,6 +1,6 @@
 import argparse
 from tasks import TaskHandler
-from evaluation_v2 import Evaluator
+from evaluation import ClassificationEvaluator, RecommendationEvaluator
 from utils import load_config
 
 config_path = './config.yml'
@@ -13,7 +13,7 @@ def main():
     # map the args to actual task
     if args.task == "output_evaluation":
         eval_type = args.eval_type
-        evaluator = Evaluator(type=eval_type)
+        evaluator = ClassificationEvaluator()
     else:
         # task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, save_path=save_path, **task_config)
         task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, **task_config)
