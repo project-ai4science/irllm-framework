@@ -36,8 +36,10 @@ class TaskHandler():
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
         critical = self.kwargs.get("critical", False)
-        
+
         out_file_name = f"exp_1_{self.model_name}.json" if not budget else f"exp_1_budget_{self.model_name}.json"
+        if critical:
+            out_file_name = f"critical_{out_file_name}"
         
         try:
             df = pd.read_json('/'.join([self.save_path, out_file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
@@ -129,6 +131,8 @@ class TaskHandler():
         for idx, file_name in enumerate(file_names):
             exp_name = file_name.split("data_")[-1].split(".json")[0]
             out_file_name = f"{exp_name}_{self.model_name}.json" if not budget else f"{exp_name}_budget_{self.model_name}.json"
+            if critical:
+                out_file_name = f"critical_{out_file_name}"
             
             try:
                 # try loading results to complete it if it's not complete
@@ -219,6 +223,8 @@ class TaskHandler():
             
             exp_name = file_name.split("data_")[-1].split(".json")[0]
             out_file_name = f"{exp_name}_{self.model_name}.json"
+            if critical:
+                out_file_name = f"critical_{out_file_name}"
             
             try:
                 # try loading results to complete it if it's not complete
