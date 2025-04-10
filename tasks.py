@@ -215,14 +215,30 @@ class TaskHandler():
     # exp_3
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False):
         for idx, file_name in enumerate(file_names):
-            df = pd.read_json('/'.join([self.data_path, file_name])) # first try 5 samples to ensure works well
-            df["log_probs"] = np.nan
-            responses, verb_confs, response_logprobs = [], [], []
-            # check if we want a critical llm
             critical = self.kwargs.get("critical", False)
+            
+            exp_name = file_name.split("data_")[-1].split(".json")[0]
+            out_file_name = f"{exp_name}_{self.model_name}.json"
+            
+            try:
+                # try loading results to complete it if it's not complete
+                df = pd.read_json('/'.join([self.save_path, out_file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
+                df_size = df.shape[0]
+                responses, verb_conf, response_logprobs = df.y_pred.astype(bool).to_list(), df.verb_conf.to_list(), df.log_probs.to_list()
+            except:
+                # load data and initialize lists if no result was found
+                df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
+                df_size = df.shape[0]
+                responses, verb_conf, response_logprobs = [None]*df_size, [0]*df_size, [np.nan]*df_size
+            
+            df["log_probs"] = response_logprobs
+            
             if verbose:
                 print(f"Doing data file: {file_name}...")
-            for _, each in tqdm(df.iterrows(), total=len(df)):
+                
+            for i, each in tqdm(df.iterrows(), total=df_size):
+                # if it was already processed, then skip
+                if verb_conf[i] > 0: continue
 
                 """
                 Swiss tournament using LLM as judge. No budget here as this is ranking task.
@@ -233,26 +249,35 @@ class TaskHandler():
                 # each["list"]: {"title": [], "abstract": []}
                 Papers = [Player(title=title, abstract=abstract) for title, abstract in zip(each["list"]["title"], each["list"]["abstract"])]
                 # test_paper = Papers[:3] # small amount of test paper
-                paper_rank, logprob, verb_conf = swiss_tournament(Papers, context, critical, self.client, 10, verbose=verbose)
+                paper_rank, logprob, verb_score = swiss_tournament(Papers, context, critical, self.client, 10, verbose=verbose)
 
                 # update the result collection
-                verb_confs.append(verb_conf)
-                response_logprobs.append(logprob)
-                responses.append([{"title": paper.title, "abstract": paper.abstract, "score": paper.score} for paper in paper_rank])
+                verb_conf[i] = verb_score
+                response_logprobs[i] = logprob
+                responses[i] = [{"title": paper.title, "abstract": paper.abstract, "score": paper.score} for paper in paper_rank]
+                
+                if i % 100 == 0:
+                    # collect result and put into the df (save each 100 iters)
+                    if response_logprobs:
+                        df["log_probs"] = response_logprobs
+                    df["y_pred"] = responses
+                    df["verb_conf"] = verb_conf
+                    
+                    if verbose:
+                        print(f"Total Comparisons made (i={i}): {len(verb_conf)}")
+                    
+                    df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
-            """
-            collect result and put into the df
-            """
+            # collect result and put into the df
             if response_logprobs:
                 df["log_probs"] = response_logprobs
             df["y_pred"] = responses
-            df["verb_conf"] = verb_confs
+            df["verb_conf"] = verb_conf
 
             if verbose:
-                print(f"Total Comparisons made: {len(verb_confs)}")
+                print(f"Total Comparisons made: {len(verb_conf)}")
 
             # save to json file
-            out_file_name = f"exp_3_{idx+1}_{self.model_name}.json"
             df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
             # break
 
