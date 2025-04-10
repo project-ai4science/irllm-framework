@@ -5,8 +5,8 @@ import os
 
 
 class Evaluator:
-    def __init__(self, output_dir="./output"):
-        self.output_dir = output_dir
+    def __init__(self, file_dir="./output"):
+        self.file_dir = file_dir
         self.results = []
 
     @staticmethod
@@ -75,17 +75,18 @@ class Evaluator:
             return None
 
     def evaluate_all_classifications(self, verbose=False):
-        files = os.listdir(self.output_dir)
+        files = os.listdir(self.file_dir)
         files = [f for f in files if f.endswith(".json") and (f.startswith("exp_1") or f.startswith("exp_2"))]
         for filename in files:
             if verbose:
                 print(f"Evaluating: {filename}")
-            file_path = os.path.join(self.output_dir, filename)
+            file_path = os.path.join(self.file_dir, filename)
             metrics = self.evaluate_file(file_path)
             if metrics:
                 # Append metrics to the results DataFrame
                 self.results.append({
                     "file_name": filename,
+                    "confusion_matrix": metrics["confusion_matrix"].tolist(),
                     "accuracy": metrics["accuracy"],
                     "precision": metrics["precision"],
                     "recall": metrics["recall"],
@@ -112,13 +113,13 @@ class Evaluator:
         return np.mean(ndcg_scores), ndcg_scores
 
     def evaluate_all_recommendations(self, verbose=False):
-        files = os.listdir(self.output_dir)
+        files = os.listdir(self.file_dir)
         files = [f for f in files if f.endswith(".json") and f.startswith("exp_3")]
 
         for filename in files:
             if verbose:
                 print(f"Evaluating: {filename}")
-            file_path = os.path.join(self.output_dir, filename)
+            file_path = os.path.join(self.file_dir, filename)
 
             try:
                 df_data = pd.read_json(file_path)
@@ -154,8 +155,8 @@ if __name__ == "__main__":
         "orient": "records",
         "index": False,
     }
-    evaluator = Evaluator()
+    evaluator = Evaluator(file_dir="./output/round_2_vanilla")
     cls_res = evaluator.evaluate_all_classifications(verbose=True)
-    evaluator.save_json(cls_res, "classification.json", **save_config)
+    evaluator.save_json(cls_res, "classification_summary.json", **save_config)
     rec_res = evaluator.evaluate_all_recommendations(verbose=True)
-    evaluator.save_json(rec_res, "recommendation.json", **save_config)
+    evaluator.save_json(rec_res, "recommendation_summary.json", **save_config)
