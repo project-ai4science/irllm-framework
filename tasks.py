@@ -31,21 +31,34 @@ class TaskHandler():
         return self.task_mapping.get(key, "No matching tasks identified")
     # exp_1
     def identify_task(self, file_name: str = "data_exp_1.json", verbose: bool = False):
-        df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})[:5] # first try 5 samples to ensure works well
-        df["log_probs"] = np.nan
-        df_size = df.shape[0]
-        responses, verb_conf, response_logprobs = [None]*df_size, [0]*df_size, [None]*df_size
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
         critical = self.kwargs.get("critical", False)
+        
+        out_file_name = f"exp_1_{self.model_name}.json" if not budget else f"exp_1_budget_{self.model_name}.json"
+        
+        try:
+            df = pd.read_json('/'.join([self.save_path, out_file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
+            df_size = df.shape[0]
+            responses, verb_conf, response_logprobs = df.y_pred.astype(bool).to_list(), df.verb_conf.to_list(), df.log_probs.to_list()
+        except:
+            df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
+            df_size = df.shape[0]
+            responses, verb_conf, response_logprobs = [None]*df_size, [0]*df_size, [np.nan]*df_size
+        
+        df["log_probs"] = response_logprobs
+        
         if verbose:
             print(f"Doing data file: {file_name}...")
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
             print(f"Critical llm: {critical}")
-
-        for i, each in tqdm(df.iterrows(), total=len(df)):
+            
+        for i, each in tqdm(df.iterrows(), total=df_size):
+            # if it was already processed, then skip
+            if verb_conf[i] > 0: continue
+            
             title, abstract = each['title'], each['abstract']
             # budget system
             if budget:
@@ -82,6 +95,16 @@ class TaskHandler():
                 # update the result collection
                 responses[i] = verdict
                 verb_conf[i] = verb_score
+                
+            if i % 100 == 0:
+                # collect result and put into the df
+                df["y_pred"] = responses
+                df["verb_conf"] = verb_conf
+                if response_logprobs:
+                    df["log_probs"] = response_logprobs
+                
+                # save to json file
+                df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
         # collect result and put into the df
         df["y_pred"] = responses
@@ -89,8 +112,8 @@ class TaskHandler():
 
         if response_logprobs:
             df["log_probs"] = response_logprobs
+
         # save to json file
-        out_file_name = f"exp_1_{self.model_name}.json" if not budget else f"exp_1_budget_{self.model_name}.json"
         df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
     # exp_2
@@ -100,16 +123,32 @@ class TaskHandler():
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
         critical = self.kwargs.get("critical", False)
+        
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
         for idx, file_name in enumerate(file_names):
-            df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
-            df["log_probs"] = np.nan
-            df_size = df.shape[0]
-            responses, reasons, verb_conf, response_logprobs = [None]*df_size, [None]*df_size, [0]*df_size, [None]*df_size
+            exp_name = file_name.split("data_")[-1].split(".json")[0]
+            out_file_name = f"{exp_name}_{self.model_name}.json" if not budget else f"{exp_name}_budget_{self.model_name}.json"
+            
+            try:
+                # try loading results to complete it if it's not complete
+                df = pd.read_json('/'.join([self.save_path, out_file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
+                df_size = df.shape[0]
+                responses, reasons, verb_conf, response_logprobs = df.y_pred.astype(bool).to_list(), df.reasons.to_list(), df.verb_conf.to_list(), df.log_probs.to_list()
+            except:
+                # load data and initialize lists if no result was found
+                df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
+                df_size = df.shape[0]
+                responses, reasons, verb_conf, response_logprobs = [None]*df_size, [None]*df_size, [0]*df_size, [np.nan]*df_size
+            
+            df["log_probs"] = response_logprobs
             if verbose:
                 print(f"Doing data file: {file_name}...")
+                
             for i, each in tqdm(df.iterrows(), total=df_size):
+                # if it was already processed, then skip
+                if verb_conf[i] > 0: continue
+                
                 disci_one = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['b_title'], each['b_abstract'])]
                 disci_two = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['c_title'], each['c_abstract'])]
                 disci_one, disci_two = '\n'.join(disci_one), '\n'.join(disci_two)
@@ -152,11 +191,17 @@ class TaskHandler():
                     responses[i] = verdict
                     reasons[i] = reason
                     verb_conf[i] = verb_score
-            """
-            collect result and put into the df
-            """
-            # pad the remaining sample negative and exit loop
+                    
+                if i % 100 == 0:
+                    # collect result and put into the df (save each 100 iters)
+                    df["y_pred"] = responses
+                    df["reasons"] = reasons
+                    df["verb_conf"] = verb_conf
+                    if response_logprobs:
+                        df["log_probs"] = response_logprobs
+                    df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
+            # collect result and put into the df
             df["y_pred"] = responses
             df["reasons"] = reasons
             df["verb_conf"] = verb_conf
@@ -164,8 +209,6 @@ class TaskHandler():
                 df["log_probs"] = response_logprobs
 
             # save to json file
-            exp_name = file_name.split("data_")[-1].split(".json")[0]
-            out_file_name = f"{exp_name}_{self.model_name}.json" if not budget else f"{exp_name}_budget_{self.model_name}.json"
             df.to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
 

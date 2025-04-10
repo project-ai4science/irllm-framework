@@ -4,5 +4,5 @@ config.yml
 */**/old*
 */**/temp
 test.ipynb
-*/**/output/*.csv
+output/**/*.json
 dataset_preprocess_*.ipynb
