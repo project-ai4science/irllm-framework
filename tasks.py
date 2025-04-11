@@ -47,10 +47,12 @@ class TaskHandler():
         out_file_name += ".json"
         # checkpoint system to obtain start point
         cached_idx = 0
+        cached = False
         # check if the file exists and load it
         if os.path.exists(os.path.join(self.save_path, out_file_name)):
-            df = pd.read_json(os.path.join(self.save_path, out_file_name))
-            cached_idx = df.shape[0]
+            df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
+            cached_idx = df_cached.shape[0]
+            cached = True
         if verbose:
             print(f"Already processed {cached_idx} samples. Continuing from there...")
             print(f"Doing data file: {file_name}...")
@@ -67,6 +69,13 @@ class TaskHandler():
         # slice the dataframe to start from the last processed index
         df = df[cached_idx:]
         ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
+        if cached:
+            # load the cached data
+            ids = df_cached['id'].tolist()
+            responses = df_cached['y_pred'].tolist()
+            labels = df_cached['y_true'].tolist()
+            verb_conf = df_cached['verb_conf'].tolist()
+            response_logprobs = df_cached['log_probs'].tolist()
         # main loop
         for i, each in tqdm(df.iterrows(), total=df_size):
             title, abstract = each['title'], each['abstract']
@@ -149,10 +158,12 @@ class TaskHandler():
             out_file_name += ".json"
             # checkpoint system to obtain start point
             cached_idx = 0
+            cached = False
             # check if the file exists and load it
             if os.path.exists(os.path.join(self.save_path, out_file_name)):
-                df = pd.read_json(os.path.join(self.save_path, out_file_name))
-                cached_idx = df.shape[0]
+                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
+                cached_idx = df_cached.shape[0]
+                cached = True
             if verbose:
                 print(f"Already processed {cached_idx} samples. Continuing from there...")
                 print(f"Doing data file: {file_name}...")
@@ -167,11 +178,19 @@ class TaskHandler():
             # slice the dataframe to start from the last processed index
             df = df[cached_idx:]
             ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], []
+            if cached:
+                # load the cached data
+                ids = df_cached['id'].tolist()
+                responses = df_cached['y_pred'].tolist()
+                labels = df_cached['y_true'].tolist()
+                reasons_pred = df_cached['reasons'].tolist()
+                verb_conf = df_cached['verb_conf'].tolist()
+                response_logprobs = df_cached['log_probs'].tolist()
+            # main loop
             for i, each in tqdm(df.iterrows(), total=df_size):
                 disci_one = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['b_title'], each['b_abstract'])]
                 disci_two = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['c_title'], each['c_abstract'])]
                 disci_one, disci_two = '\n'.join(disci_one), '\n'.join(disci_two)
-                # title_1, title_2, abstract_1, abstract_2 = each['b_title'], each['c_title'], each['b_abstract'], each['c_abstract']
                 # budget system
                 if budget:
                     remaining_budget = budget_num - sum(responses)
@@ -247,10 +266,12 @@ class TaskHandler():
             out_file_name += ".json"
             # checkpoint system to obtain start point
             cached_idx = 0
+            cached = False
             # check if the file exists and load it
             if os.path.exists(os.path.join(self.save_path, out_file_name)):
-                df = pd.read_json(os.path.join(self.save_path, out_file_name))
-                cached_idx = df.shape[0]
+                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
+                cached_idx = df_cached.shape[0]
+                cached = True
             if verbose:
                 print(f"Already processed {cached_idx} samples. Continuing from there...")
                 print(f"Doing data file: {file_name}...")
@@ -265,6 +286,14 @@ class TaskHandler():
             # slice the dataframe to start from the last processed index
             df = df[cached_idx:]
             ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
+            if cached:
+                # load the cached data
+                ids = df_cached['id'].tolist()
+                responses = df_cached['y_pred'].tolist()
+                labels = df_cached['list'].tolist()
+                verb_conf = df_cached['verb_conf'].tolist()
+                response_logprobs = df_cached['log_probs'].tolist()
+            # main loop
             for i, each in tqdm(df.iterrows(), total=df_size):
                 """
                 Swiss tournament using LLM as judge. No budget here as this is ranking task.
@@ -311,11 +340,11 @@ class TaskHandler():
 if __name__ == "__main__":
     config_path = './config.yml'
     task_config = load_config(config_path)['task_config']
-    # handler = TaskHandler(provider='gemini', model_name="gemini-2.0-flash", lm_config_path="./config.yml", **task_config)
-    handler = TaskHandler(provider='gpt', model_name="gpt-4o-mini-2024-07-18", lm_config_path="./config.yml", **task_config)
-    # handler = TaskHandler(provider='deepseek', model_name="deepseek-chat", lm_config_path="./config.yml", **task_config)
+    handler = TaskHandler(provider='gemini', model_name="gemini-2.0-flash", lm_config_path="./config.yml", **task_config)
+    # handler = TaskHandler(provider='gpt', model_name="gpt-4o-mini-2024-07-18", lm_config_path="./config.yml", **task_config)
+    # handler = TaskHandler(provider='deepseek', model_name="deepseek-reasoner", lm_config_path="./config.yml", **task_config)
     # handler = TaskHandler(provider='llama', model_name="llama-3.3-70b-instruct", lm_config_path="./config.yml", **task_config)
 
-    task_func = handler["recommendation"]
+    task_func = handler["identification"]
     task_func(verbose=True)
 

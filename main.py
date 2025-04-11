@@ -9,17 +9,22 @@ CONFIG = load_config(config_path)
 def main():
     task_config = CONFIG['task_config']
     assert args.task in task_config['task_list']
-    
     # map the args to actual task
     if args.task == "output_evaluation":
-        eval_type = args.eval_type
-        evaluator = Evaluator()
+        save_config = {
+            "indent": 2,
+            "orient": "records",
+            "index": False,
+        }
+        evaluator = Evaluator(file_dir="./output")
+        cls_res = evaluator.evaluate_all_classifications()
+        evaluator.save_json(cls_res, "classification_summary.json", file_path=task_config["out_path"], **save_config)
     else:
         # task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, save_path=save_path, **task_config)
         task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, **task_config)
         task_func = task_handler[args.task]
         # task_func(file_names=["data_exp_2_1.json"], verbose=True)
-        task_func(verbose=True)
+        task_func()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(

@@ -30,13 +30,20 @@ class LM_Client():
             "frequency_penalty": self.lm_config.get("frequency_penalty", 0),
             "presence_penalty": self.lm_config.get("presence_penalty", 0)
         }
-        # gpt-o series uses chat.responses
+        # gpt-o series takes in limited parameters
         if ('o1' in self.model_name) or ('o3' in self.model_name):
             # Create a new dictionary with keys renamed according to the mapping
             self.model_config = {
                 # "max_output_tokens": self.model_config.get("max_tokens", 500),
                 "temperature": self.model_config.get("temperature", 1.0),
             }
+
+        # deepseek-reasoner takes limited parameters
+        if self.model_name == "deepseek-reasoner":
+            self.model_config = {
+                "max_tokens": self.lm_config.get("max_tokens", 1000),
+            }
+
 
         if self.provider == "gemini":
             self.model_config = {
