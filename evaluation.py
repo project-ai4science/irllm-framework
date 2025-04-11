@@ -11,13 +11,9 @@ class Evaluator:
 
     @staticmethod
     def calculate_metrics(y_true, y_pred):
-        print(len(y_pred), sum(y_pred))
-        print(len(y_pred), sum(y_true))
         # Calculate confusion matrix
         cm = confusion_matrix(y_true, y_pred)
         TN, FP, FN, TP = cm.ravel()
-
-        print(cm)
 
         # Calculate metrics
         accuracy = accuracy_score(y_true, y_pred)
@@ -28,6 +24,7 @@ class Evaluator:
         auc = roc_auc_score(y_true, y_pred) if len(np.unique(y_true)) > 1 else None
 
         return {
+            "size": len(y_pred),
             "confusion_matrix": cm,
             "accuracy": accuracy,
             "precision": precision,
@@ -99,6 +96,7 @@ class Evaluator:
                 # Append metrics to the results DataFrame
                 self.results.append({
                     "file_name": filename,
+                    "size": metrics["size"],
                     "confusion_matrix": metrics["confusion_matrix"].tolist(),
                     "accuracy": metrics["accuracy"],
                     "precision": metrics["precision"],
@@ -151,7 +149,7 @@ if __name__ == "__main__":
         "orient": "records",
         "index": False,
     }
-    evaluator = Evaluator(file_dir="./output/round_2_vanilla")
+    evaluator = Evaluator(file_dir="./output")
     cls_res = evaluator.evaluate_all_classifications(verbose=True)
     evaluator.save_json(cls_res, "classification_summary.json", **save_config)
     # rec_res = evaluator.evaluate_all_recommendations(verbose=True)
