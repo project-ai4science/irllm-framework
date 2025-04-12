@@ -148,8 +148,8 @@ class TaskHandler():
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
             print(f"Critical llm: {critical}")
-        for idx, file_name in enumerate(file_names):
-            out_file_name = f"exp_2_{idx+1}_{self.model_name}"
+        for _, file_name in enumerate(file_names):
+            out_file_name = f"exp_2_{file_name[11]}_{self.model_name}"
             # assemble out file name
             if budget:
                 out_file_name += "_budget"
@@ -258,8 +258,8 @@ class TaskHandler():
         critical = self.kwargs.get("critical", False)
         if verbose:
             print(f"Critical llm: {critical}")
-        for idx, file_name in enumerate(file_names):
-            out_file_name = f"exp_3_{idx+1}_{self.model_name}"
+        for _, file_name in enumerate(file_names):
+            out_file_name = f"exp_3_{file_name[11]}_{self.model_name}"
             # assemble out file name
             if critical:
                 out_file_name += "_critical"
