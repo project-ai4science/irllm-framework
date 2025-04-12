@@ -139,7 +139,7 @@ class TaskHandler():
         pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
     # exp_2
-    def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.json" for i in range(3)], verbose: bool = False, checkpoint_len: int = 5): 
+    def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.json" for i in range(2)], verbose: bool = False, checkpoint_len: int = 5): 
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
