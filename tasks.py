@@ -174,7 +174,7 @@ class TaskHandler():
             if df_size == 0:
                 if verbose:
                     print(f"No new data to process in {file_name}.")
-                return
+                continue
             # slice the dataframe to start from the last processed index
             df = df[cached_idx:]
             ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], []
@@ -282,7 +282,7 @@ class TaskHandler():
             if df_size == 0:
                 if verbose:
                     print(f"No new data to process in {file_name}.")
-                return
+                continue
             # slice the dataframe to start from the last processed index
             df = df[cached_idx:]
             ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
