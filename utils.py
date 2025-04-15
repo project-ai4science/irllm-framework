@@ -250,6 +250,26 @@ Your choice: {A simple answer containing either "Paper 1" or "Paper 2".}
 Confidence score: {A numeric score ranging from 0 to 100}
 """
 
+# number_of_papers, title, abstract, list_of_papers
+prompt_exp_3_ranking = """
+In this task, you are given a main paper introducing the key concepts that provides certain parts in a Interdisciplinary Research idea as well as a list of candidate papers that forms the remaining parts of a Interdisciplinary Research idea. Compare them and decide which one of the candidates matches with the main paper better in forming this Interdisciplinary Research idea. After you provide your ranking, provide a score from 0 to 100 to indicate your confidence level in the correctness of making this choice.
+The list of papers should consist of the numbers associated with them and with exactly %s papers (no more, no less). The list should be ordered (best papers first) and first paper of the list must be the best choice to form a Interdisciplinary Research idea.
+Keep in mind a good Interdisciplinary Research research idea includes the following standards: 
+* This research idea should be Interdisciplinary Research, whereas the idea stems from the combination of ideas from the two papers introduced above.
+* This research idea should be novel, whereas it is not only rare but also ingenious, imaginative, or surprising.
+* This research idea should be useful, whereas it applies to the stated problem and is effective at solving the problem
+Note: The confidence level indicates the degree of certainty you have about your verdict and is represented as a percentage. For instance, if your confidence level is 80, it means you are 80 percent certain that your answer is correct and there is a 20 percent chance that it may be incorrect.
+
+Main paper title: %s;
+Main paper abstract: %s;
+
+List of candidate papers:
+%s
+
+Follow the format in the example to provide your response (only the JSON in one single line with no line breaks and with no markdown): {"reasoning": "reasoning_string_with_100_words_max", "list": ["List", "of", "numbers"], "confidence_score": confidence_score_integer}
+"""
+
+
 # Test code to ensure everything is right:
 if __name__ == "__main__":
     pass

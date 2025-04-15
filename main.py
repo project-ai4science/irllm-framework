@@ -23,8 +23,8 @@ def main():
         # task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, save_path=save_path, **task_config)
         task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, **task_config)
         task_func = task_handler[args.task]
-        # task_func(file_names=["data_exp_2_1.json"], verbose=True)
-        task_func()
+        # task_func(file_names=["data_exp_3_2.json"], verbose=True)
+        task_func(verbose=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
