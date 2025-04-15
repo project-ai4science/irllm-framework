@@ -302,6 +302,8 @@ class TaskHandler():
                 context = each[["start_title", "start_abstract"]].to_dict()
                 # each["list"]: {"title": [], "abstract": []}
                 Papers = [Player(title=title, abstract=abstract) for title, abstract in zip(each["list"]["title"], each["list"]["abstract"])]
+                # add target paper at the end of the list
+                Papers += [Player(title=title, abstract=abstract) for title, abstract in zip(each["target_paper"]["title"], each["target_paper"]["abstract"])]
                 # test_paper = Papers[:3] # small amount of test paper
                 paper_rank, logprob, verb_score = swiss_tournament(Papers, context, critical, self.client, 10, verbose=verbose)
                 # update the result collection
