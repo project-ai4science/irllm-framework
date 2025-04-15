@@ -142,7 +142,7 @@ class TaskHandler():
         pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
     # exp_2
-    def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.json" for i in range(3)], verbose: bool = False, checkpoint_len: int = 5): 
+    def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.json" for i in range(2)], verbose: bool = False, checkpoint_len: int = 5): 
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
@@ -151,8 +151,8 @@ class TaskHandler():
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
             print(f"Critical llm: {critical}")
-        for idx, file_name in enumerate(file_names):
-            out_file_name = f"exp_2_{idx+1}_{self.model_name}"
+        for _, file_name in enumerate(file_names):
+            out_file_name = f"exp_2_{file_name[11]}_{self.model_name}"
             # assemble out file name
             if budget:
                 out_file_name += "_budget"
@@ -177,7 +177,7 @@ class TaskHandler():
             if df_size == 0:
                 if verbose:
                     print(f"No new data to process in {file_name}.")
-                return
+                continue
             # slice the dataframe to start from the last processed index
             df = df[cached_idx:]
             ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], []
@@ -261,8 +261,8 @@ class TaskHandler():
         critical = self.kwargs.get("critical", False)
         if verbose:
             print(f"Critical llm: {critical}")
-        for idx, file_name in enumerate(file_names):
-            out_file_name = f"exp_3_{idx+1}_{self.model_name}"
+        for _, file_name in enumerate(file_names):
+            out_file_name = f"exp_3_{file_name[11]}_{self.model_name}"
             # assemble out file name
             if critical:
                 out_file_name += "_critical"
@@ -285,7 +285,7 @@ class TaskHandler():
             if df_size == 0:
                 if verbose:
                     print(f"No new data to process in {file_name}.")
-                # return
+                continue
             # slice the dataframe to start from the last processed index
             df = df[cached_idx:]
             ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []

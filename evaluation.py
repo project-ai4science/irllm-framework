@@ -128,6 +128,7 @@ class Evaluator:
                 # Append metrics to the results list
                 self.results.append({
                     "file_name": filename,
+                    "size": len(df_data),
                     "mrr": metrics["mrr"],
                     "ndcg_at_10": metrics["ndcg_at_10"]
                 })
