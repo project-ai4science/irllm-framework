@@ -288,10 +288,11 @@ class TaskHandler():
                 continue
             # slice the dataframe to start from the last processed index
             df = df[cached_idx:]
-            ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], []
+            ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
             if cached:
                 # load the cached data
                 ids = df_cached['id'].tolist()
+                start_ids = df_cached['start_id'].tolist()
                 true_papers = df_cached['y_true'].tolist()
                 responses = df_cached['y_pred'].tolist()
                 labels = df_cached['list'].tolist()
@@ -313,6 +314,7 @@ class TaskHandler():
                 paper_rank, logprob, verb_score = swiss_tournament(Papers, context, critical, self.client, 10, verbose=verbose)
                 # update the result collection
                 ids.append(each['id'])
+                start_ids.append(each['start_id'])
                 true_papers.append(each["target_paper"])
                 responses.append([{"title": paper.title, "abstract": paper.abstract, "score": paper.score} for paper in paper_rank])
                 labels.append(each['list'])
@@ -324,6 +326,7 @@ class TaskHandler():
                     # collect result and put into the df
                     data = {
                         "id": ids,
+                        "start_ids": start_ids,
                         "list": labels,
                         "y_true": true_papers,
                         "y_pred": responses,
@@ -337,6 +340,7 @@ class TaskHandler():
             # collect result and put into the df
             data = {
                 "id": ids,
+                "start_ids": start_ids,
                 "list": labels,
                 "y_true": true_papers,
                 "y_pred": responses,
