@@ -255,7 +255,7 @@ class TaskHandler():
             # save to json file
             pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
 
-    # exp_3
+    # exp_3 with swiss tournament
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False, checkpoint_len: int = 1):
         # check if we want a critical llm
         critical = self.kwargs.get("critical", False)
@@ -346,6 +346,7 @@ class TaskHandler():
             # save to json file
             pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
     
+    # exp_3 with single prompt
     def recommend_ranking_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], number_of_papers=10, verbose: bool = False, checkpoint_len: int = 1):
         # check if we want a critical llm
         critical = self.kwargs.get("critical", False)
