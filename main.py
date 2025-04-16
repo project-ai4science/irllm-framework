@@ -16,9 +16,13 @@ def main():
             "orient": "records",
             "index": False,
         }
-        evaluator = Evaluator(file_dir="./output")
+        evaluator = Evaluator(file_dir="./output/")
+        
         cls_res = evaluator.evaluate_all_classifications()
+        rcm_res = evaluator.evaluate_all_recommendations()
+        
         evaluator.save_json(cls_res, "classification_summary.json", file_path=task_config["out_path"], **save_config)
+        evaluator.save_json(rcm_res, "recommendation_summary.json", file_path=task_config["out_path"], **save_config)
     else:
         # task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, save_path=save_path, **task_config)
         task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, **task_config)
