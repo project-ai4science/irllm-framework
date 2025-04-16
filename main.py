@@ -16,7 +16,7 @@ def main():
             "orient": "records",
             "index": False,
         }
-        evaluator = Evaluator(file_dir="./output/")
+        evaluator = Evaluator(file_dir="./output")
         
         cls_res = evaluator.evaluate_all_classifications()
         rcm_res = evaluator.evaluate_all_recommendations()

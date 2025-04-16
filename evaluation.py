@@ -1,6 +1,7 @@
 from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score, accuracy_score, precision_score, recall_score
 import numpy as np
 import pandas as pd
+from scipy.stats import gmean
 import os
 
 
@@ -22,6 +23,7 @@ class Evaluator:
         f1 = f1_score(y_true, y_pred, average=None, zero_division=0)
         macro_f1 = f1_score(y_true, y_pred, average='macro', zero_division=0)
         weighted_f1 = f1_score(y_true, y_pred, average='weighted', zero_division=0)
+        gmean_f1 = gmean(f1)
         auc = roc_auc_score(y_true, y_pred) if len(np.unique(y_true)) > 1 else None
 
         return {
@@ -34,6 +36,7 @@ class Evaluator:
             "f1_score_1": f1[1],
             "macro_f1_score": macro_f1,
             "weighted_f1_score": weighted_f1,
+            "gmean_f1_score": gmean_f1,
             "auc": auc
         }
     
@@ -108,6 +111,7 @@ class Evaluator:
                     "f1_score_1": metrics["f1_score_1"],
                     "macro_f1_score": metrics["macro_f1_score"],
                     "weighted_f1_score": metrics["weighted_f1_score"],
+                    "gmean_f1_score": metrics["gmean_f1_score"],
                     "auc": metrics["auc"]
                 })
         # Return the final results as a DataFrame
