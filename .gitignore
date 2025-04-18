@@ -5,4 +5,5 @@ config.yml
 */**/temp
 test.ipynb
 output/**/*.json
+eval_output/**/*.json
 dataset_preprocess_*.ipynb

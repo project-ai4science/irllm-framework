@@ -1,6 +1,7 @@
 from sklearn.metrics import confusion_matrix, f1_score, roc_auc_score, accuracy_score, precision_score, recall_score
 import numpy as np
 import pandas as pd
+from scipy.stats import gmean
 import os
 
 
@@ -19,8 +20,10 @@ class Evaluator:
         accuracy = accuracy_score(y_true, y_pred)
         precision = precision_score(y_true, y_pred, zero_division=0)
         recall = recall_score(y_true, y_pred, zero_division=0)
-        f1 = f1_score(y_true, y_pred, zero_division=0)
+        f1 = f1_score(y_true, y_pred, average=None, zero_division=0)
         macro_f1 = f1_score(y_true, y_pred, average='macro', zero_division=0)
+        weighted_f1 = f1_score(y_true, y_pred, average='weighted', zero_division=0)
+        gmean_f1 = gmean(f1)
         auc = roc_auc_score(y_true, y_pred) if len(np.unique(y_true)) > 1 else None
 
         return {
@@ -29,8 +32,11 @@ class Evaluator:
             "accuracy": accuracy,
             "precision": precision,
             "recall": recall,
-            "f1_score": f1,
+            "f1_score_0": f1[0],
+            "f1_score_1": f1[1],
             "macro_f1_score": macro_f1,
+            "weighted_f1_score": weighted_f1,
+            "gmean_f1_score": gmean_f1,
             "auc": auc
         }
     
@@ -101,8 +107,11 @@ class Evaluator:
                     "accuracy": metrics["accuracy"],
                     "precision": metrics["precision"],
                     "recall": metrics["recall"],
-                    "f1_score": metrics["f1_score"],
+                    "f1_score_0": metrics["f1_score_0"],
+                    "f1_score_1": metrics["f1_score_1"],
                     "macro_f1_score": metrics["macro_f1_score"],
+                    "weighted_f1_score": metrics["weighted_f1_score"],
+                    "gmean_f1_score": metrics["gmean_f1_score"],
                     "auc": metrics["auc"]
                 })
         # Return the final results as a DataFrame
@@ -110,7 +119,7 @@ class Evaluator:
 
     def evaluate_all_recommendations(self, verbose=False):
         files = os.listdir(self.file_dir)
-        files = [f for f in files if f.endswith(".json") and f.startswith("exp_3")]
+        files = [f for f in files if f.endswith(".json") and f.startswith("exp_3_")]
 
         for filename in files:
             if verbose:
@@ -119,17 +128,22 @@ class Evaluator:
 
             try:
                 df_data = pd.read_json(file_path)
-                relevant_items = df_data["relevant_items"]
-                retrieved_items = df_data["retrieved_items"]
+                relevant_items = df_data["y_true"].apply(lambda x: x["title"]).tolist()
+                retrieved_items = df_data["y_pred"].apply(lambda x: [y["title"] for y in x]).tolist()
+                retrieved_items_scores = df_data["y_pred"].apply(lambda x: [y["score"] for y in x]).tolist()
 
                 # Calculate metrics
-                metrics = self.calculate_metrics(relevant_items, retrieved_items)
+                mrr, mrr_scores = self.calculate_mrr(relevant_items, retrieved_items)
+                ndcg10, ndcg10_scores = self.ndcg_at_10(relevant_items, retrieved_items)
 
                 # Append metrics to the results list
                 self.results.append({
                     "file_name": filename,
-                    "mrr": metrics["mrr"],
-                    "ndcg_at_10": metrics["ndcg_at_10"]
+                    "size": len(df_data),
+                    "mrr": mrr,
+                    "ndcg_at_10": ndcg10,
+                    "mrr_scores": mrr_scores,
+                    "ndcg_at_10_scores": ndcg10_scores
                 })
 
             except Exception as e:

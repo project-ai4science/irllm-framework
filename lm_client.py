@@ -103,7 +103,6 @@ class LM_Client():
                     **self.model_config
                 )
                 response_txt = response.output_text
-                print(response_txt)
 
             else:
                 response = self.clients['openai'].chat.completions.create(

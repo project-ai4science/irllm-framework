@@ -105,6 +105,7 @@ task_config:
         - "identification"
         - "classification"
         - "recommendation"
+        - "recommendation_ranking"
         - "generation"
         - "output_evaluation"
     data_path: "./data"
