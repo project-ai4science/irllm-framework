@@ -41,6 +41,8 @@ class TaskHandler():
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
         critical = self.kwargs.get("critical", False)
+        # check if we want few shot prompt else zero shot
+        few_shot = self.kwargs.get("few_shot", False)
         # assemble file name
         out_file_name = f"exp_1_{self.model_name}"
         if budget:
@@ -87,9 +89,11 @@ class TaskHandler():
                 remaining_budget = budget_num - sum(responses)
                 if remaining_budget == 0:
                     break
-                input_prompt = prompt_exp_1_budget % (remaining_budget, title, abstract)
+                prompt_template = prompt_exp_1_budget_fewshot if few_shot else prompt_exp_1_budget
+                input_prompt = prompt_template % (remaining_budget, title, abstract)
             else:
-                input_prompt = prompt_exp_1 % (title, abstract)
+                prompt_template = prompt_exp_1_fewshot if few_shot else prompt_exp_1
+                input_prompt = prompt_template % (title, abstract)
             # llm prompt generation
             response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
             # capture groups for verdict and reason.
@@ -148,6 +152,8 @@ class TaskHandler():
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
         critical = self.kwargs.get("critical", False)
+        # check if we want few shot prompt else zero shot
+        few_shot = self.kwargs.get("few_shot", False)
         if verbose:
             print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
             print(f"Critical llm: {critical}")
@@ -199,9 +205,11 @@ class TaskHandler():
                     remaining_budget = budget_num - sum(responses)
                     if remaining_budget == 0:
                         break
-                    input_prompt = prompt_exp_2_budget % (remaining_budget, disci_one, disci_two)
+                    prompt_template = prompt_exp_2_budget_fewshot if few_shot else prompt_exp_2_budget
+                    input_prompt = prompt_template % (remaining_budget, disci_one, disci_two)
                 else:
-                    input_prompt = prompt_exp_2 % (disci_one, disci_two)
+                    prompt_template = prompt_exp_2_fewshot if few_shot else prompt_exp_2
+                    input_prompt = prompt_template % (disci_one, disci_two)
 
                 # change prompt here for each task
                 response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)                
