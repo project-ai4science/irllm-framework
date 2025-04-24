@@ -989,11 +989,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2501.19343",
-    "c_title":"Effect of a new type of healthy and live food supplement on osteoporosis\n  blood parameters and induced rheumatoid arthritis in Wistar rats",
-    "c_abstract":"Summary Osteoporosis is a skeletal disorder, characterized by a decrease in\nbone strength and puts the individual at risk for fracture. On the other hand,\nrheumatoid arthritis is a systemic disease of unknown etiology that causes\ninflammation of the joints of the organs. Purpose Due to the destructive\neffects of these diseases and its increasing prevalence and lack of appropriate\nmedication for treatment, the present study aimed to evaluate the therapeutic\neffect of a new type of healthy and live food supplement on rheumatoid\narthritis and induced osteoporosis in rats. Methods In this research, healthy\nand live food powder were synthesized by a new and green route. This organic\nbiomaterial was named NBS. The NBS food supplement had various vitamins, macro\nand micro molecules, and ingredients. The new healthy and nutritious diet\nshowed that the use of this supplement led to the return of the parameters to\nnormal levels. Results The concentration of 12.5 mg\/ kg showed the least\ntherapeutic effect and 50 mg\/ kg had the highest therapeutic effect for\nosteoporosis. The results of blood parameters involved in inflammation in both\nhealthy and patient groups showed that the use of complete adjuvant induction\ncauses joint inflammation. In the study of the interaction of the\nconcentrations, it was observed that the concentration of 50 mg\/ kg had the\nhighest therapeutic effect against the disease in the studied mice. Conclusion\nThe results showed that the new healthy and viable supplement restores the\nblood osteoporotic and rheumatoid factors of the mice to normal.",
+    "c_id":[
+      "2501.19343"
+    ],
+    "c_title":[
+      "Effect of a new type of healthy and live food supplement on osteoporosis\n  blood parameters and induced rheumatoid arthritis in Wistar rats"
+    ],
+    "c_abstract":[
+      "Summary Osteoporosis is a skeletal disorder, characterized by a decrease in\nbone strength and puts the individual at risk for fracture. On the other hand,\nrheumatoid arthritis is a systemic disease of unknown etiology that causes\ninflammation of the joints of the organs. Purpose Due to the destructive\neffects of these diseases and its increasing prevalence and lack of appropriate\nmedication for treatment, the present study aimed to evaluate the therapeutic\neffect of a new type of healthy and live food supplement on rheumatoid\narthritis and induced osteoporosis in rats. Methods In this research, healthy\nand live food powder were synthesized by a new and green route. This organic\nbiomaterial was named NBS. The NBS food supplement had various vitamins, macro\nand micro molecules, and ingredients. The new healthy and nutritious diet\nshowed that the use of this supplement led to the return of the parameters to\nnormal levels. Results The concentration of 12.5 mg\/ kg showed the least\ntherapeutic effect and 50 mg\/ kg had the highest therapeutic effect for\nosteoporosis. The results of blood parameters involved in inflammation in both\nhealthy and patient groups showed that the use of complete adjuvant induction\ncauses joint inflammation. In the study of the interaction of the\nconcentrations, it was observed that the concentration of 50 mg\/ kg had the\nhighest therapeutic effect against the disease in the studied mice. Conclusion\nThe results showed that the new healthy and viable supplement restores the\nblood osteoporotic and rheumatoid factors of the mice to normal."
+    ],
     "c_categories":[
-      "q-bio.TO"
+      [
+        "q-bio.TO"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1025,11 +1033,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2502.07709",
-    "c_title":"MAGELLAN: Metacognitive predictions of learning progress guide autotelic\n  LLM agents in large goal spaces",
-    "c_abstract":"Open-ended learning agents must efficiently prioritize goals in vast\npossibility spaces, focusing on those that maximize learning progress (LP).\nWhen such autotelic exploration is achieved by LLM agents trained with online\nRL in high-dimensional and evolving goal spaces, a key challenge for LP\nprediction is modeling one's own competence, a form of metacognitive\nmonitoring. Traditional approaches either require extensive sampling or rely on\nbrittle expert-defined goal groupings. We introduce MAGELLAN, a metacognitive\nframework that lets LLM agents learn to predict their competence and LP online.\nBy capturing semantic relationships between goals, MAGELLAN enables\nsample-efficient LP estimation and dynamic adaptation to evolving goal spaces\nthrough generalization. In an interactive learning environment, we show that\nMAGELLAN improves LP prediction efficiency and goal prioritization, being the\nonly method allowing the agent to fully master a large and evolving goal space.\nThese results demonstrate how augmenting LLM agents with a metacognitive\nability for LP predictions can effectively scale curriculum learning to\nopen-ended goal spaces.",
+    "c_id":[
+      "2502.07709"
+    ],
+    "c_title":[
+      "MAGELLAN: Metacognitive predictions of learning progress guide autotelic\n  LLM agents in large goal spaces"
+    ],
+    "c_abstract":[
+      "Open-ended learning agents must efficiently prioritize goals in vast\npossibility spaces, focusing on those that maximize learning progress (LP).\nWhen such autotelic exploration is achieved by LLM agents trained with online\nRL in high-dimensional and evolving goal spaces, a key challenge for LP\nprediction is modeling one's own competence, a form of metacognitive\nmonitoring. Traditional approaches either require extensive sampling or rely on\nbrittle expert-defined goal groupings. We introduce MAGELLAN, a metacognitive\nframework that lets LLM agents learn to predict their competence and LP online.\nBy capturing semantic relationships between goals, MAGELLAN enables\nsample-efficient LP estimation and dynamic adaptation to evolving goal spaces\nthrough generalization. In an interactive learning environment, we show that\nMAGELLAN improves LP prediction efficiency and goal prioritization, being the\nonly method allowing the agent to fully master a large and evolving goal space.\nThese results demonstrate how augmenting LLM agents with a metacognitive\nability for LP predictions can effectively scale curriculum learning to\nopen-ended goal spaces."
+    ],
     "c_categories":[
-      "cs.AI"
+      [
+        "cs.AI"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1057,11 +1073,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2503.15985",
-    "c_title":"Exploring the Reliability of Self-explanation and its Relationship with\n  Classification in Language Model-driven Financial Analysis",
-    "c_abstract":"Language models (LMs) have exhibited exceptional versatility in reasoning and\nin-depth financial analysis through their proprietary information processing\ncapabilities. Previous research focused on evaluating classification\nperformance while often overlooking explainability or pre-conceived that\nrefined explanation corresponds to higher classification accuracy. Using a\npublic dataset in finance domain, we quantitatively evaluated self-explanations\nby LMs, focusing on their factuality and causality. We identified the\nstatistically significant relationship between the accuracy of classifications\nand the factuality or causality of self-explanations. Our study built an\nempirical foundation for approximating classification confidence through\nself-explanations and for optimizing classification via proprietary reasoning.",
+    "c_id":[
+      "2503.15985"
+    ],
+    "c_title":[
+      "Exploring the Reliability of Self-explanation and its Relationship with\n  Classification in Language Model-driven Financial Analysis"
+    ],
+    "c_abstract":[
+      "Language models (LMs) have exhibited exceptional versatility in reasoning and\nin-depth financial analysis through their proprietary information processing\ncapabilities. Previous research focused on evaluating classification\nperformance while often overlooking explainability or pre-conceived that\nrefined explanation corresponds to higher classification accuracy. Using a\npublic dataset in finance domain, we quantitatively evaluated self-explanations\nby LMs, focusing on their factuality and causality. We identified the\nstatistically significant relationship between the accuracy of classifications\nand the factuality or causality of self-explanations. Our study built an\nempirical foundation for approximating classification confidence through\nself-explanations and for optimizing classification via proprietary reasoning."
+    ],
     "c_categories":[
-      "cs.AI"
+      [
+        "cs.AI"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1089,11 +1113,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2501.04869",
-    "c_title":"Transcriptome signature for the identification of bevacizumab responders\n  in ovarian cancer",
-    "c_abstract":"The standard of care for ovarian cancer comprises cytoreductive surgery,\nfollowed by adjuvant platinum-based chemotherapy plus taxane therapy and\nmaintenance therapy with the antiangiogenic compound bevacizumab and\/or a PARP\ninhibitor. Nevertheless, there is currently no clear clinical indication for\nthe use of bevacizumab, highlighting the urgent need for biomarkers to assess\nthe response to bevacizumab. In the present study, based on a novel RNA-seq\ndataset (n=181) and a previously published microarray-based dataset (n=377), we\nhave identified an expression signature potentially associated with benefit\nfrom bevacizumab addition and assumed to reflect cancer stemness acquisition\ndriven by activation of CTCFL. Patients with this signature demonstrated\nimproved overall survival when bevacizumab was added to standard chemotherapy\nin both novel (HR=0.41(0.23-0.74), adj.p-value=7.70e-03) and previously\npublished cohorts (HR=0.51(0.34-0.75), adj.p-value=3.25e-03), while no\nsignificant differences in survival explained by treatment were observed in\npatients negative for this signature. In addition to the CTCFL signature, we\nfound several other reproducible expression signatures which may also represent\nbiomarker candidates not related to established molecular subtypes of ovarian\ncancer and require further validation studies based on additional RNA-seq data.",
+    "c_id":[
+      "2501.04869"
+    ],
+    "c_title":[
+      "Transcriptome signature for the identification of bevacizumab responders\n  in ovarian cancer"
+    ],
+    "c_abstract":[
+      "The standard of care for ovarian cancer comprises cytoreductive surgery,\nfollowed by adjuvant platinum-based chemotherapy plus taxane therapy and\nmaintenance therapy with the antiangiogenic compound bevacizumab and\/or a PARP\ninhibitor. Nevertheless, there is currently no clear clinical indication for\nthe use of bevacizumab, highlighting the urgent need for biomarkers to assess\nthe response to bevacizumab. In the present study, based on a novel RNA-seq\ndataset (n=181) and a previously published microarray-based dataset (n=377), we\nhave identified an expression signature potentially associated with benefit\nfrom bevacizumab addition and assumed to reflect cancer stemness acquisition\ndriven by activation of CTCFL. Patients with this signature demonstrated\nimproved overall survival when bevacizumab was added to standard chemotherapy\nin both novel (HR=0.41(0.23-0.74), adj.p-value=7.70e-03) and previously\npublished cohorts (HR=0.51(0.34-0.75), adj.p-value=3.25e-03), while no\nsignificant differences in survival explained by treatment were observed in\npatients negative for this signature. In addition to the CTCFL signature, we\nfound several other reproducible expression signatures which may also represent\nbiomarker candidates not related to established molecular subtypes of ovarian\ncancer and require further validation studies based on additional RNA-seq data."
+    ],
     "c_categories":[
-      "q-bio.GN"
+      [
+        "q-bio.GN"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1121,11 +1153,19 @@
     "b_fields":[
       "Economics and Quantitative Finance"
     ],
-    "c_id":"2502.12054",
-    "c_title":"PhysReason: A Comprehensive Benchmark towards Physics-Based Reasoning",
-    "c_abstract":"Large language models demonstrate remarkable capabilities across various\ndomains, especially mathematics and logic reasoning. However, current\nevaluations overlook physics-based reasoning - a complex task requiring physics\ntheorems and constraints. We present PhysReason, a 1,200-problem benchmark\ncomprising knowledge-based (25%) and reasoning-based (75%) problems, where the\nlatter are divided into three difficulty levels (easy, medium, hard). Notably,\nproblems require an average of 8.1 solution steps, with hard requiring 15.6,\nreflecting the complexity of physics-based reasoning. We propose the Physics\nSolution Auto Scoring Framework, incorporating efficient answer-level and\ncomprehensive step-level evaluations. Top-performing models like Deepseek-R1,\nGemini-2.0-Flash-Thinking, and o3-mini-high achieve less than 60% on\nanswer-level evaluation, with performance dropping from knowledge questions\n(75.11%) to hard problems (31.95%). Through step-level evaluation, we\nidentified four key bottlenecks: Physics Theorem Application, Physics Process\nUnderstanding, Calculation, and Physics Condition Analysis. These findings\nposition PhysReason as a novel and comprehensive benchmark for evaluating\nphysics-based reasoning capabilities in large language models. Our code and\ndata will be published at https:\/dxzxy12138.github.io\/PhysReason.",
+    "c_id":[
+      "2502.12054"
+    ],
+    "c_title":[
+      "PhysReason: A Comprehensive Benchmark towards Physics-Based Reasoning"
+    ],
+    "c_abstract":[
+      "Large language models demonstrate remarkable capabilities across various\ndomains, especially mathematics and logic reasoning. However, current\nevaluations overlook physics-based reasoning - a complex task requiring physics\ntheorems and constraints. We present PhysReason, a 1,200-problem benchmark\ncomprising knowledge-based (25%) and reasoning-based (75%) problems, where the\nlatter are divided into three difficulty levels (easy, medium, hard). Notably,\nproblems require an average of 8.1 solution steps, with hard requiring 15.6,\nreflecting the complexity of physics-based reasoning. We propose the Physics\nSolution Auto Scoring Framework, incorporating efficient answer-level and\ncomprehensive step-level evaluations. Top-performing models like Deepseek-R1,\nGemini-2.0-Flash-Thinking, and o3-mini-high achieve less than 60% on\nanswer-level evaluation, with performance dropping from knowledge questions\n(75.11%) to hard problems (31.95%). Through step-level evaluation, we\nidentified four key bottlenecks: Physics Theorem Application, Physics Process\nUnderstanding, Calculation, and Physics Condition Analysis. These findings\nposition PhysReason as a novel and comprehensive benchmark for evaluating\nphysics-based reasoning capabilities in large language models. Our code and\ndata will be published at https:\/dxzxy12138.github.io\/PhysReason."
+    ],
     "c_categories":[
-      "cs.AI"
+      [
+        "cs.AI"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1153,11 +1193,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2502.08875",
-    "c_title":"Utilizing Pre-trained and Large Language Models for 10-K Items\n  Segmentation",
-    "c_abstract":"Extracting specific items from 10-K reports remains challenging due to\nvariations in document formats and item presentation. Traditional rule-based\nitem segmentation approaches often yield suboptimal results. This study\nintroduces two advanced item segmentation methods leveraging language models:\n(1) GPT4ItemSeg, using a novel line-ID-based prompting mechanism to utilize\nGPT4 for item segmentation, and (2) BERT4ItemSeg, combining BERT embeddings\nwith a Bi-LSTM model in a hierarchical structure to overcome context window\nconstraints. Trained and evaluated on 3,737 annotated 10-K reports,\nBERT4ItemSeg achieved a macro-F1 of 0.9825, surpassing GPT4ItemSeg (0.9567),\nconditional random field (0.9818), and rule-based methods (0.9048) for core\nitems (1, 1A, 3, and 7). These approaches enhance item segmentation\nperformance, improving text analytics in accounting and finance. BERT4ItemSeg\noffers satisfactory item segmentation performance, while GPT4ItemSeg can easily\nadapt to regulatory changes. Together, they offer practical benefits for\nresearchers and practitioners, enabling reliable empirical studies and\nautomated 10-K item segmentation functionality.",
+    "c_id":[
+      "2502.08875"
+    ],
+    "c_title":[
+      "Utilizing Pre-trained and Large Language Models for 10-K Items\n  Segmentation"
+    ],
+    "c_abstract":[
+      "Extracting specific items from 10-K reports remains challenging due to\nvariations in document formats and item presentation. Traditional rule-based\nitem segmentation approaches often yield suboptimal results. This study\nintroduces two advanced item segmentation methods leveraging language models:\n(1) GPT4ItemSeg, using a novel line-ID-based prompting mechanism to utilize\nGPT4 for item segmentation, and (2) BERT4ItemSeg, combining BERT embeddings\nwith a Bi-LSTM model in a hierarchical structure to overcome context window\nconstraints. Trained and evaluated on 3,737 annotated 10-K reports,\nBERT4ItemSeg achieved a macro-F1 of 0.9825, surpassing GPT4ItemSeg (0.9567),\nconditional random field (0.9818), and rule-based methods (0.9048) for core\nitems (1, 1A, 3, and 7). These approaches enhance item segmentation\nperformance, improving text analytics in accounting and finance. BERT4ItemSeg\noffers satisfactory item segmentation performance, while GPT4ItemSeg can easily\nadapt to regulatory changes. Together, they offer practical benefits for\nresearchers and practitioners, enabling reliable empirical studies and\nautomated 10-K item segmentation functionality."
+    ],
     "c_categories":[
-      "q-fin.GN"
+      [
+        "q-fin.GN"
+      ]
     ],
     "c_fields":[
       "Economics and Quantitative Finance"
@@ -1185,11 +1233,19 @@
     "b_fields":[
       "Mathematics and Statistics"
     ],
-    "c_id":"2501.07919",
-    "c_title":"Large Language Model Interface for Home Energy Management Systems",
-    "c_abstract":"Home Energy Management Systems (HEMSs) help households tailor their\nelectricity usage based on power system signals such as energy prices. This\ntechnology helps to reduce energy bills and offers greater demand-side\nflexibility that supports the power system stability. However, residents who\nlack a technical background may find it difficult to use HEMSs effectively,\nbecause HEMSs require well-formatted parameterization that reflects the\ncharacteristics of the energy resources, houses, and users' needs. Recently,\nLarge-Language Models (LLMs) have demonstrated an outstanding ability in\nlanguage understanding. Motivated by this, we propose an LLM-based interface\nthat interacts with users to understand and parameterize their\n``badly-formatted answers'', and then outputs well-formatted parameters to\nimplement an HEMS. We further use Reason and Act method (ReAct) and few-shot\nprompting to enhance the LLM performance. Evaluating the interface performance\nrequires multiple user--LLM interactions. To avoid the efforts in finding\nvolunteer users and reduce the evaluation time, we additionally propose a\nmethod that uses another LLM to simulate users with varying expertise, ranging\nfrom knowledgeable to non-technical. By comprehensive evaluation, the proposed\nLLM-based HEMS interface achieves an average parameter retrieval accuracy of\n88\\%, outperforming benchmark models without ReAct and\/or few-shot prompting.",
+    "c_id":[
+      "2501.07919"
+    ],
+    "c_title":[
+      "Large Language Model Interface for Home Energy Management Systems"
+    ],
+    "c_abstract":[
+      "Home Energy Management Systems (HEMSs) help households tailor their\nelectricity usage based on power system signals such as energy prices. This\ntechnology helps to reduce energy bills and offers greater demand-side\nflexibility that supports the power system stability. However, residents who\nlack a technical background may find it difficult to use HEMSs effectively,\nbecause HEMSs require well-formatted parameterization that reflects the\ncharacteristics of the energy resources, houses, and users' needs. Recently,\nLarge-Language Models (LLMs) have demonstrated an outstanding ability in\nlanguage understanding. Motivated by this, we propose an LLM-based interface\nthat interacts with users to understand and parameterize their\n``badly-formatted answers'', and then outputs well-formatted parameters to\nimplement an HEMS. We further use Reason and Act method (ReAct) and few-shot\nprompting to enhance the LLM performance. Evaluating the interface performance\nrequires multiple user--LLM interactions. To avoid the efforts in finding\nvolunteer users and reduce the evaluation time, we additionally propose a\nmethod that uses another LLM to simulate users with varying expertise, ranging\nfrom knowledgeable to non-technical. By comprehensive evaluation, the proposed\nLLM-based HEMS interface achieves an average parameter retrieval accuracy of\n88\\%, outperforming benchmark models without ReAct and\/or few-shot prompting."
+    ],
     "c_categories":[
-      "cs.AI"
+      [
+        "cs.AI"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1217,11 +1273,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2503.04093",
-    "c_title":"Evaluating and Testing for Actionable Treatment Effect Heterogeneity",
-    "c_abstract":"Developing tools for estimating heterogeneous treatment effects (HTE) and\nindividualized treatment effects has been an area of active research in recent\nyears. While these tools have proven to be useful in many contexts, a concern\nwhen deploying such methods is the degree to which incorporating HTE into a\nprediction model provides an advantage over predictive methods which do not\nallow for variation in treatment effect across individuals. To address this\nconcern, we propose a procedure which evaluates the extent to which an HTE\nmodel provides a predictive advantage. Specifically, our procedure targets the\ngain in predictive performance from using a flexible predictive model\nincorporating HTE versus an alternative model which is similar to the\nHTE-utilizing model except that it is constrained to not allow variation in\ntreatment effect. By drawing upon recent work in using nested cross-validation\ntechniques for prediction error inference, we generate confidence intervals for\nthis measure of gain in predictive performance which allows one to directly\ncalculate the level at which one is confident of a substantial HTE-modeling\ngain in prediction -- a quantity which we refer to as the h-value. Our\nprocedure is generic and can be directly used to assess the benefit of modeling\nHTE for any method that incorporates treatment effect variation.",
+    "c_id":[
+      "2503.04093"
+    ],
+    "c_title":[
+      "Evaluating and Testing for Actionable Treatment Effect Heterogeneity"
+    ],
+    "c_abstract":[
+      "Developing tools for estimating heterogeneous treatment effects (HTE) and\nindividualized treatment effects has been an area of active research in recent\nyears. While these tools have proven to be useful in many contexts, a concern\nwhen deploying such methods is the degree to which incorporating HTE into a\nprediction model provides an advantage over predictive methods which do not\nallow for variation in treatment effect across individuals. To address this\nconcern, we propose a procedure which evaluates the extent to which an HTE\nmodel provides a predictive advantage. Specifically, our procedure targets the\ngain in predictive performance from using a flexible predictive model\nincorporating HTE versus an alternative model which is similar to the\nHTE-utilizing model except that it is constrained to not allow variation in\ntreatment effect. By drawing upon recent work in using nested cross-validation\ntechniques for prediction error inference, we generate confidence intervals for\nthis measure of gain in predictive performance which allows one to directly\ncalculate the level at which one is confident of a substantial HTE-modeling\ngain in prediction -- a quantity which we refer to as the h-value. Our\nprocedure is generic and can be directly used to assess the benefit of modeling\nHTE for any method that incorporates treatment effect variation."
+    ],
     "c_categories":[
-      "stat.ME"
+      [
+        "stat.ME"
+      ]
     ],
     "c_fields":[
       "Mathematics and Statistics"
@@ -1249,11 +1313,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2503.06617",
-    "c_title":"Pixel to Gaussian: Ultra-Fast Continuous Super-Resolution with 2D\n  Gaussian Modeling",
-    "c_abstract":"Arbitrary-scale super-resolution (ASSR) aims to reconstruct high-resolution\n(HR) images from low-resolution (LR) inputs with arbitrary upsampling factors\nusing a single model, addressing the limitations of traditional SR methods\nconstrained to fixed-scale factors (\\textit{e.g.}, $\\times$ 2). Recent advances\nleveraging implicit neural representation (INR) have achieved great progress by\nmodeling coordinate-to-pixel mappings. However, the efficiency of these methods\nmay suffer from repeated upsampling and decoding, while their reconstruction\nfidelity and quality are constrained by the intrinsic representational\nlimitations of coordinate-based functions. To address these challenges, we\npropose a novel ContinuousSR framework with a Pixel-to-Gaussian paradigm, which\nexplicitly reconstructs 2D continuous HR signals from LR images using Gaussian\nSplatting. This approach eliminates the need for time-consuming upsampling and\ndecoding, enabling extremely fast arbitrary-scale super-resolution. Once the\nGaussian field is built in a single pass, ContinuousSR can perform\narbitrary-scale rendering in just 1ms per scale. Our method introduces several\nkey innovations. Through statistical ana",
+    "c_id":[
+      "2503.06617"
+    ],
+    "c_title":[
+      "Pixel to Gaussian: Ultra-Fast Continuous Super-Resolution with 2D\n  Gaussian Modeling"
+    ],
+    "c_abstract":[
+      "Arbitrary-scale super-resolution (ASSR) aims to reconstruct high-resolution\n(HR) images from low-resolution (LR) inputs with arbitrary upsampling factors\nusing a single model, addressing the limitations of traditional SR methods\nconstrained to fixed-scale factors (\\textit{e.g.}, $\\times$ 2). Recent advances\nleveraging implicit neural representation (INR) have achieved great progress by\nmodeling coordinate-to-pixel mappings. However, the efficiency of these methods\nmay suffer from repeated upsampling and decoding, while their reconstruction\nfidelity and quality are constrained by the intrinsic representational\nlimitations of coordinate-based functions. To address these challenges, we\npropose a novel ContinuousSR framework with a Pixel-to-Gaussian paradigm, which\nexplicitly reconstructs 2D continuous HR signals from LR images using Gaussian\nSplatting. This approach eliminates the need for time-consuming upsampling and\ndecoding, enabling extremely fast arbitrary-scale super-resolution. Once the\nGaussian field is built in a single pass, ContinuousSR can perform\narbitrary-scale rendering in just 1ms per scale. Our method introduces several\nkey innovations. Through statistical ana"
+    ],
     "c_categories":[
-      "cs.CV"
+      [
+        "cs.CV"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1281,11 +1353,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2501.13628",
-    "c_title":"Language modulates vision: Evidence from neural networks and human\n  brain-lesion models",
-    "c_abstract":"Comparing information structures in between deep neural networks (DNNs) and\nthe human brain has become a key method for exploring their similarities and\ndifferences. Recent research has shown better alignment of vision-language DNN\nmodels, such as CLIP, with the activity of the human ventral occipitotemporal\ncortex (VOTC) than earlier vision models, supporting the idea that language\nmodulates human visual perception. However, interpreting the results from such\ncomparisons is inherently limited due to the \"black box\" nature of DNNs. To\naddress this, we combined model-brain fitness analyses with human brain lesion\ndata to examine how disrupting the communication pathway between the visual and\nlanguage systems causally affects the ability of vision-language DNNs to\nexplain the activity of the VOTC. Across four diverse datasets, CLIP\nconsistently outperformed both label-supervised (ResNet) and unsupervised\n(MoCo) models in predicting VOTC activity. This advantage was left-lateralized,\naligning with the human language network. Analyses of the data of 33 stroke\npatients revealed that reduced white matter integrity between the VOTC and the\nlanguage region in the left angular gyrus was correlated with decreased CLIP\nperformance and increased MoCo performance, indicating a dynamic influence of\nlanguage processing on the activity of the VOTC. These findings support the\nintegration of language modulation in neurocognitive models of human vision,\nreinforcing concepts from vision-language DNN models. The sensitivity of\nmodel-brain similarity to specific brain lesions demonstrates that leveraging\nmanipulation of the human brain is a promising framework for evaluating and\ndeveloping brain-like computer models.",
+    "c_id":[
+      "2501.13628"
+    ],
+    "c_title":[
+      "Language modulates vision: Evidence from neural networks and human\n  brain-lesion models"
+    ],
+    "c_abstract":[
+      "Comparing information structures in between deep neural networks (DNNs) and\nthe human brain has become a key method for exploring their similarities and\ndifferences. Recent research has shown better alignment of vision-language DNN\nmodels, such as CLIP, with the activity of the human ventral occipitotemporal\ncortex (VOTC) than earlier vision models, supporting the idea that language\nmodulates human visual perception. However, interpreting the results from such\ncomparisons is inherently limited due to the \"black box\" nature of DNNs. To\naddress this, we combined model-brain fitness analyses with human brain lesion\ndata to examine how disrupting the communication pathway between the visual and\nlanguage systems causally affects the ability of vision-language DNNs to\nexplain the activity of the VOTC. Across four diverse datasets, CLIP\nconsistently outperformed both label-supervised (ResNet) and unsupervised\n(MoCo) models in predicting VOTC activity. This advantage was left-lateralized,\naligning with the human language network. Analyses of the data of 33 stroke\npatients revealed that reduced white matter integrity between the VOTC and the\nlanguage region in the left angular gyrus was correlated with decreased CLIP\nperformance and increased MoCo performance, indicating a dynamic influence of\nlanguage processing on the activity of the VOTC. These findings support the\nintegration of language modulation in neurocognitive models of human vision,\nreinforcing concepts from vision-language DNN models. The sensitivity of\nmodel-brain similarity to specific brain lesions demonstrates that leveraging\nmanipulation of the human brain is a promising framework for evaluating and\ndeveloping brain-like computer models."
+    ],
     "c_categories":[
-      "q-bio.NC"
+      [
+        "q-bio.NC"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1313,11 +1393,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2501.02232",
-    "c_title":"Distillation-Enhanced Physical Adversarial Attacks",
-    "c_abstract":"The study of physical adversarial patches is crucial for identifying\nvulnerabilities in AI-based recognition systems and developing more robust deep\nlearning models. While recent research has focused on improving patch\nstealthiness for greater practical applicability, achieving an effective\nbalance between stealth and attack performance remains a significant challenge.\nTo address this issue, we propose a novel physical adversarial attack method\nthat leverages knowledge distillation. Specifically, we first define a stealthy\ncolor space tailored to the target environment to ensure smooth blending. Then,\nwe optimize an adversarial patch in an unconstrained color space, which serves\nas the 'teacher' patch. Finally, we use an adversarial knowledge distillation\nmodule to transfer the teacher patch's knowledge to the 'student' patch,\nguiding the optimization of the stealthy patch. Experimental results show that\nour approach improves attack performance by 20%, while maintaining stealth,\nhighlighting its practical value.",
+    "c_id":[
+      "2501.02232"
+    ],
+    "c_title":[
+      "Distillation-Enhanced Physical Adversarial Attacks"
+    ],
+    "c_abstract":[
+      "The study of physical adversarial patches is crucial for identifying\nvulnerabilities in AI-based recognition systems and developing more robust deep\nlearning models. While recent research has focused on improving patch\nstealthiness for greater practical applicability, achieving an effective\nbalance between stealth and attack performance remains a significant challenge.\nTo address this issue, we propose a novel physical adversarial attack method\nthat leverages knowledge distillation. Specifically, we first define a stealthy\ncolor space tailored to the target environment to ensure smooth blending. Then,\nwe optimize an adversarial patch in an unconstrained color space, which serves\nas the 'teacher' patch. Finally, we use an adversarial knowledge distillation\nmodule to transfer the teacher patch's knowledge to the 'student' patch,\nguiding the optimization of the stealthy patch. Experimental results show that\nour approach improves attack performance by 20%, while maintaining stealth,\nhighlighting its practical value."
+    ],
     "c_categories":[
-      "cs.CV"
+      [
+        "cs.CV"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1345,11 +1433,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2501.18661",
-    "c_title":"Geometric immunosuppression in CAR-T cell treatment: Insights from\n  mathematical modeling",
-    "c_abstract":"Chimeric antigen receptor T (CAR-T) cell therapy has emerged as a promising\ntreatment for hematological malignancies, offering a targeted approach to\ncancer treatment. Understanding the complexities of CAR-T cell therapy within\nsolid tumors poses challenges due to the intricate interactions within the\ntumor microenvironment. Mathematical modeling may serve as a valuable tool to\nunravel the dynamics of CAR-T cell therapy and improve its effectiveness in\nsolid tumors. This study aimed to investigate the impact of spatial aspects in\nCAR-T therapy of solid tumors, utilizing cellular automata for modeling\npurposes. Our main objective was to deepen our understanding of treatment\neffects by analyzing scenarios with different spatial distributions and varying\nthe initial quantities of tumor and CAR-T cells. Tumor geometry significantly\ninfluenced treatment efficacy in-silico, with notable differences observed\nbetween tumors with block-like arrangements and those with sparse cell\ndistributions, leading to the concept of immune suppression due to geometrical\neffects. This research delves into the intricate relationship between spatial\ndynamics and the effectiveness of CAR-T therapy in solid tumors, highlighting\nthe relevance of tumor geometry in the outcome of cellular immunotherapy\ntreatments. Our results provide a basis for improving the efficacy of CAR-T\ncell treatments by combining them with other ones reducing the density of\ncompact tumor areas and thus opening access ways for tumor killing T-cells.",
+    "c_id":[
+      "2501.18661"
+    ],
+    "c_title":[
+      "Geometric immunosuppression in CAR-T cell treatment: Insights from\n  mathematical modeling"
+    ],
+    "c_abstract":[
+      "Chimeric antigen receptor T (CAR-T) cell therapy has emerged as a promising\ntreatment for hematological malignancies, offering a targeted approach to\ncancer treatment. Understanding the complexities of CAR-T cell therapy within\nsolid tumors poses challenges due to the intricate interactions within the\ntumor microenvironment. Mathematical modeling may serve as a valuable tool to\nunravel the dynamics of CAR-T cell therapy and improve its effectiveness in\nsolid tumors. This study aimed to investigate the impact of spatial aspects in\nCAR-T therapy of solid tumors, utilizing cellular automata for modeling\npurposes. Our main objective was to deepen our understanding of treatment\neffects by analyzing scenarios with different spatial distributions and varying\nthe initial quantities of tumor and CAR-T cells. Tumor geometry significantly\ninfluenced treatment efficacy in-silico, with notable differences observed\nbetween tumors with block-like arrangements and those with sparse cell\ndistributions, leading to the concept of immune suppression due to geometrical\neffects. This research delves into the intricate relationship between spatial\ndynamics and the effectiveness of CAR-T therapy in solid tumors, highlighting\nthe relevance of tumor geometry in the outcome of cellular immunotherapy\ntreatments. Our results provide a basis for improving the efficacy of CAR-T\ncell treatments by combining them with other ones reducing the density of\ncompact tumor areas and thus opening access ways for tumor killing T-cells."
+    ],
     "c_categories":[
-      "q-bio.TO"
+      [
+        "q-bio.TO"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1377,11 +1473,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2502.03076",
-    "c_title":"Perfect matching of reactive loads through complex frequencies: from\n  circuital analysis to experiments",
-    "c_abstract":"The experimental evidence of purely reactive loads impedance matching is here\nprovided by exploiting the special scattering response under complex\nexcitations. The study starts with a theoretical analysis of the reflection\nproperties of an arbitrary reactive load and identifies the proper excitation\nable to transform the purely reactive load into a virtual resistive load during\nthe time the signal is applied. To minimize reflections between the load and\nthe transmission line, the excitation must have a complex frequency, leading to\na propagating signal with a tailored temporal envelope. The aim of this work is\nto design and, for the first time,experimentally demonstrate this anomalous\nscattering behavior in microwave circuits, showing that the time-modulated\nsignals can be exploited as a new degree of freedom for achieving impedance\nmatching without introducing neither a matching network nor resistive elements,\nthat are typically used for ensuring power dissipation and, thus, zero\nreflection. The proposed matching strategy does not alter the reactive load\nthat is still lossless, enabling an anomalous termination condition where the\nenergy is not dissipated nor reflected, but indefinitely accumulated in the\nreactive load. The stored energy leaks out the load as soon as the applied\nsignal changes or stops.",
+    "c_id":[
+      "2502.03076"
+    ],
+    "c_title":[
+      "Perfect matching of reactive loads through complex frequencies: from\n  circuital analysis to experiments"
+    ],
+    "c_abstract":[
+      "The experimental evidence of purely reactive loads impedance matching is here\nprovided by exploiting the special scattering response under complex\nexcitations. The study starts with a theoretical analysis of the reflection\nproperties of an arbitrary reactive load and identifies the proper excitation\nable to transform the purely reactive load into a virtual resistive load during\nthe time the signal is applied. To minimize reflections between the load and\nthe transmission line, the excitation must have a complex frequency, leading to\na propagating signal with a tailored temporal envelope. The aim of this work is\nto design and, for the first time,experimentally demonstrate this anomalous\nscattering behavior in microwave circuits, showing that the time-modulated\nsignals can be exploited as a new degree of freedom for achieving impedance\nmatching without introducing neither a matching network nor resistive elements,\nthat are typically used for ensuring power dissipation and, thus, zero\nreflection. The proposed matching strategy does not alter the reactive load\nthat is still lossless, enabling an anomalous termination condition where the\nenergy is not dissipated nor reflected, but indefinitely accumulated in the\nreactive load. The stored energy leaks out the load as soon as the applied\nsignal changes or stops."
+    ],
     "c_categories":[
-      "eess.SP"
+      [
+        "eess.SP"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1413,11 +1517,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2503.09979",
-    "c_title":"Silicon is the next frontier in plant synthetic biology",
-    "c_abstract":"Silicon has striking similarity with carbon and is found in plant cells.\nHowever, there is no specific role that has been assigned to silicon in the\nlife cycle of plants. The amount of silicon in plant cells is species specific\nand can reach levels comparable to macronutrients. Silicon is the central\nelement for artificial intelligence, nanotechnology and digital revolution thus\ncan act as an informational molecule like nucleic acids while the diverse\nbonding potential of silicon with different chemical species is analogous to\ncarbon and thus can serve as a structural candidate such as proteins. The\ndiscovery of large amounts of silicon on Mars and the moon along with the\nrecent developments of enzyme that can incorporate silicon into organic\nmolecules has propelled the theory of creating silicon-based life. More\nrecently, bacterial cytochrome has been modified through directed evolution\nsuch that it could cleave silicon-carbon bonds in organo-silicon compounds thus\nconsolidating on the idea of utilizing silicon in biomolecules. In this article\nthe potential of silicon-based life forms has been hypothesized along with the\nreasoning that autotrophic virus-like particles can be a lucrative candidate to\ninvestigate such potential. Such investigations in the field of synthetic\nbiology and astrobiology will have corollary benefit on Earth in the areas of\nmedicine, sustainable agriculture and environmental sustainability.\nBibliometric analysis indicates an increasing interest in synthetic biology.\nGermany leads in research related to plant synthetic biology, while\nBiotechnology and Biological Sciences Research Council (BBSRC) at UK has\nhighest financial commitments and Chinese Academy of Sciences generates the\nhighest number of publications in the field.",
+    "c_id":[
+      "2503.09979"
+    ],
+    "c_title":[
+      "Silicon is the next frontier in plant synthetic biology"
+    ],
+    "c_abstract":[
+      "Silicon has striking similarity with carbon and is found in plant cells.\nHowever, there is no specific role that has been assigned to silicon in the\nlife cycle of plants. The amount of silicon in plant cells is species specific\nand can reach levels comparable to macronutrients. Silicon is the central\nelement for artificial intelligence, nanotechnology and digital revolution thus\ncan act as an informational molecule like nucleic acids while the diverse\nbonding potential of silicon with different chemical species is analogous to\ncarbon and thus can serve as a structural candidate such as proteins. The\ndiscovery of large amounts of silicon on Mars and the moon along with the\nrecent developments of enzyme that can incorporate silicon into organic\nmolecules has propelled the theory of creating silicon-based life. More\nrecently, bacterial cytochrome has been modified through directed evolution\nsuch that it could cleave silicon-carbon bonds in organo-silicon compounds thus\nconsolidating on the idea of utilizing silicon in biomolecules. In this article\nthe potential of silicon-based life forms has been hypothesized along with the\nreasoning that autotrophic virus-like particles can be a lucrative candidate to\ninvestigate such potential. Such investigations in the field of synthetic\nbiology and astrobiology will have corollary benefit on Earth in the areas of\nmedicine, sustainable agriculture and environmental sustainability.\nBibliometric analysis indicates an increasing interest in synthetic biology.\nGermany leads in research related to plant synthetic biology, while\nBiotechnology and Biological Sciences Research Council (BBSRC) at UK has\nhighest financial commitments and Chinese Academy of Sciences generates the\nhighest number of publications in the field."
+    ],
     "c_categories":[
-      "q-bio.BM"
+      [
+        "q-bio.BM"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1449,11 +1561,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2501.19343",
-    "c_title":"Effect of a new type of healthy and live food supplement on osteoporosis\n  blood parameters and induced rheumatoid arthritis in Wistar rats",
-    "c_abstract":"Summary Osteoporosis is a skeletal disorder, characterized by a decrease in\nbone strength and puts the individual at risk for fracture. On the other hand,\nrheumatoid arthritis is a systemic disease of unknown etiology that causes\ninflammation of the joints of the organs. Purpose Due to the destructive\neffects of these diseases and its increasing prevalence and lack of appropriate\nmedication for treatment, the present study aimed to evaluate the therapeutic\neffect of a new type of healthy and live food supplement on rheumatoid\narthritis and induced osteoporosis in rats. Methods In this research, healthy\nand live food powder were synthesized by a new and green route. This organic\nbiomaterial was named NBS. The NBS food supplement had various vitamins, macro\nand micro molecules, and ingredients. The new healthy and nutritious diet\nshowed that the use of this supplement led to the return of the parameters to\nnormal levels. Results The concentration of 12.5 mg\/ kg showed the least\ntherapeutic effect and 50 mg\/ kg had the highest therapeutic effect for\nosteoporosis. The results of blood parameters involved in inflammation in both\nhealthy and patient groups showed that the use of complete adjuvant induction\ncauses joint inflammation. In the study of the interaction of the\nconcentrations, it was observed that the concentration of 50 mg\/ kg had the\nhighest therapeutic effect against the disease in the studied mice. Conclusion\nThe results showed that the new healthy and viable supplement restores the\nblood osteoporotic and rheumatoid factors of the mice to normal.",
+    "c_id":[
+      "2501.19343"
+    ],
+    "c_title":[
+      "Effect of a new type of healthy and live food supplement on osteoporosis\n  blood parameters and induced rheumatoid arthritis in Wistar rats"
+    ],
+    "c_abstract":[
+      "Summary Osteoporosis is a skeletal disorder, characterized by a decrease in\nbone strength and puts the individual at risk for fracture. On the other hand,\nrheumatoid arthritis is a systemic disease of unknown etiology that causes\ninflammation of the joints of the organs. Purpose Due to the destructive\neffects of these diseases and its increasing prevalence and lack of appropriate\nmedication for treatment, the present study aimed to evaluate the therapeutic\neffect of a new type of healthy and live food supplement on rheumatoid\narthritis and induced osteoporosis in rats. Methods In this research, healthy\nand live food powder were synthesized by a new and green route. This organic\nbiomaterial was named NBS. The NBS food supplement had various vitamins, macro\nand micro molecules, and ingredients. The new healthy and nutritious diet\nshowed that the use of this supplement led to the return of the parameters to\nnormal levels. Results The concentration of 12.5 mg\/ kg showed the least\ntherapeutic effect and 50 mg\/ kg had the highest therapeutic effect for\nosteoporosis. The results of blood parameters involved in inflammation in both\nhealthy and patient groups showed that the use of complete adjuvant induction\ncauses joint inflammation. In the study of the interaction of the\nconcentrations, it was observed that the concentration of 50 mg\/ kg had the\nhighest therapeutic effect against the disease in the studied mice. Conclusion\nThe results showed that the new healthy and viable supplement restores the\nblood osteoporotic and rheumatoid factors of the mice to normal."
+    ],
     "c_categories":[
-      "q-bio.TO"
+      [
+        "q-bio.TO"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1481,11 +1601,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2503.11919",
-    "c_title":"k-fold Subsampling based Sequential Backward Feature Elimination",
-    "c_abstract":"We present a new wrapper feature selection algorithm for human detection.\nThis algorithm is a hybrid feature selection approach combining the benefits of\nfilter and wrapper methods. It allows the selection of an optimal feature\nvector that well represents the shapes of the subjects in the images. In\ndetail, the proposed feature selection algorithm adopts the k-fold subsampling\nand sequential backward elimination approach, while the standard linear support\nvector machine (SVM) is used as the classifier for human detection. We apply\nthe proposed algorithm to the publicly accessible INRIA and ETH pedestrian full\nimage datasets with the PASCAL VOC evaluation criteria. Compared to other state\nof the arts algorithms, our feature selection based approach can improve the\ndetection speed of the SVM classifier by over 50% with up to 2% better\ndetection accuracy. Our algorithm also outperforms the equivalent systems\nintroduced in the deformable part model approach with around 9% improvement in\nthe detection accuracy.",
+    "c_id":[
+      "2503.11919"
+    ],
+    "c_title":[
+      "k-fold Subsampling based Sequential Backward Feature Elimination"
+    ],
+    "c_abstract":[
+      "We present a new wrapper feature selection algorithm for human detection.\nThis algorithm is a hybrid feature selection approach combining the benefits of\nfilter and wrapper methods. It allows the selection of an optimal feature\nvector that well represents the shapes of the subjects in the images. In\ndetail, the proposed feature selection algorithm adopts the k-fold subsampling\nand sequential backward elimination approach, while the standard linear support\nvector machine (SVM) is used as the classifier for human detection. We apply\nthe proposed algorithm to the publicly accessible INRIA and ETH pedestrian full\nimage datasets with the PASCAL VOC evaluation criteria. Compared to other state\nof the arts algorithms, our feature selection based approach can improve the\ndetection speed of the SVM classifier by over 50% with up to 2% better\ndetection accuracy. Our algorithm also outperforms the equivalent systems\nintroduced in the deformable part model approach with around 9% improvement in\nthe detection accuracy."
+    ],
     "c_categories":[
-      "cs.CV"
+      [
+        "cs.CV"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1513,11 +1641,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2503.01376",
-    "c_title":"Pushing the boundaries of Structure-Based Drug Design through\n  Collaboration with Large Language Models",
-    "c_abstract":"Structure-Based Drug Design (SBDD) has revolutionized drug discovery by\nenabling the rational design of molecules for specific protein targets. Despite\nsignificant advancements in improving docking scores, advanced 3D-SBDD\ngenerative models still face challenges in producing drug-like candidates that\nmeet medicinal chemistry standards and pharmacokinetic requirements. These\nlimitations arise from their inherent focus on molecular interactions, often\nneglecting critical aspects of drug-likeness. To address these shortcomings, we\nintroduce the Collaborative Intelligence Drug Design (CIDD) framework, which\ncombines the structural precision of 3D-SBDD models with the chemical reasoning\ncapabilities of large language models (LLMs). CIDD begins by generating\nsupporting molecules with 3D-SBDD models and then refines these molecules\nthrough LLM-supported modules to enhance drug-likeness and structural\nreasonability. When evaluated on the CrossDocked2020 dataset, CIDD achieved a\nremarkable success ratio of 37.94%, significantly outperforming the previous\nstate-of-the-art benchmark of 15.72%. Although improving molecular interactions\nand drug-likeness is often seen as a trade-off, CIDD uniquely achieves a\nbalanced improvement in both by leveraging the complementary strengths of\ndifferent models, offering a robust and innovative pathway for designing\ntherapeutically promising drug candidates.",
+    "c_id":[
+      "2503.01376"
+    ],
+    "c_title":[
+      "Pushing the boundaries of Structure-Based Drug Design through\n  Collaboration with Large Language Models"
+    ],
+    "c_abstract":[
+      "Structure-Based Drug Design (SBDD) has revolutionized drug discovery by\nenabling the rational design of molecules for specific protein targets. Despite\nsignificant advancements in improving docking scores, advanced 3D-SBDD\ngenerative models still face challenges in producing drug-like candidates that\nmeet medicinal chemistry standards and pharmacokinetic requirements. These\nlimitations arise from their inherent focus on molecular interactions, often\nneglecting critical aspects of drug-likeness. To address these shortcomings, we\nintroduce the Collaborative Intelligence Drug Design (CIDD) framework, which\ncombines the structural precision of 3D-SBDD models with the chemical reasoning\ncapabilities of large language models (LLMs). CIDD begins by generating\nsupporting molecules with 3D-SBDD models and then refines these molecules\nthrough LLM-supported modules to enhance drug-likeness and structural\nreasonability. When evaluated on the CrossDocked2020 dataset, CIDD achieved a\nremarkable success ratio of 37.94%, significantly outperforming the previous\nstate-of-the-art benchmark of 15.72%. Although improving molecular interactions\nand drug-likeness is often seen as a trade-off, CIDD uniquely achieves a\nbalanced improvement in both by leveraging the complementary strengths of\ndifferent models, offering a robust and innovative pathway for designing\ntherapeutically promising drug candidates."
+    ],
     "c_categories":[
-      "q-bio.BM"
+      [
+        "q-bio.BM"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1545,11 +1681,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2502.03274",
-    "c_title":"A Scalable Approach to Probabilistic Neuro-Symbolic Verification",
-    "c_abstract":"Neuro-Symbolic Artificial Intelligence (NeSy AI) has emerged as a promising\ndirection for integrating neural learning with symbolic reasoning. In the\nprobabilistic variant of such systems, a neural network first extracts a set of\nsymbols from sub-symbolic input, which are then used by a symbolic component to\nreason in a probabilistic manner towards answering a query. In this work, we\naddress the problem of formally verifying the robustness of such NeSy\nprobabilistic reasoning systems, therefore paving the way for their safe\ndeployment in critical domains. We analyze the complexity of solving this\nproblem exactly, and show that it is $\\mathrm{NP}^{\\# \\mathrm{P}}$-hard. To\novercome this issue, we propose the first approach for approximate,\nrelaxation-based verification of probabilistic NeSy systems. We demonstrate\nexperimentally that the proposed method scales exponentially better than\nsolver-based solutions and apply our technique to a real-world autonomous\ndriving dataset, where we verify a safety property under large input\ndimensionalities and network sizes.",
+    "c_id":[
+      "2502.03274"
+    ],
+    "c_title":[
+      "A Scalable Approach to Probabilistic Neuro-Symbolic Verification"
+    ],
+    "c_abstract":[
+      "Neuro-Symbolic Artificial Intelligence (NeSy AI) has emerged as a promising\ndirection for integrating neural learning with symbolic reasoning. In the\nprobabilistic variant of such systems, a neural network first extracts a set of\nsymbols from sub-symbolic input, which are then used by a symbolic component to\nreason in a probabilistic manner towards answering a query. In this work, we\naddress the problem of formally verifying the robustness of such NeSy\nprobabilistic reasoning systems, therefore paving the way for their safe\ndeployment in critical domains. We analyze the complexity of solving this\nproblem exactly, and show that it is $\\mathrm{NP}^{\\# \\mathrm{P}}$-hard. To\novercome this issue, we propose the first approach for approximate,\nrelaxation-based verification of probabilistic NeSy systems. We demonstrate\nexperimentally that the proposed method scales exponentially better than\nsolver-based solutions and apply our technique to a real-world autonomous\ndriving dataset, where we verify a safety property under large input\ndimensionalities and network sizes."
+    ],
     "c_categories":[
-      "cs.AI"
+      [
+        "cs.AI"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1577,11 +1721,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2501.11249",
-    "c_title":"Enhancing SAR Object Detection with Self-Supervised Pre-training on\n  Masked Auto-Encoders",
-    "c_abstract":"Supervised fine-tuning methods (SFT) perform great efficiency on artificial\nintelligence interpretation in SAR images, leveraging the powerful\nrepresentation knowledge from pre-training models. Due to the lack of\ndomain-specific pre-trained backbones in SAR images, the traditional strategies\nare loading the foundation pre-train models of natural scenes such as ImageNet,\nwhose characteristics of images are extremely different from SAR images. This\nmay hinder the model performance on downstream tasks when adopting SFT on\nsmall-scale annotated SAR data. In this paper, an self-supervised learning\n(SSL) method of masked image modeling based on Masked Auto-Encoders (MAE) is\nproposed to learn feature representations of SAR images during the pre-training\nprocess and benefit the object detection task in SAR images of SFT. The\nevaluation experiments on the large-scale SAR object detection benchmark named\nSARDet-100k verify that the proposed method captures proper latent\nrepresentations of SAR images and improves the model generalization in\ndownstream tasks by converting the pre-trained domain from natural scenes to\nSAR images through SSL. The proposed method achieves an improvement of 1.3 mAP\non the SARDet-100k benchmark compared to only the SFT strategies.",
+    "c_id":[
+      "2501.11249"
+    ],
+    "c_title":[
+      "Enhancing SAR Object Detection with Self-Supervised Pre-training on\n  Masked Auto-Encoders"
+    ],
+    "c_abstract":[
+      "Supervised fine-tuning methods (SFT) perform great efficiency on artificial\nintelligence interpretation in SAR images, leveraging the powerful\nrepresentation knowledge from pre-training models. Due to the lack of\ndomain-specific pre-trained backbones in SAR images, the traditional strategies\nare loading the foundation pre-train models of natural scenes such as ImageNet,\nwhose characteristics of images are extremely different from SAR images. This\nmay hinder the model performance on downstream tasks when adopting SFT on\nsmall-scale annotated SAR data. In this paper, an self-supervised learning\n(SSL) method of masked image modeling based on Masked Auto-Encoders (MAE) is\nproposed to learn feature representations of SAR images during the pre-training\nprocess and benefit the object detection task in SAR images of SFT. The\nevaluation experiments on the large-scale SAR object detection benchmark named\nSARDet-100k verify that the proposed method captures proper latent\nrepresentations of SAR images and improves the model generalization in\ndownstream tasks by converting the pre-trained domain from natural scenes to\nSAR images through SSL. The proposed method achieves an improvement of 1.3 mAP\non the SARDet-100k benchmark compared to only the SFT strategies."
+    ],
     "c_categories":[
-      "cs.CV"
+      [
+        "cs.CV"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1609,11 +1761,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2503.00197",
-    "c_title":"Unveiling sex dimorphism in the healthy cardiac anatomy: fundamental\n  differences between male and female heart shapes",
-    "c_abstract":"Sex-based differences in cardiovascular disease are well documented, yet the\nprecise nature and extent of these discrepancies in cardiac anatomy remain\nincompletely understood. Traditional scaling models often fail to capture the\ninterplay of age, blood pressure, and body size, prompting a more nuanced\ninvestigation. Here, we employ statistical shape modeling in a healthy subset\n(n=456) of the UK Biobank to explore sex-specific variations in biventricular\nanatomy. We reconstruct 3D meshes and perform multivariate analyses of shape\ncoefficients, controlling for age, blood pressure, and various body size\nmetrics. Our findings reveal that sex alone explains at least 25 percent of\nmorphological variability, with strong discrimination between men and women\n(AUC=0.96-0.71) persisting even after correction for confounders. Notably, the\nmost discriminative modes highlight pronounced differences in cardiac chamber\nvolumes, the anterior-posterior width of the right ventricle, and the relative\npositioning of the cardiac chambers. These results underscore that sex has a\nfundamental influence on cardiac morphology, which may have important clinical\nimplications for differing cardiac structural assessments in men and women.\nFuture work should investigate how these anatomical differences manifest in\nvarious cardiovascular conditions, ultimately paving the way for more precise\nrisk stratification and personalized therapeutic strategies for both men and\nwomen.",
+    "c_id":[
+      "2503.00197"
+    ],
+    "c_title":[
+      "Unveiling sex dimorphism in the healthy cardiac anatomy: fundamental\n  differences between male and female heart shapes"
+    ],
+    "c_abstract":[
+      "Sex-based differences in cardiovascular disease are well documented, yet the\nprecise nature and extent of these discrepancies in cardiac anatomy remain\nincompletely understood. Traditional scaling models often fail to capture the\ninterplay of age, blood pressure, and body size, prompting a more nuanced\ninvestigation. Here, we employ statistical shape modeling in a healthy subset\n(n=456) of the UK Biobank to explore sex-specific variations in biventricular\nanatomy. We reconstruct 3D meshes and perform multivariate analyses of shape\ncoefficients, controlling for age, blood pressure, and various body size\nmetrics. Our findings reveal that sex alone explains at least 25 percent of\nmorphological variability, with strong discrimination between men and women\n(AUC=0.96-0.71) persisting even after correction for confounders. Notably, the\nmost discriminative modes highlight pronounced differences in cardiac chamber\nvolumes, the anterior-posterior width of the right ventricle, and the relative\npositioning of the cardiac chambers. These results underscore that sex has a\nfundamental influence on cardiac morphology, which may have important clinical\nimplications for differing cardiac structural assessments in men and women.\nFuture work should investigate how these anatomical differences manifest in\nvarious cardiovascular conditions, ultimately paving the way for more precise\nrisk stratification and personalized therapeutic strategies for both men and\nwomen."
+    ],
     "c_categories":[
-      "q-bio.TO"
+      [
+        "q-bio.TO"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1641,11 +1801,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2503.17738",
-    "c_title":"Tumor-associated CD19$^+$ macrophages induce immunosuppressive\n  microenvironment in hepatocellular carcinoma",
-    "c_abstract":"Tumor-associated macrophages are a key component that contributes to the\nimmunosuppressive microenvironment in human cancers. However, therapeutic\ntargeting of macrophages has been a challenge in clinic due to the limited\nunderstanding of their heterogeneous subpopulations and distinct functions.\nHere, we identify a unique and clinically relevant CD19$^+$ subpopulation of\nmacrophages that is enriched in many types of cancer, particularly in\nhepatocellular carcinoma (HCC). The CD19$^+$ macrophages exhibit increased\nlevels of PD-L1 and CD73, enhanced mitochondrial oxidation, and compromised\nphagocytosis, indicating their immunosuppressive functions. Targeting CD19$^+$\nmacrophages with anti-CD19 chimeric antigen receptor T (CAR-T) cells inhibited\nHCC tumor growth. We identify PAX5 as a primary driver of up-regulated\nmitochondrial biogenesis in CD19$^+$ macrophages, which depletes cytoplasmic\nCa$^{2+}$, leading to lysosomal deficiency and consequent accumulation of CD73\nand PD-L1. Inhibiting CD73 or mitochondrial oxidation enhanced the efficacy of\nimmune checkpoint blockade therapy in treating HCC, suggesting great promise\nfor CD19$^+$ macrophage-targeting therapeutics.",
+    "c_id":[
+      "2503.17738"
+    ],
+    "c_title":[
+      "Tumor-associated CD19$^+$ macrophages induce immunosuppressive\n  microenvironment in hepatocellular carcinoma"
+    ],
+    "c_abstract":[
+      "Tumor-associated macrophages are a key component that contributes to the\nimmunosuppressive microenvironment in human cancers. However, therapeutic\ntargeting of macrophages has been a challenge in clinic due to the limited\nunderstanding of their heterogeneous subpopulations and distinct functions.\nHere, we identify a unique and clinically relevant CD19$^+$ subpopulation of\nmacrophages that is enriched in many types of cancer, particularly in\nhepatocellular carcinoma (HCC). The CD19$^+$ macrophages exhibit increased\nlevels of PD-L1 and CD73, enhanced mitochondrial oxidation, and compromised\nphagocytosis, indicating their immunosuppressive functions. Targeting CD19$^+$\nmacrophages with anti-CD19 chimeric antigen receptor T (CAR-T) cells inhibited\nHCC tumor growth. We identify PAX5 as a primary driver of up-regulated\nmitochondrial biogenesis in CD19$^+$ macrophages, which depletes cytoplasmic\nCa$^{2+}$, leading to lysosomal deficiency and consequent accumulation of CD73\nand PD-L1. Inhibiting CD73 or mitochondrial oxidation enhanced the efficacy of\nimmune checkpoint blockade therapy in treating HCC, suggesting great promise\nfor CD19$^+$ macrophage-targeting therapeutics."
+    ],
     "c_categories":[
-      "q-bio.CB"
+      [
+        "q-bio.CB"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
@@ -1673,11 +1841,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2503.18360",
-    "c_title":"J&H: Evaluating the Robustness of Large Language Models Under\n  Knowledge-Injection Attacks in Legal Domain",
-    "c_abstract":"As the scale and capabilities of Large Language Models (LLMs) increase, their\napplications in knowledge-intensive fields such as legal domain have garnered\nwidespread attention. However, it remains doubtful whether these LLMs make\njudgments based on domain knowledge for reasoning. If LLMs base their judgments\nsolely on specific words or patterns, rather than on the underlying logic of\nthe language, the ''LLM-as-judges'' paradigm poses substantial risks in the\nreal-world applications. To address this question, we propose a method of legal\nknowledge injection attacks for robustness testing, thereby inferring whether\nLLMs have learned legal knowledge and reasoning logic. In this paper, we\npropose J&H: an evaluation framework for detecting the robustness of LLMs under\nknowledge injection attacks in the legal domain. The aim of the framework is to\nexplore whether LLMs perform deductive reasoning when accomplishing legal\ntasks. To further this aim, we have attacked each part of the reasoning logic\nunderlying these tasks (major premise, minor premise, and conclusion\ngeneration). We have collected mistakes that legal experts might make in\njudicial decisions in the real world, such as typos, legal synonyms, inaccurate\nexternal legal statutes retrieval. However, in real legal practice, legal\nexperts tend to overlook these mistakes and make judgments based on logic.\nHowever, when faced with these errors, LLMs are likely to be misled by\ntypographical errors and may not utilize logic in their judgments. We conducted\nknowledge injection attacks on existing general and domain-specific LLMs.\nCurrent LLMs are not robust against the attacks employed in our experiments. In\naddition we propose and compare several methods to enhance the knowledge\nrobustness of LLMs.",
+    "c_id":[
+      "2503.18360"
+    ],
+    "c_title":[
+      "J&H: Evaluating the Robustness of Large Language Models Under\n  Knowledge-Injection Attacks in Legal Domain"
+    ],
+    "c_abstract":[
+      "As the scale and capabilities of Large Language Models (LLMs) increase, their\napplications in knowledge-intensive fields such as legal domain have garnered\nwidespread attention. However, it remains doubtful whether these LLMs make\njudgments based on domain knowledge for reasoning. If LLMs base their judgments\nsolely on specific words or patterns, rather than on the underlying logic of\nthe language, the ''LLM-as-judges'' paradigm poses substantial risks in the\nreal-world applications. To address this question, we propose a method of legal\nknowledge injection attacks for robustness testing, thereby inferring whether\nLLMs have learned legal knowledge and reasoning logic. In this paper, we\npropose J&H: an evaluation framework for detecting the robustness of LLMs under\nknowledge injection attacks in the legal domain. The aim of the framework is to\nexplore whether LLMs perform deductive reasoning when accomplishing legal\ntasks. To further this aim, we have attacked each part of the reasoning logic\nunderlying these tasks (major premise, minor premise, and conclusion\ngeneration). We have collected mistakes that legal experts might make in\njudicial decisions in the real world, such as typos, legal synonyms, inaccurate\nexternal legal statutes retrieval. However, in real legal practice, legal\nexperts tend to overlook these mistakes and make judgments based on logic.\nHowever, when faced with these errors, LLMs are likely to be misled by\ntypographical errors and may not utilize logic in their judgments. We conducted\nknowledge injection attacks on existing general and domain-specific LLMs.\nCurrent LLMs are not robust against the attacks employed in our experiments. In\naddition we propose and compare several methods to enhance the knowledge\nrobustness of LLMs."
+    ],
     "c_categories":[
-      "cs.CL"
+      [
+        "cs.CL"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1705,11 +1881,19 @@
     "b_fields":[
       "Quantitative Biology"
     ],
-    "c_id":"2501.19351",
-    "c_title":"Neural Implicit Solution Formula for Efficiently Solving Hamilton-Jacobi\n  Equations",
-    "c_abstract":"This paper presents an implicit solution formula for the Hamilton-Jacobi\npartial differential equation (HJ PDE). The formula is derived using the method\nof characteristics and is shown to coincide with the Hopf and Lax formulas in\nthe case where either the Hamiltonian or the initial function is convex. It\nprovides a simple and efficient numerical approach for computing the viscosity\nsolution of HJ PDEs, bypassing the need for the Legendre transform of the\nHamiltonian or the initial condition, and the explicit computation of\nindividual characteristic trajectories. A deep learning-based methodology is\nproposed to learn this implicit solution formula, leveraging the mesh-free\nnature of deep learning to ensure scalability for high-dimensional problems.\nBuilding upon this framework, an algorithm is developed that approximates the\ncharacteristic curves piecewise linearly for state-dependent Hamiltonians.\nExtensive experimental results demonstrate that the proposed method delivers\nhighly accurate solutions, even for nonconvex Hamiltonians, and exhibits\nremarkable scalability, achieving computational efficiency for problems up to\n40 dimensions.",
+    "c_id":[
+      "2501.19351"
+    ],
+    "c_title":[
+      "Neural Implicit Solution Formula for Efficiently Solving Hamilton-Jacobi\n  Equations"
+    ],
+    "c_abstract":[
+      "This paper presents an implicit solution formula for the Hamilton-Jacobi\npartial differential equation (HJ PDE). The formula is derived using the method\nof characteristics and is shown to coincide with the Hopf and Lax formulas in\nthe case where either the Hamiltonian or the initial function is convex. It\nprovides a simple and efficient numerical approach for computing the viscosity\nsolution of HJ PDEs, bypassing the need for the Legendre transform of the\nHamiltonian or the initial condition, and the explicit computation of\nindividual characteristic trajectories. A deep learning-based methodology is\nproposed to learn this implicit solution formula, leveraging the mesh-free\nnature of deep learning to ensure scalability for high-dimensional problems.\nBuilding upon this framework, an algorithm is developed that approximates the\ncharacteristic curves piecewise linearly for state-dependent Hamiltonians.\nExtensive experimental results demonstrate that the proposed method delivers\nhighly accurate solutions, even for nonconvex Hamiltonians, and exhibits\nremarkable scalability, achieving computational efficiency for problems up to\n40 dimensions."
+    ],
     "c_categories":[
-      "cs.LG"
+      [
+        "cs.LG"
+      ]
     ],
     "c_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
@@ -1737,11 +1921,19 @@
     "b_fields":[
       "Computer Science, Electrical Engineering and Systems Science"
     ],
-    "c_id":"2501.04822",
-    "c_title":"Curated loci prime editing (cliPE) for accessible multiplexed assays of\n  variant effect (MAVEs)",
-    "c_abstract":"Multiplexed assays of variant effect (MAVEs) perform simultaneous\ncharacterization of many variants. Prime editing has been recently adopted for\nintroducing many variants in their native genomic contexts. However, robust\nprotocols and standards are limited, preventing widespread uptake. Herein, we\ndescribe curated loci prime editing (cliPE) which is an accessible, low-cost\nexperimental pipeline to perform MAVEs using prime editing of a target gene, as\nwell as a companion Shiny app (pegRNA Designer) to rapidly and easily design\nuser-specific MAVE libraries.",
+    "c_id":[
+      "2501.04822"
+    ],
+    "c_title":[
+      "Curated loci prime editing (cliPE) for accessible multiplexed assays of\n  variant effect (MAVEs)"
+    ],
+    "c_abstract":[
+      "Multiplexed assays of variant effect (MAVEs) perform simultaneous\ncharacterization of many variants. Prime editing has been recently adopted for\nintroducing many variants in their native genomic contexts. However, robust\nprotocols and standards are limited, preventing widespread uptake. Herein, we\ndescribe curated loci prime editing (cliPE) which is an accessible, low-cost\nexperimental pipeline to perform MAVEs using prime editing of a target gene, as\nwell as a companion Shiny app (pegRNA Designer) to rapidly and easily design\nuser-specific MAVE libraries."
+    ],
     "c_categories":[
-      "q-bio.GN"
+      [
+        "q-bio.GN"
+      ]
     ],
     "c_fields":[
       "Quantitative Biology"
