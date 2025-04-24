@@ -487,7 +487,7 @@ class TaskHandler():
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
-        critical = self.kwargs.get("critical", False)
+        critical = self.kwargs.get("critical", True)
         # check if we want few shot prompt else zero shot
         few_shot = self.kwargs.get("few_shot", False)
         if verbose:
@@ -500,28 +500,30 @@ class TaskHandler():
                 out_file_name += "_budget"
             if critical:
                 out_file_name += "_critical"
+            if few_shot:
+                out_file_name += "_fewshot"
             out_file_name += ".json"
             # checkpoint system to obtain start point
             cached_idx = 0
             cached = False
             # check if the file exists and load it
             if os.path.exists(os.path.join(self.save_path, out_file_name)):
-                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
+                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
                 cached_idx = df_cached.shape[0]
                 cached = True
-            if verbose:
-                print(f"Already processed {cached_idx} samples. Continuing from there...")
-                print(f"Doing data file: {file_name}...")
             # load benchmark data
-            df = pd.read_json(os.path.join(self.data_path, file_name))#[:5] # first try 5 samples to ensure works well
+            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
             df_size = df.shape[0] - cached_idx
-            # break the function if no data
             if df_size == 0:
                 if verbose:
                     print(f"No new data to process in {file_name}.")
                 continue
-            # slice the dataframe to start from the last processed index
-            df = df#[cached_idx:]
+            if verbose:
+                if cached:
+                    print(f"Already processed {len(ids)} samples. Continuing from there...")
+                print(f"Doing data file: {file_name}...")
+
+            df = df[~df['id'].isin(ids)] if cached else df
             ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
             if cached:
                 # load the cached data
@@ -532,8 +534,6 @@ class TaskHandler():
                 response_logprobs = df_cached['log_probs'].tolist()
             # main loop
             for i, each in tqdm(df.iterrows(), total=df_size):
-                if each['id'] in ids: continue
-                
                 disci_one = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['b_title'], each['b_abstract'])]
                 disci_two = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['c_title'], each['c_abstract'])]
                 disci_one, disci_two = '\n'.join(disci_one), '\n'.join(disci_two)
