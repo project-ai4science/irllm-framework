@@ -297,7 +297,7 @@ class TaskHandler():
             if cached:
                 # load the cached data
                 ids = df_cached['id'].tolist()
-                start_ids = df_cached['start_id'].tolist()
+                start_ids = df_cached['start_ids'].tolist()
                 true_papers = df_cached['y_true'].tolist()
                 responses = df_cached['y_pred'].tolist()
                 labels = df_cached['list'].tolist()

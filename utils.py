@@ -200,12 +200,15 @@ Paper title: Mechano-Bactericidal Surfaces Achieved by Epitaxial Growth of Metal
 Paper abstract: Mechano-bactericidal (MB) surfaces have been proposed as an emerging strategy for preventing biofilm formation. Unlike antibiotics and metal ions that chemically interfere with cellular processes, MB nanostructures cause physical damage to the bacteria. The antibacterial performance of artificial MB surfaces relies on rational control of surface features, which is difficult to achieve for large surfaces in real-life applications. Herein, we report a facile and scalable method for fabricating MB surfaces based on metal-organic frameworks (MOFs) using epitaxial MOF-on-MOF hybrids as building blocks with nanopillars of less than 5 nm tip diameter, 200 nm base diameter, and 300 nm length. Two methods of MOF surface assembly, in-situ growth and ex-situ dropcasting, result in surfaces with nanopillars in different orientations, both presenting MB actions (bactericidal efficiency of 83%% for E. coli). Distinct MB mechanisms, including stretching, impaling, and apoptosis-like death induced by mechanical injury are discussed with the observed bacterial morphology on the obtained MOF surfaces.;
 Your verdict: No
 
+Paper title: %s;
+Paper abstract: %s;
+
+Subject list: ["Computer Science, Electrical Engineering and System Science", "Economics and Quantitative Finance", "Mathematics and Statistics", "Physics", "Quantitative Biology", "Other"]
+
 Use the template (in this format, with no markdown and lines separated by '\n') below to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
 Confidence score: {A numeric score ranging from 0 to 100}
-
-Paper title: %s;
-Paper abstract: %s;
+Subject: {Your choice of subjects from the list above. Use a list with square brackets "[]" separated by comma and remember to use "" to wrap your answer.}
 """
 
 prompt_exp_1_budget = """
@@ -338,17 +341,17 @@ Your verdict: No
 Your reason: The two papers are not related to each other. The first paper focuses on remote sensing pansharpening, while the second paper discusses secure semantic communication with homomorphic encryption. There is no clear interdisciplinary connection between them.
 Confidence score: 90
 
+Paper in Discipline 1:
+%s
+
+Paper in Discipline 2:
+%s
 
 Use the template (in this format, with no markdown and lines separated by '\\n') to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
 Your reason: {A short paragraph less than 50 words briefly describes your reasons that you made the verdict above.}
 Confidence score: {A numeric score ranging from 0 to 100}
 
-Paper in Discipline 1:
-%s
-
-Paper in Discipline 2:
-%s
 """
 
 
