@@ -513,7 +513,18 @@ class TaskHandler():
                 cached = True
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
-            df_size = df.shape[0] - cached_idx
+
+            ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
+            if cached:
+                # load the cached data
+                ids = df_cached['id'].tolist()
+                responses = df_cached['y_pred'].tolist()
+                labels = df_cached['y_true'].tolist()
+                verb_conf = df_cached['verb_conf'].tolist()
+                response_logprobs = df_cached['log_probs'].tolist()
+            
+            df = df[~df['id'].isin(ids)] if cached else df
+            df_size = df.shape[0]
             if df_size == 0:
                 if verbose:
                     print(f"No new data to process in {file_name}.")
@@ -523,15 +534,6 @@ class TaskHandler():
                     print(f"Already processed {len(ids)} samples. Continuing from there...")
                 print(f"Doing data file: {file_name}...")
 
-            df = df[~df['id'].isin(ids)] if cached else df
-            ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
-            if cached:
-                # load the cached data
-                ids = df_cached['id'].tolist()
-                responses = df_cached['y_pred'].tolist()
-                labels = df_cached['y_true'].tolist()
-                verb_conf = df_cached['verb_conf'].tolist()
-                response_logprobs = df_cached['log_probs'].tolist()
             # main loop
             for i, each in tqdm(df.iterrows(), total=df_size):
                 disci_one = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['b_title'], each['b_abstract'])]
