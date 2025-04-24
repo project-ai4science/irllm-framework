@@ -11,6 +11,7 @@ from typing import *
 from copy import deepcopy
 import random
 import json
+import ast
 
 
 class TaskHandler():
@@ -40,47 +41,50 @@ class TaskHandler():
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
-        critical = self.kwargs.get("critical", False)
+        critical = self.kwargs.get("critical", True)
         # check if we want few shot prompt else zero shot
         few_shot = self.kwargs.get("few_shot", False)
         # assemble file name
         out_file_name = f"exp_1_{self.model_name}"
         if budget:
-            out_file_name = f"exp_1_{self.model_name}_budget"
+            out_file_name += "_budget"
         if critical:
-            out_file_name = f"{out_file_name}_critical"
+            out_file_name += "_critical"
+        if few_shot:
+            out_file_name += "_fewshot"
         out_file_name += ".json"
         # checkpoint system to obtain start point
-        cached_idx = 0
         cached = False
         # check if the file exists and load it
         if os.path.exists(os.path.join(self.save_path, out_file_name)):
-            df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
-            cached_idx = df_cached.shape[0]
+            df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
+            # cached_idx = df_cached.shape[0]
             cached = True
-        if verbose:
-            print(f"Already processed {cached_idx} samples. Continuing from there...")
-            print(f"Doing data file: {file_name}...")
-            print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
-            print(f"Critical llm: {critical}")
         # load benchmark data
-        df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:5] # first try 5 samples to ensure works well
-        df_size = df.shape[0] - cached_idx
+        df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})[:50] # first try 5 samples to ensure works well
         # break the function if no data
-        if df_size == 0:
-            if verbose:
-                print(f"No new data to process in {file_name}.")
-            return
-        # slice the dataframe to start from the last processed index
-        df = df[cached_idx:]
-        ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
+        ids, responses, labels, verb_conf, subject_choices, response_logprobs = [], [], [], [], [], []
         if cached:
             # load the cached data
             ids = df_cached['id'].tolist()
             responses = df_cached['y_pred'].tolist()
             labels = df_cached['y_true'].tolist()
+            subject_choices = df_cached['subject_choices'].tolist()
             verb_conf = df_cached['verb_conf'].tolist()
             response_logprobs = df_cached['log_probs'].tolist()
+        # filter the dataframe to start from unprocessed rows
+        df = df[~df['id'].isin(ids)] if cached else df
+        df_size = df.shape[0]
+        if df_size == 0:
+            if verbose:
+                print(f"No new data to process in {file_name}.")
+            return
+        if verbose:
+            if cached:
+                print(f"Already processed {len(ids)} samples. Continuing from there...")
+            print(f"Doing data file: {file_name}...")
+            print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
+            print(f"Critical llm: {critical}")
         # main loop
         for i, each in tqdm(df.iterrows(), total=df_size):
             title, abstract = each['title'], each['abstract']
@@ -96,9 +100,11 @@ class TaskHandler():
                 input_prompt = prompt_template % (title, abstract)
             # llm prompt generation
             response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
+
+            # add subject answer in addition to the verdict and confidence score
             # capture groups for verdict and reason.
-            verdict, verb_score = None, None
-            pattern = r"Your verdict:\s*(?P<verdict>Yes|No).?\s*Confidence score:\s*(?P<score>\d+).?"
+            verdict, verb_score, subject = None, None, None
+            pattern = r"Your verdict:\s*(?P<verdict>Yes|No).?\s*Confidence score:\s*(?P<score>\d+).?\s*Subject:\s*(?P<subject>\[.*?\]).?"
             match = re.search(pattern, response_txt, re.IGNORECASE)
             if match:
                 data = match.groupdict()
@@ -108,6 +114,10 @@ class TaskHandler():
                 data["verdict"] = verdict_mapping.get(data["verdict"].lower())
                 # add to the values
                 verdict, verb_score = data["verdict"], int(data["score"])
+                try:
+                    subject = ast.literal_eval(data["subject"])
+                except:
+                    subject = []
             else:
                 if verbose:
                     print(f"Match not found. Response: {response_txt}")
@@ -115,22 +125,21 @@ class TaskHandler():
             # update the result collection
             ids.append(each['id'])
             verb_conf.append(verb_score)
+            subject_choices.append(subject)
             responses.append(verdict)
             response_logprobs.append(logprobs)
             labels.append(each['y_true'])
             # save checkpoint
             if i % checkpoint_len == 0:
-                if verbose:
-                    print(f"Making checkpoint on file: {file_name}...")
                 # collect result and put into the df
                 data = {
                     "id": ids,
                     "y_true": labels,
                     "y_pred": responses,
+                    "subject_choices": subject_choices,
                     "verb_conf": verb_conf,
                     "log_probs": response_logprobs
                 }
-                
                 # save to json file
                 pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
@@ -139,6 +148,7 @@ class TaskHandler():
             "id": ids,
             "y_true": labels,
             "y_pred": responses,
+            "subject_choices": subject_choices,
             "verb_conf": verb_conf,
             "log_probs": response_logprobs
         }
@@ -151,7 +161,7 @@ class TaskHandler():
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
         # check if we want a critical llm
-        critical = self.kwargs.get("critical", False)
+        critical = self.kwargs.get("critical", True)
         # check if we want few shot prompt else zero shot
         few_shot = self.kwargs.get("few_shot", False)
         if verbose:
@@ -164,37 +174,38 @@ class TaskHandler():
                 out_file_name += "_budget"
             if critical:
                 out_file_name += "_critical"
+            if few_shot:
+                out_file_name += "_fewshot"
             out_file_name += ".json"
             # checkpoint system to obtain start point
-            cached_idx = 0
             cached = False
             # check if the file exists and load it
             if os.path.exists(os.path.join(self.save_path, out_file_name)):
-                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
-                cached_idx = df_cached.shape[0]
+                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
                 cached = True
-            if verbose:
-                print(f"Already processed {cached_idx} samples. Continuing from there...")
-                print(f"Doing data file: {file_name}...")
             # load benchmark data
-            df = pd.read_json(os.path.join(self.data_path, file_name))#[:5] # first try 5 samples to ensure works well
-            df_size = df.shape[0] - cached_idx
-            # break the function if no data
-            if df_size == 0:
-                if verbose:
-                    print(f"No new data to process in {file_name}.")
-                continue
-            # slice the dataframe to start from the last processed index
-            df = df[cached_idx:]
+            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})[-30:] # first try 5 samples to ensure works well
             ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], []
             if cached:
                 # load the cached data
-                ids = df_cached['id'].tolist()
+                ids = df_cached['id'].to_list()
                 responses = df_cached['y_pred'].tolist()
                 labels = df_cached['y_true'].tolist()
                 reasons_pred = df_cached['reasons'].tolist()
                 verb_conf = df_cached['verb_conf'].tolist()
                 response_logprobs = df_cached['log_probs'].tolist()
+            # filter the dataframe to start from unprocessed rows
+            df = df[~df['id'].isin(ids)] if cached else df
+            df_size = df.shape[0]
+            # break the function if no data
+            if df_size == 0:
+                if verbose:
+                    print(f"No new data to process in {file_name}.")
+                continue
+            if verbose:
+                if cached:
+                    print(f"Already processed {len(ids)} samples. Continuing from there...")
+                print(f"Doing data file: {file_name}...")
             # main loop
             for i, each in tqdm(df.iterrows(), total=df_size):
                 disci_one = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['b_title'], each['b_abstract'])]
@@ -238,8 +249,6 @@ class TaskHandler():
                 verb_conf.append(verb_score)
                 response_logprobs.append(logprobs)
                 if i % checkpoint_len == 0:
-                    if verbose:
-                        print(f"Making checkpoint on file: {file_name}...")
                     # collect result and put into the df
                     data = {
                         "id": ids,
@@ -266,7 +275,7 @@ class TaskHandler():
     # exp_3 with swiss tournament
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False, checkpoint_len: int = 1):
         # check if we want a critical llm
-        critical = self.kwargs.get("critical", False)
+        critical = self.kwargs.get("critical", True)
         if verbose:
             print(f"Critical llm: {critical}")
         for _, file_name in enumerate(file_names):
@@ -276,26 +285,13 @@ class TaskHandler():
                 out_file_name += "_critical"
             out_file_name += ".json"
             # checkpoint system to obtain start point
-            cached_idx = 0
             cached = False
             # check if the file exists and load it
             if os.path.exists(os.path.join(self.save_path, out_file_name)):
-                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
-                cached_idx = df_cached.shape[0]
+                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
                 cached = True
-            if verbose:
-                print(f"Already processed {cached_idx} samples from {out_file_name}. Continuing from there...")
-                print(f"Doing data file: {file_name}...")
             # load benchmark data
-            df = pd.read_json(os.path.join(self.data_path, file_name))#[:5] # first try 5 samples to ensure works well
-            df_size = df.shape[0] - cached_idx
-            # break the function if no data
-            if df_size == 0:
-                if verbose:
-                    print(f"No new data to process in {file_name}.")
-                continue
-            # slice the dataframe to start from the last processed index
-            df = df[cached_idx:]
+            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})[:5] # first try 5 samples to ensure works well
             ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
             if cached:
                 # load the cached data
@@ -306,8 +302,19 @@ class TaskHandler():
                 labels = df_cached['list'].tolist()
                 verb_conf = df_cached['verb_conf'].tolist()
                 response_logprobs = df_cached['log_probs'].tolist()
+            # filter the dataframe to start from unprocessed rows
+            df = df[~df['id'].isin(ids)] if cached else df
+            df_size = df.shape[0]
+            # break the function if no data
+            if df_size == 0:
+                if verbose:
+                    print(f"No new data to process in {file_name}.")
+                continue
+            if verbose:
+                if cached:
+                    print(f"Already processed {len(ids)} samples. Continuing from there...")
+                print(f"Doing data file: {file_name}...")
             # main loop
-            i = 0
             for i, each in tqdm(df.iterrows(), total=df_size):
                 """
                 Swiss tournament using LLM as judge. No budget here as this is ranking task.
@@ -343,8 +350,8 @@ class TaskHandler():
                     }
                     # save to json file
                     pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
-            if verbose:
-                print(f"Total Comparisons made (i={i}): {len(verb_conf)}")
+                if verbose:
+                    print(f"Total Comparisons made (i={i}): {len(verb_conf)}")
             # collect result and put into the df
             data = {
                 "id": ids,
@@ -361,7 +368,7 @@ class TaskHandler():
     # exp_3 with single prompt
     def recommend_ranking_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], number_of_papers=10, verbose: bool = False, checkpoint_len: int = 1):
         # check if we want a critical llm
-        critical = self.kwargs.get("critical", False)
+        critical = self.kwargs.get("critical", True)
         if verbose:
             print(f"Critical llm: {critical}")
         for idx, file_name in enumerate(file_names):
@@ -382,7 +389,7 @@ class TaskHandler():
                 print(f"Already processed {cached_idx} samples. Continuing from there...")
                 print(f"Doing data file: {file_name}...")
             # load benchmark data
-            df = pd.read_json(os.path.join(self.data_path, file_name))#[:5] # first try 5 samples to ensure works well
+            df = pd.read_json(os.path.join(self.data_path, file_name))[:5] # first try 5 samples to ensure works well
             df_size = df.shape[0] - cached_idx
             # break the function if no data
             if df_size == 0:
@@ -435,7 +442,6 @@ class TaskHandler():
                         print(f"Match not found. Response: {response_txt}")
                     continue
                 
-                
                 ids.append((each['id'], each['start_id']))
                 y_true.append(true_numbers)
                 responses.append(verdict)
@@ -483,6 +489,8 @@ if __name__ == "__main__":
     # handler = TaskHandler(provider='deepseek', model_name="deepseek-reasoner", lm_config_path="./config.yml", **task_config)
     # handler = TaskHandler(provider='llama', model_name="llama-3.3-70b-instruct", lm_config_path="./config.yml", **task_config)
 
-    task_func = handler["identification"]
+    # task_func = handler["identification"]
+    task_func = handler["classification"]
+    # task_func = handler["recommendation"]
     task_func(verbose=True)
 

@@ -151,7 +151,7 @@ sys_prompt_critical = "You are a researcher in building interdisciplinary resear
 # prompt_critical_test = "Be critical and cautious in your verdict. If you feel the combination of interdisciplinary ideas are low quality, provide negative feedbacks."
 
 prompt_exp_1 = """
-Read the title and abstract of a given academic paper and identify whether this is an interdisciplinary research paper. After you provide your verdict, provide a score from 0 to 100 to indicate your confidence level in the correctness of the verdict.
+Read the title and abstract of a given academic paper and identify whether this is an interdisciplinary research paper. Also, select one or more subjects from the list below to indicate which subject(s) does this paper belong to. After you provide your verdict and your choice, provide a score from 0 to 100 to indicate your confidence level in the correctness of the verdict.
 The official definition of a typical interdisciplinary paper can be found below: 
 “Interdisciplinary Research is a mode of research that integrates information, data, techniques, tools, perspectives, concepts, and/or theories from two or more disciplines or bodies of specialised knowledge to advance fundamental understanding or to solve problems whose solutions are beyond the scope of a single discipline or area of research practice.”
 Think carefully to make your verdict, answer "Yes" when this is a valid IDR paper. Otherwise, answer "No".
@@ -160,9 +160,12 @@ Note: The confidence level indicates the degree of certainty you have about your
 Paper title: %s;
 Paper abstract: %s;
 
+Subject list: ["Computer Science, Electrical Engineering and System Science", "Economics and Quantitative Finance", "Mathematics and Statistics", "Physics", "Quantitative Biology", "Other"]
+
 Use the template (in this format, with no markdown and lines separated by '\n') below to provide your answer.
 Your verdict: {A simple answer containing either "Yes" or "No".}
 Confidence score: {A numeric score ranging from 0 to 100}
+Subject: {Your choice of subjects from the list above. Use a list with square brackets "[]" separated by comma and remember to use "" to wrap your answer.}
 """
 
 prompt_exp_1_fewshot = """
