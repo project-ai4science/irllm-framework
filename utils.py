@@ -481,6 +481,33 @@ List of candidate papers:
 Follow the format in the example to provide your response (only the JSON in one single line with no line breaks and with no markdown): {"reasoning": "reasoning_string_with_100_words_max", "list": ["List", "of", "numbers"], "confidence_score": confidence_score_integer}
 """
 
+prompt_exp_4 = """
+Read the title and abstract of papers from two disciplines, extract concepts from both fields, and write a novel interdisciplinary research abstract. After writing your abstract, provide a score from 0 to 100 to indicate your confidence level in the quality of your abstract as an interdisciplinary research idea.
+Keep in mind that a good interdisciplinary research idea should meet the following criteria:
+* This research idea should be Interdisciplinary, whereas the idea stems from the combination of ideas from the two papers introduced above.
+* The Interdisciplinary Research ideas should follow this definition: “Interdisciplinary Research is a mode of research that integrates information, data, techniques, tools, perspectives, concepts, and/or theories from two or more disciplines or bodies of specialised knowledge to advance fundamental understanding or to solve problems whose solutions are beyond the scope of a single discipline or area of research practice.”
+* This research idea should be feasible, whereas the hypothesis is not purely theoretical and can be validated by experiments.
+* This research idea should be novel, whereas it is not only rare but also ingenious, imaginative, or surprising.
+* This research idea should be useful, whereas it applies to the stated problem and is effective at solving the problem.
+Think carefully to write a novel abstract that clearly states the objective of the paper, how the two ideas will be integrated, and the expected results.
+Note: The confidence level represents how confident you are in the quality of your abstract as an interdisciplinary research idea, expressed as a percentage. For example, if your confidence level is 80, it means you are 80 percent certain your abstract is good and there is a 20 percent chance it may be flawed.
+
+Paper in Discipline 1:
+%s
+
+Paper in Discipline 2:
+%s
+
+Use the template (in this format, with no markdown and lines separated by '\n') to provide your answer.
+Your abstract: {The abstract you wrote using the ideas from the two given papers.}
+Confidence score: {A numeric score ranging from 0 to 100}
+"""
+
+prompt_exp_4_fewshot = ""
+prompt_exp_4_budget = ""
+prompt_exp_4_budget_fewshot = ""
+
+
 
 # Test code to ensure everything is right:
 if __name__ == "__main__":

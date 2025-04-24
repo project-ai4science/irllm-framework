@@ -26,6 +26,7 @@ class TaskHandler():
             "classification": self.classify_task, # exp_2.1 + exp_2.2 + exp_2.3
             "recommendation": self.recommend_task, # exp_3.1 + exp_3.2
             "recommendation_ranking": self.recommend_ranking_task, # exp_3.1 + exp_3.2
+            "generation": self.generate_task, # exp_4.1
         }
         self.client = LM_Client(provider=self.provider, model_name=self.model_name, config_path=self.lm_config_path)
         self.kwargs = kwargs
@@ -472,6 +473,120 @@ class TaskHandler():
             }
             # save to json file
             pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+    
+    
+    # exp_4
+    def generate_task(self, file_names: list = [f"data_exp_4_{i+1}.json" for i in range(1)], verbose: bool = False, checkpoint_len: int = 5): 
+        # check if need budget:
+        budget = self.kwargs.get("budget_mode", None)
+        budget_num = self.kwargs.get("budget_num", None)
+        # check if we want a critical llm
+        critical = self.kwargs.get("critical", False)
+        # check if we want few shot prompt else zero shot
+        few_shot = self.kwargs.get("few_shot", False)
+        if verbose:
+            print(f"Budget mode: {budget}, num of yes to say: {budget_num}")
+            print(f"Critical llm: {critical}")
+        for _, file_name in enumerate(file_names):
+            out_file_name = f"exp_4_{file_name[11]}_{self.model_name}"
+            # assemble out file name
+            if budget:
+                out_file_name += "_budget"
+            if critical:
+                out_file_name += "_critical"
+            out_file_name += ".json"
+            # checkpoint system to obtain start point
+            cached_idx = 0
+            cached = False
+            # check if the file exists and load it
+            if os.path.exists(os.path.join(self.save_path, out_file_name)):
+                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name))
+                cached_idx = df_cached.shape[0]
+                cached = True
+            if verbose:
+                print(f"Already processed {cached_idx} samples. Continuing from there...")
+                print(f"Doing data file: {file_name}...")
+            # load benchmark data
+            df = pd.read_json(os.path.join(self.data_path, file_name))#[:5] # first try 5 samples to ensure works well
+            df_size = df.shape[0] - cached_idx
+            # break the function if no data
+            if df_size == 0:
+                if verbose:
+                    print(f"No new data to process in {file_name}.")
+                continue
+            # slice the dataframe to start from the last processed index
+            df = df#[cached_idx:]
+            ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
+            if cached:
+                # load the cached data
+                ids = df_cached['id'].tolist()
+                responses = df_cached['y_pred'].tolist()
+                labels = df_cached['y_true'].tolist()
+                verb_conf = df_cached['verb_conf'].tolist()
+                response_logprobs = df_cached['log_probs'].tolist()
+            # main loop
+            for i, each in tqdm(df.iterrows(), total=df_size):
+                if each['id'] in ids: continue
+                
+                disci_one = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['b_title'], each['b_abstract'])]
+                disci_two = ["Title: %s; Abstract: %s" %(title, abstract) for title, abstract in zip(each['c_title'], each['c_abstract'])]
+                disci_one, disci_two = '\n'.join(disci_one), '\n'.join(disci_two)
+                # budget system
+                if budget:
+                    remaining_budget = budget_num - sum(responses)
+                    if remaining_budget == 0:
+                        break
+                    prompt_template = prompt_exp_4_budget_fewshot if few_shot else prompt_exp_4_budget
+                    input_prompt = prompt_template % (remaining_budget, disci_one, disci_two)
+                else:
+                    prompt_template = prompt_exp_4_fewshot if few_shot else prompt_exp_4
+                    input_prompt = prompt_template % (disci_one, disci_two)
+
+                # change prompt here for each task
+                response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)                
+                # This regex uses named capture groups for verdict and reason.
+                pattern = r"Your abstract:\s*(?P<abstract>.+?)\s*Confidence score:\s*(?P<score>\d+).?"
+                match = re.search(pattern, response_txt, re.IGNORECASE | re.DOTALL)
+                abstract, reason, verb_score = None, None, None
+                if match:
+                    data = match.groupdict()
+
+                    data["abstract"] = data["abstract"].strip()
+                    abstract, verb_score = data["abstract"], int(data["score"])
+                else:
+                    if verbose:
+                        print(f"Match not found. Response: {response_txt}")
+                    continue
+                # update the result collection
+                ids.append(each['id'])
+                responses.append(abstract)
+                labels.append(each['a_abstract'])
+                verb_conf.append(verb_score)
+                response_logprobs.append(logprobs)
+                if i % checkpoint_len == 0:
+                    if verbose:
+                        print(f"Making checkpoint on file: {file_name}...")
+                    # collect result and put into the df
+                    data = {
+                        "id": ids,
+                        "y_true": labels,
+                        "y_pred": responses,
+                        "verb_conf": verb_conf,
+                        "log_probs": response_logprobs
+                    }
+                    # save to json file
+                    pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+            # collect result and put into the df
+            data = {
+                "id": ids,
+                "y_true": labels,
+                "y_pred": responses,
+                "verb_conf": verb_conf,
+                "log_probs": response_logprobs
+            }
+            # save to json file
+            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+    
     
 
 # Test code to ensure everything is right:

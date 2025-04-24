@@ -1,0 +1,1059 @@
+[
+  {
+    "id":2411.01019,
+    "a_title":"A lightweight Convolutional Neural Network based on U shape structure\n  and Attention Mechanism for Anterior Mediastinum Segmentation",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"To automatically detect Anterior Mediastinum Lesions (AMLs) in the Anterior\nMediastinum (AM), the primary requirement will be an automatic segmentation\nmodel specifically designed for the AM. The prevalence of AML is extremely low,\nmaking it challenging to conduct screening research similar to lung cancer\nscreening. Retrospectively reviewing chest CT scans over a specific period to\ninvestigate the prevalence of AML requires substantial time. Therefore,\ndeveloping an Artificial Intelligence (AI) model to find location of AM helps\nradiologist to enhance their ability to manage workloads and improve diagnostic\naccuracy for AMLs. In this paper, we introduce a U-shaped structure network to\nsegment AM. Two attention mechanisms were used for maintaining long-range\ndependencies and localization. In order to have the potential of Multi-Head\nSelf-Attention (MHSA) and a lightweight network, we designed a parallel MHSA\nnamed Wide-MHSA (W-MHSA). Maintaining long-range dependencies is crucial for\nsegmentation when we upsample feature maps. Therefore, we designed a Dilated\nDepth-Wise Parallel Path connection (DDWPP) for this purpose. In order to\ndesign a lightweight architecture, we introduced an expanding convolution block\nand combine it with the proposed W-MHSA for feature extraction in the encoder\npart of the proposed U-shaped network. The proposed network was trained on 2775\nAM cases, which obtained an average Dice Similarity Coefficient (DSC) of\n87.83%, mean Intersection over Union (IoU) of 79.16%, and Sensitivity of\n89.60%. Our proposed architecture exhibited superior segmentation performance\ncompared to the most advanced segmentation networks, such as Trans Unet,\nAttention Unet, Res Unet, and Res Unet++.",
+    "explanation":"It's leveraging AI in another diffrent domain, namely medical science, to detect Anterior Mediastinum Lesions.",
+    "b_id":[
+      "b15"
+    ],
+    "b_title":[
+      "Anterior mediastinal nodular lesion segmentation from chest computed tomography imaging using UNet based neural network with attention mechanisms"
+    ],
+    "b_abstract":[
+      "Automated detection of anterior mediastinal nodular lesions (AMLs) has significance for clinical usage as it is challenging for radiologists to accurately identify AMLs from chest computed tomography (CT) imaging due to various factors, including poor resolution, variations in intensity and the similarity of the AMLs to other tissues. To assist radiologists in AML detection from chest CT imaging, a UNet-based computer-aided detection (CADe) system is proposed to segment AMLs from slice images of the chest CT scans. The proposed network adopts a modified UNet architecture. To guide the proposed network to selectively focus on AMLs and potentially disregard others in the image, different attention mechanisms are utilized in the proposed network, including the self-attention mechanism and the convolutional block attention module (CBAM). The proposed network was trained and evaluated on 180 chest CT scans which consist of 180 AMLs. 90 AMLs were identified as thymic cysts, and 90 AMLs were diagnosed as thymoma. The proposed network achieved an average dice similarity coefficient (DSC) of 93.23 with 5-fold cross-validation, for which the mean Intersection over Union (IoU), sensitivity and specificity were 90.29, 93.98 and 95.68 respectively. Our method demonstrated an improved segmentation performance over state-of-the-art segmentation networks, including UNet, ResUNet, TransUNet and UNet++. The proposed network employing attention mechanisms exhibited a promising result for segmenting AMLs from chest CT imaging and could be used to automate the AML detection process for achieving improved diagnostic reliability."
+    ],
+    "b_categories":[
+      "cs.AI"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b6",
+      "b1"
+    ],
+    "c_title":[
+      "Screening for lung cancer: 2023 guideline update from the American Cancer Society",
+      "Incidental Anterior Mediastinal Nodular Lesions on\u00a0Chest CT in Asymptomatic Subjects"
+    ],
+    "c_abstract":[
+      "Abstract Lung cancer is the leading cause of mortality and person\u2010years life lost from among US men women. Early detection has been shown to be associated with reduced lung mortality. Our objective was update American Cancer Society (ACS) 2013 screening (LCS) guideline for adults at high risk cancer. The intended provide guidance health care providers their patients who are due a history smoking. ACS Guideline Development Group (GDG) utilized systematic review LCS literature commissioned Preventive Services Task Force 2021 recommendation update; second years since quitting smoking (YSQ); published 2021; two Intervention Surveillance Modeling Network\u2010validated models assess benefits harms screening; an epidemiologic modeling analysis examining effect YSQ aging on risk; updated benefit\u2010to\u2010radiation\u2010risk ratios follow\u2010up examinations. GDG also examined disease burden data National Institute\u2019s Surveillance, Epidemiology, End Results program. Formulation recommendations based quality evidence judgment (incorporating values preferences) about balance harms. judged that overall moderate sufficient support strong individuals meet eligibility criteria. in women aged 50\u201380 reduction deaths across range study designs, inferential supports older than 80 good health. recommends annual low\u2010dose computed tomography asymptomatic currently smoke or formerly smoked have \u226520 pack\u2010year ( , ). Before decision made initiate LCS, should engage shared decision\u2010making discussion qualified professional. For smoked, number not criterion begin stop screening. Individuals receive counseling quit connected cessation resources. comorbid conditions substantially limit expectancy screened. These considered by discussions LCS. If fully implemented, these likelihood significantly reducing death suffering United States.",
+      "Objective: The aim of this study was to investigate the prevalence and characteristics of nodular lesions in the anterior mediastinum that had been found incidentally on screening chest computed tomography (CT) in asymptomatic subjects. Methods: We included 56,358 consecutive participants (mean age 52.4 \u00b1 10.5 years; male-female ratio 35,306:21,052) who underwent a baseline low-dose chest CT scan as part of a health checkup from 2006 through 2013. After the presence of anterior mediastinal nodular lesion had been confirmed, their CT findings, confirmatory diagnosis, and interval CT scan were reviewed. The standardized prevalence ratio for thymic epithelial tumor was calculated on the basis of the Republic of Korea cancer statistics for 2014. Results: Of the 56,358 participants, 413 (0.73%) had lesions (95% confidence interval: 0.66-0.80%); the prevalence increased with age (p <0.001) and a history of malignancy (p = 0.005). Of the lesions, 85.2% were smaller than 2 cm, 61.3% were round, and 80.2% had CT attenuation higher than 20 Hounsfield units. Among 51 proven cases, 39 lesions (76.9%) were benign and 12 (23.1%) were malignant. The standardized prevalence ratio for thymic epithelial tumor was 2.04 (95% confidence interval: 1.01-3.42). Of 11 resected thymic epithelial tumors, five were carcinomas, 10 were stage I or II, and all were completely resected without recurrence. Of the 237 unconfirmed cases with a follow-up CT scan, 82.2% were stable, 8.9% had increased, and the other 8.9% had decreased. Conclusions: The prevalence of incidental nodular lesion was 0.73%. Most lesions had CT features that were indistinguishable from thymic epithelial tumors, but a considerable portion of the lesions were suspected to be benign. Incidental thymic epithelial tumors were more prevalent than clinically detected tumors, were early-stage cancer, and showed favorable outcomes."
+    ],
+    "c_categories":[
+      "q-bio.CB",
+      "q-bio.TO"
+    ],
+    "c_fields":[
+      "Quantitative Biology"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2412.11084,
+    "a_title":"BarcodeMamba: State Space Models for Biodiversity Analysis",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"DNA barcodes are crucial in biodiversity analysis for building automatic\nidentification systems that recognize known species and discover unseen\nspecies. Unlike human genome modeling, barcode-based invertebrate\nidentification poses challenges in the vast diversity of species and taxonomic\ncomplexity. Among Transformer-based foundation models, BarcodeBERT excelled in\nspecies-level identification of invertebrates, highlighting the effectiveness\nof self-supervised pretraining on barcode-specific datasets. Recently,\nstructured state space models (SSMs) have emerged, with a time complexity that\nscales sub-quadratically with the context length. SSMs provide an efficient\nparameterization of sequence modeling relative to attention-based\narchitectures. Given the success of Mamba and Mamba-2 in natural language, we\ndesigned BarcodeMamba, a performant and efficient foundation model for DNA\nbarcodes in biodiversity analysis. We conducted a comprehensive ablation study\non the impacts of self-supervised training and tokenization methods, and\ncompared both versions of Mamba layers in terms of expressiveness and their\ncapacity to identify \"unseen\" species held back from training. Our study shows\nthat BarcodeMamba has better performance than BarcodeBERT even when using only\n8.3% as many parameters, and improves accuracy to 99.2% on species-level\naccuracy in linear probing without fine-tuning for \"seen\" species. In our\nscaling study, BarcodeMamba with 63.6% of BarcodeBERT's parameters achieved\n70.2% genus-level accuracy in 1-nearest neighbor (1-NN) probing for unseen\nspecies. The code repository to reproduce our experiments is available at\nhttps:\/\/github.com\/bioscan-ml\/BarcodeMamba.",
+    "explanation":"The paper talks about the use of BarcodeMamba for better scores in DNA barcode analysis of genomes.",
+    "b_id":[
+      "b12"
+    ],
+    "b_title":[
+      "Biological identifications through DNA barcodes"
+    ],
+    "b_abstract":[
+      "Although much biological research depends upon species diagnoses, taxonomic expertise is collapsing.We are convinced that the sole prospect for a sustainable identification capability lies in construction of systems employ DNA sequences as taxon 'barcodes'.We establish mitochondrial gene cytochrome c oxidase I (COI) can serve core global bioidentification system animals.First, we demonstrate COI profiles, derived from low-density sampling higher categories, ordinarily assign newly analysed taxa to appropriate phylum or order.Second, species-level assignments be obtained by creating comprehensive profiles.A model profile, based analysis single individual each 200 closely allied lepidopterans, was 100% successful correctly identifying subsequent specimens.When fully developed, will provide reliable, cost-effective and accessible solution current problem identification.Its assembly also generate important new insights into diversification life rules molecular evolution."
+    ],
+    "b_categories":[
+      "q-bio.GN"
+    ],
+    "b_fields":[
+      "Quantitative Biology"
+    ],
+    "c_id":[
+      "b0"
+    ],
+    "c_title":[
+      "BarcodeBERT: Transformers for Biodiversity Analysis"
+    ],
+    "c_abstract":[
+      "Understanding biodiversity is a global challenge, in which DNA barcodes - short snippets of that cluster by species play pivotal role. In particular, invertebrates, highly diverse and under-explored group, pose unique taxonomic complexities. We explore machine learning approaches, comparing supervised CNNs, fine-tuned foundation models, barcode-specific masking strategy across datasets varying complexity. While simpler tasks favor CNNs or transformers, challenging species-level identification demands paradigm shift towards self-supervised pretraining. propose BarcodeBERT, the first method for general analysis, leveraging 1.5 M invertebrate barcode reference library. This work highlights how dataset specifics coverage impact model selection, underscores role pretraining achieving high-accuracy barcode-based at genus level. Indeed, without fine-tuning step, BarcodeBERT pretrained on large outperforms DNABERT DNABERT-2 multiple downstream classification tasks. The code repository available https:\/\/github.com\/Kari-Genomics-Lab\/BarcodeBERT"
+    ],
+    "c_categories":[
+      "cs.AI"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2412.00036,
+    "a_title":"Beyond Monte Carlo: Harnessing Diffusion Models to Simulate Financial\n  Market Dynamics",
+    "fields":[
+      "Economics and Quantitative Finance",
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"We propose a highly efficient and accurate methodology for generating\nsynthetic financial market data using a diffusion model approach. The synthetic\ndata produced by our methodology align closely with observed market data in\nseveral key aspects: (i) they pass the two-sample Cramer - von Mises test for\nportfolios of assets, and (ii) Q - Q plots demonstrate consistency across\nquantiles, including in the tails, between observed and generated market data.\nMoreover, the covariance matrices derived from a large set of synthetic market\ndata exhibit significantly lower condition numbers compared to the estimated\ncovariance matrices of the observed data. This property makes them suitable for\nuse as regularized versions of the latter. For model training, we develop an\nefficient and fast algorithm based on numerical integration rather than Monte\nCarlo simulations. The methodology is tested on a large set of equity data.",
+    "explanation":"The paper proposes the use of a new method using diffusion model generative methodology to produce synthetic market scenarios.",
+    "b_id":[
+      "b1"
+    ],
+    "b_title":[
+      "On the Distribution of the Two-Sample Cramer-von Mises Criterion"
+    ],
+    "b_abstract":[
+      "The Cramer-von Mises $\\omega^2$ criterion for testing that a sample, $x_1, \\cdots, x_N$, has been drawn from specified continuous distribution $F(x)$ is \\begin{equation*}\\tag{1}\\omega^2 = \\int^\\infty_{-\\infty} \\lbrack F_N(x) - F(x)\\rbrack^2 dF(x),\\end{equation*} where $F_N(x)$ the empirical function of sample; is, $F_N(x) k\/N$ if exactly $k$ observations are less than or equal to $x(k 0, 1, N)$. If there second $y_1, y_M$, test hypothesis two samples come same (unspecified) can be based on analogue $N\\omega^2$, namely \\begin{equation*}\\tag{2} T NM\/(N + M)\\rbrack G_M(x)\\rbrack^2 dH_{N+M}(x),\\end{equation*} $G_M(x)$ sample and $H_{N+M}(x)$ together [that $(N M)H_{N+M}(x) NF_N(x) MG_M(x)\\rbrack$. limiting $N\\omega^2$ as $N \\rightarrow \\infty$ tabulated [2], it shown ([3], [4a], [7]) $T$ \\infty, M \\infty$, $N\/M \\lambda$, $\\lambda$ any finite positive constant. In this note we consider small values $N$ $M$ present tables permit use at some conventional significance levels $M$. seems surprisingly good approximation exact moderate sizes (corresponding feature [6]). accuracy better in case two-sample Kolmogorov-Smirnov statistic studied by Hodges [4]."
+    ],
+    "b_categories":[
+      "q-fin.GN"
+    ],
+    "b_fields":[
+      "Economics and Quantitative Finance"
+    ],
+    "c_id":[
+      "b24"
+    ],
+    "c_title":[
+      "Quant GANs: deep generation of financial time series"
+    ],
+    "c_abstract":[
+      "Modeling financial time series by stochastic processes is a challenging task and a central area of research in financial mathematics. As an alternative, we introduce Quant GANs, a data-driven model which is inspired by the recent success of generative adversarial networks (GANs). Quant GANs consist of a generator and discriminator function, which utilize temporal convolutional networks (TCNs) and thereby achieve to capture long-range dependencies such as the presence of volatility clusters. The generator function is explicitly constructed such that the induced stochastic process allows a transition to its risk-neutral distribution. Our numerical results highlight that distributional properties for small and large lags are in an excellent agreement and dependence properties such as volatility clusters, leverage effects, and serial autocorrelations can be generated by the generator function of Quant GANs, demonstrably in high fidelity."
+    ],
+    "c_categories":[
+      "cs.AI"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.0064,
+    "a_title":"Adding Error Bars to Evals: A Statistical Approach to Language Model\n  Evaluations",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Mathematics and Statistics"
+    ],
+    "a_abstract":"Evaluations are critical for understanding the capabilities of large language\nmodels (LLMs). Fundamentally, evaluations are experiments; but the literature\non evaluations has largely ignored the literature from other sciences on\nexperiment analysis and planning. This article shows researchers with some\ntraining in statistics how to think about and analyze data from language model\nevaluations. Conceptualizing evaluation questions as having been drawn from an\nunseen super-population, we present formulas for analyzing evaluation data,\nmeasuring differences between two models, and planning an evaluation\nexperiment. We make a number of specific recommendations for running language\nmodel evaluations and reporting experiment results in a way that minimizes\nstatistical noise and maximizes informativeness.",
+    "explanation":"This is an interdisciplinary work because it combines two different subjects: LLM and statistics. This suggests that we could also consider the error bars in the evaluations. ",
+    "b_id":[
+      "b14"
+    ],
+    "b_title":[
+      "Quantifying Variance in Evaluation Benchmarks"
+    ],
+    "b_abstract":[
+      "Evaluation benchmarks are the cornerstone of measuring capabilities large language models (LLMs), as well driving progress in said capabilities. Originally designed to make claims about (or lack thereof) fully pretrained models, evaluation now also extensively used decide between various training choices. Despite this widespread usage, we rarely quantify variance our benchmarks, which dictates whether differences performance meaningful. Here, define and measure a range metrics geared towards including seed across initialisations, monotonicity during training. By studying number -- both openly available from scratch provide empirical estimates for variety metrics, with considerations recommendations practitioners. We evaluate utility tradeoffs continuous versus discrete measures explore options better understanding reducing variance. find that simple changes, such framing choice tasks (like MMLU) completion tasks, can often reduce smaller scale ($\\sim$7B) while more involved methods inspired human testing literature (such item analysis response theory) struggle meaningfully Overall, work provides insights into suggests LM-specific techniques variance, generally encourages practitioners carefully factor when comparing models."
+    ],
+    "b_categories":[
+      "stat.ME"
+    ],
+    "b_fields":[
+      "Mathematics and Statistics"
+    ],
+    "c_id":[
+      "b6"
+    ],
+    "c_title":[
+      "The Llama 3 Herd of Models"
+    ],
+    "c_abstract":[
+      "Modern artificial intelligence (AI) systems are powered by foundation models. This paper presents a new set of foundation models, called Llama 3. It is a herd of language models that natively support multilinguality, coding, reasoning, and tool usage. Our largest model is a dense Transformer with 405B parameters and a context window of up to 128K tokens. This paper presents an extensive empirical evaluation of Llama 3. We find that Llama 3 delivers comparable quality to leading language models such as GPT-4 on a plethora of tasks. We publicly release Llama 3, including pre-trained and post-trained versions of the 405B parameter language model and our Llama Guard 3 model for input and output safety. The paper also presents the results of experiments in which we integrate image, video, and speech capabilities into Llama 3 via a compositional approach. We observe this approach performs competitively with the state-of-the-art on image, video, and speech recognition tasks. The resulting models are not yet being broadly released as they are still under development."
+    ],
+    "c_categories":[
+      "cs.AI"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.00609,
+    "a_title":"Tumor Location-weighted MRI-Report Contrastive Learning: A Framework for\n  Improving the Explainability of Pediatric Brain Tumor Diagnosis",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"Despite the promising performance of convolutional neural networks (CNNs) in\nbrain tumor diagnosis from magnetic resonance imaging (MRI), their integration\ninto the clinical workflow has been limited. That is mainly due to the fact\nthat the features contributing to a model's prediction are unclear to\nradiologists and hence, clinically irrelevant, i.e., lack of explainability. As\nthe invaluable sources of radiologists' knowledge and expertise, radiology\nreports can be integrated with MRI in a contrastive learning (CL) framework,\nenabling learning from image-report associations, to improve CNN\nexplainability. In this work, we train a multimodal CL architecture on 3D brain\nMRI scans and radiology reports to learn informative MRI representations.\nFurthermore, we integrate tumor location, salient to several brain tumor\nanalysis tasks, into this framework to improve its generalizability. We then\napply the learnt image representations to improve explainability and\nperformance of genetic marker classification of pediatric Low-grade Glioma, the\nmost prevalent brain tumor in children, as a downstream task. Our results\nindicate a Dice score of 31.1% between the model's attention maps and manual\ntumor segmentation (as an explainability measure) with test classification\nperformance of 87.7%, significantly outperforming the baselines. These\nenhancements can build trust in our model among radiologists, facilitating its\nintegration into clinical practices for more efficient tumor diagnosis.",
+    "explanation":"The article presents a research involving the use of Computer Science methods to treat problems in Medicine. In this case, applying the use of Convolutional Neural Networks (CNN) for the recognition of pediatric tumors in medical images and Contrastive Learning (CL) to improve the explainability of the model.",
+    "b_id":[
+      "b9"
+    ],
+    "b_title":[
+      "Pediatric low-grade glioma: State-of-the-art and ongoing challenges"
+    ],
+    "b_abstract":[
+      "Abstract The most common childhood central nervous system (CNS) tumor is pediatric low-grade glioma (pLGG), representing 30%\u201340% of all CNS tumors in children. Although there high associated morbidity, tumor-related mortality relatively rare. pLGG now conceptualized as a chronic disease, underscoring the importance functional outcomes and quality-of-life measures. A wealth data has emerged about these tumors, including better understanding their natural history molecular drivers, paving way for use targeted inhibitors. While treatments have heralded tremendous promise, challenges remain how to best optimize use, long-term toxicities with inhibitors unknown. International Pediatric Low-Grade Glioma Coalition (iPLGGc) global group physicians scientists expertise focused on addressing key issues. Here, iPLGGc provides an overview current state-of-the-art pLGG, epidemiology, histology, landscape, treatment paradigms, survival outcomes, imaging response, ongoing challenges. This paper also serves introduction 3 other manuscripts (1) preclinical models, (2) consensus framework conducting early-phase clinical trials (3) resistance, rebound, recurrence."
+    ],
+    "b_categories":[
+      "q-bio.NC"
+    ],
+    "b_fields":[
+      "Quantitative Biology"
+    ],
+    "c_id":[
+      "b0"
+    ],
+    "c_title":[
+      "Improving Pediatric Low-Grade Neuroepithelial Tumors Molecular Subtype\n  Identification Using a Novel AUROC Loss Function for Convolutional Neural\n  Networks"
+    ],
+    "c_abstract":[
+      "Pediatric Low-Grade Neuroepithelial Tumors (PLGNT) are the most common pediatric cancer type, accounting for 40% of brain tumors in children, and identifying PLGNT molecular subtype is crucial treatment planning. However, gold standard to determine biopsy, which can be impractical or dangerous patients. This research improves performance Convolutional Neural Networks (CNNs) classifying subtypes through MRI scans by introducing a loss function that specifically model's Area Under Receiver Operating Characteristic (ROC) Curve (AUROC), offering non-invasive diagnostic alternative. In this study, retrospective dataset 339 children with (143 BRAF fusion, 71 V600E mutation, 125 non-BRAF) was curated. We employed CNN model Monte Carlo random data splitting. The baseline trained using binary cross entropy (BCE), achieved an AUROC 86.11% differentiating fusion mutations, improved 87.71% our proposed (p-value 0.045). With multiclass classification, from 74.42% 76. 59% 0.0016)."
+    ],
+    "c_categories":[
+      "cs.CV"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.00726,
+    "a_title":"Cross-Fundus Transformer for Multi-modal Diabetic Retinopathy Grading\n  with Cataract",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"Diabetic retinopathy (DR) is a leading cause of blindness worldwide and a\ncommon complication of diabetes. As two different imaging tools for DR grading,\ncolor fundus photography (CFP) and infrared fundus photography (IFP) are\nhighly-correlated and complementary in clinical applications. To the best of\nour knowledge, this is the first study that explores a novel multi-modal deep\nlearning framework to fuse the information from CFP and IFP towards more\naccurate DR grading. Specifically, we construct a dual-stream architecture\nCross-Fundus Transformer (CFT) to fuse the ViT-based features of two fundus\nimage modalities. In particular, a meticulously engineered Cross-Fundus\nAttention (CFA) module is introduced to capture the correspondence between CFP\nand IFP images. Moreover, we adopt both the single-modality and multi-modality\nsupervisions to maximize the overall performance for DR grading. Extensive\nexperiments on a clinical dataset consisting of 1,713 pairs of multi-modal\nfundus images demonstrate the superiority of our proposed method. Our code will\nbe released for public access.",
+    "explanation":"The work combines transformers with two distinct methods that evaluate the quality of retinopathy",
+    "b_id":[
+      "b1"
+    ],
+    "b_title":[
+      "Relation Between Retinal Vasculature and Retinal Thickness in Macular Edema"
+    ],
+    "b_abstract":[
+      "This study has investigated the relationship of retinal vasculature and thickness for Macular Edema (ME) subjects. Ninety sets Fluorescein Angiograph (FA) Optical Coherence Tomography (OCT) 54 participants were analyzed. Multivariate analysis using binary logistic regression model was used to association between vessel parameters thickness. The results reveal feature i.e. fractal dimension (FD) as most sensitive parameter changes in associated with ME. Thus, indicating a direct which is caused due neovascular causing exudates, leakages hemorrhages, applications alternate modality detection"
+    ],
+    "b_categories":[
+      "q-bio.TO"
+    ],
+    "b_fields":[
+      "Quantitative Biology"
+    ],
+    "c_id":[
+      "b2"
+    ],
+    "c_title":[
+      "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale"
+    ],
+    "c_abstract":[
+      "While the Transformer architecture has become de-facto standard for natural language processing tasks, its applications to computer vision remain limited. In vision, attention is either applied in conjunction with convolutional networks, or used replace certain components of networks while keeping their overall structure place. We show that this reliance on CNNs not necessary and a pure transformer directly sequences image patches can perform very well classification tasks. When pre-trained large amounts data transferred multiple mid-sized small recognition benchmarks (ImageNet, CIFAR-100, VTAB, etc.), Vision (ViT) attains excellent results compared state-of-the-art requiring substantially fewer computational resources train."
+    ],
+    "c_categories":[
+      "cs.CV"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.05236,
+    "a_title":"Designing a Light-based Communication System with a Biomolecular\n  Receiver",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"Biological systems transduce signals from their surroundings in numerous\nways. This paper introduces a communication system using the light-gated ion\nchannel Channelrhodopsin-2 (ChR2), which causes an ion current to flow in\nresponse to light. Our design includes a ChR2-based receiver along with\nencoding, modulation techniques and detection. Analyzing the resulting\ncommunication system, we discuss the effect of different parameters on the\nperformance of the system. Finally, we discuss its potential design in the\ncontext of bio-engineering and light-based communication and show that the data\nrate scales up with the number of receptors, indicating that high-speed\ncommunication may be possible.",
+    "explanation":"The paper is interdisciplinary because it aims to use channelrhodopsin-2 (ChR2), a biomolecule, as a receiver to design a light-based communication system, which is a work related to engineering.",
+    "b_id":[
+      "b4"
+    ],
+    "b_title":[
+      "Channelrhodopsin-2, a directly light-gated cation-selective membrane channel"
+    ],
+    "b_abstract":[
+      "Microbial-type rhodopsins are found in archaea, prokaryotes, and eukaryotes. Some of them represent membrane ion transport proteins such as bacteriorhodopsin, a light-driven proton pump, or channelrhodopsin-1 (ChR1), recently identified light-gated channel from the green alga Chlamydomonas reinhardtii . ChR1 ChR2, related microbial-type rhodopsin C. , were shown to be involved generation photocurrents this alga. We demonstrate by functional expression, both oocytes Xenopus laevis mammalian cells, that ChR2 is directly light-switched cation-selective channel. This opens rapidly after absorption photon generate large permeability for monovalent divalent cations. desensitizes continuous light smaller steady-state conductance. Recovery desensitization accelerated extracellular H + negative potential, whereas closing decelerated intracellular expressed mainly under low-light conditions, suggesting involvement photoreception dark-adapted cells. The predicted seven-transmembrane \u03b1 helices characteristic G protein-coupled receptors but reflect different motif Finally, we may used depolarize small simply illumination."
+    ],
+    "b_categories":[
+      "q-bio.BM"
+    ],
+    "b_fields":[
+      "Quantitative Biology"
+    ],
+    "c_id":[
+      "b2",
+      "b0"
+    ],
+    "c_title":[
+      "Shannon capacity of signal transduction for multiple independent receptors",
+      "DESIGN AND IMPLEMENTATION OF VISIBLE LIGHT COMMUNICATION SYSTEM IN INDOOR ENVIRONMENT"
+    ],
+    "c_abstract":[
+      "Cyclic adenosine monophosphate (cAMP) is considered a model system for signal transduction, the mechanism by which cells exchange chemical messages. Our previous work calculated Shannon capacity of single cAMP receptor; however, typical cell may have thousands receptors operating in parallel. In this paper, we calculate transduction with an arbitrary number independent, indistinguishable receptors. By leveraging prior results on feedback receptor, show (somewhat unexpectedly) that achieved IID input distribution, and n times receptor.",
+      "Visible Light communication (VLC) using White Light Emitting Diode (LED) is a promising technology for next generation communication for short range, high speed wireless data transmission. In this paper inexpensive transmitter and receiver of VLC system is designed and its performance is evaluated. The effect of natural and artificial ambient light noise sources is also considered. Experimental results show that the data transmission distance achieved upto 0.45m.Performance analysis is done with respect to optical power, photo sensitivity of photodiode at the receiver and the increase in distance between the transmitter and receiver."
+    ],
+    "c_categories":[
+      "cs.SY",
+      "eess.SP"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.02815,
+    "a_title":"Artificial Intelligence-Enhanced Couinaud Segmentation for Precision\n  Liver Cancer Therapy",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"Precision therapy for liver cancer necessitates accurately delineating liver\nsub-regions to protect healthy tissue while targeting tumors, which is\nessential for reducing recurrence and improving survival rates. However, the\nsegmentation of hepatic segments, known as Couinaud segmentation, is\nchallenging due to indistinct sub-region boundaries and the need for extensive\nannotated datasets. This study introduces LiverFormer, a novel Couinaud\nsegmentation model that effectively integrates global context with low-level\nlocal features based on a 3D hybrid CNN-Transformer architecture. Additionally,\na registration-based data augmentation strategy is equipped to enhance the\nsegmentation performance with limited labeled data. Evaluated on CT images from\n123 patients, LiverFormer demonstrated high accuracy and strong concordance\nwith expert annotations across various metrics, allowing for enhanced treatment\nplanning for surgery and radiation therapy. It has great potential to reduces\ncomplications and minimizes potential damages to surrounding tissue, leading to\nimproved outcomes for patients undergoing complex liver cancer treatments.",
+    "explanation":"The paper presents a tool that uses Convolutional Neural Networks (CNN) and Transformers, technologies from Computer Science, to improve the accuracy and efficiency of Couinaud segmentation in liver cancer treatment, a challenge in the field of Medicine.",
+    "b_id":[
+      "b36",
+      "b33"
+    ],
+    "b_title":[
+      "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "Automated segmentation of liver segment on portal venous phase MR images using a 3D convolutional neural network"
+    ],
+    "b_abstract":[
+      "While the Transformer architecture has become de-facto standard for natural language processing tasks, its applications to computer vision remain limited. In vision, attention is either applied in conjunction with convolutional networks, or used replace certain components of networks while keeping their overall structure place. We show that this reliance on CNNs not necessary and a pure transformer directly sequences image patches can perform very well classification tasks. When pre-trained large amounts data transferred multiple mid-sized small recognition benchmarks (ImageNet, CIFAR-100, VTAB, etc.), Vision (ViT) attains excellent results compared state-of-the-art requiring substantially fewer computational resources train.",
+      "We aim to develop and validate a three-dimensional convolutional neural network (3D-CNN) model for automatic liver segment segmentation on MRI images.This retrospective study evaluated an automated method using deep that was trained, validated, tested with 367, 157, 158 portal venous phase MR images, respectively. The Dice similarity coefficient (DSC), mean surface distance (MSD), Hausdorff (HD), volume ratio (RV) were used quantitatively measure the accuracy of segmentation. time consumed manual also compared. In addition, applied 100 consecutive cases from real clinical scenario qualitative evaluation indirect evaluation.In quantitative evaluation, achieved high DSC, MSD, HD RV (0.920, 3.34, 3.61 1.01, respectively). Compared segmentation, reduced 26 min 8 s. quality rated as good in 79% cases, moderate 15% poor 6%. 93.4% (99\/106) lesions could be assigned correct by only referring results segmentation.The proposed may serve effective tool anatomical region annotation images."
+    ],
+    "b_categories":[
+      "cs.CV",
+      "cs.AI"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b13"
+    ],
+    "c_title":[
+      "Liver Anatomy: Portal (and Suprahepatic) or Biliary Segmentation"
+    ],
+    "c_abstract":[
+      "In liver anatomy and surgery, is portal hepatic vein segmentation (French segmentation) to be preferred over arteriobiliary (Healey Schroy, North American segmentation)?Several embryological arguments an analysis of anatomical data from a personal collection 110 vasculobiliary casts were made.Embryological arguments: Portal branching appears first, secondly follows the distribution. Segment II (the left lateral sector) development right lobe. The umbilical enters portion middle lobe, forming segment IV on III left: this paramedian sector. So fissure (between lobes) transversally crosses classical which not unit. VI late secondary prominence VII, reaching anterior margin only in man. Anatomical must added segmentation; academic lobe sector, separates lobes. preferred: duplication branches first order occurs 23.5% cases, while first-order noted 50% livers, being much simpler.Portal seems more accurate."
+    ],
+    "c_categories":[
+      "q-bio.TO"
+    ],
+    "c_fields":[
+      "Quantitative Biology"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.00561,
+    "a_title":"Automated Classification of Cell Shapes: A Comparative Evaluation of\n  Shape Descriptors",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"This study addresses the challenge of classifying cell shapes from noisy\ncontours, such as those obtained through cell instance segmentation of\nhistological images. We assess the performance of various features for shape\nclassification, including Elliptical Fourier Descriptors, curvature features,\nand lower dimensional representations. Using an annotated synthetic dataset of\nnoisy contours, we identify the most suitable shape descriptors and apply them\nto a set of real images for qualitative analysis. Our aim is to provide a\ncomprehensive evaluation of descriptors for classifying cell shapes, which can\nsupport cell type identification and tissue characterization-critical tasks in\nboth biological research and histopathological assessments.",
+    "explanation":"This study addresses the challenge of classifying cell shapes from noisy contours, such as those obtained through cell instance segmentation of histological images.\n\nOur aim is to provide a comprehensive evaluation of descriptors for classifying cell shapes, which can support cell type identification and tissue characterization\u2014critical tasks in both biological research and histopathological assessments.\n",
+    "b_id":[
+      "b24"
+    ],
+    "b_title":[
+      "Retrieval and classification of shape-based objects using Fourier, generic Fourier, and wavelet-Fourier descriptors technique: A comparative study"
+    ],
+    "b_abstract":[
+      "In this paper, we report retrieval and classification of shape-based objects employing three techniques-conventional Fourier descriptors (FD), generic Fourier descriptors (GFD) and wavelet-Fourier descriptors (WFD) techniques. All the three techniques have been applied to a database of seven different types of shapes. The centroid distance based shape signatures have been used for the derivation of descriptors. The Euclidean distance has been calculated as a similarity measure parameter for shape classification. For WFD technique, a Mexican-hat wavelet function was used. Classification results from all the three techniques were compared and it was observed that WFD performs better than FD and GFD technique. To study the effect of the noise on the retrieval and classification of shapes of different objects, additive and multiplicative noise of various variances were applied to the database. Precision and recall were also measured as parameters of performance metric."
+    ],
+    "b_categories":[
+      "cs.AI"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b4"
+    ],
+    "c_title":[
+      "What is a cell type, really? The quest to categorize life's myriad forms."
+    ],
+    "c_abstract":[
+      "The problem of cell type became clear to genome biologist Jason Buenrostro in 2013. He was studying a cell line derived from someone with cancer, trying to map out how the DNA was arranged in the nucleus. The cells should have been pretty much identical, he thought. But the more Buenrostro looked at the DNA, the more differences he found in how it was packaged1. \u201cI realized that there were probably hundreds of flavours,\u201d recalls Buenrostro, who was a graduate student at Stanford University in California at the time."
+    ],
+    "c_categories":[
+      "q-bio.BM"
+    ],
+    "c_fields":[
+      "Quantitative Biology"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.01144,
+    "a_title":"LEARNER: Learning Granular Labels from Coarse Labels using Contrastive\n  Learning",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"A crucial question in active patient care is determining if a treatment is\nhaving the desired effect, especially when changes are subtle over short\nperiods. We propose using inter-patient data to train models that can learn to\ndetect these fine-grained changes within a single patient. Specifically, can a\nmodel trained on multi-patient scans predict subtle changes in an individual\npatient's scans? Recent years have seen increasing use of deep learning (DL) in\npredicting diseases using biomedical imaging, such as predicting COVID-19\nseverity using lung ultrasound (LUS) data. While extensive literature exists on\nsuccessful applications of DL systems when well-annotated large-scale datasets\nare available, it is quite difficult to collect a large corpus of personalized\ndatasets for an individual. In this work, we investigate the ability of recent\ncomputer vision models to learn fine-grained differences while being trained on\ndata showing larger differences. We evaluate on an in-house LUS dataset and a\npublic ADNI brain MRI dataset. We find that models pre-trained on clips from\nmultiple patients can better predict fine-grained differences in scans from a\nsingle patient by employing contrastive learning.",
+    "explanation":"Recent years have seen increasing use of deep learning\n(DL) in predicting diseases using biomedical imaging, such as\npredicting COVID-19 severity using lung ultrasound (LUS)\ndata.",
+    "b_id":[
+      "b6"
+    ],
+    "b_title":[
+      "Investigating training-test data splitting strategies for automated segmentation and scoring of COVID-19 lung ultrasound images."
+    ],
+    "b_abstract":[
+      "Ultrasound in point-of-care lung assessment is becoming increasingly relevant. This is further reinforced in the context of the COVID-19 pandemic, where rapid decisions on the lung state must be made for staging and monitoring purposes. The lung structural changes due to severe COVID-19 modify the way ultrasound propagates in the parenchyma. This is reflected by changes in the appearance of the lung ultrasound images. In abnormal lungs, vertical artifacts known as B-lines appear and can evolve into white lung patterns in the more severe cases. Currently, these artifacts are assessed by trained physicians, and the diagnosis is qualitative and operator dependent. In this article, an automatic segmentation method using a convolutional neural network is proposed to automatically stage the progression of the disease. 1863 B-mode images from 203 videos obtained from 14 asymptomatic individual,14 confirmed COVID-19 cases, and 4 suspected COVID-19 cases were used. Signs of lung damage, such as the presence and extent of B-lines and white lung areas, are manually segmented and scored from zero to three (most severe). These manually scored images are considered as ground truth. Different test-training strategies are evaluated in this study. The results shed light on the efficient approaches and common challenges associated with automatic segmentation methods."
+    ],
+    "b_categories":[
+      "Lung Ultrasound"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b2"
+    ],
+    "c_title":[
+      "A Simple Framework for Contrastive Learning of Visual Representations"
+    ],
+    "c_abstract":[
+      "This paper presents SimCLR: a simple framework for contrastive learning of visual representations. We simplify recently proposed self-supervised algorithms without requiring specialized architectures or memory bank. In order to understand what enables the prediction tasks learn useful representations, we systematically study major components our framework. show that (1) composition data augmentations plays critical role in defining effective predictive tasks, (2) introducing learnable nonlinear transformation between representation and loss substantially improves quality learned (3) benefits from larger batch sizes more training steps compared supervised learning. By combining these findings, are able considerably outperform previous methods semi-supervised on ImageNet. A linear classifier trained representations by SimCLR achieves 76.5% top-1 accuracy, which is 7% relative improvement over state-of-the-art, matching performance ResNet-50. When fine-tuned only 1% labels, achieve 85.8% top-5 outperforming AlexNet with 100X fewer labels."
+    ],
+    "c_categories":[
+      "cs.AI"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.00922,
+    "a_title":"Lung tumor segmentation in MRI mice scans using 3D nnU-Net with minimum\n  annotations",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"In drug discovery, accurate lung tumor segmentation is an important step for\nassessing tumor size and its progression using \\textit{in-vivo} imaging such as\nMRI. While deep learning models have been developed to automate this process,\nthe focus has predominantly been on human subjects, neglecting the pivotal role\nof animal models in pre-clinical drug development. In this work, we focus on\noptimizing lung tumor segmentation in mice. First, we demonstrate that the\nnnU-Net model outperforms the U-Net, U-Net3+, and DeepMeta models. Most\nimportantly, we achieve better results with nnU-Net 3D models than 2D models,\nindicating the importance of spatial context for segmentation tasks in MRI mice\nscans. This study demonstrates the importance of 3D input over 2D input images\nfor lung tumor segmentation in MRI scans. Finally, we outperform the prior\nstate-of-the-art approach that involves the combined segmentation of lungs and\ntumors within the lungs. Our work achieves comparable results using only lung\ntumor annotations requiring fewer annotations, saving time and annotation\nefforts. This work\n(https:\/\/anonymous.4open.science\/r\/lung-tumour-mice-mri-64BB) is an important\nstep in automating pre-clinical animal studies to quantify the efficacy of\nexperimental drugs, particularly in assessing tumor changes.",
+    "explanation":"In this work, we focus on optimizing lung tumor segmen-\ntation in mice. First, we demonstrate that the nnU-Net model outper-\nforms the U-Net, U-Net3+, and DeepMeta models.",
+    "b_id":[
+      "b16"
+    ],
+    "b_title":[
+      "Deep learning model for automatic segmentation of lungs and pulmonary metastasis in small animal MR images"
+    ],
+    "b_abstract":[
+      "Lungs are the most frequent site of metastases growth. The amount and size pulmonary acquired from MRI imaging data important criteria to assess efficacy new drugs in preclinical models. While efficient solutions both for MR downstream automatic segmentation have been proposed human patients, lung animal models remains challenging due physiological motion (respiratory cardiac movements), low protons this organ particular challenge precise metastases. As a consequence post-mortem analysis is currently required obtain information on metastatic volume. In work, we developed complete methodological pipeline automated lungs mice, consisting an sequence image acquisition deep learning method On one hand, optimized mouse with high contrast detection sensitivity. other hand DeepMeta, multiclass U-Net 3+ model automatically segment images. To if able provide accurate metastases, longitudinally imaged mice fast- slow-growing metastasis. Fifty-five balb\/c were injected two different derivatives renal carcinoma cells. Mice SG-bSSFP (self-gated balanced steady state free precession) at time points after injection cancer Both segmentations manually performed by experts. DeepMeta was trained perform based resulting ground truth annotations. Volumes as well number per measured separate test dataset Thanks SG method, 3D bSSFP images artifact-free, enabling serial follow-up Moreover, accurately soon they reached volume \u223c0.02mm3 . Thus distinguish groups terms slow versus fast patterns growth We shown that our methodology combining learning, enables processing whole thus viable alternative histology alone."
+    ],
+    "b_categories":[
+      "q-bio.TO"
+    ],
+    "b_fields":[
+      "Quantitative Biology"
+    ],
+    "c_id":[
+      "b12"
+    ],
+    "c_title":[
+      "nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation"
+    ],
+    "c_abstract":[
+      "Biomedical imaging is a driver of scientific discovery and a core component of medical care and is being stimulated by the field of deep learning. While semantic segmentation algorithms enable image analysis and quantification in many applications, the design of respective specialized solutions is non-trivial and highly dependent on dataset properties and hardware conditions. We developed nnU-Net, a deep learning-based segmentation method that automatically configures itself, including preprocessing, network architecture, training and post-processing for any new task. The key design choices in this process are modeled as a set of fixed parameters, interdependent rules and empirical decisions. Without manual intervention, nnU-Net surpasses most existing approaches, including highly specialized solutions on 23 public datasets used in international biomedical segmentation competitions. We make nnU-Net publicly available as an out-of-the-box tool, rendering state-of-the-art segmentation accessible to a broad audience by requiring neither expert knowledge nor computing resources beyond standard network training."
+    ],
+    "c_categories":[
+      "cs.CV"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2412.02695,
+    "a_title":"An ADHD Diagnostic Interface Based on EEG Spectrograms and Deep Learning\n  Techniques",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"This paper introduces an innovative approach to\nAttention-deficit\/hyperactivity disorder (ADHD) diagnosis by employing deep\nlearning (DL) techniques on electroencephalography (EEG) signals. This method\naddresses the limitations of current behavior-based diagnostic methods, which\noften lead to misdiagnosis and gender bias. By utilizing a publicly available\nEEG dataset and converting the signals into spectrograms, a Resnet-18\nconvolutional neural network (CNN) architecture was used to extract features\nfor ADHD classification. The model achieved a high precision, recall, and an\noverall F1 score of 0.9. Feature extraction highlighted significant brain\nregions (frontopolar, parietal, and occipital lobes) associated with ADHD.\nThese insights guided the creation of a three-part digital diagnostic system,\nfacilitating cost-effective and accessible ADHD screening, especially in school\nenvironments. This system enables earlier and more accurate identification of\nstudents at risk for ADHD, providing timely support to enhance their\ndevelopmental outcomes. This study showcases the potential of integrating EEG\nanalysis with DL to enhance ADHD diagnostics, presenting a viable alternative\nto traditional methods.",
+    "explanation":"his paper introduces an innovative approach to\nAttention-deficit\/hyperactivity disorder (ADHD) diagnosis by em-\nploying deep learning (DL) techniques on electroencephalography\n(EEG) signals.  By utilizing a publicly available EEG\ndataset and converting the signals into spectrograms, a Resnet-18\nconvolutional neural network (CNN) architecture was used to ex-\ntract features for ADHD classification. ",
+    "b_id":[
+      "b10"
+    ],
+    "b_title":[
+      "EEG data for ADHD \/ Control children"
+    ],
+    "b_abstract":[
+      "Participants were 61 children with ADHD and 60 healthy controls (boys and girls, ages 7-12). The ADHD children were diagnosed by an experienced psychiatrist to DSM-IV criteria, and have taken Ritalin for up to 6 months. None of the children in the control group had a history of psychiatric disorders, epilepsy, or any report of high-risk behaviors. EEG recording was performed based on 10-20 standard by 19 channels (Fz, Cz, Pz, C3, T3, C4, T4, Fp1, Fp2, F3, F4, F7, F8, P3, P4, T5, T6, O1, O2) at 128 Hz sampling frequency. The A1 and A2 electrodes were the references located on earlobes. Since one of the deficits in ADHD children is visual attention, the EEG recording protocol was based on visual attention tasks. In the task, a set of pictures of cartoon characters was shown to the children and they were asked to count the characters. The number of characters in each image was randomly selected between 5 and 16, and the size of the pictures was large enough to be easily visible and countable by children. To have a continuous stimulus during the signal recording, each image was displayed immediately and uninterrupted after the child\u2019s response. Thus, the duration of EEG recording throughout this cognitive visual task was dependent on the child\u2019s performance (i.e. response speed)."
+    ],
+    "b_categories":[
+      "Neurotherapeutics"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b11"
+    ],
+    "c_title":[
+      "Deep Residual Learning for Image Recognition"
+    ],
+    "c_abstract":[
+      "Deeper neural networks are more difficult to train. We present a residual learning framework ease the training of that substantially deeper than those used previously. explicitly reformulate layers as functions with reference layer inputs, instead unreferenced functions. provide comprehensive empirical evidence showing these easier optimize, and can gain accuracy from considerably increased depth. On ImageNet dataset we evaluate nets depth up 152 - 8\u00d7 VGG [40] but still having lower complexity. An ensemble achieves 3.57% error on test set. This result won 1st place ILSVRC 2015 classification task. also analysis CIFAR-10 100 1000 layers. The representations is central importance for many visual recognition tasks. Solely due our extremely deep representations, obtain 28% relative improvement COCO object detection dataset. Deep foundations submissions & competitions1, where places tasks detection, localization, segmentation."
+    ],
+    "c_categories":[
+      "cs.CV"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.03522,
+    "a_title":"Exploring the Potentials and Challenges of Using Large Language Models\n  for the Analysis of Transcriptional Regulation of Long Non-coding RNAs",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"Research on long non-coding RNAs (lncRNAs) has garnered significant attention\ndue to their critical roles in gene regulation and disease mechanisms. However,\nthe complexity and diversity of lncRNA sequences, along with the limited\nknowledge of their functional mechanisms and the regulation of their\nexpressions, pose significant challenges to lncRNA studies. Given the\ntremendous success of large language models (LLMs) in capturing complex\ndependencies in sequential data, this study aims to systematically explore the\npotential and limitations of LLMs in the sequence analysis related to the\ntranscriptional regulation of lncRNA genes. Our extensive experiments\ndemonstrated promising performance of fine-tuned genome foundation models on\nprogressively complex tasks. Furthermore, we conducted an insightful analysis\nof the critical impact of task complexity, model selection, data quality, and\nbiological interpretability for the studies of the regulation of lncRNA gene\nexpression.",
+    "explanation":"Given the tremendous success of large language mod-\nels (LLMs) in capturing complex dependencies in sequential data, this study aims to systematically explore the potential and limitations of LLMs in the sequence analysis related to the transcriptional regulation of lncRNA genes. ",
+    "b_id":[
+      "b3"
+    ],
+    "b_title":[
+      "Language Models are Few-Shot Learners"
+    ],
+    "b_abstract":[
+      "Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training a large corpus of text followed fine-tuning specific task. While typically task-agnostic in architecture, this method still requires task-specific datasets thousands or tens examples. By contrast, humans can generally perform new language task from only few examples simple instructions - something which current systems largely struggle to do. Here we show that scaling up models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art approaches. Specifically, train GPT-3, an autoregressive model 175 billion parameters, 10x more than any previous non-sparse model, test its performance the setting. For all tasks, GPT-3 is applied without gradient updates fine-tuning, demonstrations specified purely via interaction model. achieves strong datasets, including translation, question-answering, cloze as well several require on-the-fly reasoning domain adaptation, such unscrambling words, using novel word sentence, performing 3-digit arithmetic. At same time, also identify some where GPT-3's learning struggles, faces methodological issues related training web corpora. Finally, find generate samples news articles human evaluators have difficulty distinguishing written humans. We discuss broader societal impacts finding general."
+    ],
+    "b_categories":[
+      "cs.CL"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b20"
+    ],
+    "c_title":[
+      "Long non-coding RNAs: definitions, functions, challenges and recommendations"
+    ],
+    "c_abstract":[
+      "Genes specifying long non-coding RNAs (lncRNAs) occupy a large fraction of the genomes of complex organisms. The term \u2018lncRNAs\u2019 encompasses RNA polymerase I (Pol I), Pol II and Pol III transcribed RNAs, and RNAs from processed introns. The various functions of lncRNAs and their many isoforms and interleaved relationships with other genes make lncRNA classification and annotation difficult. Most lncRNAs evolve more rapidly than protein-coding sequences, are cell type specific and regulate many aspects of cell differentiation and development and other physiological processes. Many lncRNAs associate with chromatin-modifying complexes, are transcribed from enhancers and nucleate phase separation of nuclear condensates and domains, indicating an intimate link between lncRNA expression and the spatial control of gene expression during development. lncRNAs also have important roles in the cytoplasm and beyond, including in the regulation of translation, metabolism and signalling. lncRNAs often have a modular structure and are rich in repeats, which are increasingly being shown to be relevant to their function. In this Consensus Statement, we address the definition and nomenclature of lncRNAs and their conservation, expression, phenotypic visibility, structure and functions. We also discuss research challenges and provide recommendations to advance the understanding of the roles of lncRNAs in development, cell biology and disease."
+    ],
+    "c_categories":[
+      "q-bio.CB"
+    ],
+    "c_fields":[
+      "Quantitative Biology"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2412.20007,
+    "a_title":"Uncertainty Quantified Deep Learning and Regression Analysis Framework\n  for Image Segmentation of Skin Cancer Lesions",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Deep learning models (DLMs) frequently achieve accurate segmentation and\nclassification of tumors from medical images. However, DLMs lacking feedback on\ntheir image segmentation mechanisms, such as Dice coefficients and confidence\nin their performance, face challenges when processing previously unseen images\nin real-world clinical settings. Uncertainty estimates to identify DLM\npredictions at the cellular or single-pixel level that require clinician review\ncan enhance trust. However, their deployment requires significant computational\nresources. This study reports two DLMs, one trained from scratch and another\nbased on transfer learning, with Monte Carlo dropout or Bayes-by-backprop\nuncertainty estimations to segment lesions from the publicly available The\nInternational Skin Imaging Collaboration-19 dermoscopy image database with\ncancerous lesions. A novel approach to compute pixel-by-pixel uncertainty\nestimations of DLM segmentation performance in multiple clinical regions from a\nsingle dermoscopy image with corresponding Dice scores is reported for the\nfirst time. Image-level uncertainty maps demonstrated correspondence between\nimperfect DLM segmentation and high uncertainty levels in specific skin tissue\nregions, with or without lesions. Four new linear regression models that can\npredict the Dice performance of DLM segmentation using constants and\nuncertainty measures, either individually or in combination from lesions,\ntissue structures, and non-tissue pixel regions critical for clinical diagnosis\nand prognostication in skin images (Spearman's correlation, p < 0.05), are\nreported for the first time for low-compute uncertainty estimation workflows.",
+    "explanation":"Deep learning models (DLMs) frequently achieve\naccurate segmentation and classification of tumors from medical\nimages.  DLMs lacking feedback on their image seg-\nmentation mechanisms such as Dice coefficients and confidence in\ntheir performance face challenges processing previously unseen\nimages in real-world clinical settings. A novel\napproach to compute pixel-by-pixel uncertainty estimations of\nDLM segmentation performance in multiple clinical regions from\na single dermatoscopy image with corresponding Dice scores\nis reported for the first time. ",
+    "b_id":[
+      "b4"
+    ],
+    "b_title":[
+      "Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning"
+    ],
+    "b_abstract":[
+      "Deep learning tools have gained tremendous attention in applied machine learning. However such for regression and classification do not capture model uncertainty. In comparison, Bayesian models offer a mathematically grounded framework to reason about uncertainty, but usually come with prohibitive computational cost. this paper we develop new theoretical casting dropout training deep neural networks (NNs) as approximate inference Gaussian processes. A direct result of theory gives us uncertainty NNs -- extracting information from existing that has been thrown away so far. This mitigates the problem representing without sacrificing either complexity or test accuracy. We perform an extensive study properties dropout's Various network architectures non-linearities are assessed on tasks classification, using MNIST example. show considerable improvement predictive log-likelihood RMSE compared state-of-the-art methods, finish by reinforcement"
+    ],
+    "b_categories":[
+      "cs.LG"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b6"
+    ],
+    "c_title":[
+      "The HAM10000 dataset, a large collection of multi-source dermatoscopic images of common pigmented skin lesions"
+    ],
+    "c_abstract":[
+      "Training of neural networks for automated diagnosis pigmented skin lesions is hampered by the small size and lack diversity available datasets dermatoscopic images. We tackle this problem releasing HAM10000 (\"Human Against Machine with 10000 training images\") dataset. collected images from different populations acquired stored modalities. Given we had to apply acquisition cleaning methods developed semi-automatic workflows utilizing specifically trained networks. The final dataset consists 10015 which are released as a set academic machine learning purposes publicly through ISIC archive. This benchmark can be used comparisons human experts. Cases include representative collection all important diagnostic categories in realm lesions. More than 50% have been confirmed pathology, while ground truth rest cases was either follow-up, expert consensus, or confirmation in-vivo confocal microscopy."
+    ],
+    "c_categories":[
+      "Data"
+    ],
+    "c_fields":[
+
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.04715,
+    "a_title":"NeuroFly: A framework for whole-brain single neuron reconstruction",
+    "fields":[
+
+    ],
+    "a_abstract":"Neurons, with their elongated, tree-like dendritic and axonal structures,\nenable efficient signal integration and long-range communication across brain\nregions. By reconstructing individual neurons' morphology, we can gain valuable\ninsights into brain connectivity, revealing the structure basis of cognition,\nmovement, and perception. Despite the accumulation of extensive 3D microscopic\nimaging data, progress has been considerably hindered by the absence of\nautomated tools to streamline this process. Here we introduce NeuroFly, a\nvalidated framework for large-scale automatic single neuron reconstruction.\nThis framework breaks down the process into three distinct stages:\nsegmentation, connection, and proofreading. In the segmentation stage, we\nperform automatic segmentation followed by skeletonization to generate\nover-segmented neuronal fragments without branches. During the connection\nstage, we use a 3D image-based path following approach to extend each fragment\nand connect it with other fragments of the same neuron. Finally, human\nannotators are required only to proofread the few unresolved positions. The\nfirst two stages of our process are clearly defined computer vision problems,\nand we have trained robust baseline models to solve them. We validated\nNeuroFly's efficiency using in-house datasets that include a variety of\nchallenging scenarios, such as dense arborizations, weak axons, images with\ncontamination. We will release the datasets along with a suite of visualization\nand annotation tools for better reproducibility. Our goal is to foster\ncollaboration among researchers to address the neuron reconstruction challenge,\nultimately accelerating advancements in neuroscience research. The dataset and\ncode are available at https:\/\/github.com\/beanli161514\/neurofly",
+    "explanation":"Despite the accumulation of extensive 3D microscopic imaging data,\nprogress has been considerably hindered by the absence of\nautomated tools to streamline this process.",
+    "b_id":[
+      "b19"
+    ],
+    "b_title":[
+      "BigNeuron: a resource to benchmark and predict performance of algorithms for automated tracing of neurons in light microscopy datasets"
+    ],
+    "b_abstract":[
+      "BigNeuron is an open community bench-testing platform with the goal of setting open standards for accurate and fast automatic neuron tracing. We gathered a diverse set of image volumes across several species that is representative of the data obtained in many neuroscience laboratories interested in neuron tracing. Here, we report generated gold standard manual annotations for a subset of the available imaging datasets and quantified tracing quality for 35 automatic tracing algorithms. The goal of generating such a hand-curated diverse dataset is to advance the development of tracing algorithms and enable generalizable benchmarking. Together with image quality features, we pooled the data in an interactive web application that enables users and developers to perform principal component analysis, t -distributed stochastic neighbor embedding, correlation and clustering, visualization of imaging and tracing data, and benchmarking of automatic tracing algorithms in user-defined data subsets. The image quality metrics explain most of the variance in the data, followed by neuromorphological features related to neuron size. We observed that diverse algorithms can provide complementary information to obtain accurate results and developed a method to iteratively combine methods and generate consensus reconstructions. The consensus trees obtained provide estimates of the neuron structure ground truth that typically outperform single algorithms in noisy datasets. However, specific algorithms may outperform the consensus tree strategy in specific imaging conditions. Finally, to aid users in predicting the most accurate automatic tracing results without manual annotations for comparison, we used support vector machine regression to predict reconstruction quality given an image volume and a set of automatic tracings. This resource describes a collection of neurons from a variety of light microscopy-based datasets, which can serve as a gold standard for testing automated tracing algorithms, as shown by comparison of the performance of 35 algorithms."
+    ],
+    "b_categories":[
+      "Bioinformatics"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b17"
+    ],
+    "c_title":[
+      "Tracing weak neuron fibers"
+    ],
+    "c_abstract":[
+      "Precise reconstruction of neuronal arbors is important for circuitry mapping. Many auto-tracing algorithms have been developed toward full reconstruction. However, it still challenging to trace the weak signals neurite fibers that often correspond axons.We proposed a method, named NeuMiner, tracing by combining two strategies: an online sample mining strategy and modified gamma transformation. NeuMiner improved recall (voxel values <20) large margin, from 5.1 27.8%. This prominent axons, which increased 6.4 times, compared 2.0 times dendrites. Both strategies were shown be beneficial fiber recognition, they reduced average axonal spatial distances gold standards 46 13%, respectively. The improvement was observed on prevalent automatic can applied any other tracers image types.Source codes are freely available GitHub (https:\/\/github.com\/crazylyf\/neuronet\/tree\/semantic_fnm). Image visualization, preprocessing conducted Vaa3D platform, accessible at repository (https:\/\/github.com\/Vaa3D). All training testing images cropped high-resolution fMOST mouse brains downloaded Brain Library (https:\/\/www.brainimagelibrary.org\/), corresponding https:\/\/doi.brainimagelibrary.org\/doi\/10.35077\/g.25.Supplementary data Bioinformatics online."
+    ],
+    "c_categories":[
+      "Imaging"
+    ],
+    "c_fields":[
+
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.05188,
+    "a_title":"AGE2HIE: Transfer Learning from Brain Age to Predicting Neurocognitive\n  Outcome for Infant Brain Injury",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Hypoxic-Ischemic Encephalopathy (HIE) affects 1 to 5 out of every 1,000\nnewborns, with 30% to 50% of cases resulting in adverse neurocognitive\noutcomes. However, these outcomes can only be reliably assessed as early as age\n2. Therefore, early and accurate prediction of HIE-related neurocognitive\noutcomes using deep learning models is critical for improving clinical\ndecision-making, guiding treatment decisions and assessing novel therapies.\nHowever, a major challenge in developing deep learning models for this purpose\nis the scarcity of large, annotated HIE datasets. We have assembled the first\nand largest public dataset, however it contains only 156 cases with 2-year\nneurocognitive outcome labels. In contrast, we have collected 8,859 normal\nbrain black Magnetic Resonance Imagings (MRIs) with 0-97 years of age that are\navailable for brain age estimation using deep learning models. In this paper,\nwe introduce AGE2HIE to transfer knowledge learned by deep learning models from\nhealthy controls brain MRIs to a diseased cohort, from structural to diffusion\nMRIs, from regression of continuous age estimation to prediction of the binary\nneurocognitive outcomes, and from lifespan age (0-97 years) to infant (0-2\nweeks). Compared to training from scratch, transfer learning from brain age\nestimation significantly improves not only the prediction accuracy (3% or 2%\nimprovement in same or multi-site), but also the model generalization across\ndifferent sites (5% improvement in cross-site validation).",
+    "explanation":"Hypoxic-Ischemic Encephalopathy (HIE) affects 1 to 5 out of\nevery 1,000 newborns, with 30% to 50% of cases resulting in\nadverse neurocognitive outcomes. However, these outcomes\ncan only be reliably assessed as early as age 2. Therefore,\nearly and accurate prediction of HIE-related neurocognitive\noutcomes using deep learning models is critical for improv-\ning clinical decision-making, guiding treatment decisions and\nassessing novel therapies",
+    "b_id":[
+      "b3"
+    ],
+    "b_title":[
+      "Limitations of conventional magnetic resonance imaging as a predictor of death or disability following neonatal hypoxic-ischemic encephalopathy in the late hypothermia trial"
+    ],
+    "b_abstract":[
+      "Objective: To investigate if magnetic resonance imaging (MRI) is an accurate predictor for death or moderate-severe disability at 18-22 months of age among infants with neonatal encephalopathy in a trial of cooling initiated at 6-24 hours. Study design: Subgroup analysis of infants \u226536 weeks of gestation with moderate-severe neonatal encephalopathy randomized at 6-24 postnatal hours to hypothermia or usual care in a multicenter trial of late hypothermia. MRI scans were performed per each center's practice and interpreted by 2 central readers using the Eunice Kennedy Shriver National Institute of Child Health and Human Development injury score (6 levels, normal to hemispheric devastation). Neurodevelopmental outcomes were assessed at 18-22 months of age. Results: Of 168 enrollees, 128 had an interpretable MRI and were seen in follow-up (n = 119) or died (n = 9). MRI findings were predominantly acute injury and did not differ by cooling treatment. At 18-22 months, death or severe disability occurred in 20.3%. No infant had moderate disability. Agreement between central readers was moderate (weighted kappa 0.56, 95% CI 0.45-0.67). The adjusted odds of death or severe disability increased 3.7-fold (95% CI 1.8-7.9) for each increment of injury score. The area under the curve for severe MRI patterns to predict death or severe disability was 0.77 and the positive and negative predictive values were 36% and 100%, respectively. Conclusions: MRI injury scores were associated with neurodevelopmental outcome at 18-22 months among infants in the Late Hypothermia Trial. However, the results suggest caution when using qualitative interpretations of MRI images to provide prognostic information to families following perinatal hypoxia-ischemia."
+    ],
+    "b_categories":[
+      "Pediatrics"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b7"
+    ],
+    "c_title":[
+      "What is being transferred in transfer learning?"
+    ],
+    "c_abstract":[
+      "One desired capability for machines is the ability to transfer their knowledge of one domain another where data (usually) scarce. Despite ample adaptation learning in various deep applications, we yet do not understand what enables a successful and which part network responsible that. In this paper, provide new tools analyses address these fundamental questions. Through series on transferring block-shuffled images, separate effect feature reuse from low-level statistics show that some benefit comes latter. We present when training pre-trained weights, model stays same basin loss landscape different instances such are similar space close parameter space."
+    ],
+    "c_categories":[
+      "cs.LG"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.19345,
+    "a_title":"3D Wasserstein generative adversarial network with dense U-Net based\n  discriminator for preclinical fMRI denoising",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Functional magnetic resonance imaging (fMRI) is extensively used in clinical\nand preclinical settings to study brain function, however, fMRI data is\ninherently noisy due to physiological processes, hardware, and external noise.\nDenoising is one of the main preprocessing steps in any fMRI analysis pipeline.\nThis process is challenging in preclinical data in comparison to clinical data\ndue to variations in brain geometry, image resolution, and low signal-to-noise\nratios. In this paper, we propose a structure-preserved algorithm based on a 3D\nWasserstein generative adversarial network with a 3D dense U-net based\ndiscriminator called, 3D U-WGAN. We apply a 4D data configuration to\neffectively denoise temporal and spatial information in analyzing preclinical\nfMRI data. GAN-based denoising methods often utilize a discriminator to\nidentify significant differences between denoised and noise-free images,\nfocusing on global or local features. To refine the fMRI denoising model, our\nmethod employs a 3D dense U-Net discriminator to learn both global and local\ndistinctions. To tackle potential over-smoothing, we introduce an adversarial\nloss and enhance perceptual similarity by measuring feature space distances.\nExperiments illustrate that 3D U-WGAN significantly improves image quality in\nresting-state and task preclinical fMRI data, enhancing signal-to-noise ratio\nwithout introducing excessive structural changes in existing methods. The\nproposed method outperforms state-of-the-art methods when applied to simulated\nand real data in a fMRI analysis pipeline.",
+    "explanation":"Denoising is one of the main preprocessing steps in any fMRI analysis pipeline. In this\npaper, we propose a structure-preserved algorithm based on a 3D Wasserstein\ngenerative adversarial network with a 3D dense U-net based discriminator called,\n3D U-WGAN. ",
+    "b_id":[
+      "b0"
+    ],
+    "b_title":[
+      "On the use of preclinical imaging to explore the principles of brain function in rodent models and their relevance for illnesses of the human mind"
+    ],
+    "b_abstract":[
+      "Dear Editor, We recently published in Translational Psychiatry an article that examine the strategies for evaluating brain function at the wholebrain level [1]. In this review, we covered several methods, from functional MRI to functional ultrasound to calcium imaging. For each technique, we wrote a brief history of its development, the physical notion, some key applications, its potentials, and its limitations. We concluded that methods for imaging the rodent brain at the network level are growing and will advance our understanding of brain function. A commentary by Zhuo and colleagues further enhances the complexity of addressing the issue of \u201ctranslation\u201d from animal models to patients for the discipline of psychiatry [2]. They propose that the approaches employed to develop an animal model for a psychiatric disease need to be thoroughly scrutinized and, perhaps, revised. For example, most rodent models of mental diseases are to-date established using a simple pharmacological infusion [3] and\/or psychosocial stimulation [4]. The key concern posed, however, is how these manipulations change the brain\u2019s structure and function, and whether these models genuinely reflect the pathophysiology of human mental illnesses. Especially since it is difficult to evaluate whether one can speak of inverse inference from rodents to humans. This is a true and acceptable statement. However, this is exactly what preclinical imaging aims to deliver. By mapping the dynamic responses of brain networks in animal models and compare them, if possible, with those reported in clinical studies, we can obtain quantitative data and parameters to establish whether our models are effectively translational [5]. If these metrics demonstrate temporal and spatial similarity in network-level modifications as those observed in humans, we can pursue further inquiry utilizing more intrusive and more specific methods for brain recordings in animal models. Otherwise, we must have the confidence and the correctness to move forward and attempt other solutions. Two recent examples. In 2019 we established a causal association between activity of the noradrenergic nucleus locus coeruleus (LC) and the engagement of numerous large-scale brain networks in mice, in particular of the salience and amygdala networks [6]. In addition, we could link network-changes with direct markers of norepinephrine (NE) turnover and with the distribution of NE receptors over the entire brain. The hypothesis that specific brain networks dynamics are related to LC activity and to NE receptor density derives from stress-research and pharmacological studies in humans [7, 8]. However, since it is impossible to selectively stimulate LC in people, it has remained a hypothesis for more than a decade. Our preclinical work helped confirm this causal relationship and this has direct implications for interpreting the results of clinical imaging studies on stress and anxiety behavior. More recently, the Gozzi lab described how chronic local neuronal suppression via overexpression of a potassium channel or acute silencing via chemogenetics result in a paradoxical hyperconnectivity [9]; an intriguing finding often reported in humans after stroke [10] and in early stages of Alzheimer\u2019s disease [11], but never truly understood. Using in vivo electrophysiology, they showed local inhibition improves low frequency (0.1\u20134 Hz) oscillatory power via suppression of neuronal activity not phaselocked to slow rhythms, resulting in increased slow and \u03b4 band coherence between areas that display fMRI overconnectivity. These data present causal evidence that cortical inactivation can counterintuitively augment fMRI connectivity via greater, lesslocalized slow oscillatory processes. Once again, this could be only achieved by combining functional MRI and electrophysiology with neuromodulation in animal models. These and other examples give a peek of what the future of preclinical imaging might look like: a field of research capable of delivering causal explanations to the hypotheses presented by human neuroscience, neurology and psychiatry. Lastly, I would argue against statements like \u201cthe computational complexity of human brains is billions of times that of mouse brain\u201d. While this may be true from a numerical standpoint of mere neuronal counts, preclinical neuroimaging\u2019s objective should not be per se to map every single neuron in real time but of identifying the general neural and cellular principles governing the assembly of brain networks and its breakdown in brain disorders. The field is relatively new but is moving fast and has already produced some important insights. The future is challenging and will require time, devotion and an optimal synergy between engineering, chemistry, biology, and computer science. If the community will be patient and supportive enough, there will be further important discoveries in the future."
+    ],
+    "b_categories":[
+      "Psychiatry"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b8"
+    ],
+    "c_title":[
+      "GAN\uff08Generative Adversarial Nets\uff09"
+    ],
+    "c_abstract":[
+      "We propose a new framework for estimating generative models via an adversarial process, in which we simultaneously train two models: model G that captures the data distribution, and discriminative D estimates probability sample came from training rather than G. The procedure is to maximize of making mistake. This corresponds minimax two-player game. In space arbitrary functions D, unique solution exists, with recovering distribution equal \u00bd everywhere. case where are defined by multilayer perceptrons, entire system can be trained backpropagation. There no need any Markov chains or unrolled approximate inference networks during either generation samples. Experiments demonstrate potential through qualitative quantitative evaluation generated"
+    ],
+    "c_categories":[
+      "cs.LG"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.18784,
+    "a_title":"MRI Breast tissue segmentation using nnU-Net for biomechanical modeling",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Integrating 2D mammography with 3D magnetic resonance imaging (MRI) is\ncrucial for improving breast cancer diagnosis and treatment planning. However,\nthis integration is challenging due to differences in imaging modalities and\nthe need for precise tissue segmentation and alignment. This paper addresses\nthese challenges by enhancing biomechanical breast models in two main aspects:\nimproving tissue identification using nnU-Net segmentation models and\nevaluating finite element (FE) biomechanical solvers, specifically comparing\nNiftySim and FEBio. We performed a detailed six-class segmentation of breast\nMRI data using the nnU-Net architecture, achieving Dice Coefficients of 0.94\nfor fat, 0.88 for glandular tissue, and 0.87 for pectoral muscle. The overall\nforeground segmentation reached a mean Dice Coefficient of 0.83 through an\nensemble of 2D and 3D U-Net configurations, providing a solid foundation for 3D\nreconstruction and biomechanical modeling. The segmented data was then used to\ngenerate detailed 3D meshes and develop biomechanical models using NiftySim and\nFEBio, which simulate breast tissue's physical behaviors under compression. Our\nresults include a comparison between NiftySim and FEBio, providing insights\ninto the accuracy and reliability of these simulations in studying breast\ntissue responses under compression. The findings of this study have the\npotential to improve the integration of 2D and 3D imaging modalities, thereby\nenhancing diagnostic accuracy and treatment planning for breast cancer.",
+    "explanation":"Integrating 2D mammography with 3D magnetic resonance\nimaging (MRI) is crucial for improving breast cancer diagnosis and treat-\nment planning. However, this integration is challenging due to differences\nin imaging modalities and the need for precise tissue segmentation and\nalignment. This paper addresses these challenges by enhancing biome-\nchanical breast models in two main aspects: improving tissue identifica-\ntion using nnU-Net segmentation models and evaluating finite element\n(FE) biomechanical solvers, specifically comparing NiftySim and FEBio.\u00a0",
+    "b_id":[
+      "b16"
+    ],
+    "b_title":[
+      "nnu-net: a self-configuring method for deep learning-based biomedical image segmentation"
+    ],
+    "b_abstract":[
+      "Biomedical imaging is a driver of scientific discovery and a core component of medical care and is being stimulated by the field of deep learning. While semantic segmentation algorithms enable image analysis and quantification in many applications, the design of respective specialized solutions is non-trivial and highly dependent on dataset properties and hardware conditions. We developed nnU-Net, a deep learning-based segmentation method that automatically configures itself, including preprocessing, network architecture, training and post-processing for any new task. The key design choices in this process are modeled as a set of fixed parameters, interdependent rules and empirical decisions. Without manual intervention, nnU-Net surpasses most existing approaches, including highly specialized solutions on 23 public datasets used in international biomedical segmentation competitions. We make nnU-Net publicly available as an out-of-the-box tool, rendering state-of-the-art segmentation accessible to a broad audience by requiring neither expert knowledge nor computing resources beyond standard network training."
+    ],
+    "b_categories":[
+      "cs.CV"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b5"
+    ],
+    "c_title":[
+      "Multimodal Breast Parenchymal Patterns Correlation Using a Patient-Specific Biomechanical Model"
+    ],
+    "c_abstract":[
+      "In this paper, we aim to produce a realistic 2-D projection of the breast parenchymal distribution from a 3-D breast magnetic resonance image (MRI). To evaluate the accuracy of our simulation, we compare our results with the local breast density (i.e., density map) obtained from the complementary full-field digital mammogram. To achieve this goal, we have developed a fully automatic framework, which registers MRI volumes to X-ray mammograms using a subject-specific biomechanical model of the breast. The optimization step modifies the position, orientation, and elastic parameters of the breast model to perform the alignment between the images. When the model reaches an optimal solution, the MRI glandular tissue is projected and compared with the one obtained from the corresponding mammograms. To reduce the loss of information during the ray-casting, we introduce a new approach that avoids resampling the MRI volume. In the results, we focus our efforts on evaluating the agreement of the distributions of glandular tissue, the degree of structural similarity, and the correlation between the real and synthetic density maps. Our approach obtained a high-structural agreement regardless the glandularity of the breast, whilst the similarity of the glandular tissue distributions and correlation between both images increase in denser breasts. Furthermore, the synthetic images show continuity with respect to large structures in the density maps."
+    ],
+    "c_categories":[
+      "Imaging"
+    ],
+    "c_fields":[
+
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2412.00663,
+    "a_title":"Deep Learning for Longitudinal Gross Tumor Volume Segmentation in\n  MRI-Guided Adaptive Radiotherapy for Head and Neck Cancer",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Accurate segmentation of gross tumor volume (GTV) is essential for effective\nMRI-guided adaptive radiotherapy (MRgART) in head and neck cancer. However,\nmanual segmentation of the GTV over the course of therapy is time-consuming and\nprone to interobserver variability. Deep learning (DL) has the potential to\novercome these challenges by automatically delineating GTVs. In this study, our\nteam, $\\textit{UW LAIR}$, tackled the challenges of both pre-radiotherapy\n(pre-RT) (Task 1) and mid-radiotherapy (mid-RT) (Task 2) tumor volume\nsegmentation. To this end, we developed a series of DL models for longitudinal\nGTV segmentation. The backbone of our models for both tasks was SegResNet with\ndeep supervision. For Task 1, we trained the model using a combined dataset of\npre-RT and mid-RT MRI data, which resulted in the improved aggregated Dice\nsimilarity coefficient (DSCagg) on an internal testing set compared to models\ntrained solely on pre-RT MRI data. In Task 2, we introduced mask-aware\nattention modules, enabling pre-RT GTV masks to influence intermediate features\nlearned from mid-RT data. This attention-based approach yielded slight\nimprovements over the baseline method, which concatenated mid-RT MRI with\npre-RT GTV masks as input. In the final testing phase, the ensemble of 10\npre-RT segmentation models achieved an average DSCagg of 0.794, with 0.745 for\nprimary GTV (GTVp) and 0.844 for metastatic lymph nodes (GTVn) in Task 1. For\nTask 2, the ensemble of 10 mid-RT segmentation models attained an average\nDSCagg of 0.733, with 0.607 for GTVp and 0.859 for GTVn, leading us to\n$\\textbf{achieve 1st place}$. In summary, we presented a collection of DL\nmodels that could facilitate GTV segmentation in MRgART, offering the potential\nto streamline radiation oncology workflows. Our code and model weights are\navailable at https:\/\/github.com\/xtie97\/HNTS-MRG24-UWLAIR.",
+    "explanation":"In this study, our team, UW LAIR, tackled the challenges of both pre-radiotherapy\n(pre-RT) (Task 1) and mid-radiotherapy (mid-RT) (Task 2) tumor volume seg-\nmentation. To this end, we developed a series of DL models for longitudinal GTV\nsegmentation",
+    "b_id":[
+      "b4",
+      "b2"
+    ],
+    "b_title":[
+      "Deep Learning for Automatic Gross Tumor Volumes Contouring in Esophageal Cancer Based on Contrast-Enhanced Computed Tomography Images: A Multi-Institutional Study",
+      "ConTEXTual Net: A Multimodal Vision-Language Model for Segmentation of Pneumothorax"
+    ],
+    "b_abstract":[
+      "Purpose To develop and externally validate an automatic artificial intelligence (AI) tool for delineating gross tumor volume (GTV) in patients with esophageal squamous cell carcinoma (ESCC), which can assist in neo-adjuvant or radical radiation therapy treatment planning. Methods and Materials In this multi-institutional study, contrast-enhanced CT images from 580 eligible ESCC patients were retrospectively collected. The GTV contours delineated by 2 experts via consensus were used as ground truth. A 3-dimensional deep learning model was developed for GTV contouring in the training cohort and internally and externally validated in 3 validation cohorts. The AI tool was compared against 12 board-certified experts in 25 patients randomly selected from the external validation cohort to evaluate its assistance in improving contouring performance and reducing variation. Contouring performance was measured using dice similarity coefficient (DSC) and average surface distance. Additionally, our previously established radiomics model for predicting pathologic complete response was used to compare AI-generated and ground truth contours, to assess the potential of the AI contouring tool in radiomics analysis. Results The AI tool demonstrated good GTV contouring performance in multicenter validation cohorts, with median DSC values of 0.865, 0.876, and 0.866 and median average surface distance values of 0.939, 0.789, and 0.875 mm, respectively. Furthermore, the AI tool significantly improved contouring performance for half of 12 board-certified experts (DSC values, 0.794-0.835 vs 0.856-0.881, P = .003-0.048), reduced the intra- and interobserver variations by 37.4% and 55.2%, respectively, and saved contouring time by 77.6%. In the radiomics analysis, 88.7% of radiomic features from ground truth and AI-generated contours demonstrated stable reproducibility, and similar pathologic complete response prediction performance for these contours (P = .430) was observed. Conclusions Our AI contouring tool can improve GTV contouring performance and facilitate radiomics analysis in ESCC patients, which indicates its potential for GTV contouring during radiation therapy treatment planning and radiomics studies.",
+      "Radiology narrative reports often describe characteristics of a patient's disease, including its location, size, and shape. Motivated by the recent success multimodal learning, we hypothesized that this descriptive text could guide medical image analysis algorithms. We proposed novel vision-language model, ConTEXTual Net, for task pneumothorax segmentation on chest radiographs. Net extracts language features from physician-generated free-form radiology using pre-trained model. then introduced cross-attention between intermediate embeddings an encoder-decoder convolutional neural network to enable guidance analysis. was trained CANDID-PTX dataset consisting 3196 positive cases with annotations 6 different physicians as well clinical reports. Using cross-validation, achieved Dice score 0.716\u00b10.016, which similar degree inter-reader variability (0.712\u00b10.044) computed subset data. It outperformed vision-only models (Swin UNETR: 0.670\u00b10.015, ResNet50 U-Net: 0.677\u00b10.015, GLoRIA: 0.686\u00b10.014, nnUNet 0.694\u00b10.016) competing model (LAVT: 0.706\u00b10.009). Ablation studies confirmed it information led performance gains. Additionally, show certain augmentation methods degraded Net's breaking image-text concordance. also evaluated effects activation functions in module, highlighting efficacy our chosen architectural design."
+    ],
+    "b_categories":[
+      "cs.CV"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b1"
+    ],
+    "c_title":[
+      "MRI-Guided Adaptive Radiation Therapy"
+    ],
+    "c_abstract":[
+      "Magnetic resonance imaging-guided radiation therapy (MRIgRT) has improved soft tissue contrast over computed tomography (CT) based image-guided RT. Superior visualization of the target and surrounding radiosensitive structures has the potential to improve oncological outcomes partly due to safer dose-escalation and adaptive planning. In this review, we highlight the workflow of adaptive MRIgRT planning, which includes simulation imaging, daily MRI, identifying isocenter shifts, contouring, plan optimization, quality control, and delivery. Increased utilization of MRIgRT will depend on addressing technical limitations of this technology, while addressing treatment efficacy, cost-effectiveness, and workflow training."
+    ],
+    "c_categories":[
+      "Oncology"
+    ],
+    "c_fields":[
+
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.18602,
+    "a_title":"Evaluating and Improving the Effectiveness of Synthetic Chest X-Rays for\n  Medical Image Analysis",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Purpose: To explore best-practice approaches for generating synthetic chest\nX-ray images and augmenting medical imaging datasets to optimize the\nperformance of deep learning models in downstream tasks like classification and\nsegmentation. Materials and Methods: We utilized a latent diffusion model to\ncondition the generation of synthetic chest X-rays on text prompts and\/or\nsegmentation masks. We explored methods like using a proxy model and using\nradiologist feedback to improve the quality of synthetic data. These synthetic\nimages were then generated from relevant disease information or geometrically\ntransformed segmentation masks and added to ground truth training set images\nfrom the CheXpert, CANDID-PTX, SIIM, and RSNA Pneumonia datasets to measure\nimprovements in classification and segmentation model performance on the test\nsets. F1 and Dice scores were used to evaluate classification and segmentation\nrespectively. One-tailed t-tests with Bonferroni correction assessed the\nstatistical significance of performance improvements with synthetic data.\nResults: Across all experiments, the synthetic data we generated resulted in a\nmaximum mean classification F1 score improvement of 0.150453 (CI:\n0.099108-0.201798; P=0.0031) compared to using only real data. For\nsegmentation, the maximum Dice score improvement was 0.14575 (CI:\n0.108267-0.183233; P=0.0064). Conclusion: Best practices for generating\nsynthetic chest X-ray images for downstream tasks include conditioning on\nsingle-disease labels or geometrically transformed segmentation masks, as well\nas potentially using proxy modeling for fine-tuning such generations.",
+    "explanation":"We utilized a latent diffusion model to condition the generation of synthetic chest X-rays on text prompts and\/or segmentation masks",
+    "b_id":[
+      "b11"
+    ],
+    "b_title":[
+      "Rsna pneumonia detection challenge"
+    ],
+    "b_abstract":[
+      "In this competition, you\u2019re challenged to build an algorithm to detect a visual signal for pneumonia in medical images. Specifically, your algorithm needs to automatically locate lung opacities on chest radiographs. Here\u2019s the backstory and why solving this problem matters. Pneumonia accounts for over 15% of all deaths of children under 5 years old internationally. In 2015, 920,000 children under the age of 5 died from the disease. In the United States, pneumonia accounts for over 500,000 visits to emergency departments [1] and over 50,000 deaths in 2015 [2], keeping the ailment on the list of top 10 causes of death in the country. While common, accurately diagnosing pneumonia is a tall order. It requires review of a chest radiograph (CXR) by highly trained specialists and confirmation through clinical history, vital signs and laboratory exams. Pneumonia usually manifests as an area or areas of increased opacity [3] on CXR. However, the diagnosis of pneumonia on CXR is complicated because of a number of other conditions in the lungs such as fluid overload (pulmonary edema), bleeding, volume loss (atelectasis or collapse), lung cancer, or post-radiation or surgical changes. Outside of the lungs, fluid in the pleural space (pleural effusion) also appears as increased opacity on CXR. When available, comparison of CXRs of the patient taken at different time points and correlation with clinical symptoms and history are helpful in making the diagnosis. CXRs are the most commonly performed diagnostic imaging study. A number of factors such as positioning of the patient and depth of inspiration can alter the appearance of the CXR [4], complicating interpretation further. In addition, clinicians are faced with reading high volumes of images every shift. To improve the efficiency and reach of diagnostic services, the Radiological Society of North America (RSNA\u00ae) has reached out to Kaggle\u2019s machine learning community and collaborated with the US National Institutes of Health, The Society of Thoracic Radiology, and MD.ai to develop a rich dataset for this challenge. The RSNA is an international society of radiologists, medical physicists and other medical professionals with more than 54,000 members from 146 countries across the globe. They see the potential for ML to automate initial detection (imaging screening) of potential pneumonia cases in order to prioritize and expedite their review. Challenge participants may be invited to present their AI models and methodologies during an award ceremony at the RSNA Annual Meeting which will be held in Chicago, Illinois, USA, from November 25-30, 2018."
+    ],
+    "b_categories":[
+      "Imaging"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b14",
+      "b9"
+    ],
+    "c_title":[
+      "Adding Conditional Control to Text-to-Image Diffusion Models",
+      "Highresolution image synthesis with latent diffusion models"
+    ],
+    "c_abstract":[
+      "We present ControlNet, a neural network architecture to add spatial conditioning controls large, pretrained text-to-image diffusion models. ControlNet locks the production-ready large models, and reuses their deep robust encoding layers with billions of images as strong backbone learn diverse set conditional controls. The is connected \"zero convolutions\" (zero-initialized convolution layers) that progressively grow parameters from zero ensure no harmful noise could affect finetuning. test various controls, e.g., edges, depth, segmentation, human pose, etc., Stable Diffusion, using single or multiple conditions, without prompts. show training ControlNets small (<50k) (>1m) datasets. Extensive results may facilitate wider applications control image",
+      "By decomposing the image formation process into a sequential application of denoising autoencoders, diffusion models (DMs) achieve state-of-the-art synthesis results on image data and beyond. Additionally, their formulation allows for a guiding mechanism to control the image generation process without retraining. However, since these models typically operate directly in pixel space, optimization of powerful DMs often consumes hundreds of GPU days and inference is expensive due to sequential evaluations. To enable DM training on limited computational resources while retaining their quality and flexibility, we apply them in the latent space of powerful pretrained autoencoders. In contrast to previous work, training diffusion models on such a representation allows for the first time to reach a near-optimal point between complexity reduction and detail preservation, greatly boosting visual fidelity. By introducing cross-attention layers into the model architecture, we turn diffusion models into powerful and flexible generators for general conditioning inputs such as text or bounding boxes and high-resolution synthesis becomes possible in a convolutional manner. Our latent diffusion models (LDMs) achieve a new state of the art for image inpainting and highly competitive performance on various tasks, including unconditional image generation, semantic scene synthesis, and super-resolution, while significantly reducing computational requirements compared to pixel-based DMs."
+    ],
+    "c_categories":[
+      "cs.CV"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.18902,
+    "a_title":"MSEMG: Surface Electromyography Denoising with a Mamba-based Efficient\n  Network",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Surface electromyography (sEMG) recordings can be contaminated by\nelectrocardiogram (ECG) signals when the monitored muscle is closed to the\nheart. Traditional signal-processing-based approaches, such as high-pass\nfiltering and template subtraction, have been used to remove ECG interference\nbut are often limited in their effectiveness. Recently, neural-network-based\nmethods have shown greater promise for sEMG denoising, but they still struggle\nto balance both efficiency and effectiveness. In this study, we introduce\nMSEMG, a novel system that integrates the Mamba State Space Model with a\nconvolutional neural network to serve as a lightweight sEMG denoising model. We\nevaluated MSEMG using sEMG data from the Non-Invasive Adaptive Prosthetics\ndatabase and ECG signals from the MIT-BIH Normal Sinus Rhythm Database. The\nresults show that MSEMG outperforms existing methods, generating higher-quality\nsEMG signals with fewer parameters. The source code for MSEMG is available at\nhttps:\/\/github.com\/tonyliu0910\/MSEMG.",
+    "explanation":"Surface electromyography (sEMG) recordings can\nbe contaminated by electrocardiogram (ECG) signals when the\nmonitored muscle is closed to the heart. In this study, we introduce MSEMG, a novel\nsystem that integrates the Mamba state space model with a\nconvolutional neural network to serve as a lightweight sEMG\ndenoising mode",
+    "b_id":[
+      "b8"
+    ],
+    "b_title":[
+      "Biomechanics and motor control of human movement"
+    ],
+    "b_abstract":[
+      "Preface to the Fourth Edition. 1 Biomechanics as an Interdiscipline. 1.0 Introduction. 1.1 Measurement, Description, Analysis, and Assessment. 1.2 its Relationship with Physiology Anatomy. 1.3 Scope of Textbook. 1.4 References. 2 Signal Processing. 2.0 2.1 Auto- Cross-Correlation Analyses. 2.2 Frequency Analysis. 2.3 Ensemble Averaging Repetitive Waveforms. 2.4 3 Kinematics. 3.0 Historical Development Complexity Problem. 3.1 Kinematic Conventions. 3.2 Direct Measurement Techniques. 3.3 Imaging 3.4 Processing Raw Data. 3.5 Calculation Other Variables. 3.6 Problems Based on 3.7 4 Anthropometry. 4.0 Anthropometry in Movement Biomechanics. 4.1 Density, Mass, Inertial Properties. 4.2 Experimental Measures. 4.3 Muscle 4.4 Anthropometric 4.5 5 Kinetics: Forces Moments Force. 5.0 Biomechanical Models. 5.1 Basic Link-Segment Equations-the Free-Body Diagram. 5.2 Force Transducers Plates. 5.3 Bone-on-Bone During Dynamic Conditions. 5.4 Kinetic 5.5 6 Mechanical Work, Energy, Power. 6.0 6.1 Efficiency. 6.2 Forms Energy Storage. 6.3 Internal External Work. 6.4 Power Balances at Joints Within Segments. 6.5 6.6 7 Three-Dimensional Kinematics Kinetics. 7.0 7.1 Axes Systems. 7.2 Marker Anatomical 7.3 Determination Segment Angular Velocities Accelerations. 7.4 Analysis Reaction Moments. 7.5 Suggested Further Reading. 7.6 8 Synthesis Human Movement-Forward Solutions. 8.0 8.1 Review Forward Solution 8.2 Mathematical Formulation. 8.3 System Energy. 8.4 Torques. 8.5 Designation Joints. 8.6 Illustrative Example. 8.7 Conclusions. 8.8 9 Mechanics. 9.0 9.1 Force-Length Characteristics Muscles. 9.2 Force-Velocity Characteristics. 9.3 Modeling. 9.4 10 Kinesiological Electromyography. 10.0 10.1 Electrophysiology Contraction. 10.2 Recording Electromyogram. 10.3 Electromyogram,. 10.4 between Electromyogram 10.5 11 Synergies. 11.0 11.1 The Support Moment Synergy. 11.2 Medial\/Lateral Anterior\/Posterior Balance Standing. 11.3 during Walking. 11.4 APPENDICES. A. Kinematic, Kinetic, Figure A.1 Walking Trial-Marker Locations Mass Frame Rate Information. Table Coordinate Data (cm). A.2( a ) Filtered Kinematics-Rib Cage Greater Trochanter (Hip). b Kinematics-Femoral Lateral Epicondyle (Knee) Head Fibula. c Kinematics-Lateral Malleolus (Ankle) Heel. d Kinematics-Fifth Metatarsal Toe. A.3( Linear Kinematics-Foot. Kinematics-Leg. Kinematics-Thigh. Kinematics-1\/2 HAT. A.4 Relative Joint Kinematics-Ankle, Knee, Hip. A.5( Force-Ankle Knee. Force-Hip. A.6 Potential, Total Energies-Foot, Leg, Thigh, and1\/2 A.7 Generation\/Absorption Transfer-Ankle, B. Units Definitions Related Electromyographical Measurements. B.1 Base SI Units. B.2 Derived Index."
+    ],
+    "b_categories":[
+      "Biomechanics"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b13"
+    ],
+    "c_title":[
+      "Mamba: Linear-Time Sequence Modeling with Selective State Spaces"
+    ],
+    "c_abstract":[
+      "Foundation models, now powering most of the exciting applications in deep learning, are almost universally based on Transformer architecture and its core attention module. Many subquadratic-time architectures such as linear attention, gated convolution recurrent structured state space models (SSMs) have been developed to address Transformers' computational inefficiency long sequences, but they not performed well important modalities language. We identify that a key weakness is their inability perform content-based reasoning, make several improvements. First, simply letting SSM parameters be functions input addresses with discrete modalities, allowing model selectively propagate or forget information along sequence length dimension depending current token. Second, even though this change prevents use efficient convolutions, we design hardware-aware parallel algorithm mode. integrate these selective SSMs into simplified end-to-end neural network without MLP blocks (Mamba). Mamba enjoys fast inference (5$\\times$ higher throughput than Transformers) scaling length, performance improves real data up million-length sequences. As general backbone, achieves state-of-the-art across language, audio, genomics. On language modeling, our Mamba-3B outperforms Transformers same size matches twice size, both pretraining downstream evaluation."
+    ],
+    "c_categories":[
+      "cs.LG"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.03551,
+    "a_title":"Enhancing Weakly Supervised Semantic Segmentation for Fibrosis via\n  Controllable Image Generation",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Fibrotic Lung Disease (FLD) is a severe condition marked by lung stiffening\nand scarring, leading to respiratory decline. High-resolution computed\ntomography (HRCT) is critical for diagnosing and monitoring FLD; however,\nfibrosis appears as irregular, diffuse patterns with unclear boundaries,\nleading to high inter-observer variability and time-intensive manual\nannotation. To tackle this challenge, we propose DiffSeg, a novel weakly\nsupervised semantic segmentation (WSSS) method that uses image-level\nannotations to generate pixel-level fibrosis segmentation, reducing the need\nfor fine-grained manual labeling. Additionally, our DiffSeg incorporates a\ndiffusion-based generative model to synthesize HRCT images with different\nlevels of fibrosis from healthy slices, enabling the generation of the\nfibrosis-injected slices and their paired fibrosis location. Experiments\nindicate that our method significantly improves the accuracy of pseudo masks\ngenerated by existing WSSS methods, greatly reducing the complexity of manual\nlabeling and enhancing the consistency of the generated masks.",
+    "explanation":"However, fibrosis appears\nas irregular, diffuse patterns with unclear boundaries, lead-\ning to high inter-observer variability and time-intensive man-\nual annotation. To tackle this challenge, we propose DiffSeg,\na novel weakly supervised semantic segmentation (WSSS)\nmethod that uses image-level annotations to generate pixel-\nlevel fibrosis segmentation, reducing the need for fine-grained\nmanual labeling. ",
+    "b_id":[
+      "b4"
+    ],
+    "b_title":[
+      "Interobserver Variability in the CT Assessment of Honeycombing in the Lungs"
+    ],
+    "b_abstract":[
+      "To quantify observer agreement and analyze causes of disagreement in identifying honeycombing at chest computed tomography (CT).The institutional review board approved this multiinstitutional HIPAA-compliant retrospective study, informed patient consent was not required. Five core study members scored 80 CT images with a five-point scale (5 = definitely yes to 1 no) establish reference standard for the identification honeycombing. Forty-three observers from various subspecialties geographic regions by using same scoring system. Weighted \u03ba values scores compared were analyzed investigate intergroup differences. Images divided into four groups allow analysis imaging features cases which there disagreement: on presence honeycombing, absence other (none preceding three applied).Agreement 43 moderate (Cohen weighted values: 0.40-0.58). There no significant differences among defined either subspecialty or region (Tukey-Kramer test, P .38 >.99). In 29% cases, These included mixed traction bronchiectasis, large cysts, superimposed pulmonary emphysema.Identification is subjective, largely caused conditions that mimic"
+    ],
+    "b_categories":[
+      "Radiology"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b9"
+    ],
+    "c_title":[
+      "DuPL: Dual Student with Trustworthy Progressive Learning for Robust Weakly Supervised Semantic Segmentation"
+    ],
+    "c_abstract":[
+      "Recently, One-stage Weakly Supervised Semantic Segmentation (WSSS) with image-level labels has gained increasing interest due to simplification over its cumbersome multi-stage counterpart. Limited by the inherent ambiguity of Class Activation Map (CAM), we observe that one-stage pipelines often encounter confirmation bias caused by incorrect CAM pseudo-labels, impairing their final segmentation performance. Although recent works discard many unreliable pseudo-labels to implicitly alleviate this issue, they fail to exploit sufficient supervision for their models. To this end, we propose a dual student framework with trustworthy progressive learning (DuPL). Specifically, we propose a dual student network with a discrepancy loss to yield diverse CAMs for each sub-net. The two sub-nets generate supervision for each other, mitigating the confirmation bias caused by learning their own incorrect pseudo-labels. In this process, we progressively introduce more trustworthy pseudo-labels to be involved in the supervision through dynamic threshold adjustment with an adaptive noise filtering strategy. Moreover, we believe that every pixel, even discarded from supervision due to its unreliability, is important for WSSS. Thus, we develop consistency regularization on these discarded regions, providing supervision of every pixel. Experiment results demonstrate the superiority of the proposed DuPL over the recent state-of-the-art alternatives on PASCAL VOC 2012 and MS COCO datasets."
+    ],
+    "c_categories":[
+      "cs.CV"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.09469,
+    "a_title":"An Explainable Attention Model for Cervical Precancer Risk\n  Classification using Colposcopic Images",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Cervical cancer remains a major worldwide health issue, with early\nidentification and risk assessment playing critical roles in effective\npreventive interventions. This paper presents the Cervix-AID-Net model for\ncervical precancer risk classification. The study designs and evaluates the\nproposed Cervix-AID-Net model based on patients colposcopy images. The model\ncomprises a Convolutional Block Attention Module (CBAM) and convolutional\nlayers that extract interpretable and representative features of colposcopic\nimages to distinguish high-risk and low-risk cervical precancer. In addition,\nthe proposed Cervix-AID-Net model integrates four explainable techniques,\nnamely gradient class activation maps, Local Interpretable Model-agnostic\nExplanations, CartoonX, and pixel rate distortion explanation based on output\nfeature maps and input features. The evaluation using holdout and ten-fold\ncross-validation techniques yielded a classification accuracy of 99.33\\% and\n99.81\\%. The analysis revealed that CartoonX provides meticulous explanations\nfor the decision of the Cervix-AID-Net model due to its ability to provide the\nrelevant piece-wise smooth part of the image. The effect of Gaussian noise and\nblur on the input shows that the performance remains unchanged up to Gaussian\nnoise of 3\\% and blur of 10\\%, while the performance reduces thereafter. A\ncomparison study of the proposed model's performance compared to other deep\nlearning approaches highlights the Cervix-AID-Net model's potential as a\nsupplemental tool for increasing the effectiveness of cervical precancer risk\nassessment. The proposed method, which incorporates the CBAM and explainable\nartificial integration, has the potential to influence cervical cancer\nprevention and early detection, improving patient outcomes and lowering the\nworldwide burden of this preventable disease.",
+    "explanation":"This paper presents the Cervix-AID-Net model for cervical precancer risk classification. The study designs and evaluates the proposed Cervix-\nAID-Net model based on patients colposcopy images. The model comprises a Convolutional Block\nAttention Module (CBAM) and convolutional layers that extract interpretable and representative\nfeatures of colposcopic images to distinguish high-risk and low-risk cervical precancer. ",
+    "b_id":[
+      "b36"
+    ],
+    "b_title":[
+      "CBAM: Convolutional block attention module"
+    ],
+    "b_abstract":[
+      "We propose Convolutional Block Attention Module (CBAM), a simple yet effective attention module for feed-forward convolutional neural networks. Given an intermediate feature map, our module sequentially infers attention maps along two separate dimensions, channel and spatial, then the attention maps are multiplied to the input feature map for adaptive feature refinement. Because CBAM is a lightweight and general module, it can be integrated into any CNN architectures seamlessly with negligible overheads and is end-to-end trainable along with base CNNs. We validate our CBAM through extensive experiments on ImageNet-1K, MS~COCO detection, and VOC~2007 detection datasets. Our experiments show consistent improvements in classification and detection performances with various models, demonstrating the wide applicability of CBAM. The code and models will be publicly available."
+    ],
+    "b_categories":[
+      "cs.CV"
+    ],
+    "b_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "c_id":[
+      "b11"
+    ],
+    "c_title":[
+      "The accuracy of colposcopic biopsy: Analyses from the placebo arm of the Gardasil clinical trials"
+    ],
+    "c_abstract":[
+      "We evaluated the overall agreement between colposcopically directed biopsies and definitive excisional specimens within context of three clinical trials. A total 737 women aged 16-45 who had a cervical biopsy taken 6 months before their therapy were included. Per-protocol, colposcopists to also obtain representative immediately therapy. Using adjudicated histological diagnoses, initial same day correlated with surgically excised specimens. The therapy, diagnoses was 42% (weighted kappa = 0.34) (95% CI: 0.29-0.39). underestimation intraepithelial neoplasia grade 2\/3 or adenocarcinoma in situ (CIN2-3\/AIS) CIN3\/AIS 26 42%, respectively. When allowing for one degree variance correlation, 92% CIN2-3\/AIS. specimen 56% 0.41) 0.36-0.47), CIN2-3\/AIS 57%. There significant associations when patients stratified by age, number biopsies, lesion size, presence human papillomavirus (HPV)16\/18 region. Of 178 diagnostic endocervical curettages performed, 14 (7.9%) found any HPV disease. Colposcopic accuracy improved CIN2 grouped as single predictive measure high-grade Colposcopy functioned well allowed one-degree difference surgical histologic interpretations, done practice. Taking more than colposcopic could improve patient management."
+    ],
+    "c_categories":[
+      "Clinical Trial"
+    ],
+    "c_fields":[
+
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.14752,
+    "a_title":"Comparative Analysis of nnUNet and MedNeXt for Head and Neck Tumor\n  Segmentation in MRI-guided Radiotherapy",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "a_abstract":"Radiation therapy (RT) is essential in treating head and neck cancer (HNC),\nwith magnetic resonance imaging(MRI)-guided RT offering superior soft tissue\ncontrast and functional imaging. However, manual tumor segmentation is\ntime-consuming and complex, and therfore remains a challenge. In this study, we\npresent our solution as team TUMOR to the HNTS-MRG24 MICCAI Challenge which is\nfocused on automated segmentation of primary gross tumor volumes (GTVp) and\nmetastatic lymph node gross tumor volume (GTVn) in pre-RT and mid-RT MRI\nimages. We utilized the HNTS-MRG2024 dataset, which consists of 150 MRI scans\nfrom patients diagnosed with HNC, including original and registered pre-RT and\nmid-RT T2-weighted images with corresponding segmentation masks for GTVp and\nGTVn. We employed two state-of-the-art models in deep learning, nnUNet and\nMedNeXt. For Task 1, we pretrained models on pre-RT registered and mid-RT\nimages, followed by fine-tuning on original pre-RT images. For Task 2, we\ncombined registered pre-RT images, registered pre-RT segmentation masks, and\nmid-RT data as a multi-channel input for training. Our solution for Task 1\nachieved 1st place in the final test phase with an aggregated Dice Similarity\nCoefficient of 0.8254, and our solution for Task 2 ranked 8th with a score of\n0.7005. The proposed solution is publicly available at Github Repository.",
+    "explanation":"Radiation therapy (RT) is essential in treating head and neck cancer\n(HNC), with magnetic resonance imaging(MRI)-guided RT offering superior soft tis-\nsue contrast and functional imaging. However, manual tumor segmentation is time-\nconsuming and complex, and therfore remains a challenge. In this study, we present\nour solution as team TUMOR to the HNTS-MRG24 MICCAI Challenge which is\nfocused on automated segmentation of primary gross tumor volumes (GTVp) and\nmetastatic lymph node gross tumor volume (GTVn) in pre-RT and mid-RT MRI im-\nages. We employed two state-of-the-art models in deep learning, nnUNet and MedNeXt.",
+    "b_id":[
+      "b0"
+    ],
+    "b_title":[
+      "\u201cApr\u00e8s Mois, Le D\u00e9luge\u201d: Preparing for the Coming Data Flood in the MRI-Guided Radiotherapy Era"
+    ],
+    "b_abstract":[
+      "Magnetic resonance imaging provides a sea of quantitative and semi-quantitative data. While radiation oncologists already navigate pool clinical (semantic) data, the tide will swell with advent hybrid MRI\/linear accelerator devices increasing interest in MRI-guided radiotherapy (MRIgRT), including adaptive MRIgRT. The variety MR sequences (of greater complexity than single parameter Hounsfield unit CT scanning routinely used radiotherapy), workflow fractionation, sheer quantity daily images acquired are challenges for scaling this technology. Biomedical informatics, which is science information biomedicine, can provide helpful insights looming transition. Funneling MRIgRT data into clinically meaningful streams requires committing to flow inter-institutional accessibility interoperability initiatives, standardizing dosimetry methods, streamlining linear workflow, MRI acquisition post-processing, current topic review attempt conceptually ford using informatics approaches as theoretical bridge."
+    ],
+    "b_categories":[
+      "Oncology"
+    ],
+    "b_fields":[
+
+    ],
+    "c_id":[
+      "b5"
+    ],
+    "c_title":[
+      "MedNeXt: Transformer-driven Scaling of ConvNets for Medical Image Segmentation",
+      "nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation"
+    ],
+    "c_abstract":[
+      "There has been exploding interest in embracing Transformer-based architectures for medical image segmentation. However, the lack of large-scale annotated medical datasets make achieving performances equivalent to those in natural images challenging. Convolutional networks, in contrast, have higher inductive biases and consequently, are easily trainable to high performance. Recently, the ConvNeXt architecture attempted to modernize the standard ConvNet by mirroring Transformer blocks. In this work, we improve upon this to design a modernized and scalable convolutional architecture customized to challenges of data-scarce medical settings. We introduce MedNeXt, a Transformer-inspired large kernel segmentation network which introduces - 1) A fully ConvNeXt 3D Encoder-Decoder Network for medical image segmentation, 2) Residual ConvNeXt up and downsampling blocks to preserve semantic richness across scales, 3) A novel technique to iteratively increase kernel sizes by upsampling small kernel networks, to prevent performance saturation on limited medical data, 4) Compound scaling at multiple levels (depth, width, kernel size) of MedNeXt. This leads to state-of-the-art performance on 4 tasks on CT and MRI modalities and varying dataset sizes, representing a modernized deep architecture for medical image segmentation. Our code is made publicly available at: https:\/\/github.com\/MIC-DKFZ\/MedNeXt.",
+      "Biomedical imaging is a driver of scientific discovery and a core component of medical care and is being stimulated by the field of deep learning. While semantic segmentation algorithms enable image analysis and quantification in many applications, the design of respective specialized solutions is non-trivial and highly dependent on dataset properties and hardware conditions. We developed nnU-Net, a deep learning-based segmentation method that automatically configures itself, including preprocessing, network architecture, training and post-processing for any new task. The key design choices in this process are modeled as a set of fixed parameters, interdependent rules and empirical decisions. Without manual intervention, nnU-Net surpasses most existing approaches, including highly specialized solutions on 23 public datasets used in international biomedical segmentation competitions. We make nnU-Net publicly available as an out-of-the-box tool, rendering state-of-the-art segmentation accessible to a broad audience by requiring neither expert knowledge nor computing resources beyond standard network training."
+    ],
+    "c_categories":[
+      "cs.CV"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  },
+  {
+    "id":2411.06785,
+    "a_title":"White-Box Diffusion Transformer for single-cell RNA-seq generation",
+    "fields":[
+      "Computer Science, Electrical Engineering and Systems Science",
+      "Quantitative Biology"
+    ],
+    "a_abstract":"As a powerful tool for characterizing cellular subpopulations and cellular\nheterogeneity, single cell RNA sequencing (scRNA-seq) technology offers\nadvantages of high throughput and multidimensional analysis. However, the\nprocess of data acquisition is often constrained by high cost and limited\nsample availability. To overcome these limitations, we propose a hybrid model\nbased on Diffusion model and White-Box transformer that aims to generate\nsynthetic and biologically plausible scRNA-seq data. Diffusion model\nprogressively introduce noise into the data and then recover the original data\nthrough a denoising process, a forward and reverse process that is particularly\nsuitable for generating complex data distributions. White-Box transformer is a\ndeep learning architecture that emphasizes mathematical interpretability. By\nminimizing the encoding rate of the data and maximizing the sparsity of the\nrepresentation, it not only reduces the computational burden, but also provides\nclear insight into underlying structure. Our White-Box Diffusion Transformer\ncombines the generative capabilities of Diffusion model with the mathematical\ninterpretability of White-Box transformer. Through experiments using six\ndifferent single-cell RNA-Seq datasets, we visualize both generated and real\ndata using t-SNE dimensionality reduction technique, as well as quantify\nsimilarity between generated and real data using various metrics to demonstrate\ncomparable performance of White-Box Diffusion Transformer and Diffusion\nTransformer in generating scRNA-seq data alongside significant improvements in\ntraining efficiency and resource utilization. Our code is available at\nhttps:\/\/github.com\/lingximamo\/White-Box-Diffusion-Transformer",
+    "explanation":"As a powerful tool for characterizing cellular subpopulations and cellular heterogeneity, single cell\nRNA sequencing (scRNA-seq) technology offers advantages of high throughput and multidimensional\nanalysis. However, the process of data acquisition is often constrained by high cost and limited\nsample availability. To overcome these limitations, we propose a model based on Diffusion model\nand White-Box transformer that aims to generate synthetic and biologically plausible scRNA-seq\ndata.",
+    "b_id":[
+      "b0"
+    ],
+    "b_title":[
+      "RNA-Seq: a revolutionary tool for transcriptomics"
+    ],
+    "b_abstract":[
+      "RNA-Seq is a recently developed approach to transcriptome profiling that uses deep-sequencing technologies. Studies using this method have already altered our view of the extent and complexity of eukaryotic transcriptomes. RNA-Seq also provides a far more precise measurement of levels of transcripts and their isoforms than other methods. This article describes the RNA-Seq approach, the challenges associated with its application, and the advances made so far in characterizing several eukaryote transcriptomes."
+    ],
+    "b_categories":[
+      "q-bio.GN"
+    ],
+    "b_fields":[
+      "Quantitative Biology"
+    ],
+    "c_id":[
+      "b25"
+    ],
+    "c_title":[
+      "White-Box Transformers via Sparse Rate Reduction"
+    ],
+    "c_abstract":[
+      "In this paper, we contend that the objective of representation learning is to compress and transform distribution data, say sets tokens, towards a mixture low-dimensional Gaussian distributions supported on incoherent subspaces. The quality final can be measured by unified function called sparse rate reduction. From perspective, popular deep networks such as transformers naturally viewed realizing iterative schemes optimize incrementally. Particularly, show standard transformer block derived from alternating optimization complementary parts objective: multi-head self-attention operator gradient descent step token minimizing their lossy coding rate, subsequent multi-layer perceptron attempting sparsify tokens. This leads family white-box transformer-like network architectures which are mathematically fully interpretable. Despite simplicity, experiments these indeed learn designed they representations large-scale real-world vision datasets ImageNet, achieve performance very close thoroughly engineered ViT. Code at \\url{https:\/\/github.com\/Ma-Lab-Berkeley\/CRATE}."
+    ],
+    "c_categories":[
+      "cs.LG"
+    ],
+    "c_fields":[
+      "Computer Science, Electrical Engineering and Systems Science"
+    ],
+    "y_true":true,
+    "research_type":"applied"
+  }
+]

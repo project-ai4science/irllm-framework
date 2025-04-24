@@ -3,6 +3,7 @@
     "id":"2411.01019",
     "a_title":"A lightweight Convolutional Neural Network based on U shape structure\n  and Attention Mechanism for Anterior Mediastinum Segmentation",
     "a_abstract":"To automatically detect Anterior Mediastinum Lesions (AMLs) in the Anterior\nMediastinum (AM), the primary requirement will be an automatic segmentation\nmodel specifically designed for the AM. The prevalence of AML is extremely low,\nmaking it challenging to conduct screening research similar to lung cancer\nscreening. Retrospectively reviewing chest CT scans over a specific period to\ninvestigate the prevalence of AML requires substantial time. Therefore,\ndeveloping an Artificial Intelligence (AI) model to find location of AM helps\nradiologist to enhance their ability to manage workloads and improve diagnostic\naccuracy for AMLs. In this paper, we introduce a U-shaped structure network to\nsegment AM. Two attention mechanisms were used for maintaining long-range\ndependencies and localization. In order to have the potential of Multi-Head\nSelf-Attention (MHSA) and a lightweight network, we designed a parallel MHSA\nnamed Wide-MHSA (W-MHSA). Maintaining long-range dependencies is crucial for\nsegmentation when we upsample feature maps. Therefore, we designed a Dilated\nDepth-Wise Parallel Path connection (DDWPP) for this purpose. In order to\ndesign a lightweight architecture, we introduced an expanding convolution block\nand combine it with the proposed W-MHSA for feature extraction in the encoder\npart of the proposed U-shaped network. The proposed network was trained on 2775\nAM cases, which obtained an average Dice Similarity Coefficient (DSC) of\n87.83%, mean Intersection over Union (IoU) of 79.16%, and Sensitivity of\n89.60%. Our proposed architecture exhibited superior segmentation performance\ncompared to the most advanced segmentation networks, such as Trans Unet,\nAttention Unet, Res Unet, and Res Unet++.",
+    "explanation":"It's leveraging AI in another diffrent domain, namely medical science, to detect Anterior Mediastinum Lesions.",
     "b_id":[
       "b15"
     ],
@@ -44,6 +45,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -75,6 +77,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -106,6 +109,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -137,6 +141,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -168,6 +173,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -199,6 +205,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -232,6 +239,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -263,6 +271,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -295,6 +304,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -328,6 +338,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b15"
     ],
@@ -361,6 +372,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -396,6 +408,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -431,6 +444,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -466,6 +480,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -501,6 +516,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -536,6 +552,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -574,6 +591,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -609,6 +627,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -646,6 +665,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -688,6 +708,7 @@
     "id":"2411.01019",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6",
       "b1"
@@ -724,6 +745,7 @@
     "id":"2412.11084",
     "a_title":"BarcodeMamba: State Space Models for Biodiversity Analysis",
     "a_abstract":"DNA barcodes are crucial in biodiversity analysis for building automatic\nidentification systems that recognize known species and discover unseen\nspecies. Unlike human genome modeling, barcode-based invertebrate\nidentification poses challenges in the vast diversity of species and taxonomic\ncomplexity. Among Transformer-based foundation models, BarcodeBERT excelled in\nspecies-level identification of invertebrates, highlighting the effectiveness\nof self-supervised pretraining on barcode-specific datasets. Recently,\nstructured state space models (SSMs) have emerged, with a time complexity that\nscales sub-quadratically with the context length. SSMs provide an efficient\nparameterization of sequence modeling relative to attention-based\narchitectures. Given the success of Mamba and Mamba-2 in natural language, we\ndesigned BarcodeMamba, a performant and efficient foundation model for DNA\nbarcodes in biodiversity analysis. We conducted a comprehensive ablation study\non the impacts of self-supervised training and tokenization methods, and\ncompared both versions of Mamba layers in terms of expressiveness and their\ncapacity to identify \"unseen\" species held back from training. Our study shows\nthat BarcodeMamba has better performance than BarcodeBERT even when using only\n8.3% as many parameters, and improves accuracy to 99.2% on species-level\naccuracy in linear probing without fine-tuning for \"seen\" species. In our\nscaling study, BarcodeMamba with 63.6% of BarcodeBERT's parameters achieved\n70.2% genus-level accuracy in 1-nearest neighbor (1-NN) probing for unseen\nspecies. The code repository to reproduce our experiments is available at\nhttps:\/\/github.com\/bioscan-ml\/BarcodeMamba.",
+    "explanation":"The paper talks about the use of BarcodeMamba for better scores in DNA barcode analysis of genomes.",
     "b_id":[
       "b12"
     ],
@@ -761,6 +783,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -792,6 +815,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -823,6 +847,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -854,6 +879,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -885,6 +911,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -916,6 +943,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -950,6 +978,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -981,6 +1010,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -1014,6 +1044,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -1052,6 +1083,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -1084,6 +1116,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1115,6 +1148,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1146,6 +1180,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1177,6 +1212,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1208,6 +1244,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1239,6 +1276,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1270,6 +1308,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1304,6 +1343,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1336,6 +1376,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1367,6 +1408,7 @@
     "id":"2412.11084",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -1398,6 +1440,7 @@
     "id":"2412.00036",
     "a_title":"Beyond Monte Carlo: Harnessing Diffusion Models to Simulate Financial\n  Market Dynamics",
     "a_abstract":"We propose a highly efficient and accurate methodology for generating\nsynthetic financial market data using a diffusion model approach. The synthetic\ndata produced by our methodology align closely with observed market data in\nseveral key aspects: (i) they pass the two-sample Cramer - von Mises test for\nportfolios of assets, and (ii) Q - Q plots demonstrate consistency across\nquantiles, including in the tails, between observed and generated market data.\nMoreover, the covariance matrices derived from a large set of synthetic market\ndata exhibit significantly lower condition numbers compared to the estimated\ncovariance matrices of the observed data. This property makes them suitable for\nuse as regularized versions of the latter. For model training, we develop an\nefficient and fast algorithm based on numerical integration rather than Monte\nCarlo simulations. The methodology is tested on a large set of equity data.",
+    "explanation":"The paper proposes the use of a new method using diffusion model generative methodology to produce synthetic market scenarios.",
     "b_id":[
       "b1"
     ],
@@ -1435,6 +1478,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1466,6 +1510,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1497,6 +1542,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1528,6 +1574,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1559,6 +1606,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1590,6 +1638,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1625,6 +1674,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1658,6 +1708,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1691,6 +1742,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1725,6 +1777,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -1758,6 +1811,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -1789,6 +1843,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -1820,6 +1875,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -1851,6 +1907,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -1882,6 +1939,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -1913,6 +1971,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -1946,6 +2005,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -1978,6 +2038,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -2010,6 +2071,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -2042,6 +2104,7 @@
     "id":"2412.00036",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -2067,8 +2130,8 @@
       "math.QA"
     ],
     "c_fields":[
-      "Mathematics and Statistics",
-      "Physics"
+      "Physics",
+      "Mathematics and Statistics"
     ],
     "y_true":false,
     "research_type":null
@@ -2077,6 +2140,7 @@
     "id":"2411.00640",
     "a_title":"Adding Error Bars to Evals: A Statistical Approach to Language Model\n  Evaluations",
     "a_abstract":"Evaluations are critical for understanding the capabilities of large language\nmodels (LLMs). Fundamentally, evaluations are experiments; but the literature\non evaluations has largely ignored the literature from other sciences on\nexperiment analysis and planning. This article shows researchers with some\ntraining in statistics how to think about and analyze data from language model\nevaluations. Conceptualizing evaluation questions as having been drawn from an\nunseen super-population, we present formulas for analyzing evaluation data,\nmeasuring differences between two models, and planning an evaluation\nexperiment. We make a number of specific recommendations for running language\nmodel evaluations and reporting experiment results in a way that minimizes\nstatistical noise and maximizes informativeness.",
+    "explanation":"This is an interdisciplinary work because it combines two different subjects: LLM and statistics. This suggests that we could also consider the error bars in the evaluations. ",
     "b_id":[
       "b14"
     ],
@@ -2114,6 +2178,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2145,6 +2210,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2176,6 +2242,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2207,6 +2274,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2238,6 +2306,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2269,6 +2338,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2301,6 +2371,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2332,6 +2403,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2363,6 +2435,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2394,6 +2467,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b14"
     ],
@@ -2421,9 +2495,9 @@
       "physics.geo-ph"
     ],
     "c_fields":[
+      "Physics",
       "Mathematics and Statistics",
-      "Computer Science, Electrical Engineering and Systems Science",
-      "Physics"
+      "Computer Science, Electrical Engineering and Systems Science"
     ],
     "y_true":false,
     "research_type":null
@@ -2432,6 +2506,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2463,6 +2538,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2494,6 +2570,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2525,6 +2602,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2556,6 +2634,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2587,6 +2666,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2613,8 +2693,8 @@
       "math.MP"
     ],
     "c_fields":[
-      "Mathematics and Statistics",
-      "Physics"
+      "Physics",
+      "Mathematics and Statistics"
     ],
     "y_true":false,
     "research_type":null
@@ -2623,6 +2703,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2650,10 +2731,10 @@
       "stat.ML"
     ],
     "c_fields":[
-      "Quantitative Biology",
+      "Physics",
       "Mathematics and Statistics",
-      "Computer Science, Electrical Engineering and Systems Science",
-      "Physics"
+      "Quantitative Biology",
+      "Computer Science, Electrical Engineering and Systems Science"
     ],
     "y_true":false,
     "research_type":null
@@ -2662,6 +2743,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2693,6 +2775,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2718,8 +2801,8 @@
       "physics.comp-ph"
     ],
     "c_fields":[
-      "Mathematics and Statistics",
-      "Physics"
+      "Physics",
+      "Mathematics and Statistics"
     ],
     "y_true":false,
     "research_type":null
@@ -2728,6 +2811,7 @@
     "id":"2411.00640",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b6"
     ],
@@ -2762,6 +2846,7 @@
     "id":"2411.00609",
     "a_title":"Tumor Location-weighted MRI-Report Contrastive Learning: A Framework for\n  Improving the Explainability of Pediatric Brain Tumor Diagnosis",
     "a_abstract":"Despite the promising performance of convolutional neural networks (CNNs) in\nbrain tumor diagnosis from magnetic resonance imaging (MRI), their integration\ninto the clinical workflow has been limited. That is mainly due to the fact\nthat the features contributing to a model's prediction are unclear to\nradiologists and hence, clinically irrelevant, i.e., lack of explainability. As\nthe invaluable sources of radiologists' knowledge and expertise, radiology\nreports can be integrated with MRI in a contrastive learning (CL) framework,\nenabling learning from image-report associations, to improve CNN\nexplainability. In this work, we train a multimodal CL architecture on 3D brain\nMRI scans and radiology reports to learn informative MRI representations.\nFurthermore, we integrate tumor location, salient to several brain tumor\nanalysis tasks, into this framework to improve its generalizability. We then\napply the learnt image representations to improve explainability and\nperformance of genetic marker classification of pediatric Low-grade Glioma, the\nmost prevalent brain tumor in children, as a downstream task. Our results\nindicate a Dice score of 31.1% between the model's attention maps and manual\ntumor segmentation (as an explainability measure) with test classification\nperformance of 87.7%, significantly outperforming the baselines. These\nenhancements can build trust in our model among radiologists, facilitating its\nintegration into clinical practices for more efficient tumor diagnosis.",
+    "explanation":"The article presents a research involving the use of Computer Science methods to treat problems in Medicine. In this case, applying the use of Convolutional Neural Networks (CNN) for the recognition of pediatric tumors in medical images and Contrastive Learning (CL) to improve the explainability of the model.",
     "b_id":[
       "b9"
     ],
@@ -2799,6 +2884,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -2830,6 +2916,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -2861,6 +2948,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -2892,6 +2980,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -2923,6 +3012,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -2954,6 +3044,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -2989,6 +3080,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -3020,6 +3112,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -3053,6 +3146,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -3084,6 +3178,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b9"
     ],
@@ -3117,6 +3212,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3148,6 +3244,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3179,6 +3276,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3210,6 +3308,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3241,6 +3340,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3272,6 +3372,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3303,6 +3404,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3334,6 +3436,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3368,6 +3471,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3400,6 +3504,7 @@
     "id":"2411.00609",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -3433,6 +3538,7 @@
     "id":"2411.00726",
     "a_title":"Cross-Fundus Transformer for Multi-modal Diabetic Retinopathy Grading\n  with Cataract",
     "a_abstract":"Diabetic retinopathy (DR) is a leading cause of blindness worldwide and a\ncommon complication of diabetes. As two different imaging tools for DR grading,\ncolor fundus photography (CFP) and infrared fundus photography (IFP) are\nhighly-correlated and complementary in clinical applications. To the best of\nour knowledge, this is the first study that explores a novel multi-modal deep\nlearning framework to fuse the information from CFP and IFP towards more\naccurate DR grading. Specifically, we construct a dual-stream architecture\nCross-Fundus Transformer (CFT) to fuse the ViT-based features of two fundus\nimage modalities. In particular, a meticulously engineered Cross-Fundus\nAttention (CFA) module is introduced to capture the correspondence between CFP\nand IFP images. Moreover, we adopt both the single-modality and multi-modality\nsupervisions to maximize the overall performance for DR grading. Extensive\nexperiments on a clinical dataset consisting of 1,713 pairs of multi-modal\nfundus images demonstrate the superiority of our proposed method. Our code will\nbe released for public access.",
+    "explanation":"The work combines transformers with two distinct methods that evaluate the quality of retinopathy",
     "b_id":[
       "b1"
     ],
@@ -3470,6 +3576,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3501,6 +3608,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3532,6 +3640,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3563,6 +3672,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3594,6 +3704,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3625,6 +3736,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3656,6 +3768,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3687,6 +3800,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3721,6 +3835,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3753,6 +3868,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b1"
     ],
@@ -3786,6 +3902,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -3817,6 +3934,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -3848,6 +3966,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -3879,6 +3998,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -3910,6 +4030,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -3941,6 +4062,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -3973,6 +4095,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -3998,9 +4121,9 @@
       "stat.AP"
     ],
     "c_fields":[
+      "Physics",
       "Mathematics and Statistics",
-      "Computer Science, Electrical Engineering and Systems Science",
-      "Physics"
+      "Computer Science, Electrical Engineering and Systems Science"
     ],
     "y_true":false,
     "research_type":null
@@ -4009,6 +4132,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -4041,6 +4165,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -4072,6 +4197,7 @@
     "id":"2411.00726",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2"
     ],
@@ -4104,6 +4230,7 @@
     "id":"2411.05236",
     "a_title":"Designing a Light-based Communication System with a Biomolecular\n  Receiver",
     "a_abstract":"Biological systems transduce signals from their surroundings in numerous\nways. This paper introduces a communication system using the light-gated ion\nchannel Channelrhodopsin-2 (ChR2), which causes an ion current to flow in\nresponse to light. Our design includes a ChR2-based receiver along with\nencoding, modulation techniques and detection. Analyzing the resulting\ncommunication system, we discuss the effect of different parameters on the\nperformance of the system. Finally, we discuss its potential design in the\ncontext of bio-engineering and light-based communication and show that the data\nrate scales up with the number of receptors, indicating that high-speed\ncommunication may be possible.",
+    "explanation":"The paper is interdisciplinary because it aims to use channelrhodopsin-2 (ChR2), a biomolecule, as a receiver to design a light-based communication system, which is a work related to engineering.",
     "b_id":[
       "b4"
     ],
@@ -4145,6 +4272,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4176,6 +4304,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4207,6 +4336,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4238,6 +4368,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4269,6 +4400,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4300,6 +4432,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4332,6 +4465,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4357,9 +4491,9 @@
       "stat.AP"
     ],
     "c_fields":[
+      "Physics",
       "Mathematics and Statistics",
-      "Computer Science, Electrical Engineering and Systems Science",
-      "Physics"
+      "Computer Science, Electrical Engineering and Systems Science"
     ],
     "y_true":false,
     "research_type":null
@@ -4368,6 +4502,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4400,6 +4535,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4431,6 +4567,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -4463,6 +4600,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4498,6 +4636,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4533,6 +4672,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4568,6 +4708,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4603,6 +4744,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4638,6 +4780,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4673,6 +4816,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4712,6 +4856,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4749,6 +4894,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4784,6 +4930,7 @@
     "id":"2411.05236",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b2",
       "b0"
@@ -4820,6 +4967,7 @@
     "id":"2411.02815",
     "a_title":"Artificial Intelligence-Enhanced Couinaud Segmentation for Precision\n  Liver Cancer Therapy",
     "a_abstract":"Precision therapy for liver cancer necessitates accurately delineating liver\nsub-regions to protect healthy tissue while targeting tumors, which is\nessential for reducing recurrence and improving survival rates. However, the\nsegmentation of hepatic segments, known as Couinaud segmentation, is\nchallenging due to indistinct sub-region boundaries and the need for extensive\nannotated datasets. This study introduces LiverFormer, a novel Couinaud\nsegmentation model that effectively integrates global context with low-level\nlocal features based on a 3D hybrid CNN-Transformer architecture. Additionally,\na registration-based data augmentation strategy is equipped to enhance the\nsegmentation performance with limited labeled data. Evaluated on CT images from\n123 patients, LiverFormer demonstrated high accuracy and strong concordance\nwith expert annotations across various metrics, allowing for enhanced treatment\nplanning for surgery and radiation therapy. It has great potential to reduces\ncomplications and minimizes potential damages to surrounding tissue, leading to\nimproved outcomes for patients undergoing complex liver cancer treatments.",
+    "explanation":"The paper presents a tool that uses Convolutional Neural Networks (CNN) and Transformers, technologies from Computer Science, to improve the accuracy and efficiency of Couinaud segmentation in liver cancer treatment, a challenge in the field of Medicine.",
     "b_id":[
       "b36",
       "b33"
@@ -4861,6 +5009,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -4896,6 +5045,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -4931,6 +5081,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -4966,6 +5117,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -5001,6 +5153,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -5036,6 +5189,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -5071,6 +5225,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -5110,6 +5265,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -5147,6 +5303,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -5182,6 +5339,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b36",
       "b33"
@@ -5218,6 +5376,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5249,6 +5408,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5280,6 +5440,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5311,6 +5472,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5343,6 +5505,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5375,6 +5538,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5408,6 +5572,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5443,6 +5608,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5474,6 +5640,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5506,6 +5673,7 @@
     "id":"2411.02815",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b13"
     ],
@@ -5538,6 +5706,7 @@
     "id":"2411.00561",
     "a_title":"Automated Classification of Cell Shapes: A Comparative Evaluation of\n  Shape Descriptors",
     "a_abstract":"This study addresses the challenge of classifying cell shapes from noisy\ncontours, such as those obtained through cell instance segmentation of\nhistological images. We assess the performance of various features for shape\nclassification, including Elliptical Fourier Descriptors, curvature features,\nand lower dimensional representations. Using an annotated synthetic dataset of\nnoisy contours, we identify the most suitable shape descriptors and apply them\nto a set of real images for qualitative analysis. Our aim is to provide a\ncomprehensive evaluation of descriptors for classifying cell shapes, which can\nsupport cell type identification and tissue characterization-critical tasks in\nboth biological research and histopathological assessments.",
+    "explanation":"This study addresses the challenge of classifying cell shapes from noisy contours, such as those obtained through cell instance segmentation of histological images.\n\nOur aim is to provide a comprehensive evaluation of descriptors for classifying cell shapes, which can support cell type identification and tissue characterization\u2014critical tasks in both biological research and histopathological assessments.\n",
     "b_id":[
       "b24"
     ],
@@ -5575,6 +5744,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5606,6 +5776,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5637,6 +5808,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5668,6 +5840,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5699,6 +5872,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5730,6 +5904,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5763,6 +5938,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5798,6 +5974,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5829,6 +6006,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5861,6 +6039,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b24"
     ],
@@ -5893,6 +6072,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -5924,6 +6104,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -5955,6 +6136,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -5986,6 +6168,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -6017,6 +6200,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -6048,6 +6232,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -6082,6 +6267,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -6115,6 +6301,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -6148,6 +6335,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -6179,6 +6367,7 @@
     "id":"2411.00561",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b4"
     ],
@@ -6210,6 +6399,7 @@
     "id":"2411.00922",
     "a_title":"Lung tumor segmentation in MRI mice scans using 3D nnU-Net with minimum\n  annotations",
     "a_abstract":"In drug discovery, accurate lung tumor segmentation is an important step for\nassessing tumor size and its progression using \\textit{in-vivo} imaging such as\nMRI. While deep learning models have been developed to automate this process,\nthe focus has predominantly been on human subjects, neglecting the pivotal role\nof animal models in pre-clinical drug development. In this work, we focus on\noptimizing lung tumor segmentation in mice. First, we demonstrate that the\nnnU-Net model outperforms the U-Net, U-Net3+, and DeepMeta models. Most\nimportantly, we achieve better results with nnU-Net 3D models than 2D models,\nindicating the importance of spatial context for segmentation tasks in MRI mice\nscans. This study demonstrates the importance of 3D input over 2D input images\nfor lung tumor segmentation in MRI scans. Finally, we outperform the prior\nstate-of-the-art approach that involves the combined segmentation of lungs and\ntumors within the lungs. Our work achieves comparable results using only lung\ntumor annotations requiring fewer annotations, saving time and annotation\nefforts. This work\n(https:\/\/anonymous.4open.science\/r\/lung-tumour-mice-mri-64BB) is an important\nstep in automating pre-clinical animal studies to quantify the efficacy of\nexperimental drugs, particularly in assessing tumor changes.",
+    "explanation":"In this work, we focus on optimizing lung tumor segmen-\ntation in mice. First, we demonstrate that the nnU-Net model outper-\nforms the U-Net, U-Net3+, and DeepMeta models.",
     "b_id":[
       "b16"
     ],
@@ -6247,6 +6437,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6278,6 +6469,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6309,6 +6501,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6340,6 +6533,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6371,6 +6565,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6402,6 +6597,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6436,6 +6632,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6469,6 +6666,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6502,6 +6700,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6533,6 +6732,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b16"
     ],
@@ -6564,6 +6764,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6595,6 +6796,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6626,6 +6828,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6657,6 +6860,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6688,6 +6892,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6719,6 +6924,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6751,6 +6957,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6784,6 +6991,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6808,8 +7016,8 @@
       "math.PR"
     ],
     "c_fields":[
-      "Mathematics and Statistics",
-      "Physics"
+      "Physics",
+      "Mathematics and Statistics"
     ],
     "y_true":false,
     "research_type":null
@@ -6818,6 +7026,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6841,8 +7050,8 @@
       "q-bio.MN"
     ],
     "c_fields":[
-      "Quantitative Biology",
-      "Physics"
+      "Physics",
+      "Quantitative Biology"
     ],
     "y_true":false,
     "research_type":null
@@ -6851,6 +7060,7 @@
     "id":"2411.00922",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b12"
     ],
@@ -6882,6 +7092,7 @@
     "id":"2411.03522",
     "a_title":"Exploring the Potentials and Challenges of Using Large Language Models\n  for the Analysis of Transcriptional Regulation of Long Non-coding RNAs",
     "a_abstract":"Research on long non-coding RNAs (lncRNAs) has garnered significant attention\ndue to their critical roles in gene regulation and disease mechanisms. However,\nthe complexity and diversity of lncRNA sequences, along with the limited\nknowledge of their functional mechanisms and the regulation of their\nexpressions, pose significant challenges to lncRNA studies. Given the\ntremendous success of large language models (LLMs) in capturing complex\ndependencies in sequential data, this study aims to systematically explore the\npotential and limitations of LLMs in the sequence analysis related to the\ntranscriptional regulation of lncRNA genes. Our extensive experiments\ndemonstrated promising performance of fine-tuned genome foundation models on\nprogressively complex tasks. Furthermore, we conducted an insightful analysis\nof the critical impact of task complexity, model selection, data quality, and\nbiological interpretability for the studies of the regulation of lncRNA gene\nexpression.",
+    "explanation":"Given the tremendous success of large language mod-\nels (LLMs) in capturing complex dependencies in sequential data, this study aims to systematically explore the potential and limitations of LLMs in the sequence analysis related to the transcriptional regulation of lncRNA genes. ",
     "b_id":[
       "b3"
     ],
@@ -6919,6 +7130,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -6950,6 +7162,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -6981,6 +7194,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7012,6 +7226,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7043,6 +7258,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7074,6 +7290,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7106,6 +7323,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7139,6 +7357,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7163,8 +7382,8 @@
       "math.PR"
     ],
     "c_fields":[
-      "Mathematics and Statistics",
-      "Physics"
+      "Physics",
+      "Mathematics and Statistics"
     ],
     "y_true":false,
     "research_type":null
@@ -7173,6 +7392,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7196,8 +7416,8 @@
       "q-bio.MN"
     ],
     "c_fields":[
-      "Quantitative Biology",
-      "Physics"
+      "Physics",
+      "Quantitative Biology"
     ],
     "y_true":false,
     "research_type":null
@@ -7206,6 +7426,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b3"
     ],
@@ -7237,6 +7458,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7268,6 +7490,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7299,6 +7522,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7330,6 +7554,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7361,6 +7586,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7392,6 +7618,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7425,6 +7652,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7457,6 +7685,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7488,6 +7717,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7520,6 +7750,7 @@
     "id":"2411.03522",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b20"
     ],
@@ -7554,6 +7785,7 @@
     "id":"2411.06785",
     "a_title":"White-Box Diffusion Transformer for single-cell RNA-seq generation",
     "a_abstract":"As a powerful tool for characterizing cellular subpopulations and cellular\nheterogeneity, single cell RNA sequencing (scRNA-seq) technology offers\nadvantages of high throughput and multidimensional analysis. However, the\nprocess of data acquisition is often constrained by high cost and limited\nsample availability. To overcome these limitations, we propose a hybrid model\nbased on Diffusion model and White-Box transformer that aims to generate\nsynthetic and biologically plausible scRNA-seq data. Diffusion model\nprogressively introduce noise into the data and then recover the original data\nthrough a denoising process, a forward and reverse process that is particularly\nsuitable for generating complex data distributions. White-Box transformer is a\ndeep learning architecture that emphasizes mathematical interpretability. By\nminimizing the encoding rate of the data and maximizing the sparsity of the\nrepresentation, it not only reduces the computational burden, but also provides\nclear insight into underlying structure. Our White-Box Diffusion Transformer\ncombines the generative capabilities of Diffusion model with the mathematical\ninterpretability of White-Box transformer. Through experiments using six\ndifferent single-cell RNA-Seq datasets, we visualize both generated and real\ndata using t-SNE dimensionality reduction technique, as well as quantify\nsimilarity between generated and real data using various metrics to demonstrate\ncomparable performance of White-Box Diffusion Transformer and Diffusion\nTransformer in generating scRNA-seq data alongside significant improvements in\ntraining efficiency and resource utilization. Our code is available at\nhttps:\/\/github.com\/lingximamo\/White-Box-Diffusion-Transformer",
+    "explanation":"As a powerful tool for characterizing cellular subpopulations and cellular heterogeneity, single cell\nRNA sequencing (scRNA-seq) technology offers advantages of high throughput and multidimensional\nanalysis. However, the process of data acquisition is often constrained by high cost and limited\nsample availability. To overcome these limitations, we propose a model based on Diffusion model\nand White-Box transformer that aims to generate synthetic and biologically plausible scRNA-seq\ndata.",
     "b_id":[
       "b0"
     ],
@@ -7591,6 +7823,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7622,6 +7855,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7653,6 +7887,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7684,6 +7919,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7715,6 +7951,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7746,6 +7983,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7779,6 +8017,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7811,6 +8050,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7842,6 +8082,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7874,6 +8115,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b0"
     ],
@@ -7908,6 +8150,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -7939,6 +8182,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -7970,6 +8214,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -8001,6 +8246,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -8032,6 +8278,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -8063,6 +8310,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -8101,6 +8349,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -8134,6 +8383,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -8165,6 +8415,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],
@@ -8198,6 +8449,7 @@
     "id":"2411.06785",
     "a_title":"",
     "a_abstract":"",
+    "explanation":"",
     "b_id":[
       "b25"
     ],

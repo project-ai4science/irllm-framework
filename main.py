@@ -31,7 +31,7 @@ def main():
         if args.file_name is not None:
             task_func(file_names=[args.file_name])
         else:
-            task_func()
+            task_func(verbose=True)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
