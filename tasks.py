@@ -514,12 +514,13 @@ class TaskHandler():
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
 
-            ids, responses, labels, verb_conf, response_logprobs = [], [], [], [], []
+            ids, responses, labels, is_positive_list, verb_conf, response_logprobs = [], [], [], [], [], []
             if cached:
                 # load the cached data
                 ids = df_cached['id'].tolist()
                 responses = df_cached['y_pred'].tolist()
                 labels = df_cached['y_true'].tolist()
+                is_positive_list = df_cached['is_positive'].tolist()
                 verb_conf = df_cached['verb_conf'].tolist()
                 response_logprobs = df_cached['log_probs'].tolist()
             
@@ -569,6 +570,7 @@ class TaskHandler():
                 ids.append(each['id'])
                 responses.append(abstract)
                 labels.append(each['a_abstract'])
+                is_positive_list.append(each['y_true'])
                 verb_conf.append(verb_score)
                 response_logprobs.append(logprobs)
                 if i % checkpoint_len == 0:
@@ -579,6 +581,7 @@ class TaskHandler():
                         "id": ids,
                         "y_true": labels,
                         "y_pred": responses,
+                        "is_positive": is_positive_list,
                         "verb_conf": verb_conf,
                         "log_probs": response_logprobs
                     }
@@ -589,6 +592,7 @@ class TaskHandler():
                 "id": ids,
                 "y_true": labels,
                 "y_pred": responses,
+                "is_positive": is_positive_list,
                 "verb_conf": verb_conf,
                 "log_probs": response_logprobs
             }
