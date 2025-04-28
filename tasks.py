@@ -62,7 +62,7 @@ class TaskHandler():
             # cached_idx = df_cached.shape[0]
             cached = True
         # load benchmark data
-        df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})[:50] # first try 5 samples to ensure works well
+        df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:50] # first try 5 samples to ensure works well
         # break the function if no data
         ids, responses, labels, verb_conf, subject_choices, response_logprobs = [], [], [], [], [], []
         if cached:
@@ -185,7 +185,7 @@ class TaskHandler():
                 df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
                 cached = True
             # load benchmark data
-            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})[-30:] # first try 5 samples to ensure works well
+            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[-30:] # first try 5 samples to ensure works well
             ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], []
             if cached:
                 # load the cached data
@@ -292,7 +292,7 @@ class TaskHandler():
                 df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
                 cached = True
             # load benchmark data
-            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})[:5] # first try 5 samples to ensure works well
+            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
             ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
             if cached:
                 # load the cached data
@@ -308,8 +308,8 @@ class TaskHandler():
             df_size = df.shape[0]
             # break the function if no data
             if df_size == 0:
-                if verbose:
-                    print(f"No new data to process in {file_name}.")
+                # if verbose:
+                print(f"No new data to process in {file_name}.")
                 continue
             if verbose:
                 if cached:
@@ -504,12 +504,10 @@ class TaskHandler():
                 out_file_name += "_fewshot"
             out_file_name += ".json"
             # checkpoint system to obtain start point
-            cached_idx = 0
             cached = False
             # check if the file exists and load it
             if os.path.exists(os.path.join(self.save_path, out_file_name)):
                 df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
-                cached_idx = df_cached.shape[0]
                 cached = True
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
