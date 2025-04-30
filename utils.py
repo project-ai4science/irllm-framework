@@ -509,10 +509,55 @@ Your abstract: {The abstract you wrote using the ideas from the two given papers
 Confidence score: {A numeric score ranging from 0 to 100}
 """
 
-prompt_exp_4_fewshot = ""
+prompt_exp_4_fewshot = """
+Read the title and abstract of papers from two disciplines, extract concepts from both fields, and write a novel interdisciplinary research abstract. After writing your abstract, provide a score from 0 to 100 to indicate your confidence level in the quality of your abstract as an interdisciplinary research idea.
+Keep in mind that a good interdisciplinary research idea should meet the following criteria:
+* This research idea should be Interdisciplinary, whereas the idea stems from the combination of ideas from the two papers introduced above.
+* The Interdisciplinary Research ideas should follow this definition: “Interdisciplinary Research is a mode of research that integrates information, data, techniques, tools, perspectives, concepts, and/or theories from two or more disciplines or bodies of specialised knowledge to advance fundamental understanding or to solve problems whose solutions are beyond the scope of a single discipline or area of research practice.”
+* This research idea should be feasible, whereas the hypothesis is not purely theoretical and can be validated by experiments.
+* This research idea should be novel, whereas it is not only rare but also ingenious, imaginative, or surprising.
+* This research idea should be useful, whereas it applies to the stated problem and is effective at solving the problem.
+Think carefully to write a novel abstract that clearly states the objective of the paper, how the two ideas will be integrated, and the expected results.
+Note: The confidence level represents how confident you are in the quality of your abstract as an interdisciplinary research idea, expressed as a percentage. For example, if your confidence level is 80, it means you are 80 percent certain your abstract is good and there is a 20 percent chance it may be flawed.
+
+Example 1:
+Paper in Discipline 1:
+- title: "Biological identifications through DNA barcodes"
+- abstract: "Although much biological research depends upon species diagnoses, taxonomic expertise is collapsing.We are convinced that the sole prospect for a sustainable identification capability lies in construction of systems employ DNA sequences as taxon 'barcodes'.We establish mitochondrial gene cytochrome c oxidase I (COI) can serve core global bioidentification system animals.First, we demonstrate COI profiles, derived from low-density sampling higher categories, ordinarily assign newly analysed taxa to appropriate phylum or order.Second, species-level assignments be obtained by creating comprehensive profiles.A model profile, based analysis single individual each 200 closely allied lepidopterans, was 100% successful correctly identifying subsequent specimens.When fully developed, will provide reliable, cost-effective and accessible solution current problem identification.Its assembly also generate important new insights into diversification life rules molecular evolution."
+
+Paper in Discipline 2:
+- title: "BarcodeBERT: Transformers for Biodiversity Analysi"
+- abstract: "Understanding biodiversity is a global challenge, in which DNA barcodes - short snippets of that cluster by species play pivotal role. In particular, invertebrates, highly diverse and under-explored group, pose unique taxonomic complexities. We explore machine learning approaches, comparing supervised CNNs, fine-tuned foundation models, barcode-specific masking strategy across datasets varying complexity. While simpler tasks favor CNNs or transformers, challenging species-level identification demands paradigm shift towards self-supervised pretraining. propose BarcodeBERT, the first method for general analysis, leveraging 1.5 M invertebrate barcode reference library. This work highlights how dataset specifics coverage impact model selection, underscores role pretraining achieving high-accuracy barcode-based at genus level. Indeed, without fine-tuning step, BarcodeBERT pretrained on large outperforms DNABERT DNABERT-2 multiple downstream classification tasks. The code repository available https:\/\/github.com\/Kari-Genomics-Lab\/BarcodeBERT"
+
+Your abstract: "DNA barcodes are crucial in biodiversity analysis for building automatic\nidentification systems that recognize known species and discover unseen\nspecies. Unlike human genome modeling, barcode-based invertebrate\nidentification poses challenges in the vast diversity of species and taxonomic\ncomplexity. Among Transformer-based foundation models, BarcodeBERT excelled in\nspecies-level identification of invertebrates, highlighting the effectiveness\nof self-supervised pretraining on barcode-specific datasets. Recently,\nstructured state space models (SSMs) have emerged, with a time complexity that\nscales sub-quadratically with the context length. SSMs provide an efficient\nparameterization of sequence modeling relative to attention-based\narchitectures. Given the success of Mamba and Mamba-2 in natural language, we\ndesigned BarcodeMamba, a performant and efficient foundation model for DNA\nbarcodes in biodiversity analysis. We conducted a comprehensive ablation study\non the impacts of self-supervised training and tokenization methods, and\ncompared both versions of Mamba layers in terms of expressiveness and their\ncapacity to identify \"unseen\" species held back from training. Our study shows\nthat BarcodeMamba has better performance than BarcodeBERT even when using only\n8.3% as many parameters, and improves accuracy to 99.2% on species-level\naccuracy in linear probing without fine-tuning for \"seen\" species. In our\nscaling study, BarcodeMamba with 63.6% of BarcodeBERT's parameters achieved\n70.2% genus-level accuracy in 1-nearest neighbor (1-NN) probing for unseen\nspecies. The code repository to reproduce our experiments is available at\nhttps:\/\/github.com\/bioscan-ml\/BarcodeMamba."
+Confidence score: 95
+
+Example 2:
+Paper in Discipline 1:
+- title: "Channelrhodopsin-2, a directly light-gated cation-selective membrane channel"
+- abstract: "Microbial-type rhodopsins are found in archaea, prokaryotes, and eukaryotes. Some of them represent membrane ion transport proteins such as bacteriorhodopsin, a light-driven proton pump, or channelrhodopsin-1 (ChR1), recently identified light-gated channel from the green alga Chlamydomonas reinhardtii . ChR1 ChR2, related microbial-type rhodopsin C. , were shown to be involved generation photocurrents this alga. We demonstrate by functional expression, both oocytes Xenopus laevis mammalian cells, that ChR2 is directly light-switched cation-selective channel. This opens rapidly after absorption photon generate large permeability for monovalent divalent cations. desensitizes continuous light smaller steady-state conductance. Recovery desensitization accelerated extracellular H + negative potential, whereas closing decelerated intracellular expressed mainly under low-light conditions, suggesting involvement photoreception dark-adapted cells. The predicted seven-transmembrane \u03b1 helices characteristic G protein-coupled receptors but reflect different motif Finally, we may used depolarize small simply illumination."
+
+Paper in Discipline 2:
+- title: "Shannon capacity of signal transduction for multiple independent receptors, DESIGN AND IMPLEMENTATION OF VISIBLE LIGHT COMMUNICATION SYSTEM IN INDOOR ENVIRONMENT",
+- abstract: "Cyclic adenosine monophosphate (cAMP) is considered a model system for signal transduction, the mechanism by which cells exchange chemical messages. Our previous work calculated Shannon capacity of single cAMP receptor; however, typical cell may have thousands receptors operating in parallel. In this paper, we calculate transduction with an arbitrary number independent, indistinguishable receptors. By leveraging prior results on feedback receptor, show (somewhat unexpectedly) that achieved IID input distribution, and n times receptor. Visible Light communication (VLC) using White Light Emitting Diode (LED) is a promising technology for next generation communication for short range, high speed wireless data transmission. In this paper inexpensive transmitter and receiver of VLC system is designed and its performance is evaluated. The effect of natural and artificial ambient light noise sources is also considered. Experimental results show that the data transmission distance achieved upto 0.45m.Performance analysis is done with respect to optical power, photo sensitivity of photodiode at the receiver and the increase in distance between the transmitter and receiver."
+
+Your abstract: "Biological systems transduce signals from their surroundings in numerous\nways. This paper introduces a communication system using the light-gated ion\nchannel Channelrhodopsin-2 (ChR2), which causes an ion current to flow in\nresponse to light. Our design includes a ChR2-based receiver along with\nencoding, modulation techniques and detection. Analyzing the resulting\ncommunication system, we discuss the effect of different parameters on the\nperformance of the system. Finally, we discuss its potential design in the\ncontext of bio-engineering and light-based communication and show that the data\nrate scales up with the number of receptors, indicating that high-speed\ncommunication may be possible."
+Confidence score: 85
+
+
+Use the template (in this format, with no markdown and lines separated by '\n') to provide your answer.
+Your abstract: {The abstract you wrote using the ideas from the two given papers.}
+Confidence score: {A numeric score ranging from 0 to 100}
+
+Paper in Discipline 1:
+%s
+
+Paper in Discipline 2:
+%s
+"""
+
 prompt_exp_4_budget = ""
 prompt_exp_4_budget_fewshot = ""
-
 
 
 # Test code to ensure everything is right:
