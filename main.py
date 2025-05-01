@@ -25,6 +25,9 @@ def main():
         cls_evaluator.save_json(cls_res, "classification_summary.json", file_path=task_config["out_path"], **save_config)
         rcm_evaluator.save_json(rcm_res, "recommendation_summary.json", file_path=task_config["out_path"], **save_config)
     else:
+        print(f"Running task: {args.task}")
+        if args.few_shot:
+            print("Few-shot mode: on")
         # task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, save_path=save_path, **task_config)
         task_handler = TaskHandler(provider=args.provider, model_name=args.model_name, lm_config_path=config_path, **task_config)
         task_func = task_handler[args.task]
