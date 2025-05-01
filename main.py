@@ -9,6 +9,8 @@ CONFIG = load_config(config_path)
 def main():
     task_config = CONFIG['task_config']
     assert args.task in task_config['task_list']
+    if args.few_shot:
+        task_config['few_shot'] = True
     # map the args to actual task
     if args.task == "output_evaluation":
         save_config = {
@@ -35,7 +37,7 @@ def main():
         if args.file_name is not None:
             task_func(file_names=[args.file_name])
         else:
-            task_func(verbose=True)
+            task_func()
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -46,6 +48,7 @@ if __name__ == "__main__":
     parser.add_argument("--task", type=str, help="Task type (e.g., classification, recommendation, generation)", required=True)
     parser.add_argument("--eval_type", type=str, help="Choose the type of result evalutaion for different tasks", default=None)
     parser.add_argument("--file_name", type=str, help="Choose the specific data file to run", default=None)
+    parser.add_argument("--few_shot", type=bool, help="Enable few-shot learning mode", default=False)
 
 
     # parser.add_argument("--save_path", type=str, help="subfolder to save the experiment results", default=None)
