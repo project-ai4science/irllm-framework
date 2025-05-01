@@ -99,8 +99,21 @@ class TaskHandler():
             else:
                 prompt_template = prompt_exp_1_fewshot if few_shot else prompt_exp_1
                 input_prompt = prompt_template % (title, abstract)
-            # llm prompt generation
-            response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
+
+            # error handling when api fails
+            max_attempts = 5
+            counter = 0
+            while counter < max_attempts:
+                try:
+                    # llm prompt generation
+                    response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
+                    break
+                except Exception as e:
+                    print(f"Error: {e}")
+                    counter += 1
+                    if counter == max_attempts:
+                        print("Max attempts reached. Count as draw.")
+                        response_txt, logprobs = "", None
 
             # add subject answer in addition to the verdict and confidence score
             # capture groups for verdict and reason.
@@ -223,8 +236,21 @@ class TaskHandler():
                     prompt_template = prompt_exp_2_fewshot if few_shot else prompt_exp_2
                     input_prompt = prompt_template % (disci_one, disci_two)
 
-                # change prompt here for each task
-                response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)                
+                # error handling when api fails
+                max_attempts = 5
+                counter = 0
+                while counter < max_attempts:
+                    try:
+                        # llm prompt generation
+                        response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
+                        break
+                    except Exception as e:
+                        print(f"Error: {e}")
+                        counter += 1
+                        if counter == max_attempts:
+                            print("Max attempts reached. Count as draw.")
+                            response_txt, logprobs = "", None
+
                 # This regex uses named capture groups for verdict and reason.
                 pattern = r"Your verdict:\s*(?P<verdict>Yes|No).?\s*Your reason:\s*(?P<reason>.+).?\s*Confidence score:\s*(?P<score>\d+).?"
                 match = re.search(pattern, response_txt, re.IGNORECASE)
