@@ -550,7 +550,6 @@ class TaskHandler():
             
             if cached:
                 pairs_to_remove = set(zip(ids, is_positive_list))
-                print(df.columns)
                 df = df[~df[['id', 'y_true']].apply(tuple, axis=1).isin(pairs_to_remove)]
 
             df_size = df.shape[0]
