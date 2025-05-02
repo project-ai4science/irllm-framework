@@ -66,6 +66,7 @@ llm_client_config:
         
         gemini:
             - "gemini-2.0-flash"
+            - "gemini-2.5-pro-preview-03-25"
 
         llama:
             - "llama-3.3-70b-instruct"

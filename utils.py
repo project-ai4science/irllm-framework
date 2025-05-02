@@ -77,7 +77,19 @@ def simulate_match(player1, player2, context: dict, client: object, critical: bo
     verb_score = None
     verdict = None
     input_prompt = prompt_exp_3 % (context["start_title"], context["start_abstract"], player1.title, player1.abstract, player2.title, player2.abstract)
-    response_txt, logprob = client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
+    # error handling when api fails
+    max_attempts = 5
+    counter = 0
+    while counter < max_attempts:
+        try:
+            response_txt, logprob = client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)
+            break
+        except Exception as e:
+            print(f"Error: {e}")
+            counter += 1
+            if counter == max_attempts:
+                print("Max attempts reached. Count as draw.")
+                response_txt, logprob = "", None
     if logprob:
         avg_logprob = np.average(logprob['logprob'])
 
