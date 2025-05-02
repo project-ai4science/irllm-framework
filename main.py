@@ -37,7 +37,7 @@ def main():
         if args.file_name is not None:
             task_func(file_names=[args.file_name])
         else:
-            task_func()
+            task_func(verbose=args.verbose)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -49,6 +49,7 @@ if __name__ == "__main__":
     parser.add_argument("--eval_type", type=str, help="Choose the type of result evalutaion for different tasks", default=None)
     parser.add_argument("--file_name", type=str, help="Choose the specific data file to run", default=None)
     parser.add_argument("--few_shot", type=bool, help="Enable few-shot learning mode", default=False)
+    parser.add_argument("--verbose", type=bool, help="debug flag", default=False)
 
 
     # parser.add_argument("--save_path", type=str, help="subfolder to save the experiment results", default=None)

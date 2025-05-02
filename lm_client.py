@@ -47,11 +47,13 @@ class LM_Client():
 
         if self.provider == "gemini":
             self.model_config = {
-                "max_output_tokens": self.model_config.get("max_tokens", 500),
+                # "max_output_tokens": self.model_config.get("max_tokens", 500),
                 "temperature": self.model_config.get("temperature", 1.0),
                 "frequency_penalty": self.lm_config.get("frequency_penalty", 0),
                 "presence_penalty": self.lm_config.get("presence_penalty", 0)
             }
+            if self.model_name == "gemini-2.0-flash":
+                self.model_config["max_output_tokens"] = self.model_config.get("max_tokens", 500)
 
         # Merge any additional keyword arguments into api_params.
         self.model_config.update(kwargs)
