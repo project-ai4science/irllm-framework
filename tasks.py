@@ -548,7 +548,11 @@ class TaskHandler():
                 verb_conf = df_cached['verb_conf'].tolist()
                 response_logprobs = df_cached['log_probs'].tolist()
             
-            df = df[~df['id'].isin(ids)] if cached else df
+            if cached:
+                pairs_to_remove = set(zip(ids, is_positive_list))
+                print(df.columns)
+                df = df[~df[['id', 'y_true']].apply(tuple, axis=1).isin(pairs_to_remove)]
+
             df_size = df.shape[0]
             if df_size == 0:
                 if verbose:
