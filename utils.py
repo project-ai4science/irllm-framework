@@ -43,7 +43,7 @@ def swiss_pairings(players: Player):
         # choose the lowest-ranked player (last in the sorted list)
         for player in reversed(players_sorted):
             if not player.bye:
-                print(f"{player.title[:10]}... receives a bye this round.")
+                # print(f"{player.title[:10]}... receives a bye this round.")
                 player.score += 1   # Award one point for the bye
                 player.bye = True
                 used.add(player)
@@ -88,8 +88,7 @@ def simulate_match(player1, player2, context: dict, client: object, critical: bo
             print(f"Error: {e}")
             counter += 1
             if counter == max_attempts:
-                print("Max attempts reached. Count as draw.")
-                response_txt, logprob = "", None
+                raise e
     if logprob:
         avg_logprob = np.average(logprob['logprob'])
 
