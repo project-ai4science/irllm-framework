@@ -1,4 +1,5 @@
 from openai import OpenAI
+import anthropic
 from fireworks.client import Fireworks
 from google import genai
 from google.genai import types
@@ -44,7 +45,6 @@ class LM_Client():
                 "max_tokens": self.lm_config.get("max_tokens", 1000),
             }
 
-
         if self.provider == "gemini":
             self.model_config = {
                 # "max_output_tokens": self.model_config.get("max_tokens", 500),
@@ -54,6 +54,14 @@ class LM_Client():
             }
             if self.model_name == "gemini-2.0-flash":
                 self.model_config["max_output_tokens"] = self.model_config.get("max_tokens", 500)
+
+        if self.provider == "claude":
+            self.model_config = {
+                "max_tokens": 1000,
+                "temperature": self.lm_config.get("temperature", 1.0),
+                # "frequency_penalty": self.lm_config.get("frequency_penalty", 0),
+                # "presence_penalty": self.lm_config.get("presence_penalty", 0)
+            }
 
         # Merge any additional keyword arguments into api_params.
         self.model_config.update(kwargs)
@@ -78,6 +86,12 @@ class LM_Client():
         if "gemini_key" in CREDENTIALS:
             clients["gemini"] = genai.Client(
                 api_key=CREDENTIALS["gemini_key"]
+            )
+
+        if "claude_key" in CREDENTIALS:
+            clients["claude"] = anthropic.Anthropic(
+                # defaults to os.environ.get("ANTHROPIC_API_KEY")
+                api_key=CREDENTIALS["claude_key"],
             )
 
         return clients
@@ -150,12 +164,13 @@ class LM_Client():
 
         
         elif self.provider == 'claude':
-            response = self.clients['openrouter'].chat.completions.create(
-                model=f"anthropic/{self.model_name}",
-                messages=input_msg,
+            response = self.clients['claude'].messages.create(
+                model=self.model_name,
+                system=sys_prompt,
+                messages=[input_msg[-1]],
                 **self.model_config
-            ).choices[0]
-            response_txt = response.message.content
+            )
+            response_txt = response.content[0].text
 
         elif self.provider == 'grok':
             response = self.clients['openrouter'].chat.completions.create(

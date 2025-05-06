@@ -11,6 +11,8 @@ def main():
     assert args.task in task_config['task_list']
     if args.few_shot:
         task_config['few_shot'] = True
+    else:
+        task_config['few_shot'] = False
     # map the args to actual task
     if args.task == "output_evaluation":
         save_config = {
@@ -51,8 +53,5 @@ if __name__ == "__main__":
     parser.add_argument("--few_shot", type=bool, help="Enable few-shot learning mode", default=False)
     parser.add_argument("--verbose", type=bool, help="debug flag", default=False)
 
-
-    # parser.add_argument("--save_path", type=str, help="subfolder to save the experiment results", default=None)
-    # parser.add_argument("--out_path", type=str, help="subfolder to save the evaluation results", default=None)
     args = parser.parse_args()
     main()

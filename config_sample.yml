@@ -74,6 +74,7 @@ llm_client_config:
 
         claude:
             - "claude-3.7-sonnet:thinking"
+            - "claude-3-7-sonnet-20250219"
         
         grok: 
             - "grok-3-mini-beta"
@@ -90,6 +91,7 @@ llm_client_config:
         gemini_key: "your_key"
         deepseek_key: "your_key"
         openrouter_key: "your_key"
+        claude_key: "your_key"
         # xai_key: "x_YOURKEY"
         # firework_key: "your_key"
 

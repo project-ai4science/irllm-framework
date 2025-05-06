@@ -112,8 +112,7 @@ class TaskHandler():
                     print(f"Error: {e}")
                     counter += 1
                     if counter == max_attempts:
-                        print("Max attempts reached. Count as draw.")
-                        response_txt, logprobs = "", None
+                        raise e
 
             # add subject answer in addition to the verdict and confidence score
             # capture groups for verdict and reason.
@@ -248,8 +247,7 @@ class TaskHandler():
                         print(f"Error: {e}")
                         counter += 1
                         if counter == max_attempts:
-                            print("Max attempts reached. Count as draw.")
-                            response_txt, logprobs = "", None
+                            raise e
 
                 # This regex uses named capture groups for verdict and reason.
                 pattern = r"Your verdict:\s*(?P<verdict>Yes|No).?\s*Your reason:\s*(?P<reason>.+).?\s*Confidence score:\s*(?P<score>\d+).?"
