@@ -4,6 +4,7 @@ import pandas as pd
 from scipy.stats import gmean
 import os
 
+EXCLUDED_PAPERS = ["2411.04715"]
 
 class Evaluator:
     def __init__(self, file_dir="./output"):
@@ -80,7 +81,8 @@ class Evaluator:
 
     def evaluate_file(self, file_path):
         try:
-            df_data = pd.read_json(file_path)
+            df_data = pd.read_json(file_path, dtype={"id": str})
+            df_data = df_data.loc[~df_data.id.isin(EXCLUDED_PAPERS)].reset_index(drop=True)
             y_true = df_data["y_true"]
             y_pred = df_data["y_pred"]
             # Calculate metrics
@@ -127,7 +129,8 @@ class Evaluator:
             file_path = os.path.join(self.file_dir, filename)
 
             try:
-                df_data = pd.read_json(file_path)
+                df_data = pd.read_json(file_path, dtype={"id": str})
+                df_data = df_data.loc[~df_data.id.isin(EXCLUDED_PAPERS)].reset_index(drop=True)
                 relevant_items = df_data["y_true"].apply(lambda x: x["title"]).tolist()
                 retrieved_items = df_data["y_pred"].apply(lambda x: [y["title"] for y in x]).tolist()
                 retrieved_items_scores = df_data["y_pred"].apply(lambda x: [y["score"] for y in x]).tolist()
