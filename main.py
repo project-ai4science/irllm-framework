@@ -37,7 +37,7 @@ def main():
         task_func = task_handler[args.task]
         # task_func(file_names=["data_exp_2_1.json"], verbose=True)
         if args.file_name is not None:
-            task_func(file_names=[args.file_name])
+            task_func(file_names=[args.file_name], verbose=args.verbose)
         else:
             task_func(verbose=args.verbose)
 

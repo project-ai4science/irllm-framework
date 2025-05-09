@@ -301,6 +301,7 @@ class TaskHandler():
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False, checkpoint_len: int = 1):
         # check if we want a critical llm
         critical = self.kwargs.get("critical", True)
+
         if verbose:
             print(f"Critical llm: {critical}")
         for _, file_name in enumerate(file_names):
@@ -327,6 +328,36 @@ class TaskHandler():
                 labels = df_cached['list'].tolist()
                 verb_conf = df_cached['verb_conf'].tolist()
                 response_logprobs = df_cached['log_probs'].tolist()
+
+                if verbose:
+                    print("Cached data loaded.")
+
+
+            # merge partitioned data with main data
+            if "part" in file_name:
+                part_num = int(file_name.split("_")[-1].split(".")[0])
+                out_file_name = f"part_{part_num}_{out_file_name}"
+                if os.path.exists(os.path.join(self.save_path, out_file_name)):
+                    df_cached_part = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
+                    # add to the cached data
+                    if cached:
+                        ids += df_cached_part['id'].tolist()
+                        start_ids += df_cached_part['start_ids'].tolist()
+                        true_papers += df_cached_part['y_true'].tolist()
+                        responses += df_cached_part['y_pred'].tolist()
+                        labels += df_cached_part['list'].tolist()
+                        verb_conf += df_cached_part['verb_conf'].tolist()
+                        response_logprobs += df_cached_part['log_probs'].tolist()
+                    else:
+                        ids = df_cached_part['id'].tolist()
+                        start_ids = df_cached_part['start_ids'].tolist()
+                        true_papers = df_cached_part['y_true'].tolist()
+                        responses = df_cached_part['y_pred'].tolist()
+                        labels = df_cached_part['list'].tolist()
+                        verb_conf = df_cached_part['verb_conf'].tolist()
+                        response_logprobs = df_cached_part['log_probs'].tolist()
+
+
             # filter the dataframe to start from unprocessed rows
             df = df[~df['id'].isin(ids)] if cached else df
             df_size = df.shape[0]
@@ -339,6 +370,20 @@ class TaskHandler():
                 if cached:
                     print(f"Already processed {len(ids)} samples. Continuing from there...")
                 print(f"Doing data file: {file_name}...")
+
+            # update the ongoing list with ONLY partitioned data
+            if "part" in file_name:
+                ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
+                if os.path.exists(os.path.join(self.save_path, out_file_name)):
+                    df_cached_part = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
+                    ids = df_cached_part['id'].tolist()
+                    start_ids = df_cached_part['start_ids'].tolist()
+                    true_papers = df_cached_part['y_true'].tolist()
+                    responses = df_cached_part['y_pred'].tolist()
+                    labels = df_cached_part['list'].tolist()
+                    verb_conf = df_cached_part['verb_conf'].tolist()
+                    response_logprobs = df_cached_part['log_probs'].tolist()
+
             # main loop
             for i, each in tqdm(df.iterrows(), total=df_size):
                 """
@@ -351,6 +396,8 @@ class TaskHandler():
                 # add target paper at the end of the list
                 Papers += [Player(title=title, abstract=abstract) for title, abstract in zip(each["target_paper"]["title"], each["target_paper"]["abstract"])]
                 # test_paper = Papers[:3] # small amount of test paper
+
+                # remember to set back to 10!!!!
                 paper_rank, logprob, verb_score = swiss_tournament(Papers, context, critical, self.client, 10, verbose=verbose)
                 # update the result collection
                 ids.append(each['id'])
