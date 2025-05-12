@@ -131,6 +131,8 @@ class Evaluator:
             try:
                 df_data = pd.read_json(file_path, dtype={"id": str})
                 df_data = df_data.loc[~df_data.id.isin(EXCLUDED_PAPERS)].reset_index(drop=True)
+                ids = df_data["id"].tolist()
+                start_ids = df_data["start_ids"].tolist()
                 relevant_items = df_data["y_true"].apply(lambda x: x["title"]).tolist()
                 retrieved_items = df_data["y_pred"].apply(lambda x: [y["title"] for y in x]).tolist()
                 retrieved_items_scores = df_data["y_pred"].apply(lambda x: [y["score"] for y in x]).tolist()
@@ -145,8 +147,14 @@ class Evaluator:
                     "size": len(df_data),
                     "mrr": mrr,
                     "ndcg_at_10": ndcg10,
-                    "mrr_scores": mrr_scores,
-                    "ndcg_at_10_scores": ndcg10_scores
+                    "mrr_scores": [
+                        {"id": i, "start_id": s, "score": score}
+                        for i, s, score in zip(ids, start_ids, mrr_scores)
+                    ],
+                    "ndcg_at_10_scores": [
+                        {"id": i, "start_id": s, "score": score}
+                        for i, s, score in zip(ids, start_ids, ndcg10_scores)
+                    ]
                 })
 
             except Exception as e:
