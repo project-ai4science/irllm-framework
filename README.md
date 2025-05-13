@@ -1,4 +1,4 @@
-# IR LLM Framework
+# IDRBench Framework
 
 Config.yml file contains both api based llm configuration and task configuration
 
