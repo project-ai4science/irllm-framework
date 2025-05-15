@@ -39,8 +39,8 @@ llm_client_config:
         deepseek_key: "sk-372ce22523804df3980593c80a46e761"
         openrouter_key: "your_key"
         claude_key: "your_key"
-        # xai_key: "x_YOURKEY"
-        # firework_key: "fw_3ZWZMFeTYFaGqsbendw5ypMv"
+        # xai_key: "your_key"
+        # firework_key: "your_key"
 
     default_model: "deepseek-chat"
     max_tokens: 500
