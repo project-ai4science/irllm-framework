@@ -36,7 +36,7 @@ llm_client_config:
     credentials:
         openai_key: "your_key"
         gemini_key: "your_key"
-        deepseek_key: "sk-372ce22523804df3980593c80a46e761"
+        deepseek_key: "your_key"
         openrouter_key: "your_key"
         claude_key: "your_key"
         # xai_key: "your_key"
