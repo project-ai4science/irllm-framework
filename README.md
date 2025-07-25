@@ -9,3 +9,6 @@ For now, the preprint version of the paper is still under review on Arxiv, but y
 
 Openreview:
 https://openreview.net/pdf?id=wmhZXAL5QG
+
+Arxiv:
+https://arxiv.org/abs/2507.15736
