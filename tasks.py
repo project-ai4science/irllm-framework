@@ -46,7 +46,7 @@ class TaskHandler():
         # check if we want few shot prompt else zero shot
         few_shot = self.kwargs.get("few_shot", False)
         # assemble file name
-        out_file_name = f"exp_1_{self.model_name}"
+        out_file_name = f"exp_1a_{self.model_name}"
         if budget:
             out_file_name += "_budget"
         if critical:
@@ -169,6 +169,13 @@ class TaskHandler():
         pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
     # exp_2
+    def make_i3_key(df):
+        return list(zip(
+            df["id"],
+            df["b_id"].apply(lambda x: tuple(x) if isinstance(x, list) else (x,)),
+            df["c_id"].apply(lambda x: tuple(x) if isinstance(x, list) else (x,))
+        ))
+    
     def classify_task(self, file_names: list = [f"data_exp_2_{i+1}.json" for i in range(2)], verbose: bool = False, checkpoint_len: int = 5): 
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
@@ -198,17 +205,23 @@ class TaskHandler():
                 cached = True
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[-30:] # first try 5 samples to ensure works well
-            ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], []
+            ids, b_ids, c_ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], [], [], []
+            checkpoint_keys = set()
             if cached:
                 # load the cached data
                 ids = df_cached['id'].to_list()
+                b_ids = df_cached['b_id'].to_list()
+                c_ids = df_cached['c_id'].to_list()
                 responses = df_cached['y_pred'].tolist()
                 labels = df_cached['y_true'].tolist()
                 reasons_pred = df_cached['reasons'].tolist()
                 verb_conf = df_cached['verb_conf'].tolist()
                 response_logprobs = df_cached['log_probs'].tolist()
+                
+                checkpoint_keys = set(self.make_i3_key(df_cached))
+
             # filter the dataframe to start from unprocessed rows
-            df = df[~df['id'].isin(ids)] if cached else df
+            df = df[~pd.Series(self.make_i3_key(df)).isin(checkpoint_keys)] if cached else df
             df_size = df.shape[0]
             # break the function if no data
             if df_size == 0:
@@ -268,6 +281,8 @@ class TaskHandler():
                     continue
                 # update the result collection
                 ids.append(each['id'])
+                b_ids.append(each['b_id'])
+                c_ids.append(each['c_id'])
                 responses.append(verdict)
                 labels.append(each['y_true'])
                 reasons_pred.append(reason)
@@ -277,6 +292,8 @@ class TaskHandler():
                     # collect result and put into the df
                     data = {
                         "id": ids,
+                        "b_id": b_ids,
+                        "c_id": c_ids,
                         "y_true": labels,
                         "y_pred": responses,
                         "reasons": reasons_pred,
@@ -288,6 +305,8 @@ class TaskHandler():
             # collect result and put into the df
             data = {
                 "id": ids,
+                "b_id": b_ids,
+                "c_id": c_ids,
                 "y_true": labels,
                 "y_pred": responses,
                 "reasons": reasons_pred,

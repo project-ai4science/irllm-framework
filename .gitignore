@@ -8,3 +8,4 @@ script.ipynb
 output/**/*.json
 eval_output/**/*.json
 dataset_preprocess_*.ipynb
+run_*.ps1
