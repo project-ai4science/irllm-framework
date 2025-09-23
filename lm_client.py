@@ -111,6 +111,9 @@ class LM_Client():
         logprobs = None
         # openAI client
         if self.provider == 'gpt':
+            if ('o3' in self.model_name or 'o1' in self.model_name):
+                self.model_config["temperature"] = 1.0
+            
             if ('o3' in self.model_name):
                 response = self.clients['openai'].responses.create(
                     model=self.model_name,

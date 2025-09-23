@@ -46,7 +46,7 @@ class TaskHandler():
         # check if we want few shot prompt else zero shot
         few_shot = self.kwargs.get("few_shot", False)
         # assemble file name
-        out_file_name = f"exp_1a_{self.model_name}"
+        out_file_name = f"exp_1_{self.model_name}"
         if budget:
             out_file_name += "_budget"
         if critical:
@@ -117,7 +117,7 @@ class TaskHandler():
             # add subject answer in addition to the verdict and confidence score
             # capture groups for verdict and reason.
             verdict, verb_score, subject = None, None, None
-            pattern = r"Subject:\s*(?P<subject>\[.*?\]).?Verdict:\s*(?P<verdict>Yes|No).?\s*\s*Confidence score:\s*(?P<score>\d+).?"
+            pattern = r"Subject:\s*(?P<subject>\[.*?\]).?\s*Verdict:\s*(?P<verdict>Yes|No).?\s*Confidence score:\s*(?P<score>\d+).?"
             match = re.search(pattern, response_txt, re.IGNORECASE)
             if match:
                 data = match.groupdict()
