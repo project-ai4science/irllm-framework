@@ -169,7 +169,7 @@ class TaskHandler():
         pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
 
     # exp_2
-    def make_i3_key(df):
+    def make_i3_key(self, df):
         return list(zip(
             df["id"],
             df["b_id"].apply(lambda x: tuple(x) if isinstance(x, list) else (x,)),
