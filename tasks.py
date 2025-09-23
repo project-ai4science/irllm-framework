@@ -117,7 +117,7 @@ class TaskHandler():
             # add subject answer in addition to the verdict and confidence score
             # capture groups for verdict and reason.
             verdict, verb_score, subject = None, None, None
-            pattern = r"Your verdict:\s*(?P<verdict>Yes|No).?\s*Confidence score:\s*(?P<score>\d+).?\s*Subject:\s*(?P<subject>\[.*?\]).?"
+            pattern = r"Subject:\s*(?P<subject>\[.*?\]).?Verdict:\s*(?P<verdict>Yes|No).?\s*\s*Confidence score:\s*(?P<score>\d+).?"
             match = re.search(pattern, response_txt, re.IGNORECASE)
             if match:
                 data = match.groupdict()
@@ -263,7 +263,7 @@ class TaskHandler():
                             raise e
 
                 # This regex uses named capture groups for verdict and reason.
-                pattern = r"Your verdict:\s*(?P<verdict>Yes|No).?\s*Your reason:\s*(?P<reason>.+).?\s*Confidence score:\s*(?P<score>\d+).?"
+                pattern = r"Reason:\s*(?P<reason>.+).?\s*Verdict:\s*(?P<verdict>Yes|No).?\s*Confidence score:\s*(?P<score>\d+).?"
                 match = re.search(pattern, response_txt, re.IGNORECASE)
                 verdict, reason, verb_score = None, None, None
                 if match:

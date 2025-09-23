@@ -44,7 +44,7 @@ llm_client_config:
 
     default_model: "deepseek-chat"
     max_tokens: 500
-    temperature: 1.0
+    temperature: 0.0
     logprobs: True
     frequency_penalty: 0
     presence_penalty: 0
