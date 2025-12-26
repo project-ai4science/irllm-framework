@@ -64,9 +64,10 @@ class TaskHandler():
         # load benchmark data
         df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:50] # first try 5 samples to ensure works well
         # break the function if no data
-        ids, responses, labels, verb_conf, subject_choices, response_logprobs = [], [], [], [], [], []
+        data_ids, responses, labels, verb_conf, subject_choices, response_logprobs = [], [], [], [], [], []
         if cached:
             # load the cached data
+            data_ids = df_cached['data_id'].tolist()
             ids = df_cached['id'].tolist()
             responses = df_cached['y_pred'].tolist()
             labels = df_cached['y_true'].tolist()
@@ -74,7 +75,7 @@ class TaskHandler():
             verb_conf = df_cached['verb_conf'].tolist()
             response_logprobs = df_cached['log_probs'].tolist()
         # filter the dataframe to start from unprocessed rows
-        df = df[~df['id'].isin(ids)] if cached else df
+        df = df[~df['data_id'].isin(data_ids)] if cached else df
         df_size = df.shape[0]
         if df_size == 0:
             if verbose:
@@ -136,6 +137,7 @@ class TaskHandler():
                     print(f"Match not found. Response: {response_txt}")
                 continue
             # update the result collection
+            data_ids.append(each['data_id'])
             ids.append(each['id'])
             verb_conf.append(verb_score)
             subject_choices.append(subject)
@@ -146,6 +148,7 @@ class TaskHandler():
             if i % checkpoint_len == 0:
                 # collect result and put into the df
                 data = {
+                    "data_id": data_ids,
                     "id": ids,
                     "y_true": labels,
                     "y_pred": responses,
@@ -158,6 +161,7 @@ class TaskHandler():
 
         # collect result and put into the df
         data = {
+            "data_id": data_ids,
             "id": ids,
             "y_true": labels,
             "y_pred": responses,
@@ -205,10 +209,11 @@ class TaskHandler():
                 cached = True
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[-30:] # first try 5 samples to ensure works well
-            ids, b_ids, c_ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], [], [], []
+            data_ids, ids, b_ids, c_ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], [], [], []
             checkpoint_keys = set()
             if cached:
                 # load the cached data
+                data_ids = df_cached['data_id'].to_list()
                 ids = df_cached['id'].to_list()
                 b_ids = df_cached['b_id'].to_list()
                 c_ids = df_cached['c_id'].to_list()
@@ -221,7 +226,8 @@ class TaskHandler():
                 checkpoint_keys = set(self.make_i3_key(df_cached))
 
             # filter the dataframe to start from unprocessed rows
-            df = df[~pd.Series(self.make_i3_key(df)).isin(checkpoint_keys)] if cached else df
+            # df = df[~pd.Series(self.make_i3_key(df)).isin(checkpoint_keys)] if cached else df
+            df = df[~df['data_id'].isin(data_ids)] if cached else df
             df_size = df.shape[0]
             # break the function if no data
             if df_size == 0:
@@ -280,6 +286,7 @@ class TaskHandler():
                         print(f"Match not found. Response: {response_txt}")
                     continue
                 # update the result collection
+                data_ids.append(each['data_id'])
                 ids.append(each['id'])
                 b_ids.append(each['b_id'])
                 c_ids.append(each['c_id'])
@@ -291,6 +298,7 @@ class TaskHandler():
                 if i % checkpoint_len == 0:
                     # collect result and put into the df
                     data = {
+                        "data_id": data_ids,
                         "id": ids,
                         "b_id": b_ids,
                         "c_id": c_ids,
@@ -304,6 +312,7 @@ class TaskHandler():
                     pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
             # collect result and put into the df
             data = {
+                "data_id": data_ids,
                 "id": ids,
                 "b_id": b_ids,
                 "c_id": c_ids,
@@ -337,9 +346,10 @@ class TaskHandler():
                 cached = True
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
-            ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
+            data_ids, ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
             if cached:
                 # load the cached data
+                data_ids = df_cached['data_id'].tolist()
                 ids = df_cached['id'].tolist()
                 start_ids = df_cached['start_ids'].tolist()
                 true_papers = df_cached['y_true'].tolist()
@@ -360,6 +370,7 @@ class TaskHandler():
                     df_cached_part = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
                     # add to the cached data
                     if cached:
+                        data_ids += df_cached_part['data_id'].tolist()
                         ids += df_cached_part['id'].tolist()
                         start_ids += df_cached_part['start_ids'].tolist()
                         true_papers += df_cached_part['y_true'].tolist()
@@ -368,6 +379,7 @@ class TaskHandler():
                         verb_conf += df_cached_part['verb_conf'].tolist()
                         response_logprobs += df_cached_part['log_probs'].tolist()
                     else:
+                        data_ids = df_cached_part['data_id'].tolist()
                         ids = df_cached_part['id'].tolist()
                         start_ids = df_cached_part['start_ids'].tolist()
                         true_papers = df_cached_part['y_true'].tolist()
@@ -378,7 +390,7 @@ class TaskHandler():
 
 
             # filter the dataframe to start from unprocessed rows
-            df = df[~df['id'].isin(ids)] if cached else df
+            df = df[~df['data_id'].isin(data_ids)] if cached else df
             df_size = df.shape[0]
             # break the function if no data
             if df_size == 0:
@@ -392,9 +404,10 @@ class TaskHandler():
 
             # update the ongoing list with ONLY partitioned data
             if "part" in file_name:
-                ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
+                data_ids, ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
                 if os.path.exists(os.path.join(self.save_path, out_file_name)):
                     df_cached_part = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
+                    data_ids = df_cached_part['id'].tolist()
                     ids = df_cached_part['id'].tolist()
                     start_ids = df_cached_part['start_ids'].tolist()
                     true_papers = df_cached_part['y_true'].tolist()
@@ -419,6 +432,7 @@ class TaskHandler():
                 # remember to set back to 10!!!!
                 paper_rank, logprob, verb_score = swiss_tournament(Papers, context, critical, self.client, 10, verbose=verbose)
                 # update the result collection
+                data_ids.append(each['data_id'])
                 ids.append(each['id'])
                 start_ids.append(each['start_id'])
                 true_papers.append(each["target_paper"])
@@ -431,6 +445,7 @@ class TaskHandler():
                         print(f"Making checkpoint on file: {file_name}...")
                     # collect result and put into the df
                     data = {
+                        "data_id": data_ids,
                         "id": ids,
                         "start_ids": start_ids,
                         "list": labels,
@@ -445,6 +460,7 @@ class TaskHandler():
                     print(f"Total Comparisons made (i={i}): {len(verb_conf)}")
             # collect result and put into the df
             data = {
+                "data_id": data_ids,
                 "id": ids,
                 "start_ids": start_ids,
                 "list": labels,
