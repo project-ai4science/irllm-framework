@@ -64,7 +64,7 @@ class TaskHandler():
         # load benchmark data
         df = pd.read_json('/'.join([self.data_path, file_name]), dtype={'id': str, 'date': str})#[:50] # first try 5 samples to ensure works well
         # break the function if no data
-        data_ids, responses, labels, verb_conf, subject_choices, response_logprobs = [], [], [], [], [], []
+        data_ids, ids, responses, labels, verb_conf, subject_choices, response_logprobs = [], [], [], [], [], [], []
         if cached:
             # load the cached data
             data_ids = df_cached['data_id'].tolist()
@@ -209,7 +209,7 @@ class TaskHandler():
                 cached = True
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[-30:] # first try 5 samples to ensure works well
-            data_ids, ids, b_ids, c_ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], [], [], []
+            data_ids, ids, b_ids, c_ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], [], [], [], []
             checkpoint_keys = set()
             if cached:
                 # load the cached data
@@ -346,7 +346,7 @@ class TaskHandler():
                 cached = True
             # load benchmark data
             df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
-            data_ids, ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
+            data_ids, ids, start_ids, true_papers, responses, labels, verb_conf, response_logprobs = [], [], [], [], [], [], [], []
             if cached:
                 # load the cached data
                 data_ids = df_cached['data_id'].tolist()
