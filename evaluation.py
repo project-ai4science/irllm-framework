@@ -4,8 +4,6 @@ import pandas as pd
 from scipy.stats import gmean
 import os
 
-EXCLUDED_PAPERS = ["2411.04715"]
-
 class Evaluator:
     def __init__(self, file_dir="./output"):
         self.file_dir = file_dir
@@ -81,8 +79,7 @@ class Evaluator:
 
     def evaluate_file(self, file_path):
         try:
-            df_data = pd.read_json(file_path, dtype={"id": str})
-            df_data = df_data.loc[~df_data.id.isin(EXCLUDED_PAPERS)].reset_index(drop=True)
+            df_data = pd.read_json(file_path, dtype={"data_id": int})
             y_true = df_data["y_true"]
             y_pred = df_data["y_pred"]
             # Calculate metrics
@@ -129,8 +126,7 @@ class Evaluator:
             file_path = os.path.join(self.file_dir, filename)
 
             try:
-                df_data = pd.read_json(file_path, dtype={"id": str})
-                df_data = df_data.loc[~df_data.id.isin(EXCLUDED_PAPERS)].reset_index(drop=True)
+                df_data = pd.read_json(file_path, dtype={"data_id": int})
                 ids = df_data["id"].tolist()
                 start_ids = df_data["start_ids"].tolist()
                 relevant_items = df_data["y_true"].apply(lambda x: x["title"]).tolist()
@@ -172,7 +168,6 @@ if __name__ == "__main__":
         # "file_path": "./eval_output",
         "indent": 2,
         "orient": "records",
-        "index": False,
     }
     evaluator = Evaluator(file_dir="./output")
     cls_res = evaluator.evaluate_all_classifications(verbose=True)

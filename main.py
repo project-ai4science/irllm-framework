@@ -18,7 +18,6 @@ def main():
         save_config = {
             "indent": 2,
             "orient": "records",
-            "index": False,
         }
         cls_evaluator = Evaluator(file_dir="./output")
         rcm_evaluator = Evaluator(file_dir="./output")
