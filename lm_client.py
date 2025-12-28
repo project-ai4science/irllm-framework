@@ -32,7 +32,7 @@ class LM_Client():
             "presence_penalty": self.lm_config.get("presence_penalty", 0)
         }
         # gpt-o series takes in limited parameters
-        if ('o1' in self.model_name) or ('o3' in self.model_name):
+        if ('o1' in self.model_name) or ('o3' in self.model_name) or ('o4' in self.model_name) or ('gpt-5' in self.model_name):
             # Create a new dictionary with keys renamed according to the mapping
             self.model_config = {
                 # "max_output_tokens": self.model_config.get("max_tokens", 500),
@@ -111,10 +111,10 @@ class LM_Client():
         logprobs = None
         # openAI client
         if self.provider == 'gpt':
-            if ('o3' in self.model_name or 'o1' in self.model_name):
+            if ('o3' in self.model_name or 'o1' in self.model_name or 'o4' in self.model_name or 'gpt-5' in self.model_name):
                 self.model_config["temperature"] = 1.0
             
-            if ('o3' in self.model_name):
+            if ('o3' in self.model_name or 'o4' in self.model_name or 'gpt-5' in self.model_name):
                 response = self.clients['openai'].responses.create(
                     model=self.model_name,
                     instructions=sys_prompt if sys_prompt else "You are an helpful assitant.",
@@ -196,14 +196,3 @@ class LM_Client():
             response_txt = None
 
         return response_txt, logprobs
-
-
-
-
-
-
-
-
-
-
-

@@ -157,7 +157,7 @@ class TaskHandler():
                     "log_probs": response_logprobs
                 }
                 # save to json file
-                pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+                pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, orient='records')
 
         # collect result and put into the df
         data = {
@@ -170,12 +170,12 @@ class TaskHandler():
             "log_probs": response_logprobs
         }
         # save to json file
-        pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+        pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, orient='records')
 
     # exp_2
     def make_i3_key(self, df):
         return list(zip(
-            df["id"],
+            df["a_id"],
             df["b_id"].apply(lambda x: tuple(x) if isinstance(x, list) else (x,)),
             df["c_id"].apply(lambda x: tuple(x) if isinstance(x, list) else (x,))
         ))
@@ -205,16 +205,16 @@ class TaskHandler():
             cached = False
             # check if the file exists and load it
             if os.path.exists(os.path.join(self.save_path, out_file_name)):
-                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'id': str})
+                df_cached = pd.read_json(os.path.join(self.save_path, out_file_name), dtype={'a_id': str})
                 cached = True
             # load benchmark data
-            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[-30:] # first try 5 samples to ensure works well
+            df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'a_id': str})#[-30:] # first try 5 samples to ensure works well
             data_ids, ids, b_ids, c_ids, responses, labels, reasons_pred, verb_conf, response_logprobs = [], [], [], [], [], [], [], [], []
             checkpoint_keys = set()
             if cached:
                 # load the cached data
                 data_ids = df_cached['data_id'].to_list()
-                ids = df_cached['id'].to_list()
+                ids = df_cached['a_id'].to_list()
                 b_ids = df_cached['b_id'].to_list()
                 c_ids = df_cached['c_id'].to_list()
                 responses = df_cached['y_pred'].tolist()
@@ -287,7 +287,7 @@ class TaskHandler():
                     continue
                 # update the result collection
                 data_ids.append(each['data_id'])
-                ids.append(each['id'])
+                ids.append(each['a_id'])
                 b_ids.append(each['b_id'])
                 c_ids.append(each['c_id'])
                 responses.append(verdict)
@@ -299,7 +299,7 @@ class TaskHandler():
                     # collect result and put into the df
                     data = {
                         "data_id": data_ids,
-                        "id": ids,
+                        "a_id": ids,
                         "b_id": b_ids,
                         "c_id": c_ids,
                         "y_true": labels,
@@ -309,11 +309,11 @@ class TaskHandler():
                         "log_probs": response_logprobs
                     }
                     # save to json file
-                    pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+                    pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, orient='records')
             # collect result and put into the df
             data = {
                 "data_id": data_ids,
-                "id": ids,
+                "a_id": ids,
                 "b_id": b_ids,
                 "c_id": c_ids,
                 "y_true": labels,
@@ -323,7 +323,7 @@ class TaskHandler():
                 "log_probs": response_logprobs
             }
             # save to json file
-            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, orient='records')
 
     # exp_3 with swiss tournament
     def recommend_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], verbose: bool = False, checkpoint_len: int = 1):
@@ -455,7 +455,7 @@ class TaskHandler():
                         "log_probs": response_logprobs,
                     }
                     # save to json file
-                    pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+                    pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, orient='records')
                 if verbose:
                     print(f"Total Comparisons made (i={i}): {len(verb_conf)}")
             # collect result and put into the df
@@ -470,7 +470,7 @@ class TaskHandler():
                 "log_probs": response_logprobs,
             }
             # save to json file
-            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, orient='records')
     
     # exp_3 with single prompt
     def recommend_ranking_task(self, file_names: list = [f"data_exp_3_{i+1}.json" for i in range(2)], number_of_papers=10, verbose: bool = False, checkpoint_len: int = 1):
@@ -571,7 +571,7 @@ class TaskHandler():
                         "list_string": list_strings,
                     }
                     # save to json file
-                    pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+                    pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, orient='records')
             
             # collect result and put into the df
             data = {
@@ -584,7 +584,7 @@ class TaskHandler():
                 "list_string": list_strings,
             }
             # save to json file
-            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, orient='records')
     
     
     # exp_4
@@ -693,7 +693,7 @@ class TaskHandler():
                         "log_probs": response_logprobs
                     }
                     # save to json file
-                    pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, index=False, orient='records')
+                    pd.DataFrame(data).to_json('/'.join([self.save_path, out_file_name]), indent=2, orient='records')
             # collect result and put into the df
             data = {
                 "id": ids,
@@ -704,7 +704,7 @@ class TaskHandler():
                 "log_probs": response_logprobs
             }
             # save to json file
-            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, index=False, orient='records')
+            pd.DataFrame(data).to_json(os.path.join(self.save_path, out_file_name), indent=2, orient='records')
     
     
 
@@ -721,4 +721,3 @@ if __name__ == "__main__":
     task_func = handler["classification"]
     # task_func = handler["recommendation"]
     task_func(verbose=True)
-
