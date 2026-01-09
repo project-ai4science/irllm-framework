@@ -588,7 +588,7 @@ class TaskHandler():
     
     
     # exp_4
-    def generate_task(self, file_name: str = "data_exp_4.json", verbose: bool = False, checkpoint_len: int = 5): 
+    def generate_task(self, file_name: str = "data_exp_4.json", verbose: bool = False, checkpoint_len: int = 1): 
         # check if need budget:
         budget = self.kwargs.get("budget_mode", None)
         budget_num = self.kwargs.get("budget_num", None)
@@ -618,11 +618,13 @@ class TaskHandler():
         # load benchmark data
         df = pd.read_json(os.path.join(self.data_path, file_name), dtype={'id': str})#[:5] # first try 5 samples to ensure works well
 
-        data_ids, ids, abstracts, reasons, labels, verb_conf, response_logprobs = [], [], [], [], [], [], []
+        data_ids, ids, keywords1_l, keywords2_l, abstracts, reasons, labels, verb_conf, response_logprobs = [], [], [], [], [], [], [], [], []
         if cached:
             # load the cached data
             data_ids = df_cached['data_id'].tolist()
             ids = df_cached['id'].tolist()
+            keywords1_l = df_cached['keywords_1'].tolist()
+            keywords2_l = df_cached['keywords_2'].tolist()
             abstracts = df_cached['generated_abstract'].tolist()
             reasons = df_cached['reason'].tolist()
             labels = df_cached['real_abstract'].tolist()
@@ -650,16 +652,23 @@ class TaskHandler():
 
             # change prompt here for each task
             response_txt, logprobs = self.client.generate(sys_prompt=sys_prompt_critical if critical else sys_prompt, input_prompt=input_prompt)                
+            
             # This regex uses named capture groups for verdict and reason.
             pattern = r"Abstract:\s*(?P<abstract>.+?)\s*Reason:\s*(?P<reason>.+).?\s*Confidence score:\s*(?P<score>\d+).?"
+            # pattern = r"Keywords 1:\s*(?P<keywords1>.+?)\s*Keywords 2:\s*(?P<keywords2>.+?)\s*Abstract:\s*(?P<abstract>.+?)\s*Reason:\s*(?P<reason>.+).?\s*Confidence score:\s*(?P<score>\d+).?"
+            
             match = re.search(pattern, response_txt, re.IGNORECASE | re.DOTALL)
-            abstract, reason, verb_score = None, None, None
+            keywords1, keywords2, abstract, reason, verb_score = None, None, None, None, None
             if match:
                 data = match.groupdict()
 
+                # data["keywords1"] = data["keywords1"].strip()
+                # data["keywords2"] = data["keywords2"].strip()
                 data["abstract"] = data["abstract"].strip()
                 data["reason"] = data["reason"].strip()
+                
                 abstract, reason, verb_score = data["abstract"], data["reason"], int(data["score"])
+                # keywords1, keywords2, abstract, reason, verb_score = data["keywords1"], data["keywords2"], data["abstract"], data["reason"], int(data["score"])
             else:
                 if verbose:
                     print(f"Match not found. Response: {response_txt}")
@@ -667,6 +676,8 @@ class TaskHandler():
             # update the result collection
             data_ids.append(each['data_id'])
             ids.append(each['id'])
+            keywords1_l.append(keywords1)
+            keywords2_l.append(keywords2)
             abstracts.append(abstract)
             reasons.append(reason)
             labels.append(each['abstract'])
@@ -680,6 +691,8 @@ class TaskHandler():
                     "data_id": data_ids,
                     "id": ids,
                     "real_abstract": labels,
+                    "keywords_1": keywords1_l,
+                    "keywords_2": keywords2_l,
                     "generated_abstract": abstracts,
                     "reason": reasons,
                     "verb_conf": verb_conf,
@@ -692,6 +705,8 @@ class TaskHandler():
             "data_id": data_ids,
             "id": ids,
             "real_abstract": labels,
+            "keywords_1": keywords1_l,
+            "keywords_2": keywords2_l,
             "generated_abstract": abstracts,
             "reason": reasons,
             "verb_conf": verb_conf,
