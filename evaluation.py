@@ -59,18 +59,25 @@ class Evaluator:
     @staticmethod
     def dcg_at_k(relevance_scores, k):
         relevance_scores = np.array(relevance_scores)[:k]
-        return np.sum(relevance_scores / np.log2(np.arange(2, len(relevance_scores) + 2)))
-    
+        if relevance_scores.size == 0:
+            return 0.0
+        return np.sum(relevance_scores / np.log2(np.arange(2, relevance_scores.size + 2)))
 
     def ndcg_at_10(self, relevant_items, retrieved_items):
         ndcg_scores = []
+        k = 10
 
         for relevant, retrieved in zip(relevant_items, retrieved_items):
             relevant_set = set(relevant)
-            relevance_scores = [1 if item in relevant_set else 0 for item in retrieved[:10]]
-            dcg = self.dcg_at_k(relevance_scores, 10)
-            ideal_relevance_scores = sorted(relevance_scores, reverse=True)
-            idcg = self.dcg_at_k(ideal_relevance_scores, 10)
+            
+            relevance_scores = [1 if item in relevant_set else 0 for item in retrieved[:k]]
+            dcg = self.dcg_at_k(relevance_scores, k)
+
+            num_relevant_items = len(relevant_set)
+            ideal_relevance_scores = [1] * min(num_relevant_items, k) + [0] * max(0, k - num_relevant_items)
+            
+            idcg = self.dcg_at_k(ideal_relevance_scores, k)
+
             ndcg = dcg / idcg if idcg > 0 else 0.0
             ndcg_scores.append(ndcg)
 
