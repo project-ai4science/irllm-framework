@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDRBench: LLMs on Interdisciplinary Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1612;
+      --paper: #f9f6f0;
+      --cream: #f2ede4;
+      --accent: #b5451b;
+      --accent2: #2563a8;
+      --muted: #6b6259;
+      --border: #d4cdc3;
+      --highlight: #fff3cd;
+      --tag-bg: #e8f0fc;
+      --tag-fg: #1d4ed8;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 17px;
+    }
+
+    /* ─── HEADER / HERO ─── */
+    .hero {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 72px 24px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(0deg,
+          transparent,
+          transparent 39px,
+          rgba(255, 255, 255, 0.03) 39px,
+          rgba(255, 255, 255, 0.03) 40px);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      line-height: 1.15;
+      max-width: 820px;
+      margin: 0 auto 16px;
+    }
+
+    .hero h1 .title-code {
+      color: #f0a070;
+      font-style: italic;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      color: rgba(249, 246, 240, 0.7);
+      max-width: 640px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+      font-style: italic;
+    }
+
+    .authors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px 20px;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+      color: rgba(249, 246, 240, 0.9);
+    }
+
+    .authors a {
+      color: #f0c080;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(240, 192, 128, 0.4);
+      transition: border-color .2s;
+    }
+
+    .authors a:hover {
+      border-color: #f0c080;
+    }
+
+    .authors sup {
+      font-size: 0.7em;
+      color: #f0c080;
+    }
+
+    .affiliations {
+      font-size: 0.82rem;
+      color: rgba(249, 246, 240, 0.5);
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .affiliations sup {
+      font-size: 0.75em;
+    }
+
+    .equal-contrib {
+      font-size: 0.78rem;
+      color: rgba(249, 246, 240, 0.45);
+      margin-bottom: 36px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: 3px;
+      border: 1px solid rgba(249, 246, 240, 0.25);
+      color: var(--paper);
+      background: rgba(255, 255, 255, 0.07);
+      letter-spacing: 0.04em;
+      transition: background .2s, border-color .2s;
+    }
+
+    .link-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: rgba(249, 246, 240, 0.5);
+    }
+
+    .link-btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .link-btn.primary:hover {
+      background: #9e3c17;
+      border-color: #9e3c17;
+    }
+
+    .link-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    /* ─── NAV ─── */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(26, 22, 18, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0 24px;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .sticky-nav a {
+      display: inline-block;
+      padding: 14px 18px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(249, 246, 240, 0.6);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+
+    .sticky-nav a:hover {
+      color: var(--paper);
+      border-color: var(--accent);
+    }
+
+    /* ─── MAIN CONTENT ─── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 36px 0 12px;
+      color: var(--ink);
+    }
+
+    p {
+      margin-bottom: 18px;
+      color: #2e2822;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    em {
+      font-style: italic;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.83em;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      padding: 1px 5px;
+      border-radius: 2px;
+      color: var(--accent);
+    }
+
+    /* ─── ABSTRACT BOX ─── */
+    .abstract-box {
+      background: var(--cream);
+      border-left: 4px solid var(--accent);
+      padding: 28px 32px;
+      border-radius: 0 4px 4px 0;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    /* ─── FIGURE / IMAGE PLACEHOLDER ─── */
+    .figure {
+      margin: 36px 0;
+    }
+
+    .figure-img {
+      width: 100%;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .figure-caption {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 10px;
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .figure-caption strong {
+      font-style: normal;
+      color: var(--ink);
+    }
+
+    /* ─── TRIPLET DIAGRAM ─── */
+    .triplet-diagram {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      margin: 36px 0;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: 0.9rem;
+    }
+
+    .triplet-col {
+      flex: 1;
+      padding: 20px 18px;
+      border-right: 1px solid var(--border);
+    }
+
+    .triplet-col:last-child {
+      border-right: none;
+    }
+
+    .triplet-col-head {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .triplet-col-head.pa {
+      color: var(--accent);
+    }
+
+    .triplet-col-head.pb {
+      color: var(--accent2);
+    }
+
+    .triplet-col-head.pc {
+      color: #16a34a;
+    }
+
+    .triplet-col-body {
+      color: var(--muted);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .triplet-col-body .disc-tag {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      background: var(--tag-bg);
+      color: var(--tag-fg);
+      border-radius: 2px;
+      padding: 2px 7px;
+    }
+
+    .triplet-arrow {
+      display: flex;
+      align-items: center;
+      padding: 0 2px;
+      color: var(--muted);
+      font-size: 1.2rem;
+      background: var(--cream);
+    }
+
+    /* ─── TASK CARDS ─── */
+    .task-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin: 28px 0;
+    }
+
+    .task-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 24px 20px;
+      position: relative;
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+
+    .task-card:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .task-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+    }
+
+    .task-card.t1::before {
+      background: var(--accent);
+    }
+
+    .task-card.t2::before {
+      background: var(--accent2);
+    }
+
+    .task-card.t3::before {
+      background: #16a34a;
+    }
+
+    .task-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .task-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .task-card .task-abbr {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .task-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ─── RESULTS TABLE ─── */
+    .results-wrapper {
+      overflow-x: auto;
+      margin: 28px 0;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    thead tr {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    thead th {
+      padding: 10px 14px;
+      text-align: left;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(even) {
+      background: var(--cream);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: #fff;
+    }
+
+    tbody td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    tbody td:first-child {
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    .best {
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .group-head {
+      background: rgba(181, 69, 27, 0.07) !important;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent) !important;
+      font-weight: 600 !important;
+    }
+
+    /* ─── FINDINGS ─── */
+    .finding {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .finding:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .finding-num {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+
+    .finding-body h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .finding-body p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ─── HUMAN EVAL BARS ─── */
+    .eval-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 28px 0;
+    }
+
+    .eval-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px;
+    }
+
+    .eval-card h4 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .metric-row {
+      margin-bottom: 14px;
+    }
+
+    .metric-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.85rem;
+      margin-bottom: 5px;
+    }
+
+    .metric-label span:first-child {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .metric-label span:last-child {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .bar-track {
+      height: 8px;
+      background: var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      transition: width 1s ease;
+    }
+
+    /* ─── BIBTEX ─── */
+    .bibtex-block {
+      background: var(--ink);
+      color: #a8d8a0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      padding: 28px 32px;
+      border-radius: 6px;
+      overflow-x: auto;
+      position: relative;
+      margin-top: 20px;
+    }
+
+    .bibtex-block .kw {
+      color: #f0a070;
+    }
+
+    .bibtex-block .field {
+      color: #7ec8e3;
+    }
+
+    .bibtex-block .val {
+      color: #e8d4a2;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    /* ─── DISCIPLINES ─── */
+    .disc-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0;
+    }
+
+    .disc-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .disc-pill.highlight {
+      background: var(--tag-bg);
+      border-color: #93c5fd;
+      color: var(--tag-fg);
+    }
+
+    /* ─── DATASET STATS ─── */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin: 28px 0;
+    }
+
+    .stat-card {
+      text-align: center;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 20px 12px;
+    }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: block;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      color: rgba(249, 246, 240, 0.4);
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    footer p,
+    footer a {
+      color: rgba(249, 246, 240, 0.6);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--paper);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 640px) {
+      .triplet-diagram {
+        flex-direction: column;
+      }
+
+      .triplet-arrow {
+        transform: rotate(90deg);
+        justify-content: center;
+        padding: 8px;
+      }
+
+      .eval-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sticky-nav a {
+        padding: 12px 10px;
+        font-size: 0.68rem;
+      }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero>* {
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero .badge {
+      animation-delay: 0s;
+    }
+
+    .hero h1 {
+      animation-delay: 0.1s;
+    }
+
+    .hero-subtitle {
+      animation-delay: 0.2s;
+    }
+
+    .authors {
+      animation-delay: 0.25s;
+    }
+
+    .affiliations {
+      animation-delay: 0.28s;
+    }
+
+    .equal-contrib {
+      animation-delay: 0.3s;
+    }
+
+    .links {
+      animation-delay: 0.35s;
+    }
+
+    .quote-block {
+      border-left: 3px solid var(--border);
+      padding: 12px 24px;
+      margin: 24px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .quote-block cite {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.85rem;
+      font-style: normal;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="badge">ICML 2026 · Preprint</div>
+    <h1><span class="title-code">IDRBench</span>: Understanding the Capability of Large Language Models on
+      Interdisciplinary Research</h1>
+    <p class="hero-subtitle">A pioneering benchmark for evaluating LLMs on interdisciplinary ideation, identification,
+      and recommendation.</p>
+
+    <div class="authors">
+      <span>Yuanhao Shen<sup>*1</sup></span>
+      <span>Daniel Xavier De Sousa<sup>*2</sup></span>
+      <span>Ricardo Marçal de Andrade Nascimento<sup>2</sup></span>
+      <span>Hongyu Guo<sup>3</sup></span>
+      <span>Xiaodan Zhu<sup>1</sup></span>
+    </div>
+    <div class="equal-contrib">* Equal Contribution</div>
+    <div class="affiliations">
+      <sup>1</sup>Queen's University, Kingston, Canada &nbsp;·&nbsp;
+      <sup>2</sup>Instituto Federal de Goiás, Goiânia, Brazil &nbsp;·&nbsp;
+      <sup>3</sup>National Research Council Canada, Ottawa
+    </div>
+
+    <div class="links">
+      <a href="https://arxiv.org/abs/2507.15736" class="link-btn primary" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z" />
+        </svg>
+        arXiv Paper
+      </a>
+      <a href="https://github.com/project-ai4science/idrbench-framework.git" class="link-btn" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+        GitHub
+      </a>
+      <a href="https://huggingface.co/datasets/IDRBench/IDRBench" class="link-btn" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M2.25 3h19.5a.75.75 0 010 1.5h-.75v15a1.5 1.5 0 01-1.5 1.5H4.5A1.5 1.5 0 013 19.5v-15h-.75A.75.75 0 012.25 3zM7.5 9.75a.75.75 0 000 1.5h9a.75.75 0 000-1.5h-9zm0 3.75a.75.75 0 000 1.5h9a.75.75 0 000-1.5h-9z" />
+        </svg>
+        Hugging Face
+      </a>
+      <!-- <a href="#bibtex" class="link-btn">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M6.5 7.5h-2v9h2V7.5zm4.5 0H9v9h2.5c2.5 0 4-1.5 4-4.5S13.5 7.5 11 7.5zm0 7.5H11v-6c1.7 0 2.5 1 2.5 3S12.7 15 11 15z" />
+        </svg>
+        BibTeX
+      </a> -->
+    </div>
+  </header>
+
+  <!-- STICKY NAV -->
+  <nav class="sticky-nav">
+    <a href="#abstract">Abstract</a>
+    <a href="#framework">Framework</a>
+    <a href="#tasks">Tasks</a>
+    <a href="#results">Results</a>
+    <a href="#human-eval">Human Eval</a>
+    <a href="#findings">Findings</a>
+    <a href="#bibtex">BibTeX</a>
+  </nav>
+
+  <main class="container">
+
+    <!-- ABSTRACT -->
+    <section id="abstract">
+      <div class="section-label">Overview</div>
+      <h2>Abstract</h2>
+      <div class="abstract-box">
+        <p>Innovation is a key driving force of human civilization. As the body of knowledge has grown considerably,
+          bridging knowledge across different disciplines — where significant innovation often emerges — has become
+          increasingly challenging.</p>
+        <p>The recent advancements in Large Language Models (LLMs) have provided effective access to extensive knowledge
+          sources and shown impressive abilities in reasoning, rendering significant opportunities for interdisciplinary
+          discovery. Our research aims to understand the capabilities of state-of-the-art LLMs in integrating knowledge
+          from different fields for <strong>interdisciplinary research (IDR)</strong>.</p>
+        <p>To address this fundamental problem, we introduce <strong><code>IDRBench</code></strong>, a pioneering
+          framework that includes both datasets and evaluation tasks: (1) IDR Paper Identification, (2) IDR Idea
+          Integration, and (3) IDR Idea Recommendation. Our study on <strong>ten mainstream LLMs</strong> provides a
+          comprehensive analysis and establishes benchmarks and baselines for future research.</p>
+      </div>
+      <div class="quote-block">
+        "If you would understand anything, observe its beginning and its development."
+        <cite>— Aristotle</cite>
+      </div>
+    </section>
+
+    <!-- FRAMEWORK -->
+    <section id="framework">
+      <div class="section-label">Dataset Design</div>
+      <h2>The IDRBench Framework</h2>
+
+      <p>IDRBench is built on a <strong>knowledge triplet</strong> structure. Each positive instance consists of an IDR
+        paper P<sub>A</sub> together with two cited papers P<sub>B</sub> and P<sub>C</sub> from distinct disciplines,
+        whose key concepts are meaningfully integrated — not merely referenced — in P<sub>A</sub>.</p>
+
+      <div class="triplet-diagram">
+        <div class="triplet-col">
+          <div class="triplet-col-head pa">Citing Paper P<sub>A</sub></div>
+          <div class="triplet-col-body">
+            "Tumor Location-weighted Contrastive Learning: Improving the Explainability of Pediatric Brain Tumor
+            Diagnosis"
+            <br><span class="disc-tag">IDR Paper</span>
+          </div>
+        </div>
+        <div class="triplet-arrow">→</div>
+        <div class="triplet-col">
+          <div class="triplet-col-head pb">Cited Paper P<sub>B</sub></div>
+          <div class="triplet-col-body">
+            "Pediatric low-grade glioma: State-of-the-art and ongoing challenges"
+            <br><span class="disc-tag" style="background:#dcfce7;color:#15803d;">Quantitative Biology</span>
+          </div>
+        </div>
+        <div class="triplet-arrow">+</div>
+        <div class="triplet-col">
+          <div class="triplet-col-head pc">Cited Paper P<sub>C</sub></div>
+          <div class="triplet-col-body">
+            "Improving Pediatric Neuroepithelial Tumor Identification With Novel Loss Function for CNNs"
+            <br><span class="disc-tag" style="background:#eff6ff;color:#1d4ed8;">Computer Science</span>
+          </div>
+        </div>
+      </div>
+
+      <h3>Dataset Statistics</h3>
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-num">335</span>
+          <div class="stat-desc">Expert-annotated positive paper triplets</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">31K+</span>
+          <div class="stat-desc">Synthetic data samples</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">271K</span>
+          <div class="stat-desc">ArXiv papers in source corpus (Nov 2024 – Oct 2025)</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">10</span>
+          <div class="stat-desc">LLMs evaluated across all tasks</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">6</span>
+          <div class="stat-desc">Distinct scientific disciplines covered</div>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">9</span>
+          <div class="stat-desc">Expert annotators from diverse backgrounds</div>
+        </div>
+      </div>
+
+      <h3>Disciplines Covered</h3>
+      <div class="disc-list">
+        <span class="disc-pill highlight">Computer Science, EE &amp; Systems Science</span>
+        <span class="disc-pill highlight">Quantitative Biology</span>
+        <span class="disc-pill highlight">Physics</span>
+        <span class="disc-pill">Mathematics &amp; Statistics</span>
+        <span class="disc-pill">Economics &amp; Quantitative Finance</span>
+        <span class="disc-pill">Other (Medical, Chemistry, Law…)</span>
+      </div>
+      <p style="font-size:0.9rem;color:var(--muted);">Disciplines are selected to maximize conceptual distance, with
+        CS/EE + Quantitative Biology combinations representing nearly 55% of annotated samples.</p>
+    </section>
+
+    <!-- TASKS -->
+    <section id="tasks">
+      <div class="section-label">Evaluation</div>
+      <h2>Three Progressive IDR Tasks</h2>
+      <p>IDRBench's three tasks reflect <strong>progressive stages of interdisciplinary research</strong>, from basic
+        classification through deep ideation and recommendation.</p>
+
+      <div class="task-grid">
+        <div class="task-card t1">
+          <div class="task-number">Task 1</div>
+          <h4>IDR Paper Identification</h4>
+          <div class="task-abbr">IPI · Classification</div>
+          <p>Given the title and abstract of a paper P<sub>A</sub>, can the LLM determine whether it constitutes genuine
+            interdisciplinary research and identify the disciplines involved?</p>
+        </div>
+        <div class="task-card t2">
+          <div class="task-number">Task 2</div>
+          <h4>IDR Idea Integration</h4>
+          <div class="task-abbr">I3 · Integration Analysis</div>
+          <p>Given two papers P<sub>B</sub> and P<sub>C</sub> from distinct disciplines, can the LLM determine whether
+            they can be meaningfully integrated into a feasible, novel IDR idea?</p>
+        </div>
+        <div class="task-card t3">
+          <div class="task-number">Task 3</div>
+          <h4>IDR Idea Recommendation</h4>
+          <div class="task-abbr">I2R · Ranking</div>
+          <p>Given a seed paper P<sub>B</sub> and a ranked candidate list, can the LLM identify which paper best
+            complements P<sub>B</sub> for interdisciplinary research?</p>
+        </div>
+      </div>
+
+      <h3>Task I3: Two Complementary Subsets</h3>
+      <p><strong>Subset 1 (Feasibility):</strong> Negative instances are randomly sampled from <em>different</em>
+        disciplines. Tests whether LLMs can evaluate the feasibility of integrating two papers into a valid IDR.</p>
+      <p><strong>Subset 2 (Awareness):</strong> Negative instances come from the <em>same</em> discipline and
+        sub-discipline. Tests whether LLMs are aware that two papers from a single discipline do <em>not</em> constitute
+        interdisciplinary research.</p>
+    </section>
+
+    <section id="results">
+      <div class="section-label">Experiments</div>
+      <h2>Main Results</h2>
+      <p>We evaluated 10 mainstream LLMs — including 5 with explicit reasoning capabilities — under zero-shot and
+        few-shot prompting. Results are reported in <strong>Macro-F1</strong> for classification tasks and <strong>Mean
+          Reciprocal Rank (MRR)</strong> for the recommendation task.</p>
+
+      <div class="results-wrapper" style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th rowspan="2">Task / Metric</th>
+              <th colspan="6" class="group-head">Non-Reasoning Models</th>
+              <th colspan="6" class="group-head">Reasoning Models</th>
+            </tr>
+            <tr>
+              <th>GPT-4o-mini</th>
+              <th>Gemini 2.0 Flash</th>
+              <th>Llama 3.1 70B</th>
+              <th>Llama 3.3 70B</th>
+              <th>DeepSeek-V3</th>
+              <th>Qwen 2.5</th>
+              <th>Qwen 3-32B</th>
+              <th>GPT o3-mini</th>
+              <th>GPT o4-mini</th>
+              <th>GPT-5-nano</th>
+              <th>Claude Sonnet 4</th>
+              <th>DeepSeek-R1</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>IPI 0-shot</strong></td>
+              <td>0.587</td>
+              <td>0.538</td>
+              <td>0.551</td>
+              <td>0.468</td>
+              <td>0.607</td>
+              <td>0.571</td>
+              <td>0.527</td>
+              <td>0.486</td>
+              <td>0.610</td>
+              <td class="best">0.630</td>
+              <td>0.582</td>
+              <td>0.507</td>
+            </tr>
+            <tr>
+              <td><strong>IPI 5-shot</strong></td>
+              <td>0.510</td>
+              <td>0.534</td>
+              <td>0.336</td>
+              <td>0.444</td>
+              <td>0.614</td>
+              <td>0.501</td>
+              <td>0.565</td>
+              <td>0.523</td>
+              <td>0.617</td>
+              <td class="best">0.640</td>
+              <td>0.621</td>
+              <td>0.551</td>
+            </tr>
+            <tr>
+              <td><strong>I3 S1 0-shot</strong></td>
+              <td>0.750</td>
+              <td>0.666</td>
+              <td>0.696</td>
+              <td class="best">0.814</td>
+              <td>0.769</td>
+              <td>0.793</td>
+              <td>0.782</td>
+              <td>0.254</td>
+              <td>0.372</td>
+              <td>0.495</td>
+              <td>0.563</td>
+              <td>0.526</td>
+            </tr>
+            <tr>
+              <td><strong>I3 S1 3-shot</strong></td>
+              <td>0.765</td>
+              <td>0.434</td>
+              <td>0.519</td>
+              <td>0.822</td>
+              <td>0.635</td>
+              <td class="best">0.860</td>
+              <td>0.746</td>
+              <td>0.302</td>
+              <td>0.411</td>
+              <td>0.492</td>
+              <td>0.694</td>
+              <td>0.450</td>
+            </tr>
+            <tr>
+              <td><strong>I3 S2 0-shot</strong></td>
+              <td class="best">0.588</td>
+              <td>0.473</td>
+              <td>0.372</td>
+              <td>0.407</td>
+              <td>0.509</td>
+              <td>0.500</td>
+              <td>0.486</td>
+              <td>0.151</td>
+              <td>0.190</td>
+              <td>0.339</td>
+              <td>0.555</td>
+              <td>0.333</td>
+            </tr>
+            <tr>
+              <td><strong>I3 S2 3-shot</strong></td>
+              <td class="best">0.672</td>
+              <td>0.212</td>
+              <td>0.240</td>
+              <td>0.421</td>
+              <td>0.345</td>
+              <td>0.543</td>
+              <td>0.518</td>
+              <td>0.187</td>
+              <td>0.365</td>
+              <td>0.240</td>
+              <td>0.592</td>
+              <td>0.259</td>
+            </tr>
+            <tr>
+              <td><strong>I2R MRR</strong></td>
+              <td>0.646*</td>
+              <td>0.623*</td>
+              <td>0.650*</td>
+              <td>0.623*</td>
+              <td>0.585</td>
+              <td class="best">0.661</td>
+              <td>0.642</td>
+              <td>0.571</td>
+              <td>0.640*</td>
+              <td>0.486</td>
+              <td>0.446</td>
+              <td>0.588</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:0.82rem;color:var(--muted);">* Asterisks in I2R denote absence of statistically significant
+        difference from the best result (Wilcoxon signed-rank test). Best results in each row are highlighted.</p>
+    </section>
+
+    <!-- HUMAN EVAL -->
+    <section id="human-eval">
+      <div class="section-label">Human Evaluation</div>
+      <h2>Expert Assessment of LLM-Generated Ideas</h2>
+      <p>Six human experts with diverse academic backgrounds assessed 60 LLM-generated IDR idea samples on two
+        dimensions: <strong>Correctness</strong> (does the abstract integrate papers P<sub>B</sub> and P<sub>C</sub> in
+        an interdisciplinary way?) and <strong>Clarity</strong> (how clearly is the integration described?). Scores are
+        on a 1–5 scale.</p>
+      <p>Ideas were generated by <code>gemini-2.0-flash</code> — the most optimistic model in Task I3 — in two formats:
+        a running abstract and an integration sentence.</p>
+
+      <div class="eval-grid">
+        <div class="eval-card">
+          <h4>Running Abstract Quality</h4>
+          <div class="metric-row">
+            <div class="metric-label"><span>Correctness</span><span>3.96 / 5</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:79.2%"></div>
+            </div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label"><span>Clarity</span><span>4.13 / 5</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:82.6%"></div>
+            </div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label"><span>Expert Confidence</span><span>4.16 / 5</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:83.2%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="eval-card">
+          <h4>Integration Sentence Quality</h4>
+          <div class="metric-row">
+            <div class="metric-label"><span>Correctness</span><span>3.99 / 5</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:79.8%"></div>
+            </div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label"><span>Clarity</span><span>4.20 / 5</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:84.0%"></div>
+            </div>
+          </div>
+          <div class="metric-row">
+            <div class="metric-label"><span>Expert Confidence</span><span>4.34 / 5</span></div>
+            <div class="bar-track">
+              <div class="bar-fill" style="width:86.8%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Additionally, a user study with <strong>56 researchers across 9 disciplines</strong> at an academic institution
+        validated IDRBench in real-world scenarios: over 50% of Clarity ratings reached 4–5, confirming that
+        LLM-generated IDR proposals are generally well-formulated.</p>
+    </section>
+
+    <!-- FINDINGS -->
+    <section id="findings">
+      <div class="section-label">Key Takeaways</div>
+      <h2>Analysis &amp; Findings</h2>
+
+      <div class="finding">
+        <div class="finding-num">1</div>
+        <div class="finding-body">
+          <h4>LLMs can generate valid IDR ideas — but struggle to distinguish true integration</h4>
+          <p>Human experts rated LLM-generated ideas positively for both correctness and clarity (scores &gt;3.9/5).
+            However, on Task I3, models fail to reliably distinguish genuine interdisciplinary integration from papers
+            that are merely feasible to combine within a single discipline.</p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">2</div>
+        <div class="finding-body">
+          <h4>Reasoning models underperform on IDR integration tasks</h4>
+          <p>Non-reasoning models score 0.6–0.8 on I3 Subset 1, while reasoning models score only 0.2–0.6. This echoes a
+            known reasoning–creativity trade-off: chain-of-thought constraints appear to suppress the creative,
+            analogical thinking that IDR requires.</p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">3</div>
+        <div class="finding-body">
+          <h4>Alignment targets predict optimism vs. pessimism in IDR</h4>
+          <p>Models post-trained toward <em>helpfulness</em> (GPT-o series, Gemini, Llama) are more optimistic — high
+            TPR, lower TNR. Models trained toward <em>safety and integrity</em> (Claude Sonnet 4, GPT-4o-mini) are more
+            conservative — lower TPR, higher TNR. DeepSeek models, with balanced alignment, show intermediate behavior.
+          </p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">4</div>
+        <div class="finding-body">
+          <h4>Fine-tuning on IDRBench data improves integration performance</h4>
+          <p>Fine-tuning a Llama 3.1-8B model on augmented IDRBench data with LoRA yields an average 12.7% gain in
+            Macro-F1 on Task I3, demonstrating the benchmark's value as a training resource for future IDR-capable
+            models.</p>
+        </div>
+      </div>
+
+      <div class="finding">
+        <div class="finding-num">5</div>
+        <div class="finding-body">
+          <h4>LLM re-rankings in I2R are not driven by surface similarity</h4>
+          <p>Kendall's τ correlations between LLM re-rankings and SciBERT semantic similarity rankings range from 0.18
+            to 0.25 across all models — confirming that LLMs perform deeper conceptual reasoning rather than simple
+            topical matching.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BIBTEX -->
+    <section id="bibtex">
+      <div class="section-label">Citation</div>
+      <h2>BibTeX</h2>
+      <p>If you use IDRBench in your research, please cite:</p>
+      <div class="bibtex-block" id="bibtex-content">
+        <button class="copy-btn" onclick="copyBibtex()">Copy</button>
+        <pre><span class="kw">@article</span>{shen2026idrbench,
+  <span class="field">title</span>     = {<span class="val">IDRBench: Understanding the Capability of Large Language
+             Models on Interdisciplinary Research</span>},
+  <span class="field">author</span>    = {<span class="val">Shen, Yuanhao and De Sousa, Daniel Xavier and
+             Nascimento, Ricardo Mar\c{c}al de Andrade and
+             Guo, Hongyu and Zhu, Xiaodan</span>},
+  <span class="field">journal</span>   = {<span class="val">arXiv preprint arXiv:2507.15736</span>},
+  <span class="field">year</span>      = {<span class="val">2026</span>}
+}</pre>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>IDRBench · Yuanhao Shen, Daniel Xavier De Sousa, Ricardo Nascimento, Hongyu Guo, Xiaodan Zhu · 2026</p>
+    <p style="margin-top:6px;">Supported by Queen's University Canada, NCRC-CA, IFG, CNPq (443011/2023-0) and
+      INCT-TILD-IAR (408490/2024-1).</p>
+  </footer>
+
+  <script>
+    function copyBibtex() {
+      const raw = `@article{shen2026idrbench,
+  title     = {IDRBench: Understanding the Capability of Large Language Models on Interdisciplinary Research},
+  author    = {Shen, Yuanhao and De Sousa, Daniel Xavier and Nascimento, Ricardo Mar\\c{c}al de Andrade and Guo, Hongyu and Zhu, Xiaodan},
+  journal   = {arXiv preprint arXiv:2507.15736},
+  year      = {2026}
+}`;
+      navigator.clipboard.writeText(raw).then(() => {
+        const btn = document.querySelector('.copy-btn');
+        btn.textContent = 'Copied!';
+        setTimeout(() => btn.textContent = 'Copy', 2000);
+      });
+    }
+  </script>
+</body>
+
+</html>
