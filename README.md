@@ -12,3 +12,6 @@ https://openreview.net/pdf?id=wmhZXAL5QG
 
 Arxiv:
 https://arxiv.org/abs/2507.15736
+
+Website:
+https://project-ai4science.github.io/idrbench-framework/
